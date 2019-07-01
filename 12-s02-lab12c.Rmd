@@ -178,7 +178,7 @@ Using the app, set $\alpha = .05$, set the degrees of freedom to correspond to t
 
 5. Using the appropriate distribution function, calculate the $p$ value associated with $F_{obs}$. This will be more precise than the app.
 
-`r hide("Hints for Question 5")
+`r hide("Hints for Question 5")`
 ```{block, type ="info"}
 * look at inputs for the function - ?pf
 * ignore ncp

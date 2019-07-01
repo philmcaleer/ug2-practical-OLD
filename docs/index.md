@@ -2,7 +2,7 @@
 --- 
 title: "ug2-practical"
 author: "psyTeachR"
-date: "2019-06-27"
+date: "2019-07-01"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
