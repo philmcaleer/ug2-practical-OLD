@@ -4,11 +4,11 @@ This is a summative assignment. Instructions as to how to access and submit your
 
 **Lab 13: Two-Factor ANOVA: Perspective-Taking in Language Comprehension**
 
-In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Semester2_Lab4.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_04/homework/Level2_Semester2_Lab4_AssignmentFiles.zip", target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.
+In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Semester2_Lab4.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_04/homework/Level2_Semester2_Lab4_AssignmentFiles.zip" target = "_blank">Download the Assignment .zip file from here</a> or on Moodle.
 
 **Background: Perspective-Taking in Language Comprehension**
 
-For this assignment, you will be looking at real data from **Experiment 2** of <a href = "https://www.sciencedirect.com/science/article/pii/S0010027703000647?via%3Dihub", target = "_blank">Keysar, Lin, and Barr (2003)</a>, "Limits on Theory of Mind Use in Adults", **Cognition**, **89**, 29--41. This study used eye-tracking to investigate people's ability to take another's perspective during a kind of communication game. (The data that you will be analysing, while real, did not appear in the original report.)
+For this assignment, you will be looking at real data from **Experiment 2** of <a href = "https://www.sciencedirect.com/science/article/pii/S0010027703000647?via%3Dihub" target = "_blank">Keysar, Lin, and Barr (2003)</a>, "Limits on Theory of Mind Use in Adults", **Cognition**, **89**, 29--41. This study used eye-tracking to investigate people's ability to take another's perspective during a kind of communication game. (The data that you will be analysing, while real, did not appear in the original report.)
 
 The communication game that participants played was as follows. Each participant sat at a table opposite a confederate participant (a stooge from the lab who pretended to be a naive participant).  Between the two participants was an upright set of shelves (see figure below).  The participants played a game in which the real participant was assigned the role of the "matcher" and the confederate the role of the "director".  The director was given a picture with a goal state for the grid, showing how the objects needed to be arranged.  However, the director was not allowed to touch the objects. To get the objects in their proper places, the director needed to give instructions to the matcher to move the objects.  For example, the director might say, "take the red box in the top corner and move it down to the very bottom row," and the matcher would then perform the action.  The matcher's eye movements were tracked as they listened to and interpreted the director's instructions. 
 
@@ -19,7 +19,7 @@ knitr::include_graphics("images/s02-lab13/homework/grids.png")
 
 To investigate perspective taking, the instructions given by the director were actually scripted beforehand in order to create certain ambiguities. Most of the objects in the grid, such as the red box, were mutually visible to both participants (i.e., visible from both sides of the grid).  However, some of objects, like the brush and the green candle, were occluded from the director's view; the matcher could see them, but had no reason to believe that the director knew the contents of these occluded squares, and thus had no reason to expect her to ever refer to them. However, sometimes the director would refer to a mutually visible object using a description that also happened to match one of the hidden objects.  For instance, the director might instruct the matcher to "pick up the small candle." Note that for the director, the small candle is the purple candle. A given matcher would see this grid in one of two conditions: In the **Experimental** condition, the matcher saw an additional green candle in a hidden box that was even smaller than the purple candle (see middle panel of the above figure).  This object was called a "competitor" because it matched the description of the intended referent (the purple candle). In the **Baseline** condition, the green candle was replaced with an object that did not match the director's description, such as an apple. These ambiguous situations provided the main data for the experiment, and in total there were eight different grids in the experiment that presented analogous situations to the example above. 
 
-<a href="https://journals.sagepub.com/doi/abs/10.1111/1467-9280.00211", target = "_blank">A previous eye-tracking study by the same authors</a> had found the presence of the competitors severely confused the matchers, suggesting that people were surprisingly egocentric---they found it hard to ignore "privileged" information when interpreting another person's speech. For example, when the director said to "pick up the small candle," they spent far more time looking at a hidden green candle than a hidden apple, even though neither one of these objects, being hidden, was a viable referent.  We refer to the difference in looking time as the 'egocentric interference effect'.
+<a href="https://journals.sagepub.com/doi/abs/10.1111/1467-9280.00211" target = "_blank">A previous eye-tracking study by the same authors</a> had found the presence of the competitors severely confused the matchers, suggesting that people were surprisingly egocentric---they found it hard to ignore "privileged" information when interpreting another person's speech. For example, when the director said to "pick up the small candle," they spent far more time looking at a hidden green candle than a hidden apple, even though neither one of these objects, being hidden, was a viable referent.  We refer to the difference in looking time as the 'egocentric interference effect'.
 
 Experiment 2 by Keysar, Lin, and Barr aimed to follow up on this finding. In the previous article, the matcher had reason to believe that the director was merely ignorant of the identity of the hidden objects. But what would happen if the matcher was given reason to believe that the director actually had a **false belief** about the hidden object?  For example, would the matcher experience less egocentric interference if he or she had reason to think that the director thought that the hidden candle was a toy truck?
 
@@ -33,7 +33,7 @@ There were 40 participants in this study, 20 in the false belief condition, and 
 
 2. The `.Rmd` file is saved in the same folder as the `.csv` files. For assessments we ask that you save it with the format `GUID_Level2_Semester2_Lab4.Rmd` where `GUID` is replaced with your `GUID`. Though this is a formative assessment, it may be good practice to do the same here.
 
-### Task 1A: Libraries
+### Task 1A: Libraries {#Ch13AssignQueT1A}
 
 * In today's assignment you will need both the `tidyverse` and `ez` packages. Enter code into the t1A code chunk below to load in both of these libraries.
 
@@ -41,7 +41,7 @@ There were 40 participants in this study, 20 in the false belief condition, and 
 # load in the packages
 ```
 
-### Task 1B: Loading in the data
+### Task 1B: Loading in the data {#Ch13AssignQueT1B}
 
 * Use `read_csv()` to replace the `NULL` in the t1B code chunk below to load in the data stored in the datafile `keysar_lin_barr_2003.csv`. Store the data in the variable `dat`. Do not change the filename of the datafile. 
 
@@ -60,7 +60,7 @@ Take a look at your data (`dat`) in the console using `glimpse()` or `View()`, o
 
 We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV.  Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden noncompetitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.
 
-### Task 2: Calculate cell means
+### Task 2: Calculate cell means {#Ch13AssignQueT2}
 
 Today we are going to focus on just the main analysis and write-up, and not the assumptions, but as always before running any analysis you should check that your assumptions hold.
 
@@ -89,7 +89,7 @@ cell_means$sd <- "XX"
 knitr::kable(cell_means)
 ```
 
-### Task 3: Marginal means for sex
+### Task 3: Marginal means for sex {#Ch13AssignQueT3}
 
 We will also need to have some descriptives where we just look at the means of a given factor; the marginal means - the means of the levels of one factor regardless of the other factor.
 
@@ -113,7 +113,7 @@ marg_sex$sd <- "XX"
 knitr::kable(marg_sex)
 ```
 
-### Task 4: Marginal means for condition
+### Task 4: Marginal means for condition {#Ch13AssignQueT4}
 
 And now do the same for condition. 
 
@@ -137,7 +137,7 @@ marg_cond$sd <- "XX"
 knitr::kable(marg_cond)
 ```
 
-### Task 5: Interaction plot
+### Task 5: Interaction plot {#Ch13AssignQueT5}
 
 And finally we are going to need a plot.  When you have two factors, you want to show both factors on the plot to give the reader as much information as possible and save on figure space.  The best way to do this is through some sort of interaction plot as shown in the lab.  It is really a lot easier than it looks and just requires you to think about setting the aes by the different conditions.
 
@@ -153,7 +153,7 @@ And finally we are going to need a plot.  When you have two factors, you want to
 
 ```
 
-```{r t5-hide, echo=FALSE}
+```{r t5-hide, echo=FALSE, fig.cap='Replicate this Figure'}
 cell_means <- dat %>%
   group_by(sex, condition) %>%
   summarise(m = mean(looktime), sd = sd(looktime))
@@ -166,7 +166,7 @@ ggplot(cell_means, aes(condition, m, shape = sex, group = sex, color = sex)) +
   theme_bw()
 ```
 
-### Task 6: Recap Question 1
+### Task 6: Recap Question 1 {#Ch13AssignQueT6}
 
 Thinking about the above information, one of the below statements would be an acceptable hypothesis for the interaction effect of sex and condition, but which one:
 
@@ -181,7 +181,7 @@ Thinking about the above information, one of the below statements would be an ac
 answer_t6 <- NULL
 ```
 
-### Task 7: Recap Question 2
+### Task 7: Recap Question 2 {#Ch13AssignQueT7}
 
 Thinking about the above information, one of the below statements is a good description of the marginal means for sex, but which one:
 
@@ -196,7 +196,7 @@ Thinking about the above information, one of the below statements is a good desc
 answer_t7 <- NULL
 ```
 
-### Task 8: Recap Question 3
+### Task 8: Recap Question 3 {#Ch13AssignQueT8}
 
 Thinking about the above information, one of the below statements is a good description of the marginal means for condition, but which one:
 
@@ -211,7 +211,7 @@ Thinking about the above information, one of the below statements is a good desc
 answer_t8 <- NULL
 ```
 
-### Task 9: Running the factorial ANOVA
+### Task 9: Running the factorial ANOVA {#Ch13AssignQueT9}
 
 Great, so we have looked at our descriptives and thought about what effects there might be.  What we need to do now is run the ANOVA using the `ezANOVA()` function. The ANOVA we are going to run is a two-way between-subjects ANOVA because both conditions are between-subjects variables. You may need to refer back to the lab or to have a look at the help on `ezANOVA()` to see how to add a second variable/factor. 
 
@@ -224,7 +224,7 @@ Great, so we have looked at our descriptives and thought about what effects ther
 mod <- NULL
 ```
 
-### Task 10: Interpreting the ANOVA output Question
+### Task 10: Interpreting the ANOVA output Question {#Ch13AssignQueT10}
 
 Thinking about the above information, one of the below statements is a good summary of the outcome ANOVA, but which one:
 
@@ -239,18 +239,18 @@ Thinking about the above information, one of the below statements is a good summ
 answer_t10 <- NULL
 ```
 
-### Task 11: Report your results
+### Task 11: Report your results {#Ch13AssignQueT11}
 
 Write a paragraph reporting your findings.  *NOTE:* You can use inline code to report the $F$ values, but note that you cannot use `broom::tidy()` for objects created by `ezANOVA()`. Here is a hint: `mod$ANOVA` gives you a table of your results (`ezANOVA()` returns a list with two elements; `mod$ANOVA` returns the element of the list called `ANOVA` that has the results). You can `pull()` and `pluck()` whatever you need from this table.
 
 <!-- start of results: don't delete this line -->
 
-Write your summary between the two green lines shown in the GUID file.
+Write your summary between the two green lines shown in the Assignment file.
 
 <!-- end of results: don't delete this line -->
 
-**Finished**
+<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com", target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
+Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
 
 See you in the next lab!
