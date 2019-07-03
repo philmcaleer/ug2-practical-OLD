@@ -295,7 +295,7 @@ answer_t10 <- 4
 answer_t11 <- 2
 ```
 
-* In general, increasing sample size will increase the power of a study whereas lowering alpha (from .05 to .01) will decrease the power of a study. As such, statements a and canswer_t11 = `r answer_t11`.  
+* In general, increasing sample size will increase the power of a study whereas lowering alpha (from .05 to .01) will decrease the power of a study. As such, statements a and c, answer_t11 = `r answer_t11`.  
 
 [Return to Task](#Ch8AssignQueT11)
 

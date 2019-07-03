@@ -22,7 +22,7 @@ It is **highly recommended** that you consult the `ggplot2` cheat sheet when you
 
 We will use the same dataset for this class as we did in the preclass activity. To recap, <a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ai/" target = "_blank">Ganis and Kievit (2016)</a> created a modern stimuli set to test the classic concept of mental rotation first proposed by <a href="http://science.sciencemag.org/content/171/3972/701" target = "_blank">Shepard and Metzler (1971)</a>. The idea is that the more rotated a test image is from an original image, the longer it will take for participants to determine if they are the same image or if they are completely different images. Results show this the case and suggest that, when doing mental rotation tasks, people do a form of internal linear interpolation, or internal mental rotation, meaning that they rotate the image in their mind back to the original angle and then compare the two images. This would be opposed to a more rapid contrast and compare approach not involving any rotation. As a result, the more rotation an image needs, the longer the task takes. 
 
-Ganis and Kievit ran 54 participants on a series of these rotated images using 4 angles of rotation (0, 50, 100, 150 degrees rotated compared to the original) and asked people to respond 'same' or 'different' on each trial. Today, to further your understanding of this task and to develop your skills in visualisation and interpretation, we will look at mean reaction time for correct trials, as a function of the angle of rotation and sex. The data can be <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_03/inclass/Level2_Lab3_InClassData.zip" target = "_blank">downloaded from here</a>. 
+Ganis and Kievit ran 54 participants on a series of these rotated images using 4 angles of rotation (0, 50, 100, 150 degrees rotated compared to the original) and asked people to respond 'same' or 'different' on each trial. Today, to further your understanding of this task and to develop your skills in visualisation and interpretation, we will look at mean reaction time for correct trials, as a function of the angle of rotation and sex. The data can be [downloaded from here](data/03-s01/preclass/ch3-inclass-data.zip). 
 
 `r hide("Portfolio Point - as a function means?")`
 ```{block, type ="info"}
@@ -53,7 +53,7 @@ demog <- read_csv()
 Remember to always be looking at your data as good practice and to make sure it is as you expect it to be. Using maybe either `View()` or `glimpse()` but do this in the console, never in your script or Rmd file. Other useful functions that you can use as checks are:
 
 1. `str()` - This shows what type your data is. Look for words like table, dataframe, character, integer, numeric.
-2. `head()`, `tail`, and `ls()` - These show the top six and bottom six rows with column names, or just the column names with `ls()`.
+2. `head()`, `tail()`, and `names()` - These show the top six and bottom six rows with column names, or just the column names with `names()`.
 3. `dim()` - This shows the dimensions of the data.
 
 Refer to the preclass for a list of what all the columns refer to if you are not sure. And keep in mind that from now on **you need to be careful with the spelling and punctuation of the variable names at all times - e.g. Female is not the same as female**.  
@@ -78,7 +78,7 @@ This is about making sure you are loading in your data correctly, using the inst
 
 2. `demog` should have been where you loaded information regarding the demographics including sex of participant.
 
-3. `ls(menrot)` will give you column names and this is about making sure of the correct spelling: CorrectResponse.
+3. `names(menrot)` will give you column names and this is about making sure of the correct spelling: CorrectResponse.
 
 4. `dim(demog)` shows you the number of rows (54) by the number of columns (3).
 ```
@@ -93,7 +93,7 @@ Let's start by making a representation of the top part of Figure 2 in <a href="h
 2. Replace the `NULL`s in order to recreate the figure below similar to that of Ganis and Kievit (2016) Figure 2 (top). 
     * Note that this figure shows information for only correct responses just as in Ganis and Kievit (2016).
     * Remember `ggplot` is a case of layers. The first layer says where is my data and what do I want on each axis. Every subsequent layer says how I want the data displayed - points (`geom_point()`) with a connecting line (`geom_line()`).
-    * You can see if you can figure out what `coord_cartesian` does by changing the numbers another time.
+    * You can see if you can figure out what `d_cartesian` does by changing the numbers another time.
 
 ```{r Ch3InClassTask2, eval = FALSE}
 menrot_angle <- filter(menrot, CorrectResponse == NULL) %>%
@@ -104,7 +104,7 @@ menrot_angle <- filter(menrot, CorrectResponse == NULL) %>%
 ggplot(data = NULL, aes(x = NULL, y = NULL)) + 
   geom_point() +
   geom_line() +
-  coord_cartesian(ylim = c(0, 3500), expand = TRUE)
+  d_cartesian(ylim = c(0, 3500), expand = TRUE)
 ```
 
 `r hide("Helpful Hint")`
@@ -130,7 +130,8 @@ menrot_angle <- filter(menrot, CorrectResponse == "Correct") %>%
   group_by(Angle) %>% 
   summarise(mean_Resp = mean(Time))
 
-ggplot(data = menrot_angle, aes(x = Angle, y = mean_Resp)) + 
+ggplot(data = menrot_angle, 
+       aes(x = Angle, y = mean_Resp)) + 
   geom_point() +
   geom_line() +
   coord_cartesian(ylim = c(0, 3500), expand = TRUE)

@@ -9,11 +9,11 @@ screen <- read_csv("data/15-s02/inclass/screen_time.csv")
 
 Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
 
-### InClass Activities
+### PreClass Activities
 
 #### Loading the Data
 
-```{r load, eval = FALSE}
+```{r ch15-sol-load, eval = FALSE}
 library("tidyverse")
 
 pinfo <- read_csv("participant_info.csv")
@@ -21,11 +21,17 @@ wellbeing <- read_csv("wellbeing.csv")
 screen <- read_csv("screen_time.csv")
 ```
 
+[Return to Task](#Ch15PreClassQueT1)
+
 #### Compute the well-being score for each participant
+
+* Both of these solutions would produce the same output.
 
 **Version 1**
 
-```{r wemwbs}
+* Bit quicker in terms of coding and reduces chance of error by perhaps forgetting to include a specific column 
+
+```{r ch15-sol-wemwbs}
 wemwbs <- wellbeing %>%
   gather("var", "score", -Serial) %>%
   group_by(Serial) %>%
@@ -36,7 +42,7 @@ wemwbs <- wellbeing %>%
 
 * this one is a bit slower.
 
-```{r wemwbs2}
+```{r ch15-sol-wemwbs2}
 wemwbs <- wellbeing %>%
   mutate(tot_wellbeing = WBOptimf +	WBUseful + 
            WBRelax + WBIntp +	WBEnergy + WBDealpr + 
@@ -46,9 +52,11 @@ wemwbs <- wellbeing %>%
   arrange(Serial)
 ```
 
+[Return to Task](#Ch15PreClassQueT2)
+
 #### Visualising Screen time on all technologies
 
-```{r st_plot_sol}
+```{r ch15-sol-st-plot-sol, fig.cap = 'Count of the hours of usage of different types of social media at Weekdays and Weekends'}
 ## screen time
 screen_long <- screen %>%
   gather("var", "hours", -Serial) %>%
@@ -69,9 +77,11 @@ ggplot(screen2, aes(hours)) +
   facet_grid(day ~ variable)
 ```
 
+[Return to Task](#Ch15PreClassQueT3)
+
 #### Visualising the Screen time and Well-being relationship
 
-```{r combined}
+```{r ch15-sol-combined, fig.cap = 'Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends'}
 dat_means <- inner_join(wemwbs, screen2, "Serial") %>%
   group_by(variable, day, hours) %>%
   summarise(mean_wellbeing = mean(tot_wellbeing))
@@ -82,12 +92,15 @@ ggplot(dat_means, aes(hours, mean_wellbeing, linetype = day)) +
   facet_wrap(~variable, nrow = 2)
 ```
 
+[Return to Task](#Ch15PreClassQueT4)
+
+### InClass Activities
+
 #### Smartphone and well-being for boys and girls
 
 **Solution Steps 1 to 2**
 
-```{r calculate_mean}
-## get rid of people who used smartphone less than or equal to 1 hour total per week
+```{r ch15-sol-calculate_mean}
 smarttot <- screen2 %>%
   filter(variable == "Using Smartphone") %>%
   group_by(Serial) %>%
@@ -96,18 +109,20 @@ smarttot <- screen2 %>%
 
 **Solution Step 3**
 
-```{r combine2}
+```{r ch15-sol-combine2}
 smart_wb <- smarttot %>%
   filter(tothours > 1) %>%
   inner_join(wemwbs, "Serial") %>%
   inner_join(pinfo, "Serial") 
 ```
 
+[Return to Task](#Ch15InClassQueT1)
+
 #### Visualise and Interpreting the relationship of smartphone use and wellbeing by sex 
 
 **The Figure**
 
-```{r}
+```{r ch15-use-wb-bysex, fig.cap='Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)'}
 smart_wb_gen <- smart_wb %>%
   group_by(tothours, sex) %>%
   summarise(mean_wellbeing = mean(tot_wellbeing))
@@ -121,27 +136,42 @@ ggplot(smart_wb_gen, aes(tothours, mean_wellbeing, color = factor(sex))) +
 
 Girls show lower overall well-being compared to boys.  In addition, the slope for girls appears more negative than that for boys; the one for boys appears relatively flat.  This suggests that the negative association between well-being and smartphone use is stronger for girls.
 
+[Return to Task](#Ch15InClassQueT2)
+
 #### Estimating model parameters
 
-```{r centering, echo=FALSE}
+* This is the chunk we gave in the materials.
+
+```{r ch15-sol-centering}
 smart_wb <- smart_wb %>%
   mutate(tothours_c = tothours - mean(tothours),
          sex_c = ifelse(sex == 1, .5, -.5)) %>%
   select(-tothours, -sex)
 ```
 
-```{r mod}
+* and the model would be specified as:
+
+```{r ch15-sol-mod}
 mod <- lm(tot_wellbeing ~ tothours_c * sex_c, smart_wb)
+```
 
-# alternatively: 
-# mod <- lm(tot_wellbeing ~ tothours_c + sex_c + tothours_c:sex_c, smart_wb)
+* or alternatively
 
+```{r ch15-sol-mod-option}
+mod <- lm(tot_wellbeing ~ tothours_c + sex_c + tothours_c:sex_c, smart_wb)
+```
+
+* and the output called by:
+
+```{r ch15-sol-mod-output}
 summary(mod)
 ```
 
+[Return to Task](#Ch15InClassQueT3)
+
 #### Final Interpretations
 
-```{r hidden, include = FALSE}
+```{r ch15-sol-hidden, include = FALSE}
 male_intercept <- coef(mod)["(Intercept)"] + coef(mod)["sex_c"] * .5
 male_slope <- coef(mod)["tothours_c"] + coef(mod)["tothours_c:sex_c"] * .5
 female_intercept <- coef(mod)["(Intercept)"] + coef(mod)["sex_c"] * -.5
@@ -161,3 +191,7 @@ As such, given the model of `Y = intercept + (slope * X)`  where Y is wellbeing 
 * Female: `r round2(female_intercept, 2) + round2(female_slope, 2) * 8`
 
 And finally, the most reasonable interpretation of these results is that smartphone use was more negatively associated with wellbeing for girls than for boys.
+
+[Return to Task](#Ch15InClassQueT4)
+
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span>

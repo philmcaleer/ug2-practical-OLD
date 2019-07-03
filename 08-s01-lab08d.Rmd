@@ -2,7 +2,7 @@
 
 **Lab 8: APES Assignment**
 
-In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Semester1_Lab8.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_08/homework/Level2_Lab8_Assignment_Files.zip" target = "_blank">Download the assignment zip file from here</a> or on Moodle. 
+In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Semester1_Lab8.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. [Download the assignment zip file from here](data/08-s01/homework/ch8-assign-file.zip) or on Moodle. 
 
 *NOTE*: in nearly all of the problems below, you will need to replace `NULL` with a value or a pipeline of code that computes a value. Please pay special attention as to what the question is asking for as the output, e.g. *value* or a *tibble*; when asked for a *value* as an output, make sure it is a single value and not a value stored in a tibble. Finally, when altering code inside the code blocks, please *do not* re-order or rename the code blocks (T1, T2, ... etc.).  If you do, this may impact your grade! 
 

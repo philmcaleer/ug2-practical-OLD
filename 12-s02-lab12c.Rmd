@@ -149,8 +149,7 @@ Last step, the F ratio.
 
 As above, if the null hypothesis is true, then both estimates of the population variance ($MS_{between}$ and $MS_{within}$) should line up, and the $F$-ratio should approach 1 (because $x/x = 1$). Now we can't expect these two estimates to be **exactly** equal because of sampling bias, so to see how unlikely our observed F-ratio is under the null hypothesis, we have to compare it to the F distribution.
 
-To learn a bit about the F distribution we have created a shiny app to play with.  Shiny Apps are interactive webpages and applications made through R.  Download the app from Moodle or 
-<a href = "http://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_03/inclass/F_distribution.zip" target = "_blank">from this link</a>.  Unzip the folder, open up the file app.R through R Studio, and click **Run app** in R Studio to launch it (found at top right of script window - there is a <span style = "color:green">green play</span> sign). The App window will open showing you some parameters to adjust and a wonderful F distribution plot. 
+To learn a bit about the F distribution we have created a shiny app to play with.  Shiny Apps are interactive webpages and applications made through R.  Download the app from Moodle or [from this link](data/12-s02/inclass/F_distribution.zip).  Unzip the folder, open up the file app.R through R Studio, and click **Run app** in R Studio to launch it (found at top right of script window - there is a <span style = "color:green">green play</span> sign). The App window will open showing you some parameters to adjust and a wonderful F distribution plot. 
 
 **Note:** When we are finished with the App, close the App window to start typing in console again.
 

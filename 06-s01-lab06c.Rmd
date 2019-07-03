@@ -29,11 +29,11 @@ For this lab we will be revisiting the data from Schroeder and Epley (2015), whi
 
 Schroeder, J. and Epley, N. (2015). <a href = "https://doi.org/10.1177/0956797615572906" target = "_blank">The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal.</a> *Psychological Science, 26, 277--891*.
 
-The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the <a href = "https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>:
+The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the <a href = "https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>):
 
 "**A person's mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person's intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates' pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favorable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one's intellect, it is important that one's voice, quite literally, be heard.**"
 
-To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be <a href = "https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_one/lab_06/inclass/Lab6_data.zip" target = "_blank">downloaded from here</a> or from Moodle. Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.
+To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the <a href = "https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00" target = "_blank">Open Stats Lab</a> website for later self-directed learning. Today however, we will be working with a modfied version in "tidy" format which can be [downloaded from here](data/06-s01/inclass/ch6-inclass-data.zip) or from Moodle. Likewise, if you are unsure about tidy format, refer back to the inclass activity of Lab 2.
 
 **Today's Goal!**
 
@@ -61,6 +61,7 @@ If you are using the Boyd Orr labs, `broom` is already installed and just needs 
 ```
 `r unhide()`  
 <br>
+
 ```{r ch6-task1-dataload, include = FALSE}
 library("tidyverse")
 library("broom") # you'll need broom::tidy() later
@@ -303,17 +304,35 @@ The t-test would be written up as: t(`r intellect_t$parameter %>% round(3)`) = `
 
 ```{r ch6-task4-fulldata, echo = FALSE, eval = TRUE}
 intellect <- filter(ratings2, Category == "intellect")
-intellect_t <- t.test(intellect %>% filter(condition == "listened") %>% pull(Rating),
-                      intellect %>% filter(condition == "read") %>% pull(Rating),
+
+intellect_t <- t.test(intellect %>% 
+                        filter(condition == "listened") %>% 
+                        pull(Rating),
+                      intellect %>% 
+                        filter(condition == "read") %>% 
+                        pull(Rating),
                       var.equal = TRUE) %>% tidy()
+
 hire <- filter(ratings2, Category == "hire")
-hire_t <- t.test(hire %>% filter(condition == "listened") %>% pull(Rating),
-                      hire %>% filter(condition == "read") %>% pull(Rating),
+
+hire_t <- t.test(hire %>% 
+                   filter(condition == "listened") %>% 
+                   pull(Rating),
+                      hire %>% 
+                   filter(condition == "read") %>% 
+                   pull(Rating),
                       var.equal = TRUE) %>% tidy()
+
 impression <- filter(ratings2, Category == "impression")
-impression_t <- t.test(impression %>% filter(condition == "listened") %>% pull(Rating),
-                      impression %>% filter(condition == "read") %>% pull(Rating),
+
+impression_t <- t.test(impression %>% 
+                         filter(condition == "listened") %>% 
+                         pull(Rating),
+                      impression %>% 
+                        filter(condition == "read") %>% 
+                        pull(Rating),
                       var.equal = TRUE) %>% tidy()
+
 results <- bind_rows(intellect_t, hire_t, impression_t)
 ```
 

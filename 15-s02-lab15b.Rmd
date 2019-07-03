@@ -6,13 +6,13 @@ wellbeing <- read_csv("data/15-s02/inclass/wellbeing.csv")
 screen <- read_csv("data/15-s02/inclass/screen_time.csv")
 ```
 
-In this final PreClass we have two activities. The first is a very short blog bt Prof. Dorothy Bishop that helps draw the links between ANOVA and Regression. The second is really the first part of the InClass activity. It is quite a long InClass, which you will be able to cope with, but we have split it across the PreClass and InClass to allow you some time to get some of the more basic wrangling steps out of the way and so you can come to the class and focus on the actual analysis. It would be worth doing most, if not all, of the activity now.
+In this final PreClass we have two activities. The first is a very short blog by Prof. Dorothy Bishop that helps draw the links between ANOVA and Regression. The second is really the first part of the InClass activity. It is quite a long InClass, which you will be able to cope with, but we have split it across the PreClass and InClass to allow you some time to get some of the more basic wrangling steps out of the way and so you can come to the class and focus on the actual analysis. It would be worth doing most, if not all, of the activity now.
 
 ### Read
 
 **Blog**
 
-Read this short blog by Dorothy Bishop on combining ANOVA and regression, and how it all fits together.
+Read this short blog by Prof. Dorothy Bishop on combining ANOVA and regression, and how it all fits together.
 
 <a href="https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1" target = "_blank">ANOVA, t-tests and regression: different ways of showing the same thing</a>
 
@@ -28,7 +28,7 @@ This was a large-scale study that found support for the "Goldilocks" hypothesis 
 
 The dependent measure used in the study was the <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/" target = "_blank">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70.
 
-At [Przybylski & Weinstein's page for this study on the Open Science Framework](https://osf.io/82ybd/), you can find the [participant survey](https://osf.io/82ybd/) which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the [raw data](https://osf.io/82ybd/); however, for the purpose of this exercise, you will be using local pre-processed copies of the data found in the accompanying zip file on Moodle or <a href = "https://www.psy.gla.ac.uk/~phil/L2Labs_201819/semester_two/lab_06/inclass/Level2_Semester2_Lab6_InClass_Data.zip" target = "_blank">download from here</a>
+At [Przybylski & Weinstein's page for this study on the Open Science Framework](https://osf.io/82ybd/), you can find the [participant survey](https://osf.io/82ybd/) which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the [raw data](https://osf.io/82ybd/); however, for the purpose of this exercise, you will be using local pre-processed copies of the data found in the accompanying zip file on Moodle or [download from here](data/15-s02/inclass/ch15-preclass-inclass-data.zip)
 
 Przybylski and Weinstein looked at multiple measures of screen time, but again for the interests of this exercise we will be focusing on smartphone use, but do feel free to expand your skills after by looking at different definitoins of screen time.  Overall, Przybylski and Weinstein suggested that decrements in wellbeing started to appear when respondents reported more than one hour of weekly smartphone use.  So, bringing it back to our additional variable of sex, our question is now, does the negative association between hours of use and wellbeing (beyond the one-hour point) differ for boys and girls?
 
@@ -46,9 +46,9 @@ Now, in terms of analysis, what we are effectively trying to do is to estimate *
 
 **Let's Begin**
 
-### Loading in the data
+### Loading in the data {#Ch15PreClassQueT1}
 
-As always we will need to load in the tidyverse package and load in the data from the accompanying csv (Comma-Separated Values) files, `wellbeing.csv`, `participant_info.csv`, and `screen_time.csv`.  
+As always we will need to load in the tidyverse package and load in the data from the accompanying csv files, `wellbeing.csv`, `participant_info.csv`, and `screen_time.csv`.  
 
 * Create a new R Markdown file and put the csv files in the same directory with the Rmd file you just created.  Then load them in as follows (the solution is at the end of the chapter):
 
@@ -63,7 +63,7 @@ Take a look at the resulting tibbles `pinfo`, `wellbeing`, and `screen`.  The `w
 * note that sex is coded as male = 1, female = 0.
 * also, Serial is common across all datasets and is the participant ID.
 
-### Compute the well-being score for each participant
+### Compute the well-being score for each participant {#Ch15PreClassQueT2}
 
 Ok, our data is in and we need to create a well-being score for each participant on each item of the WEMWBS. To do this, and to calculate the well-being score for each participant, we simply **sum** all the items together for that participant. 
 
@@ -84,7 +84,7 @@ wemwbs <- wellbeing %>%
   summarise(tot_wellbeing = sum(score))
 ```
 
-### Visualising Screen time on all technologies
+### Visualising Screen time on all technologies {#Ch15PreClassQueT3}
 
 Great, so we have the well-being scores sorted out, we now need to think about the screen time usage and whether it is being used on a weekday or a weekend. As always, to get an idea of the data, it is often very useful to visualize the distributions of variables before proceeding.
 
@@ -123,8 +123,8 @@ ggplot(screen2, aes(hours)) +
 
 - `gather()` the data in `screen` into three columns: Serial, var, hours
 - `?separate()` in the console
-- seperate(data, column_name_containing_variables_to_split, c("column_1_to_create","column_2_to_create"), "character_to_split_by")
-- each variable (category) has an underscore in its name. Use that to split it. I.e. Comph_we will get split into Comph and we
+- `seperate(data, column_name_containing_variables_to_split, c("column_1_to_create","column_2_to_create"), "character_to_split_by")`
+- each variable (category) has an underscore in its name. Use that to split it. I.e. `Comph_we` will get split into `Comph` and `we`
     
 **Step 2**
 
@@ -133,7 +133,7 @@ mutate(new_variable_name = recode(old_variable_name, "wk" = "Weekday", "we" = "W
 ```
 `r unhide()`
 
-### Visualising the Screen time and Well-being relationship
+### Visualising the Screen time and Well-being relationship {#Ch15PreClassQueT4}
 
 Brilliant, that is truly excellent work and you should be really pleased with yourself. Looking at the figures, it would appear that there is not much difference between screen time use of smartphones in weekend and weekdays so we could maybe collapse that variable together later when we come to analyse it.Overall, people tend to be using all the different technologies for a peak around 3 hours, and then each distribution tails off as you get longer exposure suggesting that there are some that stay online a long time.  Video games is the exception where there is a huge peak in the first hour and then a tailing off after that.
 
