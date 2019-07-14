@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lab 12 Continuing the GLM: One-factor ANOVA | ug2-practical</title>
-  <meta name="description" content="Lab 12 Continuing the GLM: One-factor ANOVA | ug2-practical-materials">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 12 Continuing the GLM: One-factor ANOVA | Level 2 Practical</title>
+  <meta name="description" content="ug2-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 12 Continuing the GLM: One-factor ANOVA | ug2-practical" />
+  <meta property="og:title" content="Lab 12 Continuing the GLM: One-factor ANOVA | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Lab 12 Continuing the GLM: One-factor ANOVA | ug2-practical-materials" />
+  <meta property="og:description" content="ug2-practical-materials" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 12 Continuing the GLM: One-factor ANOVA | ug2-practical" />
+  <meta name="twitter:title" content="Lab 12 Continuing the GLM: One-factor ANOVA | Level 2 Practical" />
   
-  <meta name="twitter:description" content="Lab 12 Continuing the GLM: One-factor ANOVA | ug2-practical-materials" />
+  <meta name="twitter:description" content="ug2-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
 
 
-<meta name="date" content="2019-07-03">
+<meta name="date" content="2019-07-14" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="introduction-to-glm-one-factor-anova.html">
@@ -52,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="include\psyteachr.css" type="text/css" />
@@ -103,19 +127,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">ug2-practical</a></li>
+<li><a href="./">Level 2 Practical</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a></li>
 <li class="chapter" data-level="1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html"><i class="fa fa-check"></i><b>1</b> Starting with R Markdown</a><ul>
-<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#overview-1"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#what-is-r-markdown"><i class="fa fa-check"></i><b>1.1.1</b> What is R Markdown?</a></li>
 <li class="chapter" data-level="1.1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#advantages-of-using-r-markdown"><i class="fa fa-check"></i><b>1.1.2</b> Advantages of using R Markdown</a></li>
 <li class="chapter" data-level="1.1.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#creating-an-r-markdown-.rmd-file"><i class="fa fa-check"></i><b>1.1.3</b> Creating an R Markdown (.Rmd) File</a></li>
 <li class="chapter" data-level="1.1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#one-last-thing-before-beginning"><i class="fa fa-check"></i><b>1.1.4</b> One last thing before beginning!</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#preclass-activiy"><i class="fa fa-check"></i><b>1.2</b> PreClass Activiy</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let's Begin</a></li>
+<li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
 <li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
@@ -141,7 +165,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
-<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#overview-2"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#preclass-activity"><i class="fa fa-check"></i><b>2.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#revisiting-the-wickham-six"><i class="fa fa-check"></i><b>2.2.1</b> Revisiting the Wickham Six</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fa fa-check"></i><b>2.2.2</b> Learning to Wrangle: Is there a Chastity Belt on Perception</a></li>
@@ -165,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3.8" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2InClassQueT8"><i class="fa fa-check"></i><b>2.3.8</b> Task 8: One Last Thing on Pipes</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today's Topic - The Ageing Brain</a></li>
+<li class="chapter" data-level="2.4.1" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#todays-topic---the-ageing-brain"><i class="fa fa-check"></i><b>2.4.1</b> Today’s Topic - The Ageing Brain</a></li>
 <li class="chapter" data-level="2.4.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#load-in-the-data"><i class="fa fa-check"></i><b>2.4.2</b> Load in the data</a></li>
 <li class="chapter" data-level="2.4.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT1"><i class="fa fa-check"></i><b>2.4.3</b> Task 1 - Oldest Participant</a></li>
 <li class="chapter" data-level="2.4.4" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#Ch2AssignQueT2"><i class="fa fa-check"></i><b>2.4.4</b> Task 2 - Arranging D-SPAN</a></li>
@@ -184,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
-<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#preclass-activity-1"><i class="fa fa-check"></i><b>3.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#scatterplots---geom_point"><i class="fa fa-check"></i><b>3.2.1</b> Scatterplots - <code>geom_point()</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#histograms---geom_histogram"><i class="fa fa-check"></i><b>3.2.2</b> Histograms - geom_histogram()</a></li>
@@ -210,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html"><i class="fa fa-check"></i><b>4</b> Revisiting Probability Distributions</a><ul>
-<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#overview-4"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>4.1.1</b> Discrete or Continuous Datasets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#preclass-activity-1-1"><i class="fa fa-check"></i><b>4.2</b> PreClass Activity 1</a><ul>
@@ -239,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#back-to-basics"><i class="fa fa-check"></i><b>4.6.1</b> Back to Basics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#assignment-3"><i class="fa fa-check"></i><b>4.7</b> Assignment</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today's Topic - Probability</a></li>
+<li class="chapter" data-level="4.7.1" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#todays-topic---probability"><i class="fa fa-check"></i><b>4.7.1</b> Today’s Topic - Probability</a></li>
 <li class="chapter" data-level="4.7.2" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueLib"><i class="fa fa-check"></i><b>4.7.2</b> Load in the Library</a></li>
 <li class="chapter" data-level="4.7.3" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT1"><i class="fa fa-check"></i><b>4.7.3</b> Assignment Task 1</a></li>
 <li class="chapter" data-level="4.7.4" data-path="revisiting-probability-distributions.html"><a href="revisiting-probability-distributions.html#Ch4AssignQueT2"><i class="fa fa-check"></i><b>4.7.4</b> Assignment Task 2</a></li>
@@ -258,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html"><i class="fa fa-check"></i><b>5</b> Permutation Tests - A Skill Set</a><ul>
-<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#overview-5"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#preclass-activity-3"><i class="fa fa-check"></i><b>5.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-1-generating-random-numbers"><i class="fa fa-check"></i><b>5.2.1</b> Skill 1: Generating Random Numbers</a></li>
 <li class="chapter" data-level="5.2.2" data-path="permutation-tests-a-skill-set.html"><a href="permutation-tests-a-skill-set.html#skill-2-permuting-values"><i class="fa fa-check"></i><b>5.2.2</b> Skill 2: Permuting Values</a></li>
@@ -281,7 +305,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html"><i class="fa fa-check"></i><b>6</b> NHST and One-Sample t-tests</a><ul>
-<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
+<li class="chapter" data-level="6.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#overview-6"><i class="fa fa-check"></i><b>6.1</b> Overview</a></li>
 <li class="chapter" data-level="6.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#preclass-activity-1-2"><i class="fa fa-check"></i><b>6.2</b> PreClass Activity 1</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#the-binomial-test"><i class="fa fa-check"></i><b>6.2.1</b> The Binomial Test</a></li>
 <li class="chapter" data-level="6.2.2" data-path="nhst-and-one-sample-t-tests.html"><a href="nhst-and-one-sample-t-tests.html#Ch6PreClassQueT1"><i class="fa fa-check"></i><b>6.2.2</b> Task 1: Creating a Dataframe</a></li>
@@ -318,7 +342,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html"><i class="fa fa-check"></i><b>7</b> Within-Subjects t-test</a><ul>
-<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
+<li class="chapter" data-level="7.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#overview-7"><i class="fa fa-check"></i><b>7.1</b> Overview</a></li>
 <li class="chapter" data-level="7.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#preclass-activity-4"><i class="fa fa-check"></i><b>7.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#reading"><i class="fa fa-check"></i><b>7.2.1</b> Reading</a></li>
 <li class="chapter" data-level="7.2.2" data-path="within-subjects-t-test.html"><a href="within-subjects-t-test.html#task"><i class="fa fa-check"></i><b>7.2.2</b> Task</a></li>
@@ -339,7 +363,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html"><i class="fa fa-check"></i><b>8</b> APES - Alpha, Power, Effect Sizes, Sample Size</a><ul>
-<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
+<li class="chapter" data-level="8.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#overview-8"><i class="fa fa-check"></i><b>8.1</b> Overview</a></li>
 <li class="chapter" data-level="8.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#preclass-activity-5"><i class="fa fa-check"></i><b>8.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#reading-1"><i class="fa fa-check"></i><b>8.2.1</b> Reading</a></li>
 <li class="chapter" data-level="8.2.2" data-path="apes-alpha-power-effect-sizes-sample-size.html"><a href="apes-alpha-power-effect-sizes-sample-size.html#watch"><i class="fa fa-check"></i><b>8.2.2</b> Watch</a></li>
@@ -374,14 +398,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html"><i class="fa fa-check"></i><b>9</b> Reflection - Semester 1</a><ul>
-<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
+<li class="chapter" data-level="9.1" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#overview-9"><i class="fa fa-check"></i><b>9.1</b> Overview</a></li>
 <li class="chapter" data-level="9.2" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#preclass-activity-6"><i class="fa fa-check"></i><b>9.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="9.3" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#inclass-activity-6"><i class="fa fa-check"></i><b>9.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="9.4" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#assignment-8"><i class="fa fa-check"></i><b>9.4</b> Assignment</a></li>
 <li class="chapter" data-level="9.5" data-path="reflection-semester-1.html"><a href="reflection-semester-1.html#solutions-to-questions-8"><i class="fa fa-check"></i><b>9.5</b> Solutions to Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Correlations</a><ul>
-<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#overview-10"><i class="fa fa-check"></i><b>10.1</b> Overview</a></li>
 <li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#preclass-activity-7"><i class="fa fa-check"></i><b>10.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="correlations.html"><a href="correlations.html#read"><i class="fa fa-check"></i><b>10.2.1</b> Read</a></li>
 <li class="chapter" data-level="10.2.2" data-path="correlations.html"><a href="correlations.html#watch-1"><i class="fa fa-check"></i><b>10.2.2</b> Watch</a></li>
@@ -406,7 +430,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>11</b> Introduction to GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-10"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
+<li class="chapter" data-level="11.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>11.1</b> Overview</a></li>
 <li class="chapter" data-level="11.2" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#preclass-activity-8"><i class="fa fa-check"></i><b>11.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="introduction-to-glm-one-factor-anova.html"><a href="introduction-to-glm-one-factor-anova.html#read-1"><i class="fa fa-check"></i><b>11.2.1</b> Read</a></li>
 </ul></li>
@@ -435,7 +459,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html"><i class="fa fa-check"></i><b>12</b> Continuing the GLM: One-factor ANOVA</a><ul>
-<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
+<li class="chapter" data-level="12.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#overview-12"><i class="fa fa-check"></i><b>12.1</b> Overview</a></li>
 <li class="chapter" data-level="12.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#preclass-activity-9"><i class="fa fa-check"></i><b>12.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="12.2.1" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#read-2"><i class="fa fa-check"></i><b>12.2.1</b> Read</a></li>
 <li class="chapter" data-level="12.2.2" data-path="continuing-the-glm-one-factor-anova.html"><a href="continuing-the-glm-one-factor-anova.html#try"><i class="fa fa-check"></i><b>12.2.2</b> Try</a></li>
@@ -452,7 +476,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html"><i class="fa fa-check"></i><b>13</b> Continuing the GLM: Two-factor designs</a><ul>
-<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
+<li class="chapter" data-level="13.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#overview-13"><i class="fa fa-check"></i><b>13.1</b> Overview</a></li>
 <li class="chapter" data-level="13.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#preclass-activity-10"><i class="fa fa-check"></i><b>13.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="13.2.1" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#read-3"><i class="fa fa-check"></i><b>13.2.1</b> Read</a></li>
 <li class="chapter" data-level="13.2.2" data-path="continuing-the-glm-two-factor-designs.html"><a href="continuing-the-glm-two-factor-designs.html#try-1"><i class="fa fa-check"></i><b>13.2.2</b> TRY</a></li>
@@ -486,7 +510,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>14</b> Regression</a><ul>
-<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-13"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
+<li class="chapter" data-level="14.1" data-path="regression.html"><a href="regression.html#overview-14"><i class="fa fa-check"></i><b>14.1</b> Overview</a></li>
 <li class="chapter" data-level="14.2" data-path="regression.html"><a href="regression.html#preclass-activity-11"><i class="fa fa-check"></i><b>14.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="14.2.1" data-path="regression.html"><a href="regression.html#read-4"><i class="fa fa-check"></i><b>14.2.1</b> Read</a></li>
 </ul></li>
@@ -513,7 +537,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-14"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
 <li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
 <li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
@@ -536,7 +560,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
-<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-15"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
+<li class="chapter" data-level="16.1" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#overview-16"><i class="fa fa-check"></i><b>16.1</b> Overview</a></li>
 <li class="chapter" data-level="16.2" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#preclass-activity-13"><i class="fa fa-check"></i><b>16.2</b> PreClass Activity</a></li>
 <li class="chapter" data-level="16.3" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#inclass-activity-14"><i class="fa fa-check"></i><b>16.3</b> InClass Activity</a></li>
 <li class="chapter" data-level="16.4" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html#assignment-15"><i class="fa fa-check"></i><b>16.4</b> Assignment</a></li>
@@ -560,7 +584,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ug2-practical</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Level 2 Practical</a>
           </h1>
         </div>
 
@@ -570,10 +594,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="continuing-the-glm-one-factor-anova" class="section level1">
 <h1><span class="header-section-number">Lab 12</span> Continuing the GLM: One-factor ANOVA</h1>
-<div id="overview-11" class="section level2">
+<div id="overview-12" class="section level2">
 <h2><span class="header-section-number">12.1</span> Overview</h2>
 <p>In the previous lab you learned how to decompose a dependent variable into components of a linear model, expressing them in terms of a decomposition matrix, before finishing up with calculaing the sums of squares. In this lab, we will take it a step further and start exploring the relationships between sums of squares (SS), mean squares (MS), degrees of freedom (df), and F-ratios. In short, in the first part of this class activity, we will show you how you go from the decomposition matrix to actually determining if there is a significant difference or not.</p>
-<p>We've had you work through the calculations step-by-step by hand and in R in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. As such, in the second part of the activities, we'll show you how to run a one-factor ANOVA using the <code>ezANOVA()</code> function in the <strong><code>ez</code></strong> add-on package. From there you will see how the output from this function maps onto the the concepts you've been learning about.</p>
+<p>We’ve had you work through the calculations step-by-step by hand and in R in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. As such, in the second part of the activities, we’ll show you how to run a one-factor ANOVA using the <code>ezANOVA()</code> function in the <strong><code>ez</code></strong> add-on package. From there you will see how the output from this function maps onto the the concepts you’ve been learning about.</p>
 <p>As such, the goals of this chapter are to:</p>
 <ul>
 <li>to demonstrate how Sums of Squares leads to an F-value, finishing off the decomposition matrix</li>
@@ -607,11 +631,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="inclass-activity-10" class="section level2">
 <h2><span class="header-section-number">12.3</span> InClass Activity</h2>
 <p><strong>One-factor ANOVA: Worked example</strong></p>
-<p>Let's start with some simulated data corresponding to a between-subjects design with three groups (conditions/levels) on one factor (variable). In this hypothetical study, you're investigating the effects of ambient noise on concentration. You have participants transcribe a handwritten document onto a laptop and count the number of typing errors (DV = typos) each participant makes under their respective different conditions:</p>
+<p>Let’s start with some simulated data corresponding to a between-subjects design with three groups (conditions/levels) on one factor (variable). In this hypothetical study, you’re investigating the effects of ambient noise on concentration. You have participants transcribe a handwritten document onto a laptop and count the number of typing errors (DV = typos) each participant makes under their respective different conditions:</p>
 <ul>
-<li>while hearing ambient conversation such as you would find in a busy cafe (&quot;cafe&quot; condition);</li>
-<li>while listening to mellow jazz music (&quot;jazz&quot; condition);</li>
-<li>or in silence (&quot;silence&quot; condition).</li>
+<li>while hearing ambient conversation such as you would find in a busy cafe (“cafe” condition);</li>
+<li>while listening to mellow jazz music (“jazz” condition);</li>
+<li>or in silence (“silence” condition).</li>
 </ul>
 <p>Again for practice we will only use small, highly under-powered groups. You have three different participants in each condition. As such, your data are as follows:</p>
 <ul>
@@ -620,23 +644,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><strong>silence</strong>: 97, 85, 88</li>
 </ul>
 <p>Below is the decomposition matrix for this data set, based on the GLM: <span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span>. This is what we did last week in the lab and what you did for the homework activity. You can have a go at creating it yourself from scratch if you like, as good practice, or, in the interests of time, feel free to reveal the code and run that code to create the dmx.</p>
-<p><strong>Note</strong> that we have also included a column called <code>sub_id</code> with a unique identifier for each participant. This is not that important for the <code>dmx</code> but we will definitely need it later for running the ANOVA using the <code>ez::ezANOVA()</code> function, so let's just include it now so we don't forget.</p>
+<p><strong>Note</strong> that we have also included a column called <code>sub_id</code> with a unique identifier for each participant. This is not that important for the <code>dmx</code> but we will definitely need it later for running the ANOVA using the <code>ez::ezANOVA()</code> function, so let’s just include it now so we don’t forget.</p>
 <div class="solution">
 <button>
 Reveal DMX code
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">sub_id =</span> <span class="dv">1</span>:<span class="dv">9</span>,
-              <span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">3</span>),
-              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span>:<span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">3</span>),
+<pre class="sourceCode r"><code class="sourceCode r">dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">sub_id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,
+              <span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">3</span>),
+              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">3</span>),
               <span class="dt">typos =</span> <span class="kw">c</span>(<span class="dv">111</span>, <span class="dv">102</span>, <span class="dv">111</span>, 
                     <span class="dv">89</span>, <span class="dv">127</span>, <span class="dv">90</span>,
                     <span class="dv">97</span>, <span class="dv">85</span>, <span class="dv">88</span>),
-              <span class="dt">sound =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;cafe&quot;</span>, <span class="st">&quot;jazz&quot;</span>, <span class="st">&quot;silence&quot;</span>), <span class="dt">each =</span> <span class="dv">3</span>)) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mu =</span> <span class="kw">mean</span>(typos)) %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(i) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(typos) -<span class="st"> </span>mu) %&gt;%
-<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> typos -<span class="st"> </span>(mu +<span class="st"> </span>Ai))</code></pre></div>
+              <span class="dt">sound =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;cafe&quot;</span>, <span class="st">&quot;jazz&quot;</span>, <span class="st">&quot;silence&quot;</span>), <span class="dt">each =</span> <span class="dv">3</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mu =</span> <span class="kw">mean</span>(typos)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(typos) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> typos <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</code></pre>
 </div>
 <br>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
@@ -910,7 +934,8 @@ silence
 </tbody>
 </table>
 </div>
-<p><br> And we finished off last week by calculating the Sums of Squares for the different columns. Remember that the Sums of Squares (or often shortend to <span class="math inline">\(SS\)</span>) is literally squaring the values within a column and summing them up, and that it is a measure of the variance attributable to that part of the model (or that column).</p>
+<p><br>
+And we finished off last week by calculating the Sums of Squares for the different columns. Remember that the Sums of Squares (or often shortend to <span class="math inline">\(SS\)</span>) is literally squaring the values within a column and summing them up, and that it is a measure of the variance attributable to that part of the model (or that column).</p>
 <p>The Sums of squares for the above model has the following relationship:</p>
 <p><span class="math inline">\(SS_{total} = SS_{\mu} + SS_{A} + SS_{error}\)</span></p>
 <ul>
@@ -920,11 +945,11 @@ silence
 <button>
 Calculating Sums of Squares
 </button>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat_ss &lt;-<span class="st"> </span>dmx %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">total =</span> <span class="kw">sum</span>(typos^<span class="dv">2</span>),
-            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu^<span class="dv">2</span>),
-            <span class="dt">ss_sound =</span> <span class="kw">sum</span>(Ai^<span class="dv">2</span>),
-            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err^<span class="dv">2</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat_ss &lt;-<span class="st"> </span>dmx <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">total =</span> <span class="kw">sum</span>(typos<span class="op">^</span><span class="dv">2</span>),
+            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu<span class="op">^</span><span class="dv">2</span>),
+            <span class="dt">ss_sound =</span> <span class="kw">sum</span>(Ai<span class="op">^</span><span class="dv">2</span>),
+            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err<span class="op">^</span><span class="dv">2</span>))</code></pre>
 <ul>
 <li><strong>Which would give:</strong></li>
 </ul>
@@ -968,7 +993,8 @@ ss_err
 </table>
 </div>
 </div>
-<p><br> We can check that we have calculated everything correctly by observing that based on the relationship:</p>
+<p><br>
+We can check that we have calculated everything correctly by observing that based on the relationship:</p>
 <p><span class="math inline">\(SS_{total} = SS_{\mu} + SS_{A} + SS_{error}\)</span></p>
 <p>then:</p>
 <p>91574 = 90000 + 504 + 1070.</p>
@@ -984,7 +1010,7 @@ ss_err
 </div>
 <div id="Ch12InClassQueT2" class="section level3">
 <h3><span class="header-section-number">12.3.2</span> Task 2 - Mean squares and degrees of freedom</h3>
-<p>Great, so we now know how to create our decomposition matrix and how to calculate our sums of squares. The only thing left to do is to calculate the F ratio to determine if there is a significant effect between our groups. To do that we first need to calculate some Mean Squares. But, as it is always good to have a view of the whole picture, let's not forget that the whole purpose here is to show you where the numbers come from in our quest to determine if there is a significant difference between our groups, or in other words, is there an effect of listening condition on concentration!</p>
+<p>Great, so we now know how to create our decomposition matrix and how to calculate our sums of squares. The only thing left to do is to calculate the F ratio to determine if there is a significant effect between our groups. To do that we first need to calculate some Mean Squares. But, as it is always good to have a view of the whole picture, let’s not forget that the whole purpose here is to show you where the numbers come from in our quest to determine if there is a significant difference between our groups, or in other words, is there an effect of listening condition on concentration!</p>
 <p>You will remember from your lectures and from your reading of Miller &amp; Haden (2013) that the F value is a ratio of two estimates of population variance:</p>
 <p><span class="math inline">\(F = \frac{MS_{between}}{MS_{within}}\)</span></p>
 <p>also sometimes seen as</p>
@@ -993,7 +1019,7 @@ ss_err
 <p><span class="math inline">\(F = \frac{MS_{A}}{MS_{S(A)}}\)</span></p>
 <p>And you will also remember that the mean square (MS) is a sums of squares (SS) divided by its degrees of freedom (df):</p>
 <p><span class="math inline">\(MS = \frac{SS}{df}\)</span></p>
-<p>So let's start putting this together! If we know the SS of our group/treatment (<span class="math inline">\(SS_{A}\)</span> - also called the between variance) and we know the SS of our error/residuals (<span class="math inline">\(SS_{error}\)</span> - also called the within variance), then we can convert both to Mean Squares (MS) (i.e. the average variance for that condition) by dividing them by their respective degrees of freedom (df).</p>
+<p>So let’s start putting this together! If we know the SS of our group/treatment (<span class="math inline">\(SS_{A}\)</span> - also called the between variance) and we know the SS of our error/residuals (<span class="math inline">\(SS_{error}\)</span> - also called the within variance), then we can convert both to Mean Squares (MS) (i.e. the average variance for that condition) by dividing them by their respective degrees of freedom (df).</p>
 <p>We can then calculate F by <span class="math inline">\(MS_{A} / MS_{error}\)</span>. If the <span class="math inline">\(MS_{error}\)</span> is larger than <span class="math inline">\(MS_{A}\)</span> (the group effect) then F will be small and there will be no signficant effect of group - any difference in groups is purely due to individual differences (another way of thinking about error). On the other hand, if <span class="math inline">\(MS_{A}\)</span> (the group effect) is larger than <span class="math inline">\(MS_{error}\)</span> then F will be large, and depending on how large F is, there may be a significant difference caused by your group variable.</p>
 <p>With all that in mind, and it may take a couple of readings, try to answer the following questions (consulting Miller &amp; Haden Ch. 3 and your lecture slides where needed). The solutions are at the end of the chapter.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">SlowBurner Questions</span></p>
@@ -1003,7 +1029,7 @@ ss_err
 <li><p>How many degrees of freedom are there for <span class="math inline">\(S(A)_{ij}\)</span>), the error term, if <span class="math inline">\(dfS(A)_{ij}\)</span> = N - <span class="math inline">\(dfA_{i}\)</span> - 1?</p></li>
 <li><p>Calculate <span class="math inline">\(MS_{A}\)</span>, where <span class="math inline">\(A\)</span> is the factor <strong>sound</strong>.</p></li>
 </ol>
-<p><strong>Note:</strong> You can access individual columns in a table using double square brackets <code>[[]]</code>; for instance dat_ss[[&quot;ss_mu&quot;]] gives you the column <code>ss_mu</code> from <code>dat_ss</code>. This is an alternative to <code>$</code> that some may know; e.g. <code>dat_ss$mu</code>.</p>
+<p><strong>Note:</strong> You can access individual columns in a table using double square brackets <code>[[]]</code>; for instance dat_ss[[“ss_mu”]] gives you the column <code>ss_mu</code> from <code>dat_ss</code>. This is an alternative to <code>$</code> that some may know; e.g. <code>dat_ss$mu</code>.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Calculate <span class="math inline">\(MS_{S(A)}\)</span>, where <span class="math inline">\(S(A)\)</span> is residual error.</li>
 </ol>
@@ -1035,7 +1061,7 @@ N is the total number of participants
 <div id="Ch12InClassQueT3" class="section level3">
 <h3><span class="header-section-number">12.3.3</span> Task 3 - F-ratios</h3>
 <p>Last step, the F ratio.</p>
-<p>As above, if the null hypothesis is true, then both estimates of the population variance (<span class="math inline">\(MS_{between}\)</span> and <span class="math inline">\(MS_{within}\)</span>) should line up, and the <span class="math inline">\(F\)</span>-ratio should approach 1 (because <span class="math inline">\(x/x = 1\)</span>). Now we can't expect these two estimates to be <strong>exactly</strong> equal because of sampling bias, so to see how unlikely our observed F-ratio is under the null hypothesis, we have to compare it to the F distribution.</p>
+<p>As above, if the null hypothesis is true, then both estimates of the population variance (<span class="math inline">\(MS_{between}\)</span> and <span class="math inline">\(MS_{within}\)</span>) should line up, and the <span class="math inline">\(F\)</span>-ratio should approach 1 (because <span class="math inline">\(x/x = 1\)</span>). Now we can’t expect these two estimates to be <strong>exactly</strong> equal because of sampling bias, so to see how unlikely our observed F-ratio is under the null hypothesis, we have to compare it to the F distribution.</p>
 <p>To learn a bit about the F distribution we have created a shiny app to play with. Shiny Apps are interactive webpages and applications made through R. Download the app from Moodle or <a href="data/12-s02/inclass/F_distribution.zip">from this link</a>. Unzip the folder, open up the file app.R through R Studio, and click <strong>Run app</strong> in R Studio to launch it (found at top right of script window - there is a <span style="color:green">green play</span> sign). The App window will open showing you some parameters to adjust and a wonderful F distribution plot.</p>
 <p><strong>Note:</strong> When we are finished with the App, close the App window to start typing in console again.</p>
 <ul>
@@ -1054,7 +1080,7 @@ N is the total number of participants
 <li><p>According to the app, what is the approximate <span class="math inline">\(p\)</span> value associated with your observed <span class="math inline">\(F\)</span> ratio?</p></li>
 <li><p>Based on these values, do you reject or retain the null hypothesis?</p></li>
 </ol>
-<p><strong>Tricky question:</strong> Note that you can use the distribution functions for <span class="math inline">\(F\)</span> in the same way you did in previous Semester 1 labs (e.g. Lab 4) for the normal distribution (<code>pnorm()</code>, <code>dnorm()</code>, <code>qnorm()</code>) or for the binomial distribution (<code>pbinom()</code>, <code>dbinom()</code>, <code>qbinom()</code>), keeping in mind however that the F distribution, being continuous, is more analogous to the normal distribution. See <code>?df</code> for the distribution functions associated with <span class="math inline">\(F\)</span>.</p>
+<p><strong>Tricky question:</strong> Note that you can use the distribution functions for <span class="math inline">\(F\)</span> in the same way you did in previous Semester 1 labs (e.g. Lab 4) for the normal distribution (<code>pnorm()</code>, <code>dnorm()</code>, <code>qnorm()</code>) or for the binomial distribution (<code>pbinom()</code>, <code>dbinom()</code>, <code>qbinom()</code>), keeping in mind however that the F distribution, being continuous, is more analogous to the normal distribution. See <code>?df</code> for the distribution functions associated with <span class="math inline">\(F\)</span>.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Using the appropriate distribution function, calculate the <span class="math inline">\(p\)</span> value associated with <span class="math inline">\(F_{obs}\)</span>. This will be more precise than the app.</li>
 </ol>
@@ -1082,8 +1108,8 @@ lower.tail? What is the probability of obtaining an F_obs higher than your value
 </div>
 <div id="Ch12InClassQueT4" class="section level3">
 <h3><span class="header-section-number">12.3.4</span> Task 4 - Using ez::ezANOVA()</h3>
-<p>Great, so we have calculated F for this test and made a judgement about whether it is significant or not. But that was quite a long way of doing it, and whilst it is always great to understand where the data comes from, you don't want to have to do that each time you run a test. So now we are going to re-analyse the same dataset but this time we are going to have the computer do all the computational work for us.</p>
-<p>There are various options for running ANOVAs in R, but the function we will be using for this course is <code>ezANOVA()</code> function in the <strong><code>ez</code></strong> add-on package. Note that to use <code>ezANOVA()</code> you either have to load in the package using <code>library(&quot;ez&quot;)</code>, or you can call it directly without loading using <code>ez::ezANOVA()</code> (the <code>package_name::function</code> syntax). If you're just using the function once, the latter often makes more sense. The <strong><code>ez</code></strong> package is already installed in the Boyd Orr machines so only needs called to the library. On your own machines you will need to install the package if you haven't already done so.</p>
+<p>Great, so we have calculated F for this test and made a judgement about whether it is significant or not. But that was quite a long way of doing it, and whilst it is always great to understand where the data comes from, you don’t want to have to do that each time you run a test. So now we are going to re-analyse the same dataset but this time we are going to have the computer do all the computational work for us.</p>
+<p>There are various options for running ANOVAs in R, but the function we will be using for this course is <code>ezANOVA()</code> function in the <strong><code>ez</code></strong> add-on package. Note that to use <code>ezANOVA()</code> you either have to load in the package using <code>library(&quot;ez&quot;)</code>, or you can call it directly without loading using <code>ez::ezANOVA()</code> (the <code>package_name::function</code> syntax). If you’re just using the function once, the latter often makes more sense. The <strong><code>ez</code></strong> package is already installed in the Boyd Orr machines so only needs called to the library. On your own machines you will need to install the package if you haven’t already done so.</p>
 <ul>
 <li><p>Have a qucik read the documentation for <code>ezANOVA</code> (type <code>?ezANOVA</code> in the console) and pay specific attention to how you stipulate the datafile, the dv, the factor, the participants, etc. It also helps to look at some examples. Then try to specify the call to <code>ezANOVA()</code> so that it reproduces the results you got when you did it by hand above.</p></li>
 <li><p>What do you conclude about the effects of ambient noise on concentration?</p></li>
@@ -1104,16 +1130,17 @@ you need your dv column, your condition column, and your participant id column t
 ezANOVA(data = ?, dv = ?, wid = ?, between = ?)
 </li>
 <li>
-you will get two outputs. One is the F-test. One is Levene's homogeniety of variance. Make sure you can identify both.
+you will get two outputs. One is the F-test. One is Levene’s homogeniety of variance. Make sure you can identify both.
 </li>
 </ul>
 </div>
 </div>
-<p><br> <strong>Conclusion</strong></p>
+<p><br>
+<strong>Conclusion</strong></p>
 <p>Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 16) = 5.143, p = .32. However before you go off and publish this highly underpowered design we should probably look to replicate it with a larger sample (which you could calculate with your skills from Chapter 8).</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Excellent work today! And super interesting as well, huh? Quick, everyone to the cafe and don't worry about the typos!!!! Only joking, we are all going to the cafe to replicate!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>Excellent work today! And super interesting as well, huh? Quick, everyone to the cafe and don’t worry about the typos!!!! Only joking, we are all going to the cafe to replicate!</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -1168,7 +1195,7 @@ you will get two outputs. One is the F-test. One is Levene's homogeniety of vari
 <ul>
 <li>The factor df = 2</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ms_a &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_sound&quot;</span>]] /<span class="st"> </span>2L</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ms_a &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_sound&quot;</span>]] <span class="op">/</span><span class="st"> </span>2L</code></pre>
 <ul>
 <li>Giving <span class="math inline">\(MS_{A}\)</span> = 252</li>
 </ul>
@@ -1176,7 +1203,7 @@ you will get two outputs. One is the F-test. One is Levene's homogeniety of vari
 <ul>
 <li>The residual df = 6</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ms_err &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_err&quot;</span>]] /<span class="st"> </span>6L</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ms_err &lt;-<span class="st"> </span>dat_ss[[<span class="st">&quot;ss_err&quot;</span>]] <span class="op">/</span><span class="st"> </span>6L</code></pre>
 <ul>
 <li>Giving <span class="math inline">\(MS_{S(A)}\)</span> = 178.3333333</li>
 </ul>
@@ -1185,7 +1212,7 @@ you will get two outputs. One is the F-test. One is Levene's homogeniety of vari
 <div id="inclass-task-3-6" class="section level4">
 <h4><span class="header-section-number">12.5.1.3</span> InClass Task 3</h4>
 <p><strong>Question 1</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f_obs &lt;-<span class="st"> </span>ms_a /<span class="st"> </span>ms_err</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">f_obs &lt;-<span class="st"> </span>ms_a <span class="op">/</span><span class="st"> </span>ms_err</code></pre>
 <ul>
 <li>Giving a F-value of F = 1.413 when rounded to three decimal places.</li>
 </ul>
@@ -1197,24 +1224,24 @@ you will get two outputs. One is the F-test. One is Levene's homogeniety of vari
 <p>As <span class="math inline">\(p\)</span> &gt; <span class="math inline">\(\alpha\)</span> we would retain the null hypothesis that there is no significant effect of group in this study</p>
 <p><strong>Question 5</strong></p>
 <p>This could alternatively calculated using coding as such:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pf</span>(f_obs, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pf</span>(f_obs, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
 <p>Which would give a p-value of p = 0.314 and again could be written up as F(2, 6) = 1.4130841, p = 0.314, suggesting no significant effect of ambiance or location on concentration as measured through the number of typos.</p>
 <p><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-4-6" class="section level4">
 <h4><span class="header-section-number">12.5.1.4</span> InClass Task 4</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">select</span>(dmx, sub_id, typos, sound)
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">select</span>(dmx, sub_id, typos, sound)
 
-results &lt;-<span class="st"> </span>ez::<span class="kw">ezANOVA</span>(dat,
+results &lt;-<span class="st"> </span>ez<span class="op">::</span><span class="kw">ezANOVA</span>(dat,
                        <span class="dt">dv =</span> typos,
                        <span class="dt">wid =</span> sub_id,
-                       <span class="dt">between =</span> sound)</code></pre></div>
+                       <span class="dt">between =</span> sound)</code></pre>
 <pre><code>## Coefficient covariances computed by hccm()</code></pre>
-<p>You didn't need to store the output but we have done it out of habit as often we want to do something with the results. And remember we said that you get two tables in this output. One of the tables is Levene's Test for Homogeneity of Variance and looks like:</p>
+<p>You didn’t need to store the output but we have done it out of habit as often we want to do something with the results. And remember we said that you get two tables in this output. One of the tables is Levene’s Test for Homogeneity of Variance and looks like:</p>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ez-output1">Table 12.3: </span>Levene's test for Homogeneity of Variance
+<span id="tab:ez-output1">Table 12.3: </span>Levene’s test for Homogeneity of Variance
 </caption>
 <thead>
 <tr>
@@ -1267,7 +1294,8 @@ p&lt;.05
 </tbody>
 </table>
 </div>
-<p><br> The other table is the main ANOVA output. Make sure you can locate both individual tables and you know which is which.</p>
+<p><br>
+The other table is the main ANOVA output. Make sure you can locate both individual tables and you know which is which.</p>
 <div style="border: 0px;overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -1324,7 +1352,8 @@ sound
 </tbody>
 </table>
 </div>
-<p><br> From your lectures, remember that Levene's test relates to an assumption of equal variance across conditions in a between-subjects design. A non-significant finding in Levene's suggests equal variance across conditions as required by the assumptions of the ANOVA. The ANOVA is the actual output of the test and will match closely with the values you have found in Task 3.</p>
+<p><br>
+From your lectures, remember that Levene’s test relates to an assumption of equal variance across conditions in a between-subjects design. A non-significant finding in Levene’s suggests equal variance across conditions as required by the assumptions of the ANOVA. The ANOVA is the actual output of the test and will match closely with the values you have found in Task 3.</p>
 <p><a href="continuing-the-glm-one-factor-anova.html#Ch12InClassQueT4">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
@@ -1474,7 +1503,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
