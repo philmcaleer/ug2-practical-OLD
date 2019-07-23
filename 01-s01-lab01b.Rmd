@@ -3,7 +3,7 @@
 ```{r preclass-setup1, echo=FALSE}
 library(webex)
 ```
-HELLO
+
 Having read the Overview for this Lab, and the reason behind using R, we are now going to show you how to make a reproducible code. If you have a laptop it is best to install R and RStudio on that for you to use. Dale Barr's video gives a reminder of how to install R and Rstudio.  If you don't have it installed yet you can just read along today and try it out when you have access to a machine in the labs.
 
 ### Let's Begin
