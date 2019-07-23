@@ -274,7 +274,7 @@ If \* at the start and end of the word puts it in italics (e.g. *italics*) and \
     
 It is true that the more #'s you use, the smaller the heading is. Word and other document writers use different headings as well. Here, # gives the biggest heading, and it gets smaller and smaller with every extra #.
 
-Finally, in Psychology, the vast majority of journal articles are written in the format of: Introduction, Methods, Results, Discussion. In Semester 1 of Level 2 Psychology, you will write a report based on just the Introduction and the Methods. In Semester 2 you will write a report including all four sections. More on that to follow .
+Finally, in Psychology, the vast majority of journal articles are written in the format of: Introduction, Methods, Results, Discussion. In Semester 1 of Level 2 Psychology, you will write a report based on just the Introduction and the Methods. In Semester 2 you will write a report including all four sections. More on that to follow.
 ```
 `r unhide()`  
 
