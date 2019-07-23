@@ -1,6 +1,6 @@
 # Starting with R Markdown
 
-<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Level 2 Lab Series</span>
+<span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Level 2 Practical Lab Series</span>
 
 ## Overview
 
