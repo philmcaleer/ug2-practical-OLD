@@ -17,7 +17,7 @@ In the PreClass activity we looked at using one-table Wickham verbs to `filter`,
 
 `r hide("Portfolio Point - Still not sure what a function is and how to remember them?")`
 ```{block, type ="info"}
-A function is a tool that takes an input, performs some action, and gives an output. They are nothing more than that. If you think about it your toaster is a function: it takes bread as an input; it perfoms the action of heating it up (nicely sometimes; on both sides would be a luxury); and it gives an output, the toast.  A good thing about the Wickham six functions is that they are nicely named as verbs to describe what they do - `mutate()` mutates (adds on a column); `arrange()` arranges columns, `summarise()` summarises, etc.
+A function is a tool that takes an input, performs some action, and gives an output. They are nothing more than that. If you think about it, your toaster is a function: it takes bread as an input; it perfoms the action of heating it up (nicely sometimes; on both sides would be a luxury); and it gives an output, the toast.  A good thing about the Wickham six functions is that they are nicely named as verbs to describe what they do - `mutate()` mutates (adds on a column); `arrange()` arranges columns, `summarise()` summarises, etc.
     
 In terms of remembering all the functions, the truth is you don't have to know them all. However, through practice and repetition, you will quickly learn to remember which ones are which and what package they come from. Sort of like where to find your spoons in your kitchen - you don't look in the fridge, and then the washing machine, and then the drawer. Nope, you learnt, by repetition, to look in the drawer first time. It's the same with functions.  Keep in mind that research methods is like a language in that the more you use it and work with it the more it makes sense.
 ```
@@ -25,7 +25,7 @@ In terms of remembering all the functions, the truth is you don't have to know t
 
 **A Note on Tidy Data** 
 
-In the style of programming we teach the most efficient format/layout of data is what is known as `Tidy Data`, and any data in this format is easily processed through the `tidyverse` package. However, the data you work with will not always be formatted in the most efficient way possible. If that happens then our first step is to put it into `Tidy Data` format. There are three fundamental rules defining `Tidy Data`:
+In the style of programming we teach, the most efficient format/layout of data is what is known as `Tidy Data`, and any data in this format is easily processed through the `tidyverse` package. However, the data you work with will not always be formatted in the most efficient way possible. If that happens then our first step is to put it into `Tidy Data` format. There are three fundamental rules defining `Tidy Data`:
 
 1. Each variable must have its own column.
 2. Each observation must have its own row.
@@ -40,7 +40,7 @@ Long format is where each **row** is a participant from any given condition of y
 
 Wide format on the other hand, again each row was a participant, but each column was a condition, so each participant would be spread across multiple columns.  
 
-`Tidy` is a mix of both of these approachs and works best for data-wrangling.")
+`Tidy` is a mix of both of these approachs and works best for data-wrangling.
 ```
 `r unhide()`
 
@@ -68,7 +68,7 @@ We have four data files to work with:
 
 Now **set your working directory** to the folder where you saved the `.csv` files. Do this through the dropdown menus at the top toolbar: `Session >> Set Working Directory >> Choose Directory` and then find your folder with your `.csv` files. This should be somewhere on your M: drive, but never in a folder titled `R`. 
 
-Today we will work in a Rscript instead of .Rmd but if you want to turn the lab into a RMarkdown report or to add elements to your Portfolio then please feel free.
+Today we will work in an Rscript instead of .Rmd but if you want to turn the lab into an RMarkdown report or to add elements to your Portfolio then please feel free.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
@@ -93,7 +93,7 @@ The answer to all of these are True.
 ### Task 1: Open a Script
 
 1. Start a new Rscript and save it to your `M: drive` in the same folder as your .csv files, calling the Rscript something informative like `Lab2_AQ_DataWrangling.R`.
-2. Make sure your environment is completely empty so we dont mix up one analysis with the other. You can run the following code line in the console to clear the environment or by clicking the little brush on your environment window.
+2. Make sure your environment is completely empty so we don't mix up one analysis with the other. You can run the following code line in the console to clear the environment or by clicking the little brush on your environment window.
 
 ```{r the_empty_list_function, eval = FALSE}
 rm(list = ls()) 
@@ -101,7 +101,7 @@ rm(list = ls())
  
 `r hide("Portfolio point - comments on scripts and running lines")`
 ```{block, type ="info"}
-Remember that when using a script you can write notes to yourself to remind you what a line of code does. Just put a hashtag at the start of the line and R will ignore this line. This is where you have to be clear on using a Script versus a RMarkdown file. In a Script, # means the line is ignored, in Markdown # sets the line as a header!.
+Remember that when using a script you can write notes to yourself to remind you what a line of code does. Just put a hashtag at the start of the line and R will ignore this line. This is where you have to be clear on using a Script versus an RMarkdown file. In a Script, # means the line is ignored, in Markdown # sets the line as a header!.
     
 To run any line on a script, the simplest way is to click anywhere on that line and either press Run on the top of the script window or press CTRL+Enter on the keyboard (or mac equivalent).
 ```
@@ -132,7 +132,7 @@ Now we have to load in the `.csv` datafiles using the `read_csv()` function and 
 responses <- read_csv("responses.csv") 
 ```
 
-1. Add the following lines of code to your script and complete them to load in all four `.csv` datafiles. Use the above code as an example and name each variable the same as its original filename (minus the .csv part), again as above, e.g. `responses.csv` gets saved as `responses`. Remember to run the lines so that the data loaded in and is stored in your environment. 
+1. Add the following lines of code to your script and complete them to load in all four `.csv` datafiles. Use the above code as an example and name each variable the same as its original filename (minus the .csv part), again as above, e.g. `responses.csv` gets saved as `responses`. Remember to run the lines so that the data is loaded in and stored in your environment. 
 
 ```{r loaddata2, eval = FALSE}
 responses <-  read_csv()    # survey responses
@@ -151,7 +151,7 @@ As you work with data and functions you will find there are functions with simil
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
-Now that we have the data loaded in it is always best to have a look at the data to get an idea of its layout. We showed you one way before, by clicking on the name in the environment, but you can also use the `glimpse()` or `View()` functions in your Console window and putting the name of the data between the brackets to see how it is arranged. Don't add these to your script though they are just one-offs for testing.
+Now that we have the data loaded in it is always best to have a look at the data to get an idea of its layout. We showed you one way before, by clicking on the name in the environment, but you can also use the `glimpse()` or `View()` functions in your Console window. Put the name of the data between the brackets to see how it is arranged. Don't add these to your script though - they are just one-offs for testing.
 
 As a small group, have a look at the data in `responses` to see if you think it is Tidy or not and answer the following question: The data in `responses` is in `r mcq(c("Tidy", "Long", answer = "Wide"))` format
 
@@ -161,7 +161,7 @@ The `reponses` tibble is far from being tidy; each row represents multiple obser
     
 Eh, what's a tibble?
 
-A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the `tidyverse` packages. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like `responses`, it is a tibble. For more info, see here: <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html" target = "_blank">Tibbles</a>
+A tibble is simply a dataframe - or a table of data with columns and rows - that is really handy for working with when using the `tidyverse` package. When we say tibble, you can think of a dataframe with rows and columns of information and numbers stored in them - like `responses`, it is a tibble. For more info, see here: <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html" target = "_blank">Tibbles</a>
 ```
 `r unhide()`  
 
@@ -179,10 +179,10 @@ rlong <- gather(responses, Question, Response, Q1:Q10)
 * The second and third arguments are the names we want to give the columns we are creating; 
     - the first will store the question numbers, `Question` 
     - the second will store the responses, `Response`. 
-    - **Note that these names could have been anything but by using these names the code make more sense**. 
+    - **Note that these names could have been anything but by using these names the code makes more sense**. 
 * Finally, the fourth argument is the names of specific columns in the original tibble that we want to gather together. 
 
-In case you are wondering if we wanted to go back the way, and ungather the data we just gathered, we would use the `spread()` function: e.g. `rwide <- spread(rlong, Questions, Response)`. But we do not want to do that here so let's not add this to the code. 
+In case you are wondering, if we wanted to go back the way and ungather the data we just gathered, we would use the `spread()` function: e.g. `rwide <- spread(rlong, Questions, Response)`. But we do not want to do that here so let's not add this to the code. 
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
@@ -271,7 +271,7 @@ The whole purpose of this lab was to calculate AQ scores for individual particip
 3. Type in the AQ score (just the number) of Participant ID No. 87: `r fitb(2, width = 10, ignore_ws = TRUE)`  
 
 4. Type how many participants had an AQ score of 3 (again just the number): `r fitb(13, width = 10, ignore_ws = TRUE)`  
-5. The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred to for diagnostic assessment. Type in how many participants should we refer from our sample: `r fitb(6, width = 10, ignore_ws = TRUE)`  
+5. The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Type in how many participants we should refer from our sample: `r fitb(6, width = 10, ignore_ws = TRUE)`  
 
 `r hide("Explain This - I dont get these answers")`
 ```{block, type ="info"}
@@ -281,7 +281,7 @@ The whole purpose of this lab was to calculate AQ scores for individual particip
 
 3. You could do this by code with `filter(aq_scores, Id == 87)`, which would give you a tibble of 1x2 showing the ID number and score. If you just wanted the score you could use `pull()` which we havent shown you that yet: `filter(aq_scores, Id == 87) %>% pull(AQ)`. The answer is an AQ score of 2.
 
-4. Same as above but changing the arguement of the filter. `filter(aq_scores, AQ == 3) %>% count()`. The answer is 13. Remember you can do this by counting but the code makes it reproducible and accurate every time. You might make mistakes.
+4. Same as above but changing the argument of the filter. `filter(aq_scores, AQ == 3) %>% count()`. The answer is 13. Remember you can do this by counting but the code makes it reproducible and accurate every time. You might make mistakes.
 
 5. `filter(aq_scores, AQ > 6) %>% count()` or `filter(aq_scores, AQ >= 7) %>% count()`. The answer is 6.
 ```
@@ -309,8 +309,8 @@ At any point where the first argument of your function is the name of a variable
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-You have now recapped one-table and two-table verbs. These are great to know as for example, in the above, it actually only took a handful of reproducible steps to get from messy data to tidy data; could you imagine doing this by hand in Excel through cutting and pasting? Not to mention the mistakes you could make!
+You have now recapped one-table and two-table verbs. These are great to know as for example, in the above Activity, it actually only took a handful of reproducible steps to get from messy data to tidy data; could you imagine doing this by hand in Excel through cutting and pasting? Not to mention the mistakes you could make!
 
-You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module**. However you are strongly encouraged to do the assignment as it will continue to boost your data-wrangling skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.**
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module**. However you are strongly encouraged to do the assignment as it will continue to boost your data-wrangling skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.
 
 Happy wrangling! Excellent work! You are a DataWrangling expert! Now go try the assignment!  
