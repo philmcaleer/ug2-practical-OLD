@@ -18,21 +18,21 @@ Remember to follow the instructions and if you get stuck at any point to post qu
 
 A key topic in current psychologial research, and one which forms a main focus for some of the research in our School, is that of human ageing. In this research we use brain imaging techniques to understand how changes in brain function and structure relate to changes in perception and behaviour. A typical 'ageing' experiment will compare a measure (or a number of measures) such as performance on a cognitive or perceptual task between younger and older adults (i.e. a between-subjects design experiment).
 
-However in order to make sure we are studying 'healhty' ageing, we first have to 'screen' our older participants for symptoms of age-related dementia (Alzheimer's Disease), where cognitive function can be significantly impaired. We do this using a range of cognitive tests. Some studies will also test participants' *sensory acuity* (ability to perceive something), as a function of age (particularly eyesight and hearing). 
+However, in order to make sure we are studying 'healhty' ageing, we first have to 'screen' our older participants for symptoms of age-related dementia (Alzheimer's Disease), where cognitive function can be significantly impaired. We do this using a range of cognitive tests. Some studies will also test participants' *sensory acuity* (ability to perceive something), as a function of age (particularly eyesight and hearing). 
 
-The data you have downloaded for this lab is example screening data taken from research investigating how the ageig brain processes different types of sounds. The tests used in this study are detailed below. Please note that the links are there to provide you with further information and examples of the tests once you have completed the assignment if you so wish; you do not have to read them to complete the assignment.
+The data you have downloaded for this lab is example screening data taken from research investigating how the ageing brain processes different types of sounds. The tests used in this study are detailed below. Please note that the links are there to provide you with further information and examples of the tests once you have completed the assignment if you so wish; you do not have to read them to complete the assignment.
 
 * [Montreal Cognitive Assessment (MoCA)](https://www.mocatest.org) : a test specifically devised as a stand-alone screening tool for mild cognitive impairment. Assesses visuospatial skills, memory, language, attention, orientation, and abstraction skills. <a href="http://www.mocatest.org/pdf_files/test/MoCA-Test-English_7_1.pdf" target="_blank">Example here</a> 
 
 * [Working Memory Digit Span Test (D-SPAN)](https://en.wikipedia.org/wiki/Memory_span#Digit-span): measures the capacity of participants' short-term (working) memory. <a href="http://www.dyslexia-international.org/content/Informal%20tests/Digitspan.pdf" target="_blank">Example here</a>
 
-* [D2 Test of Attention](https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3): measures participant's selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg" target = "_blank">Example here</a> 
+* [D2 Test of Attention](https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3): measures participants' selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg" target = "_blank">Example here</a> 
 
-* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participant's subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Test page here</a>
+* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participants' subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Test page here</a>
 
 **The Data Files**  
 
-You have just downloaded the three `.csv` files containing all the data you need. Below is a list of the .csv files names and a description of the variables each contains:  
+You have just downloaded the three `.csv` files containing all the data you need. Below is a list of the .csv file names and a description of the variables each contains:  
 
 * `p_screen.csv` contains particpants demographic information including: 
     + `ID` Participant Id number - for confidentiality (no names or other identifying info)
@@ -75,7 +75,7 @@ scoring <- read_csv("QHC_scoring.csv")
 
 **View the data**
 
-1. It is always a good idea to familiarise yourself with the layout of the data that you have just loaded in. You can do this through using `glimpse()` or `View()` in the Console windown, but you must never put these functions in your assignment file.
+1. It is always a good idea to familiarise yourself with the layout of the data that you have just loaded in. You can do this through using `glimpse()` or `View()` in the Console window, but you must never put these functions in your assignment file.
 
 **The Tasks:**
 
@@ -112,7 +112,7 @@ descriptives <- NULL
 
 ### Task 4 - Creating Percentage MOCA scores {#Ch2AssignQueT4}
 
-Replace the `NULL` in the `T4` code chunk with code using one of the dplyr verbs to add a new column called `MOCA_Perc` to the dataframe `screening` In this new column should be the `MOCA` scores coverted to percentages. The maximum achievable score on MOCA is `30` and percentages are calculated as `(participant score / max score) * 100`. Store this output in `screening`.
+Replace the `NULL` in the `T4` code chunk with code using one of the dplyr verbs to add a new column called `MOCA_Perc` to the dataframe `screening` In this new column should be the `MOCA` scores converted to percentages. The maximum achievable score on MOCA is `30` and percentages are calculated as `(participant score / max score) * 100`. Store this output in `screening`.
 
 ```{r T4}
 # hint: mutate() something using MOCA and the percentage formula
@@ -132,9 +132,9 @@ screening <- NULL
 
 The remaining tasks focus on merging two tables. 
 
-You suspect that the older adults with musical experience might report more finely-tuned hearing abilities than those without musical experience. You therefore decide to check whether this trend exists in your data. You measured participant's self reported hearing abilties using the Better Hearing Institute Quick Hearing Check Questionnaire. In this questionnaire participants rated the extent to which they agree or disagree with a list of statements (e.g. 'I have a problem hearing over the telephone') using a 5 point Likert scale (Strongly Disagree, Slightly Disagree, Neutral, Slightly Agree, Strongly Agree). 
+You suspect that the older adults with musical experience might report more finely-tuned hearing abilities than those without musical experience. You therefore decide to check whether this trend exists in your data. You measured participants' self reported hearing abilties using the Better Hearing Institute Quick Hearing Check Questionnaire. In this questionnaire, participants rated the extent to which they agree or disagree with a list of statements (e.g. 'I have a problem hearing over the telephone') using a 5 point Likert scale (Strongly Disagree, Slightly Disagree, Neutral, Slightly Agree, Strongly Agree). 
 
-Each participant's response to each question is contained in the `responses` dataframe in your environment. Each response type is worth a certain number of points (e.g. Strongly Disagree = 0, Strongly Agree = 5), and the scoring key is contained in the `scoring` dataframe. A score for each participant is calculated by totalling up the number of points across all the questions to derive at an overall score. The lower the overall score, the better the participant's self-reported hearing ability.  
+Each participant's response to each question is contained in the `responses` dataframe in your environment. Each response type is worth a certain number of points (e.g. Strongly Disagree = 0, Strongly Agree = 5) and the scoring key is contained in the `scoring` dataframe. A score for each participant is calculated by totalling up the number of points across all the questions to derive an overall score. The lower the overall score, the better the participants' self-reported hearing ability.  
 
 In order to score the questionnaire we first need to perform a couple of steps.
 
@@ -170,7 +170,7 @@ screening_groups_new <- group_by(participant_screening, MUSICAL)
 musical_means <- summarise(screening_groups_new, mean_score = mean(Total_QHC))
 ```
 
-Replace the `NULL` in the `T8` code chunk with the following code converted into a fuctioning pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people stored in `musical_means` which should be made of two rows by two columns.  
+Replace the `NULL` in the `T8` code chunk with the following code converted into a functioning pipeline using pipes. Put each function on a new line one under the other. This pipeline should result in the mean QHC values of musical and non-musical people stored in `musical_means` which should be made of two rows by two columns.  
 
 ```{r T8}
 # hint: in pipes, the output of the previous function is the input of the subsequent function.
@@ -190,4 +190,4 @@ QHC_diff <- NULL
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**. 
+Well done, you are finished! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the answers you have submitted are exactly the same as the ones in the solution - for example, remember that `Mycolumn` is different to `mycolumn` and only one is correct. If you have any questions, please post them on the moodle forum or on the <a href="rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**. 
