@@ -109,7 +109,7 @@ ggplot(data = NULL, aes(x = NULL, y = NULL)) +
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
-The first four lines, to create `menrot_time_angle`, are all functions from the Wickham Six verbs so refer back to your portfolio to see how they work.
+The first four lines, to create `menrot_angle`, are all functions from the Wickham Six verbs so refer back to your portfolio to see how they work.
 
 1. What in `CorrectResponse` would allow you to keep just the correct answers?
 
