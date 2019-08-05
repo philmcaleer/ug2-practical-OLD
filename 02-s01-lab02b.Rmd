@@ -292,7 +292,7 @@ It is the same procedure as this but with different column names:
 
 `group_by(pong_data, HitOrMiss, BackgroundColor)`
 
-The number of groups should be between the sum of the number of background colors (red and blue) and the number of blocks (12).
+The number of groups should be between the sum (i.e. multiplication) of the number of background colors (red and blue) and the number of blocks (12).
 ```
 `r unhide()`  
 
