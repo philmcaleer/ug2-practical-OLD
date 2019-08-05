@@ -28,7 +28,7 @@ The data you have downloaded for this lab is example screening data taken from r
 
 * [D2 Test of Attention](https://en.wikipedia.org/wiki/D2_Test_of_Attention#cite_note-LeclercqZimmermann2002-3): measures participants' selective and sustained concentration and visual scanning speed. <a href="http://www.hogrefe.fr/wp-content/uploads/2014/03/d2-R-Bild-2.jpg" target = "_blank">Example here</a> 
 
-* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participants' subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf", targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Test page here</a>
+* **Better Hearing Institute Quick Hearing Check**: a self-report questionnaire which measures participants' subjective experience of their own hearing abilities. Paper version and scoring on pages 8-9. <a href="http://www.betterhearing.org/sites/default/files/hearingpedia-resources/Your%20Guide%20to%20Better%20Hearing.pdf" targer = "_blank">Example here</a> and <a href="http://www.betterhearing.org/check-your-hearing" target = "_blank">Main Test page here</a>
 
 **The Data Files**  
 
