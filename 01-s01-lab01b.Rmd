@@ -30,7 +30,7 @@ knitr::include_graphics("images/s01-lab01/preclass/rmd_header.png")
 
 ```
 
-By default the file header includes the info shown in Figure \@ref(fig:img-yaml-header) but there are many other options available. You can learn more about this in your spare time if you like through these links: <a href="http://rmarkdown.rstudio.com/html_document_format.html" target = "_blank">http://rmarkdown.rstudio.com/html_document_format.html</a> for **.html** options or <a href="http://rmarkdown.rstudio.com/html_document_format.html" target = "_blank">http://rmarkdown.rstudio.com/pdf_document_format.html</a> for **.pdf** options.
+By default the file header includes the info shown in Figure \@ref(fig:img-yaml-header) but there are many other options available. You can learn more about this in your spare time if you like through these links: <a href="http://rmarkdown.rstudio.com/html_document_format.html" target = "_blank">http://rmarkdown.rstudio.com/html_document_format.html</a> for **.html** options or <a href="https://bookdown.org/yihui/rmarkdown/pdf-document.html" target = "_blank">http://rmarkdown.rstudio.com/pdf_document_format.html</a> for **.pdf** options.
 
 ```{block, type = "try"}
 **BUT WAIT**!! What if you spelt your name wrong? How would you change this?
