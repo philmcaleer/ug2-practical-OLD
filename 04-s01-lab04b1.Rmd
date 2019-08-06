@@ -2,9 +2,9 @@
 
 ### General Probability Calculations
 
-Today we will being by recapping the concepts of probability calculations from Level 1, looking at discrete distributions. If you are unsure about discrete vs continuous you should try the other quick tutorial on it, to be found on Moodle. At the end of this section there are three Quickfire Questions to test your understanding. Any that you aren't clear on bring them to class next week for discussion.
+Today we will being by recapping the concepts of probability calculations from Level 1, looking at discrete distributions. If you are unsure about discrete vs continuous you should try the other quick tutorial on it, to be found on Moodle. At the end of this section, there are three Quickfire Questions to test your understanding. Bring any that you aren't clear on to class next week for discussion.
 
-When talking about probability, we often are interested in the probability of an event occurring. The probability of an event is represented by a number between 0 and 1, and the letter **p**. For example, the probability of flipping a coin and it landing on 'tails', most people would say, is estimated at **p = .5**, i.e. the likelihood of getting tails is $p = \frac {1}{2}\ $ as there is one desired outcome (tails) and two possibilities (heads or tails).  
+When talking about probability, we often are interested in the probability of an event occurring. The probability of an event is represented by a number between 0 and 1, and the letter **p**. For example, the probability of flipping a coin and it landing on 'tails', most people would say, is estimated at **p = .5**, i.e. the likelihood of getting tails is $p = \frac {1}{2} \ $ as there is one desired outcome (tails) and two possibilities (heads or tails).  
 <br>
 Calculating the probability  of any discrete event occuring can be formulated as:
 
@@ -20,7 +20,7 @@ $$p = \frac{number \  of  \ ways \ the \ event \ could \  arise}{number \ of \ p
 
 **4.** Let's instead say you have two **separate** packs of cards. The probability of drawing the 10 of clubs from **both** packs would be: $p = \frac{1}{52} \times \frac{1}{52}= .0004$. The probability has gone down again because you have created an event that is **even more unlikely** to happen - this is called the `joint probability` - multiplying the two individual probabilities of **separate events** to find the joint probability. 
 
-**5.** What about the probability of drawing the 10 of clubs from a pack of 52, putting it back (i.e. **replacement**), and subsequently drawing the 7 of diamonds? Again, this would be represented by multiplying together the probability of each of these events happening to obtain the `joint`: $p = \frac{1}{52} \times \frac{1}{52}= .0004$.
+**5.** What about the probability of drawing the 10 of clubs from a pack of 52, putting it back (i.e. **replacement**), and subsequently drawing the 7 of diamonds? Again, this would be represented by multiplying together the probability of each of these events happening to obtain the `joint probability`: $p = \frac{1}{52} \times \frac{1}{52}= .0004$.
 
 **6.** Finally, say you draw the 10 of clubs from a pack of 52 but this time **don't replace it**. What is the probability that you will draw the 7 of diamonds in your next draw (again without replacing it) and the 3 of hearts in a third draw? This time the number of cards in the pack is **fewer** for the second (51 cards) and third draws (50 cards) so you take that into account in your multiplication:  $p = \frac{1}{52} \times \frac{1}{51}\times \frac{1}{50}= .000008$.
 
@@ -66,9 +66,9 @@ We will now recap plotting probability distributions by looking at the probabili
 
 Imagine we want to know the probability of getting X number of heads in 10 coin flips. To simulate 10 coin flips we used the `sample()` function where we randomly sample (with replacement) from all possible events: i.e. either **heads** or **tails**. 
 
-* Open a new script and copy in the code lines below. The last argument in the code above provides the instruction to sample with or without replacement by setting it to `TRUE` or `FALSE` respectively.
+* Open a new script and copy in the code lines below. The last argument in the code provides the instruction to sample with or without replacement by setting it to `TRUE` or `FALSE` respectively.
 * **Note1:** Because our event labels are strings (text), we enter them into the function as a vector; i.e. in "quotes"
-* **Note2:** Below the lines of code, you will see the output that we got when we ran our code. Don't worry if your sequence of heads and tails is different from the above output; this is to be expected as we are generating a random sample.
+* **Note2:** Below the lines of code, you will see the output that we got when we ran our code. Don't worry if your sequence of heads and tails is different from this output; this is to be expected as we are generating a random sample.
 
 ``` {r libraries, eval = TRUE, message = FALSE}
 library("tidyverse")
@@ -79,7 +79,7 @@ sample(c("HEADS", "TAILS"), 10, TRUE)
 ```{block, type ="info"}
 Sampling is simply choosing or selecting something - here we are randomly choosing one of the possible options. Other psychology experiment 'sampling' could include randomly selecting participants, randomly choosing which stimuli to present on a given trial, or randomly assigning participants to a condition e.g.drug or placebo...etc.
 
-Replacement is putting the sampled option back into the 'pot' of possible options. For example, on the first turn you randomly sample HEADS from the options of HEADS and TAILS with replacement, meaning that on the next you have the same two options again; HEADS or TAILS. Sampling without replacement means that you remove the option from subsequent turns. So say on the first turn you randomly sample HEADS from the options HEADS and TAILS but without replacement. Now on the second turn you only have the option of TAILS to 'randomly' sample from. On the third turn without replacement you would have no options. So replacement means putting the option back for the next turn.
+Replacement is putting the sampled option back into the 'pot' of possible options. For example, on the first turn you randomly sample HEADS from the options of HEADS and TAILS with replacement, meaning that on the next turn you have the same two options again; HEADS or TAILS. Sampling without replacement means that you remove the option from subsequent turns. So say on the first turn you randomly sample HEADS from the options HEADS and TAILS but without replacement. Now on the second turn you only have the option of TAILS to 'randomly' sample from. On the third turn without replacement you would have no options. So replacement means putting the option back for the next turn.
 ```
 `r unhide()`
 <br>
@@ -171,7 +171,7 @@ To find the probability of getting say 4, 5, or 6 heads in 10 coin flips, you ar
 
 Not sure if you should be summing or multiplying probabilities? A good way to remember, from both the coin flip examples and from the pack of cards examples earlier, is that if the scenarios are **related** you are summing probabilities, if scenarios are **separate** you are multiplying probabilities. **Related** scenarios are usually asking you about the probability of **'either / or'** scenarios occuring, whereas **separate** scenarios usually ask about the probability of one scenario **'and'** another scenario both occuring.
 
-Your sample distribution `data10k` has already completed the first part of this calculation for you (finding individual probabilities of n heads in 10 coing flips), so all you need to to is sum the required probailities together!
+Your sample distribution `data10k` has already completed the first part of this calculation for you (finding individual probabilities of n heads in 10 coin flips), so all you need to to is sum the required probabilities together!
 ```
 `r unhide()`
 
@@ -185,7 +185,7 @@ We'll use 3 functions to work with the binomial distribution:
 
 * `pbinom` - the distribution function: gives you the probability of getting a number of successes below a certain cut-off point (e.g. probability of getting 0 to 5 heads out of 10 flips), given the `size` and the `prob`.
 
-* `qbinom` - the quantile function: is the inverse of`pbinom` in that it gives you the x axis value below (and including the value) which the summation of probabilities is greater than or equal to a given probability `p`, plus given the `size` and `prob`.
+* `qbinom` - the quantile function: is the inverse of`pbinom` in that it gives you the x axis value below (and including the value) which the summation of probabilities is greater than or equal to a given probability `p`, given the `size` and `prob`.
 
 ### **`dbinom`** - The Density Function
 
@@ -236,7 +236,7 @@ barplot(dbinom(0:10, 10, 0.5), names.arg = 0:10, xlab = 'Number of Heads', ylab 
 
 `r hide("Explain This - I can't get the right answer")`
 ```{block, type ="info"}
-You want to know the probability of 2 heads in 10 flips. X is therefor 2; Size is therefore 10; and the probability stays the same at .5, meaning that the code would look like this:
+You want to know the probability of 2 heads in 10 flips. X is therefore 2; Size is therefore 10; and the probability stays the same at .5, meaning that the code would look like this:
 
 `dbinom(2, 10, 0.5)` = .04394531 or rounded = .044
 ```
@@ -284,7 +284,7 @@ The most confusing part for people we find is the concept of `lower.tail`.  If y
 
 Let's consider `lower.tail = TRUE`, this is the default, so if you dont state `lower.tail` then this is what is considered to be what you want. `lower.tail = TRUE` means all the values to the left of your value including the value you state. So on the binomial distribution if you say give me the probability of 5 heads or less, then you would set `lower.tail = TRUE` and you would be counting and summing the probability of 0, 1, 2, 3, 4 and 5 heads. You can check this with `dbinom(0:5, 10, .5) %>% sum()`.
 
-However, if you say give me the probability of 7 or more heads, then you need to do `lower.tail = FALSE`, to consider the right-hand side tail, but also, you need to set the code as `pbinom(6, 10, .5, lower.tail = FALSE)`. Why 6 and not 7? Because the `pbinom` function, when `lower.tail = FALSE`, starts at the value **plus one to the value you state**; it always considers the value you state as being part of the `lower.tail` so if you say 6, it includes 6 in the `lower.tail` and then gives you 7, 8, 9 and 10 as the upper tail. If you said 7 with `lower.tail = FALSE`, then it would only give you 8, 9 and 10. This is tricky but worth keeping in mind when you are using `pbinom` function. And remember, you can always check it by using `dbinom(7:10, 10, .5) %>% sum()` and seeing whether it matches `pbinom(6, 10, 0.5, lower.tail=FALSE)` or `pbinom(7, 10, 0.5, lower.tail=FALSE)`
+However, if you say give me the probability of 7 or more heads, then you need to do `lower.tail = FALSE`, to consider the right-hand side tail, but also, you need to set the code as `pbinom(6, 10, .5, lower.tail = FALSE)`. Why 6 and not 7? Because the `pbinom` function, when `lower.tail = FALSE`, starts at the value **plus one to the value you state**; it always considers the value you state as being part of the `lower.tail` so if you say 6, it includes 6 in the `lower.tail` and then gives you 7, 8, 9 and 10 as the upper tail. If you said 7 with `lower.tail = FALSE`, then it would only give you 8, 9 and 10. This is tricky but worth keeping in mind when you are using the `pbinom` function. And remember, you can always check it by using `dbinom(7:10, 10, .5) %>% sum()` and seeing whether it matches `pbinom(6, 10, 0.5, lower.tail=FALSE)` or `pbinom(7, 10, 0.5, lower.tail=FALSE)`
 ```
 `r unhide()`  
 <br>
@@ -313,13 +313,13 @@ However, if you say give me the probability of 7 or more heads, then you need to
 
 ### **`qbinom`** - The Quantile Function
 
-Finally, the `qbinom` function is useful if you want to know the minimum number of successes ('heads') that would be needed to achieve a particular probability. This time the cut-off we specify is not the number of 'heads' we want but the **probability** we want. For example say we want to know the minimum number of 'heads' out of 10 flips that would result in a 5% heads success rate (a probability of .05), we would use the following code.  
+Finally, the `qbinom` function is useful if you want to know the minimum number of successes ('heads') that would be needed to achieve a particular probability. This time the cut-off we specify is not the number of 'heads' we want but the **probability** we want. For example, say we want to know the minimum number of 'heads' out of 10 flips that would result in a 5% heads success rate (a probability of .05), we would use the following code.  
 
 ``` {r binom_distrib5}
 qbinom(.05, 10, 0.5) 
 ```
 
-As you can see we would need at least 2 Heads in 10 flips to maintain a probability of .05. 
+As you can see we, would need at least 2 Heads in 10 flips to maintain a probability of .05. 
 
 `r hide("Portfolio Point - I don't understand qbinom arguments")`
 ```{block, type ="info"}
@@ -349,4 +349,4 @@ Remember that you want an overall probability of 10% (`p` = .1), you have 17 fli
 
 Excellent! We have now recapped some general probability concepts as well as going over the binomial distribution again. We will focus on the normal distribution in the lab but it would help to read the brief section on it which can be found on Moodle. Keep in mind that what you are trying to get an understanding of is that every value in a distribution has a probability of existing in that distribution.  That probability may be very large, meaning that it is from the middle of the distribution, or that probability might be rather low, meaning it is from the tail, but ultimately every value of a distribution has a probability.
 
-If you have any questions please post them on the Moodle forum of the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!
+If you have any questions please post them on the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. That is all for now. See you in the lab!
