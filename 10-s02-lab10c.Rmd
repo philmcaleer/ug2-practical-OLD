@@ -44,7 +44,7 @@ We will look at these in turn.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
-If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and answering the following the question.
+If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and answer the following question.
 
 * **Check your thinking:** the type of data in this analysis is most probably `r mcq(c("ratio", answer = "interval", answer = "ordinal", "nominal"))` as the data is `r mcq(c(answer = "continuous","discrete"))` and there is unlikely to be a true zero
 
