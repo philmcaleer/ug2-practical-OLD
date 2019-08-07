@@ -111,7 +111,7 @@ Top Tip: Remember that you can scroll up through your command history in the con
 
 ### Skill 3: Creating Tibbles
 
-Tables are important because most of the data we want to analyze comes in a table, i.e. tabular form. There are different ways to get tabular data into R for analysis.  One common way is to load existing data in from a data file (for example, using `readr::read_csv()` which you have seen before).  But other times you might want to just type in data directly.  You can do this using the `tibble::tibble()` function. Being able to create a tibble is a useful data analysis skill because sometimes you will want to create some data on the fly just to try certain codes or functions. 
+Tables are important because most of the data we want to analyze comes in a table, i.e. tabular form. There are different ways to get tabular data into R for analysis.  One common way is to load existing data in from a data file (for example, using `readr::read_csv()` which you have seen before).  But other times, you might want to just type in data directly.  You can do this using the `tibble::tibble()` function. Being able to create a tibble is a useful data analysis skill because sometimes you will want to create some data on the fly just to try certain codes or functions. 
 
 #### Entering Data into a Tibble
 
@@ -123,7 +123,7 @@ tibble(Y = rnorm(10))
 
 The above command creates a new table with one column named `Y`, and the values in that column are the result of a call to `rnorm(10)`: 10 randomly sampled values from a standard normal distribution (mean = 0, sd = 1) - See Skill 1.
 
-If however we wanted to sample from two different populations for `Y`, we could combine two calls to `rnorm()` within the `c()` function. Again this was in Skill 1, here we are now just storing it in a tibble. See below:
+If, however, we wanted to sample from two different populations for `Y`, we could combine two calls to `rnorm()` within the `c()` function. Again this was in Skill 1, here we are now just storing it in a tibble. See below:
 
 ```{r tibble1}
 tibble(Y = c(rnorm(5, mean = -10), 
@@ -136,7 +136,7 @@ But, of course, it would be good to know which population each data point refers
 
 #### Repeating Values to Save Typing
 
-Before finalising our table let's learn a little about the base R function, `rep()`.  This is most useful for automatically repeating values in order to save typing.  For instance, if we wanted 20 letter "A"s in a row, we would type:
+Before finalising our table, let's learn a little about the base R function, `rep()`.  This is most useful for automatically repeating values in order to save typing.  For instance, if we wanted 20 letter "A"s in a row, we would type:
 
 ```{r a_20}
 rep("A", 20)
@@ -180,7 +180,7 @@ tibble(group = rep(c("A", "B"), c(5, 5)),
        Y = c(rnorm(5, mean = -10), rnorm(5, mean =  20)))
 ```
 
-Be sure to play around with the code chunk to get used to it. Try adding a third group or even a third column? Perhaps you want to give every participant a random age with a mean of 18, and a sd of 1; or even a participant number.
+Be sure to play around with the code chunk to get used to it. Try adding a third group or even a third column? Perhaps you want to give every participant a random age with a mean of 18, and an sd of 1; or even a participant number.
 
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
@@ -237,7 +237,7 @@ But `pluck()` is also useful, and can be written as so:
 pluck(vec, 1) - pluck(vec, 2)
 ```
 
-It can also be incorporated into a pipeline as below where we still `pull()` the means column, `m`, and then `pluck()` each value in turn and subtract them from each other.
+It can also be incorporated into a pipeline, as below, where we still `pull()` the means column, `m`, and then `pluck()` each value in turn and subtract them from each other.
 
 ```{r pull-pluck-pipe}
 ## whole thing in a pipeline
@@ -277,7 +277,7 @@ my_data_means %>%
 ```{block, type ="info"}
 Keep in mind that a very useful technique for establishing what you want to do to a dataframe is to verbalise what you need, or to write it down in words, or to say it out loud. Take this last code chunk. What we wanted to do was to `spread()` the data in `m` into the groups A and B. Then we wanted to `mutate()` a new column that is the difference, `diff`, of A minus B. And finally we wanted to `pull()` out the value in `diff`. 
 
-Often step 1 of writing code or understanding code is knowing what it is you want to do in the first place. After that you just need the correct functions. Fortunately for us a lot of the `tidyverse` names its functions based on what they specifically do!
+Often step 1 of writing code or understanding code is knowing what it is you want to do in the first place. After that, you just need the correct functions. Fortunately for us, `tidyverse` names its functions based on what they specifically do!
 ```
 `r unhide()`
 <br>
@@ -285,7 +285,7 @@ Often step 1 of writing code or understanding code is knowing what it is you wan
 
 ### Skill 5: Creating Your Own Functions
 
-In Skills 1 to 4, we have looked at creating and sampling data, storing it in a tibble, and extracting information from that tibble. Now say we wanted to do this over and over again. For instance, we might want to generate 100 random datasets just like the one in Skill 4. It would be a pain to have to type out the `tibble()` function 100 times or even to copy and paste it 100 times.  We'd likely make an error somewhere and it would be hard to read.  To help us, we can create a custom function that performs the action you want; in our case, creating a tibble of random data.  
+In Skills 1 to 4, we have looked at creating and sampling data, storing it in a tibble, and extracting information from that tibble. Now, say we wanted to do this over and over again. For instance, we might want to generate 100 random datasets just like the one in Skill 4. It would be a pain to have to type out the `tibble()` function 100 times or even to copy and paste it 100 times.  We'd likely make an error somewhere and it would be hard to read.  To help us, we can create a custom function that performs the action you want; in our case, creating a tibble of random data.  
 
 Remember, a function is just a procedure that takes an input and gives you the same output each time - like a toaster! A function has the following format:
 
@@ -296,7 +296,7 @@ name_of_function <- function(arg1, arg2, arg3) {
 }
 ```
 
-First you define your own function name (e.g. `name_of_function`) and define the names of the arguments it will take (`arg1`, `arg2`, ...) - an argument is the information that you feed into your function, e.g. data. Finally, you state the calculations or actions of the function in the body of the function (the portion that appears between the curly braces). 
+First, you define your own function name (e.g. `name_of_function`) and define the names of the arguments it will take (`arg1`, `arg2`, ...) - an argument is the information that you feed into your function, e.g. data. Finally, you state the calculations or actions of the function in the body of the function (the portion that appears between the curly braces). 
 
 One of the most basic possible functions is one that takes no arguments and just prints a message. Here is an example:
 
@@ -375,8 +375,8 @@ gen_data <- function(n = 20, m1 = 20, m2 = -20) {
                   Y = c(rnorm(n,  m1, 5), rnorm(n, m2, 5)))
 }
 
-# m1 is the mean of group A, 
-# m2 is mean of group B and would look like:
+# m1 is the mean of group A
+# m2 is mean of group B
 
 # The function would be called by: gen_data(20, 20, -20)
 # Giving 20 participants in each group, 
@@ -394,7 +394,7 @@ gen_data <- function(n = 20, m1 = 20, m2 = -20) {
 ```{block, type ="info"}
 Here are two important things to understand about functions.
 
-1. **Functions obey lexical scoping.**  What does this mean?  It's like what they say about Las Vegas: what happens in the function, stays in the function.  Any variables created inside of a function will be discarded after the function executes and will not be accessible to the outside calling process.  So if you have a line, say a varibale `my_var <- 17` inside of a function, and try to print `my_var` from outside of the function, you will get an error: `object 'my_var' not found`. Although the function can 'read' variables from the environment that are not passed to it through an argument, it cannot change them.  So you can only write a function to return a value, not change a value.
+1. **Functions obey lexical scoping.**  What does this mean?  It's like what they say about Las Vegas: what happens in the function, stays in the function.  Any variables created inside of a function will be discarded after the function executes and will not be accessible to the outside calling process.  So if you have a line, say a variable `my_var <- 17` inside of a function, and try to print `my_var` from outside of the function, you will get an error: `object 'my_var' not found`. Although the function can 'read' variables from the environment that are not passed to it through an argument, it cannot change them.  So you can only write a function to return a value, not change a value.
 
 2. **Functions return the last value that was computed.**  You can compute many things inside of a function but only the last thing that was computed will be returned as part of the calling process.  If you want to return `my_var`, which you computed earlier but not as the final computation, you can do so explicitly using `return(my_var)` at the end of the function (before the second curly bracket).
 ```
@@ -419,7 +419,7 @@ rnorm(100) %>% mean()
 rnorm(100) %>% mean()
 ```
 
-But it's far easier and more readable to wrap the expression in `replicate()` function where the first argument is the number of times you want to repeat the expression stated as the second argument, i.e. `replicate(times, expression)`. Here below we replicate the mean of 100 randomly generated numbers from the normal distribution, and we do this 10 times:
+But it's far easier and more readable to wrap the expression in the `replicate()` function where the first argument is the number of times you want to repeat the expression stated as the second argument, i.e. `replicate(times, expression)`. Below, we replicate the mean of 100 randomly generated numbers from the normal distribution, and we do this 10 times:
 
 ```{r rep10, results = "hide"}
 replicate(10, rnorm(100) %>% mean())
