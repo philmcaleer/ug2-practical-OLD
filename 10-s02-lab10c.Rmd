@@ -61,7 +61,7 @@ All correlations must have a data point for each participant in the two variable
 
 ### Task 3 - Missing Data {#Ch10InClassQueT3}
 
-It looks like that everyone has data in all the columns but let's test our skills a little whilst we are here.  Answer the following questions:
+It looks like everyone has data in all the columns but let's test our skills a little whilst we are here.  Answer the following questions:
 
 1. How is missing data represented in a tibble? `r mcq(c("an empty cell", answer = "NA","a large number", "don't know"))`
 2. Which code would leave you with just the participants who were missing Reading Ability data in mh: 
@@ -236,7 +236,7 @@ Load in the data in `VapingData.csv` and analyse it to test the hypothesis that 
 
 1. Start of by looking at the data.  You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores. Sex and Age.
 2. Accuracy is as a proportion and as such can't go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.
-3. We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of the researc., Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).
+3. We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of your research. Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).
 4. Now create an IAT score for participants by subtracting Block 3 reaction times (RT) away from Block 5 reaction times e.g (B5-B3). Use the paragraph above to understand how the scores relate to attitudes.
 5. Create a descriptives summary of the number of people, the mean RT and Vaping Questionnaire Score. Why might these averages be useful? Why are averages not always useful in correlations?
 6. Check your assumptions of correlations as we did above and descriptives, thinking about how it compares to the hypothesis.
