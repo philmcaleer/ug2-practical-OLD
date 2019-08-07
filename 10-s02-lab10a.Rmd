@@ -2,7 +2,7 @@
 
 ## Overview
 
-As you will read in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> as part of the preclass reading, correlations are **used to detect and quantify relationships among numerical variables**. In short, you measure two variables and the correlation analysis tells you whether or not they are related in some manner - positively or negatively; one increases as the other increases; one decreases as the other increases; etc. However, unfortunately, you may have heard people say lots of negative things about correlations:
+As you will read in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> as part of the preclass reading, correlations are **used to detect and quantify relationships among numerical variables**. In short, you measure two variables and the correlation analysis tells you whether or not they are related in some manner - positively or negatively; one increases as the other increases; one decreases as the other increases; etc. However, unfortunately, you may have heard people say lots of negative things about correlations
 
 * they do not prove causality
 * they suffer from the bidirectional problem (A vs B is the same as B vs A)
