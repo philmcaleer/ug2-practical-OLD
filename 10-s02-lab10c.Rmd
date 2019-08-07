@@ -1,6 +1,6 @@
 ## InClass Activity
 
-We are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
+W are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
 
 <a href="./data/10-s02/inclass/ch10-inclass-data.zip" target = "_blank">Click here to download the data for today</a> or download it from Moodle.
 
