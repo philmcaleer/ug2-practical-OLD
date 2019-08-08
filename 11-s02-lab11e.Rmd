@@ -162,7 +162,7 @@ mcq3 <- 3
 
 #### Assignment Question 4
 
-The "fitted" or "typical" value for a participant in Group 1 would be $\hat{Y}_{ij}$ = 5.
+The "fitted" or "typical" value for a participant in Group 1 would be $\hat{Y}_{ij}$ = $\mu$ + $A_i$..
 
 * As such the correct answer is:
 
