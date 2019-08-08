@@ -2,19 +2,19 @@
 
 **One-factor ANOVA: Worked example**
 
-Today we are going to start with a step by step example of building a model for an ANOVA (Analysis of Variance).  After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.
+Today we are going to start with a step-by-step example of building a model for an ANOVA (Analysis of Variance). After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.
 
 **NOTE:** We assume from the preclass reading that you are now at least familiar with the terms **estimation equations**, **decomposition matrices**, and **sums of squares**, though perhaps you don't quite fully understand them. This activity will help.
 
-An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors).  Thinking back, a t-test is where you normally only have two conditions (levels) right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs hooligans (t-test), you can compare IQ scores for professors vs hooligans vs politicians (ANOVA); though one might argue that the latter two conditions (levels) are one in the same.
+An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally only have two conditions (levels), right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same.
 
 Let's assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let's pretend you are studying how consuming food before an exam affects student performance.  You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you'd need **far more** than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).
 
-This is called a **one-factor design** because there is a single factor, which we might call "pre-exam consumption", that has three different levels: water, buffet, and salad. It is a between-subjects design because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.
+This is called a **one-factor design** because there is a single factor, which we might call "pre-exam consumption", that has three different levels: water, buffet, and salad. It is a **between-subjects design** because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.
 
-For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference in groups.
+For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won't complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.
 
-Here's how the exam performance looks for each of the three groups:
+Here's how the exam performance looks like for each of the three groups:
 
 ```{r ch11-setup, echo=FALSE}
 RNGversion("3.5")
@@ -58,10 +58,10 @@ Where:
 - $Y_{ij}$ is the observed value for observation $j$ of group $i$ - i.e. a given participant's score in a given group;
 - $\mu$ (pronounced "mu") is the population grand mean (estimated by the sample grand mean);
 - $A_i$ is the deviation of the population mean of group $i$ from the population grand mean;
-- $S(A)_{ij}$ is the error or "residual", defined as the observed value ($Y_{ij}$) minus the model prediction ($\hat{Y}_{ij}$), or the actual value minus the predicted value.
+- $S(A)_{ij}$ is the error or residual, defined as the observed value ($Y_{ij}$) minus the model prediction ($\hat{Y}_{ij}$), or the actual value minus the predicted value.
 - $\hat{Y}_{ij}$ is also known as the fitted value or the typical value or the predicted value of a participant in a group, and is calculated as: $\mu$ + $A_i$.
 
-We begin by applying the **estimation equations**.  Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample.  We will call this $\hat{\mu}$. The "party hat" that $\mu$ is wearing ($\hat{\mu}$) is just there to remind us that it is not the actual population mean, but an **estimate** of that value derived from our sample. So if we are working in predicted values, values we haven't actually collected, just predicted, then we stick the "party hat" on the symbol. If we are working in real values that we have collected, no party hat!
+We begin by applying the **estimation equations**.  Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample.  We will call this $\hat{\mu}$. The "party hat" that $\mu$ is wearing ($\hat{\mu}$) is just there to remind us that it is not the actual population mean, but an **estimate** of that value derived from our sample. So, when we are working in predicted values (values we haven't actually collected, just predicted) then we stick the "party hat" on the symbol. If we are working in real values (that we have collected) then no party hat!
 
 The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:
 
@@ -73,11 +73,11 @@ The estimation equations for our model (seen in Table 3.3 on page 18 of Miller a
 
 where
 
-- $Y_{..}$ is the mean of all 12 observations in the sample, and
+- $Y_{..}$ is the mean of all 12 observations in the sample a.k.a. the baseline 
 
 - $Y_{i.}$ is the mean of the 4 observations in group $i$.
 
-- $\hat{A}_i$ is the respective group mean minus the sample mean
+- $\hat{A}_i$ is the respective group mean minus the sample mean a.k.a. between-subjects variance 
 
 Applying these estimation equations to the data above yields the following decomposition matrix:
 
@@ -145,7 +145,7 @@ The rows where `i` is equal to 2; in other words, rows 5-8
 **The value would be `r .meal_eff[1]`**
 
 ```{block, type ="info"}
-This value appears in column `Ai`, rows 1-4, where `i` equals 1.  This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the **typical** participant in that group - as opposed to an individual participant in that group.
+This value appears in column `Ai`, rows 1-4, where `i` equals 1.  This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the **typical** participant in that group - as opposed to an individual participant in that group. Note that, conceptually this gives you the effect of your manipulation (food consumption style) and the different `i_s` allow you do so for each of the different styles you look at. 
 
 ```
 `r unhide()`
@@ -158,7 +158,7 @@ This value appears in column `Ai`, rows 1-4, where `i` equals 1.  This can be th
 **The value would be `r .err[10]`**
 
 ```{block, type ="info"}
-This value appears in column `err`, where `i` equals 3 and `j` equals 2. This can be thought of the unique difference for that participant from the sample mean and group mean.
+This value appears in column `err`, where `i` equals 3 and `j` equals 2. This can be thought of the unique difference for that participant from the sample mean and group mean, meaning that we take into consideration that each subject is unique.
 ```
 `r unhide()`
 <br>
@@ -208,7 +208,7 @@ You will do this by typing the observed values into a tibble, and then writing c
 
 `r hide("Step 1 Hints")`
 ```{block, type ="info"}
-* You will need some wrangling functions so on't forget to load the tidyverse
+* You will need some wrangling functions so don't forget to load in tidyverse
 * Create a tibble as `dmx <- tibble(i = NA, j = NA, Yij = NA)`
 * When using the `rep()` function remember that you can use `each` or `times` as calls in rep: `rep(1:3, each = 4)`
 * When typing in numbers the c() function will allow you to put in numbers such as `Column = c(37, 80, 64, 31)`
@@ -272,7 +272,7 @@ $\hat{Y}_{ij} = \hat{\mu} + \hat{A}_i$
 
 ### Step 5: Sums of squares {#Ch11InClassQueT5}
 
-Once you have your dmx, you can start performing the calculations.  Sums of squares are used in calculations for performing tests on model components, which we will learn more about soon, but you can practice them now as shown in Section 3.4 of Miller and Haden (2013).
+Once you have your dmx, you can start performing the calculations.  Sums of squares are used in calculations for performing tests on model components, which we will learn more about soon, but you can practice them for now as shown in Section 3.4 of Miller and Haden (2013).
 
 * Square all the individual values in the columns `Yij`, `mu`, `Ai`, and `err` in `dmx4`, 
 * Now sum up the squared values for each of these columns.  
@@ -304,4 +304,4 @@ Well done! Display `dmx4` in the console and compare it to the table above.  How
 
 To recap, what we are doing here is setting up the ANOVA to compare the three groups to see if there is a significant difference between each group.  Doing it this way allows us to get an understanding of where the numbers come from, and it highlights that the analysis is about comparing variance within groups and variance between groups. If the variance between groups is larger than the variance within groups then it is likely that your experimental manipulation has had an effect.  Conversely, if the variance within groups is larger than the variance between groups then there is likely to be no effect of your experimental manipulation.
 
-You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.** However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel **#level2_2018**
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.** However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel **#level2_2018**
