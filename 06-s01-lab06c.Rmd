@@ -10,7 +10,7 @@ Two-sample designs are very common in Psychology as often we want to know whethe
 
 `r hide("Portfolio Point - All the different names for one thing!")`
 ```{block, type ="info"}
-Now that we are progressing through the semester we will start to reduce the pointers for things that you should make a note of. By now you should have a really good idea yourself about what you need to remember.  That said, one of the really confusing things about research design is that there are many names for the same type of design.  This is definitely something you should be writing out in your own words, to remember it better, if it is something you struggle with.
+Now that we are progressing through the semester, we will start to reduce the pointers for things that you should make a note of. By now you should have a really good idea yourself about what you need to remember.  That said, one of the really confusing things about research design is that there are many names for the same type of design.  This is definitely something you should be writing out in your own words, to remember it better, if it is something you struggle with.
 
 E.g.
 
@@ -19,7 +19,7 @@ E.g.
 * matched pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)
 * mixed design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half do ratings of trustworthiness (between). The paper we are looking at today technically uses a mixed design at times but we will use the between element to show you how to run independent t-tests.
 
-Spend sometime when reading articles to really figure out the design they are using.
+Spend some time when reading articles to really figure out the design they are using.
 ```
 `r unhide()`  
 <br>
@@ -37,13 +37,13 @@ To recap on Experiment 4, 39 professional recruiters from Fortune 500 companies 
 
 **Today's Goal!**
 
-Our task today is to reproduce a figure and the results from the article (p. 887). The two packages you will need are `tidyverse`, which we have used a lot, and `broom`, which is new to you but will become your friend. One of the main functions we use in broom is `broom::tidy()` - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with, into a table that you can then use much more easily. Might that be worth making a note of? We will show you how to do this today and then ask you to use it over the coming assignments.
+Our task today is to reproduce a figure and the results from the article (p. 887-888). The two packages you will need are `tidyverse`, which we have used a lot, and `broom`, which is new to you but will become your friend. One of the main functions we use in broom is `broom::tidy()` - this is an incredibly useful function that converts the output of an inferential test in R from a combination of text and lists, that are really hard to work with, into a table that you can then use much more easily. Might that be worth making a note of? We will show you how to do this today and then ask you to use it over the coming assignments.
 
 If you are using the Boyd Orr labs, `broom` is already installed and just needs called to the `library()`. If you are using your own machine, you will need to install it one time to begin with if you have never installed it before.
 
 ### Task 1: Evaluators {#Ch6InClassQueT1}
 
-1. Open a new script and call `broom` and the `tidyverse` into your library. **Note:** Order is important when calling multiple libraries - if two libraries have a function named the same thing, R will use the function from the library loaded in last.
+1. Open a new script and call `broom` and `tidyverse` into your library. **Note:** Order is important when calling multiple libraries - if two libraries have a function named the same thing, R will use the function from the library loaded in last.
 
 2. The file called `evaluators.csv` contains the demographics of the 39 raters. After downloading and unzipping the data, and of course setting the working directory, read in the information from this file and store it in a variable called `evaluators`.
 
@@ -104,7 +104,7 @@ This is why it's important to have reproducible data analyses for others to exam
 
 ### Task 2: Ratings {#Ch6InClassQueT2}
 
-We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
+We are now going to calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
 
 We will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called `ratings2` - which has the following structure:
 
@@ -155,7 +155,7 @@ Don't forget to use the hints and the solution at the bottom if you are really s
 
 4. `bind_rows()` from Lab 2 will help you to combine these variables from two separate tibbles.
 
-5. Use `inner_join()` with the column common in both tibbles. `select()` and `arrange()` will help you here too.
+5. Use `inner_join()` with the common column in both tibbles. `select()` and `arrange()` will help you here too.
 ```
 `r unhide()`
 <br>
@@ -197,7 +197,7 @@ knitr::include_graphics("images/s01-lab06/inclass/figure_7.png")
 
 ```
 
-Replace the `NULL`s below to create a very basic version of this figure. You did something like this for Lab 5 assignment and again in the Lab 3 Visualisation tasks.
+Replace the `NULL`s below to create a very basic version of this figure. You did something like this for the Lab 5 assignment and again in the Lab 3 Visualisation tasks.
 
 ```{r figure-7-almost, eval = FALSE}
 group_means <- group_by(ratings2, NULL, NULL) %>%
@@ -211,7 +211,7 @@ ggplot(group_means, aes(NULL, NULL, fill = NULL)) +
 
 **Improve This Figure:** Discuss with others how you could improve this plot. What other `geom_()` options could you try? Are barcharts that informative or would something else be better? How would you add or change the labels of your plot? Could you change the colours in your figure?
 
-Next, have a look at the below possible solution to see a **modern** way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: <a href = "https://doi.org/10.1371/journal.pbio.1002128" target = "_blank">Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a>
+Next, have a look at the possible solution below to see a **modern** way of presenting this information. There are some new functions in this solution that you should play about with to understand what they do. Remember it is a layering system, so remove lines and see what happens. Note how in the solution the Figure shows the raw data points as well as the means in each condition; this gives a better impression of the true data as just showing the means can be misleading. You can continue your further exploration of visualisations by reading this paper later when you have a chance: <a href = "https://doi.org/10.1371/journal.pbio.1002128" target = "_blank">Weissberger et al., 2015, Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm</a>
 
 `r hide("Possible Solution")`
 ```{r ch6-fig7-possible, results='asis', fig.cap='A possible alternative to Figure 7'}
@@ -234,7 +234,7 @@ ggplot(ratings2, aes(condition, Rating, color = condition)) +
 
 ### Task 4: t-tests {#Ch6InClassQueT4}
 
-Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have `ratings2` stored from Task 2. From this tibble let's reproduce the **t-test** results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means. 
+Brilliant! So far we have checked the descriptives and the last thing now is to check the inferential tests; the t-tests. You should still have `ratings2` stored from Task 2. From this tibble, let's reproduce the **t-test** results from the article and at the same time show you how to run a t-test. Refer back to the lectures to understand the maths behind it but essentially it is a measure between the difference in means over the variance about those means. 
 
 Here is a paragraph from the paper describing the results (p. 887):
 
@@ -245,11 +245,10 @@ We are going to run the t-tests for Intellect, Hire and Impression; each time co
 `r hide("Portfolio Point - A vs B or B vs A in a t-test?")`
 ```{block, type ="info"}
 Now would be a good time to add to your notes about what is the difference between a positive and negative value as the outcome to a t-test? Remember? It just tells you which group had the bigger mean - the absolute value will be the same.  Most commonly, t-tests are reported as a positive value.
-")
 ```
 `r unhide()`
 <br>
-You will need the function `t.test()` and you will use `broom::tidy()` to pull out the results from each t-test into a table. Below we show you how to create the group means and then run the t-test for intellect. Run these lines and have a look at what they do.
+You will need the function `t.test()` and you will use `broom::tidy()` to pull out the results from each t-test into a table. Below, we show you how to create the group means and then run the t-test for intellect. Run these lines and have a look at what they do.
 
 1. First we calculate the group means:
 
@@ -365,7 +364,7 @@ knitr::kable(results,
     
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
-Your t-tests answers should have the following structure:
+Your t-test answers should have the following structure:
 
 `t(degrees of freedom) = t-value, p = p-value`,
 
@@ -382,6 +381,6 @@ where:
 
 So to recap, we looked at the data from Schroeder and Epley (2015), both the descriptives and inferentials, we plotted a figure, and we confirmed that, as in the paper, there are significant differences in each of the three rating categories (hire, impression and intellect), with the listened condition receiving a higher rating than the read condition on each rating. All in, our interpretation would be that people rate you hire when they hear you speak your resume as opposed to them just reading your resume!
 
-Well done for completing this inclass activity on independent samples t-tests! Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! Also, if you have more time, you might want to visit this website that will give you better understanding of the relationship between the $t$ distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/" target = "_blank">gallery.shinyapps.io/tdist</a>
+Well done for completing this inclass activity on independent samples t-tests! Are there any useful points in this activity about t-tests or plots that you think could be useful to include in your portfolio? Make sure to include them now! Also, if you have more time, you might want to visit this website that will give you a better understanding of the relationship between the $t$ distribution and the normal distribution: <a href="https://gallery.shinyapps.io/tdist/" target = "_blank">gallery.shinyapps.io/tdist</a>
 
 You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module**. However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel **#level2_2018**.
