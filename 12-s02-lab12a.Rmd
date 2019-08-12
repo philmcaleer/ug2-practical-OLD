@@ -2,9 +2,9 @@
 
 ## Overview
 
-In the previous lab you learned how to decompose a dependent variable into components of a linear model, expressing them in terms of a decomposition matrix, before finishing up with calculaing the sums of squares. In this lab, we will take it a step further and start exploring the relationships between sums of squares (SS), mean squares (MS), degrees of freedom (df), and F-ratios.  In short, in the first part of this class activity, we will show you how you go from the decomposition matrix to actually determining if there is a significant difference or not.  
+In the previous lab you learned how to decompose a dependent variable into components of a linear model, expressing them in terms of a decomposition matrix, before finishing up with calculating the sums of squares. In this lab, we will take it a step further and start exploring the relationships between sums of squares (SS), mean squares (MS), degrees of freedom (df), and F-ratios.  In short, in the first part of this class activity, we will show you how you go from the decomposition matrix to actually determining if there is a significant difference or not.  
 
-We've had you work through the calculations step-by-step by hand and in R in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. As such, in the second part of the activities, we'll show you how to run a one-factor ANOVA using the `ezANOVA()` function in the **`ez`** add-on package. From there you will see how the output from this function maps onto the the concepts you've been learning about. 
+We've had you work through the calculations step-by-step by hand and in R in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. As such, in the second part of the activities, we'll show you how to run a one-factor ANOVA using the `ezANOVA()` function in the **`ez`** add-on package. From there you will see how the output of this function maps onto the concepts you've been learning about. 
 
 As such, the goals of this chapter are to:
 
