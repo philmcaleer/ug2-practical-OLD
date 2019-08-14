@@ -10,7 +10,7 @@ In order to complete this assignment you first have to download the assignment .
 
 For this assignment, you will be looking at real data from **Experiment 2** of <a href = "https://www.sciencedirect.com/science/article/pii/S0010027703000647?via%3Dihub" target = "_blank">Keysar, Lin, and Barr (2003)</a>, "Limits on Theory of Mind Use in Adults", **Cognition**, **89**, 29--41. This study used eye-tracking to investigate people's ability to take another's perspective during a kind of communication game. (The data that you will be analysing, while real, did not appear in the original report.)
 
-The communication game that participants played was as follows. Each participant sat at a table opposite a confederate participant (a stooge from the lab who pretended to be a naive participant).  Between the two participants was an upright set of shelves (see figure below).  The participants played a game in which the real participant was assigned the role of the "matcher" and the confederate the role of the "director".  The director was given a picture with a goal state for the grid, showing how the objects needed to be arranged.  However, the director was not allowed to touch the objects. To get the objects in their proper places, the director needed to give instructions to the matcher to move the objects.  For example, the director might say, "take the red box in the top corner and move it down to the very bottom row," and the matcher would then perform the action.  The matcher's eye movements were tracked as they listened to and interpreted the director's instructions. 
+The communication game that participants played was as follows. Each participant sat at a table opposite a confederate participant (a stooge from the lab who pretended to be a naive participant). Between the two participants was an upright set of shelves (see figure below). The participants played a game in which the real participant was assigned the role of the "matcher" and the confederate the role of the "director". The director was given a picture with a goal state for the grid, showing how the objects needed to be arranged.  However, the director was not allowed to touch the objects. To get the objects in their proper places, the director needed to give instructions to the matcher to move the objects. For example, the director might say, "take the red box in the top corner and move it down to the very bottom row," and the matcher would then perform the action. The matcher's eye movements were tracked as they listened to and interpreted the director's instructions. 
 
 ```{r img-lab13-grids, echo = FALSE, out.width='50%', fig.cap = "Director-Matcher Viewpoints from Keysar, Lin, and Barr (2003)"}
 
@@ -58,16 +58,16 @@ Take a look at your data (`dat`) in the console using `glimpse()` or `View()`, o
 |`condition`|what condition the subject was in|
 |`looktime` |egocentric interference|
 
-We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV.  Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden noncompetitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.
+We have simplified things from the original experiment by collapsing the baseline vs. experimental conditions into a single DV.  Our DV, egocentric interference, is the average difference in looking time for each subject (in milliseconds per trial) for hidden competitors (e.g., small candle) versus hidden non-competitors (e.g., apple). The larger this number, the more egocentric interference the subject experienced.
 
 ### Task 2: Calculate cell means {#Ch13AssignQueT2}
 
-Today we are going to focus on just the main analysis and write-up, and not the assumptions, but as always before running any analysis you should check that your assumptions hold.
+Today we are going to focus on just the main analysis and write-up, and not the assumptions, but as always before running any analysis you should check that your **assumptions** hold.
 
-One of the elements we will need for our write-up is some descriptives. We want to start by creating some summary statistics for the four conditions. Remember, two factors (sex, condition) with 2 levels each (sex: female vs male; condition: false belief vs ignorance) will give four conditions, and as such in our summary table, four cells created by factorially combining sex and condition. 
+One of the elements we will need for our write-up is some descriptives. We want to start by creating some summary statistics for the four conditions. Remember, two factors (sex and condition) with 2 levels each (sex: female vs. male; condition: false belief vs. ignorance) will give you four conditions, and as such in our summary table, four cells created by factorially combining sex and condition. 
 
-* Replace the NULL in the `t2` code chunk below to create the four cells created by factorially combining sex and condition, summarising the mean and standard deviation for each cell.
-    - Store the descriptives in the tibble `cell_means`
+* Replace the NULL in the `t2` code chunk below to create the four cells created by factorially combining sex and condition, calculating the mean and standard deviation for each cell.
+    - Store the descriptives in the tibble called `cell_means`
     - Call the column for the mean `m` and the column for the standard deviation `sd`.
     - Your table should have four rows and four columns as shown below but with your values replacing the XXs
     - Follow the case and spelling *exactly*.
@@ -93,7 +93,7 @@ knitr::kable(cell_means)
 
 We will also need to have some descriptives where we just look at the means of a given factor; the marginal means - the means of the levels of one factor regardless of the other factor.
 
-* Replace the NULL in the `t3` code chunk below to calculate the marginal means and standard deviations for the factor, sex. 
+* Replace the NULL in the `t3` code chunk below to calculate the marginal means and standard deviations for the factor sex. 
     - Store these descriptives in the tibble `marg_sex`
     - Call the column for the mean `m` and the column for the standard deviation `sd`. 
     - Your table should have two rows and three columns as shown below but with your values replacing the XXs
@@ -139,13 +139,13 @@ knitr::kable(marg_cond)
 
 ### Task 5: Interaction plot {#Ch13AssignQueT5}
 
-And finally we are going to need a plot.  When you have two factors, you want to show both factors on the plot to give the reader as much information as possible and save on figure space.  The best way to do this is through some sort of interaction plot as shown in the lab.  It is really a lot easier than it looks and just requires you to think about setting the aes by the different conditions.
+And finally we are going to need a plot.  When you have two factors, you want to show both factors on the plot to give the reader as much information as possible and save on figure space.  The best way to do this is through some sort of interaction plot as shown in the lab.  It is really a lot easier than it looks and it only requires you to think about setting the aes by the different conditions.
 
-* Insert code into the `t5` code chunk below to replicate the figure shown to you 
+* Insert code into the `t5` code chunk below to replicate the figure shown to you. 
     - Pay particular attention to labels, axes dimensions, color and background. 
     - Note that the figure must appear when your code is knitted.
     
-* **Note:** The figure below is a nice figure but should really have error bars on it if I was including it in an actual paper. Including the error bars may help in clarifying the descriptive statistics as you would see as although the means are different, there is huge overlap in terms of error bars.
+* **Note:** The figure below is a nice figure but should really have error bars on it if I was including it in an actual paper. Including the error bars may help in clarifying the descriptive statistics and you will see that here, although the means are different, there is huge overlap in terms of error bars.
 
 ```{r t5}
 # to do: something with ggplot to replicate the figure
@@ -187,10 +187,10 @@ Thinking about the above information, one of the below statements is a good desc
 
 * In the `t7` code chunk below, replace the `NULL` with the number of the statement below that best summarises this analysis. Store this single value in `answer_t7`
 
-1. The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex
-2. The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition
-3. The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex
-4. The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition
+1. The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex.
+2. The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition.
+3. The female participants have an average shorter looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex.
+4. The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of condition.
 
 ```{r t7}
 answer_t7 <- NULL
@@ -202,10 +202,10 @@ Thinking about the above information, one of the below statements is a good desc
 
 * In the `t8` code chunk below, replace the `NULL` with the number of the statement below that best summarises this analysis. Store this single value in `answer_t8`
 
-1. The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of condition.
-2. The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of condition.
-1. The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of sex.
-2. The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of sex.
+1. The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of condition.
+2. The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of condition.
+1. The participants in the false belief group had an average longer looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of sex.
+2. The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of sex.
 
 ```{r t8}
 answer_t8 <- NULL
@@ -218,7 +218,7 @@ Great, so we have looked at our descriptives and thought about what effects ther
 * Replace the NULL in the `t9` code chunk below to run this two-way between-subjects ANOVA. 
     - Look at the inclass for guidance. You need the data, the dv, the two between condition, and the participant id.
     - Do not `tidy()` the output. Do nothing to the output other than store it in the variable named `mod` (note: technically it will store as a list).
-    - The code will convert the condition and participant ids to factors automatically. This is fine.
+    - You will see in red in the output that the code will convert the condition and participant ids to factors automatically. This is fine.
 
 ```{r t9}
 mod <- NULL
@@ -230,10 +230,10 @@ Thinking about the above information, one of the below statements is a good summ
 
 * In the `t10` code chunk below, replace the `NULL` with the number of the statement below that best summarises this analysis. Store this single value in `answer_t10`
 
-1. There is a significant main effect of sex, but no main effect of condition and no interaction betwen condition and sex.
-2. There is a significant main effect of condition, but no main effect of sex and no interaction betwen condition and sex.
+1. There is a significant main effect of sex, but no main effect of condition and no interaction between condition and sex.
+2. There is a significant main effect of condition, but no main effect of sex and no interaction between condition and sex.
 3. There is no significant main effect of sex or condition and there is no significant interaction between condition and sex.
-4. There is a significant main effect of sex, a significant main effect of condition, and a significant interaction between condition and sex
+4. There is a significant main effect of sex, a significant main effect of condition, and a significant interaction between condition and sex.
 
 ```{r t10}
 answer_t10 <- NULL
@@ -251,6 +251,6 @@ Write your summary between the two green lines shown in the Assignment file.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
+Well done, you are finished! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2019**.
 
 See you in the next lab!
