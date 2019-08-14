@@ -1,12 +1,12 @@
 ## PreClass Activity
 
-Just one chapter to read this week. Some of the terms will be familiar but some novel so remember to make your notes and think of examples which would be the same design but a different scenario. Once you have read the chapter, try the suggested exercise from the chapter and then the MCQs below to see if you are following things correctly. Anything you are unsure of, post questions on the forum or ask them in the lab.
+Only one chapter to read this week. Some of the terms will be familiar but some novel so remember to take notes and think of examples which would use the same design but in a different scenario. Once you have read the chapter, try the suggested exercise from the chapter and then the MCQs below to see if you are following things correctly. Anything you are unsure of, post questions on the forum or ask them in the lab.
 
 ### Read
 
 **Chapter**
 
-Read Chapter 4 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> and try to understand the situation where you have two factors with at least two levels each; in this lab we will look at interactions. 
+Read Chapter 4 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> and try to understand the situation where you have two factors with at least two levels each. In this lab we will look at interactions. 
 
 ### TRY
 
