@@ -6,7 +6,7 @@ For this activity we will look at a replication of Furnham (1986) that the Schoo
 
 The overall aim of the original experiment was to investigate whether the decision a jury member makes about the innocence or guilt of a defendant could be influenced by something as simple as **when crucial evidence is presented during a trial**. During the experiment participants (Level 2 Psychology students) listened to a series of recordings that recreated the 1804 trial of a man known as Joseph Parker who was accused of assuming two identities and marrying two women; i.e. bigamy. Each participant listened to the same recordings of evidence, presented by both prosecution and defence witnesses, and were asked to judge how guilty they thought Mr. Parker was at 14 different points during the experiment on a scale of 1 to 9: 1 being innocent and 9 being guilty. 
 
-The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a **critical** piece of evidence was presented. This critical evidence proved that the defendant was innocenct. The **middle** group heard this evidence at Timepoint 9 of the trial whereas the **late** group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today's exercise, we will only focus on the **late** group.
+The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a **critical** piece of evidence was presented. This critical evidence proved that the defendant was innocent. The **middle** group heard this evidence at Timepoint 9 of the trial whereas the **late** group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today's exercise, we will only focus on the **late** group.
 
 In this exercise, your task is to analyse the data to examine whether the participants' ratings of guilt significantly changed **before** and **after** the presentation of the critical evidence in the **late** condition. If the critical evidence, which proved the defendant's innocence, had the desired effect then you should see a significant drop in ratings of guilt after hearing this evidence (Timepoint 13) compared to before (Timepoint 12). Or in other words, **we hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.**
 
@@ -20,7 +20,7 @@ In this exercise, your task is to analyse the data to examine whether the partic
 
 ### Task 2: Wrangle the Data {#Ch7InClassQueT2}
 
-As above, you are only interested in the **Late** group for this assignment and only for **Timepoints 12 (rating before key evidence) and 13 (rating after key evidence)**. But having had a look at `ratings` you will see that the Timepoints are in `wide` format (columns `1` to `14` - each a different timepoint) and the `Evidence` column shows the data has the `Middle` group as well. ***Hmmmm!***
+As above, you are only interested in the **Late** group for this assignment and only for **Timepoints 12 (rating before key evidence) and 13 (rating after key evidence)**. But having had a look at `ratings` you will see that the Timepoints are in `wide` format (columns `1` to `14` - each a different timepoint) and the `Evidence` column contains the `Middle` group as well. ***Hmmmm!***
 
 1. `filter()` only those participants from the `Late` condition.  
 
@@ -83,7 +83,7 @@ knitr::kable(lates[1:4,], align = "c", caption = "How your table should look fro
     
 ### Task 3: Look at the Histogram for Normality {#Ch7InClassQueT3}
 
-Before running an inferential analysis we need to check the assumption of normality. Because the within-subject t-test is based on difference scores, we should calculate the difference scores and check that the distribution of these scores is approximately Normal.
+Before running an inferential analysis, we need to check the assumption of normality. Because the within-subject t-test is based on difference scores, we should calculate the difference scores and check that the distribution of these scores is approximately Normal.
 
 In this task we will do it through creating a **histogram** for the difference scores. Create a histogram and set the binwidth to something reasonable for this experiment.
 
@@ -134,7 +134,7 @@ Remember that outliers are represented as dots or stars beyond the whiskers of t
 2. `group_by()` the categorical column `Timepoint`. This is the column you want to compare groups for.
 3. `summarise()`
 4. Different calculations can be used within the same `summarise()` function as long as they are calculated in the order which you require them. For example, you first need to calculate the participant number, `n = n()`, and the standard deviation, `sd = sd(variable)`, in order to calculate the standard error, `se = sd/sqrt(n)`, which is required to calculate your Confidence Intervals.
-5. For the 95% Confidence Interval, you need to calculate an LowerCI and a UpperCI using the appropriate formula.
+5. For the 95% Confidence Interval, you need to calculate a LowerCI and an UpperCI using the appropriate formula.
 ```
 `r unhide()`
 <br>
@@ -173,7 +173,7 @@ geom_errorbar(aes(ymin = LowerCI, ymax = UpperCI),
 `r unhide()`
 <br>
 
-**Important to remember**: as we have mentioned in previous labs, barplots are not that informative in themselves. Keep in mind that going ahead in your research that you should look to use plots that incorporate a good indication of the distribution/spread of the individual data points as well.  
+**Important to remember**: as we have mentioned in previous labs, barplots are not that informative in themselves. Going ahead in your research, keep in mind that you should look to use plots that incorporate a good indication of the distribution/spread of the individual data points as well.  
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
