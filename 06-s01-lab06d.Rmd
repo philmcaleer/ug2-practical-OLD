@@ -2,7 +2,7 @@
 
 **Lab 6: Independent samples t-test Assignment**
 
-In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Lab6.Rmd`. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. [Download the Assignment .zip file from here](data/06-s01/homework/ch6-assign-data.zip) or on Moodle.
+In order to complete this assignment, you first have to download the assignment .Rmd file which you need to edit for this assignment: titled `GUID_Level2_Lab6.Rmd`. This can be downloaded within a zip file from the link below. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. [Download the Assignment .zip file from here](data/06-s01/homework/ch6-assign-data.zip) or on Moodle.
 
 **Background**
 
@@ -54,7 +54,7 @@ Have a look at `crt`.  There are three variables in `crt` that you will need to 
 crt2 <- NULL
 ```
 
-**NOTE:** For the remainder of this assignment you should use `crt2` as the main source tibble and not `crt`.
+**NOTE:** For the remainder, of this assignment you should use `crt2` as the main source tibble and not `crt`.
 
 ### Task 3: Verify the number of subjects in each group {#Ch6AssignQueT3}
 
@@ -168,7 +168,7 @@ answer_t7e <- NULL
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
+Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers, it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum **#level2_2018**.
 
 See you in the next lab!
 
