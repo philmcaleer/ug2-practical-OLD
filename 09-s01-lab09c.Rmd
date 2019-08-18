@@ -1,6 +1,6 @@
 ## InClass Activity
 
-1. Like the PreClass we want to spend sometime reflecting on what we have learnt and as such this InClass is about looking at ideas, concepts, and codes, that you have had issue with and seeing if we can resolve those issues. In class we will spend some time looking at any issues you have had along the way.
+1. Like the PreClass, we want to spend some time reflecting on what we have learnt and as such this InClass is about looking at ideas, concepts, and codes, that you have had issue with and seeing if we can resolve those issues. In class, we will spend some time looking at any issues you have had along the way.
 
 2. We will also look at some other interesting things you can do in R should you wish to expand your own knowledge and skills, such as:
 
