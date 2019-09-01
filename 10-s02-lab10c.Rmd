@@ -1,6 +1,6 @@
 ## InClass Activity
 
-We are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
+We are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the **relationship** between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so, measuring them as they exist in the environment is most appropriate; hence the use of correlations.
 
 <a href="./data/10-s02/inclass/ch10-inclass-data.zip" target = "_blank">Click here to download the data for today</a> or download it from Moodle.
 
@@ -27,7 +27,7 @@ Let's look at your data - we showed you a number of ways to do this in Semester 
 * number of minutes spent reading at home per week (`Home`), 
 * and number of minutes spent watching TV per week (`TV`). 
 
-For the lab we will focus on Reading Ability and IQ but for further practice you can look at other relationships in your free time.  
+For the lab we will focus on the relationship between Reading Ability and IQ but for further practice you can look at other relationships in your free time.  
 A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (**but do you see the issue with causality and direction**). Or phrasing the hypothesis more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, are positively correlated. This is the hypothesis we will test today but remember that we could always state the null hypothesis that there is no relationship between reading ability and IQ. First, however, we must check some assumptions of the correlation tests. The main assumptions we need to check are:
 
 * Is the data interval, ratio, or ordinal?
@@ -44,7 +44,7 @@ We will look at these in turn.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
-If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and answer the following question.
+If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and then answer the following question.
 
 * **Check your thinking:** the type of data in this analysis is most probably `r mcq(c("ratio", answer = "interval", answer = "ordinal", "nominal"))` as the data is `r mcq(c(answer = "continuous","discrete"))` and there is unlikely to be a true zero
 
