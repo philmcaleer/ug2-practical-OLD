@@ -186,12 +186,6 @@ library("tidyverse")
 mh <- read_csv("data/10-s02/inclass/MillerHadenData.csv") %>% select(-Participant)
 ```
 
-```{r ch10-advance-load-show, message = FALSE, warning = FALSE, eval = FALSE}
-library("Hmisc")
-library("tidyverse")
-mh <- read_csv("MillerHadenData.csv") %>% select(-Participant)
-```
-
 Now run the following line. The `pairs()` function from the `Hmisc` library creates a matrix of scatterplots which you can then use to view all the relationships at the one time.
 
 ```{r ch10-advance-pairs, fig.cap='Matrix of Correlation plots of Miller and Haden (2013) data'}
