@@ -20,7 +20,7 @@ Read Chapter 4 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZ
 
 2. What effect is / effects are tested in a 2x2 ANOVA with factors A and B? `r mcq(c(answer = "the main effects of A and B, and the AB interaction", "only the main effects of A and B", "only the AB interaction", "a correlation between A and B"))`
 
-3. What is a marginal mean? `r mcq(c(answer = "the mean DV at a given level of one factor, averaged over the levels of the other","the mean DV at a given level of one factor, at a particular level of the other factor","a mean that is nearly statistically significant","a mean defined based on marginal likelihood"))`
+3. What is a marginal mean? `r mcq(c(answer = "the mean DV at a given level of one factor, averaged over the levels of the other factors","the mean DV at a given level of one factor, at a particular level of the other factor","a mean that is nearly statistically significant","a mean defined based on marginal likelihood"))`
 
 4. A statistical test for a main effect tests the null hypothesis that `r mcq(c("simple effects in the sample are equivalent","simple effects in the population are equivalent","sample marginal means are equivalent",answer = "population marginal means are equivalent"))`
 
