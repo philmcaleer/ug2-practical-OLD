@@ -79,7 +79,7 @@ Here is a little recap of the columns (plus the two we will add):
 * $mu$ - the overall grand mean (or baseline effect)
 * $A_i$ - the effect of the first factor $i$
 * $B_j$ - the effect of the second factor $j$
-* $\hat{A}_{ij}$ - the effect of the AB interaction
+* $\hat{AB}_{ij}$ - the effect of the AB interaction
 * $\widehat{S(AB)}_{ijk}$ - the effect of within-group variability or error, `err`
 
 ```{r dmx-incomplete, echo = FALSE}
