@@ -115,7 +115,7 @@ And you will also remember that the mean square (MS) is a sums of squares (SS) d
 
 $MS = \frac{SS}{df}$
 
-So let's start putting this together!  If we know the SS of our group/treatment ($SS_{A}$ - also called the between variance) and we know the SS of our error/residuals ($SS_{error}$ - also called the within variance), then we can convert both to Mean Squares (MS) (i.e. the average variance for that condition) by dividing them by their respective degrees of freedom (df). 
+So let's start putting this together!  If we know the SS of our group/treatment ($SS_{A}$ - also called the between variance) and we know the SS of our error/residuals ($SS_{error}$ - also called the within variance), then we can convert both of them to Mean Squares (MS) (i.e. the average variance for that condition) by dividing them by their respective degrees of freedom (df). 
 
 We can then calculate F observed (also called F ratio) by $MS_{A} / MS_{error}$.  If the $MS_{error}$ is larger than $MS_{A}$ (the group effect) then F will be small and there will be no significant effect of group - any difference in groups is purely due to individual differences (another way of thinking about error). On the other hand, if $MS_{A}$ (the group effect) is larger than $MS_{error}$ then F will be large, and depending on how large F is, there may be a significant difference caused by your group variable.
 
@@ -133,7 +133,7 @@ With all that in mind, and it may take a couple of readings, try to answer the f
 
 **Note:** You can access individual columns in a table using double square brackets `[[]]`; for instance dat_ss[["ss_mu"]] gives you the column `ss_mu` from `dat_ss`. This is an alternative to `$` that some may know; e.g. `dat_ss$mu`.
 
-5. Calculate $MS_{S(A)}$, where $S(A)$ is residual error.
+5. Calculate $MS_{S(A)}$. 
 
 `r hide("Hints for Task 2")`
 ```{block, type ="info"}
@@ -159,7 +159,7 @@ To learn a bit about the F distribution we have created a shiny app to play with
 
 * There is also a slider that lets you specify an observed $F$ ratio (to one digit of precision).  It is represented on the <span style = "color:blue">blue line</span> of the graph.  Move this slider around and watch how the p-values change.  The p-value is the total area under the curve to the right of the blue line.
 
-* The <span style = "color:red">red line</span> on the plot denotes the critical value of F required for a significant difference, given the $\alpha$ (type 1 error rate) and the $df_{numerator}$ and $df_{denominator}$
+* The <span style = "color:red">red line</span> on the plot denotes the critical value of F required for a significant difference, given the $\alpha$ (type 1 error rate) and the $df_{numerator}$ and $df_{denominator}$ .
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Slow Burner Questions</span>
 
@@ -209,7 +209,7 @@ There are various options for running ANOVAs in R, but the function we will be u
 <br>
 **Conclusion**
 
-Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .32. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).
+Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .31. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
