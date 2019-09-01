@@ -24,7 +24,7 @@ Both chapters are really short but give a good basis to understanding correlatio
 
 **Guess the correlation**
 
-* Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: <a href = "http://guessthecorrelation.com/", target = "_blank">http://guessthecorrelation.com/</a>. 
+* Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: <a href = "http://guessthecorrelation.com/" target = "_blank">http://guessthecorrelation.com/</a>. 
 
 Read the instuctions on the 'About' tab of the menu and then play the game. Try to achieve your highest score possible before giving up - at worst, 50 points.  Last year's top score was 206; do not let us down here! Post your amazing scores on the lab forum pages. The best posted score will win a free copy of Rstudio!!!  This sounds a bit of fun but being able to interpret scatterplots with a reasonable degree of accuracy can really help your understanding of a relationship.
 
