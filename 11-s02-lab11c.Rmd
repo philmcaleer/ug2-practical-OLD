@@ -59,9 +59,9 @@ Where:
 - $\mu$ (pronounced "mu") is the population grand mean (estimated by the sample grand mean);
 - $A_i$ is the deviation of the population mean of group $i$ from the population grand mean;
 - $S(A)_{ij}$ is the error or residual, defined as the observed value ($Y_{ij}$) minus the model prediction ($\hat{Y}_{ij}$), or the actual value minus the predicted value.
-- $\hat{Y}_{ij}$ is also known as the fitted value or the typical value or the predicted value of a participant in a group, and is calculated as: $\mu$ + $A_i$.
+- $\hat{Y}_{ij}$ is also known as the fitted value or the typical value or the predicted value of a participant in a condition. The "party hat" that $\{Y}_{ij}$ is wearing ($\hat{Y}_{ij}$) is just there to remind us that it is not the actual score of your participant (in a given condition), but an **estimate** of that value. So, when we are working in predicted values (values we haven't actually collected, just predicted) then we stick the "party hat" on the symbol. If we are working in real values (that we have collected) then no party hat! Lastly, $\hat{Y}_{ij}$ is calculated as: $\mu$ + $A_i$.
 
-We begin by applying the **estimation equations**.  Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample.  We will call this $\hat{\mu}$. The "party hat" that $\mu$ is wearing ($\hat{\mu}$) is just there to remind us that it is not the actual population mean, but an **estimate** of that value derived from our sample. So, when we are working in predicted values (values we haven't actually collected, just predicted) then we stick the "party hat" on the symbol. If we are working in real values (that we have collected) then no party hat!
+We begin by applying the **estimation equations**. Our estimate of the population grand mean $\mu$, will be based on the grand mean of the sample. We will call this $\hat{\mu}$ (notice once again, the "party hat").
 
 The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:
 
