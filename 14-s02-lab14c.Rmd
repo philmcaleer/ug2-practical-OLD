@@ -37,7 +37,7 @@ Have a look at the layout of the data and familiarise yourself with it. The rati
 * Looking at the layout of the acoustics data it appears to be in `r mcq(c("long", "wide", answer = "tidy"))`
 * Looking at the layout of the ratings data it appears to be in `r mcq(c("long", answer = "wide"))`
 
-We are going to need to do some data-wrangling before we do any analysis!!!!!!
+We are going to need to do some data-wrangling before we do any analysis!!!
 
 ### Task 1: Setup {#Ch14InClassQueT1}
 
@@ -150,7 +150,7 @@ joined_wide <- joined %>% spread(measures, value)
 
 ### Task 7: The Regressions {#Ch14InClassQueT7}
 
-Excellent, we are now in a position to regress away.  Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of collinearity.  Calculate the correlation between Pitch and Dispersion and fill in this statement. 
+Excellent, we are now in a position to regress away.  Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of **collinearity**.  Calculate the correlation between Pitch and Dispersion and fill in this statement. 
 
 * The correlation between Pitch and Dispersion is `r mcq(c(answer = "rho = .239", "rho = -.239", "rho = .186", "rho = -.186"))` which would suggest that we have no issues with collinearity as our two predictors are only slightly correlated and the correlation here is not significant.
 
