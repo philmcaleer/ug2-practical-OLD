@@ -247,7 +247,7 @@ Load in the data in `VapingData.csv` and analyse it to test the hypothesis that 
 * libraries might include tidyverse and broom
 
 * Hint Step 1: read_csv()
-* Hint Step 2: correct logical operator: filter(Accuracy < 1 OR Accuracy <= 1 OR Accuracy > 1 OR Accuracy >= 1) 
+* Hint Step 2: filter(Accuracy < 1 OR Accuracy <= 1 OR Accuracy > 1 OR Accuracy >= 1) 
 * Hint Step 3: average accuracy: mutate(data, name = (1 + 2)/2) %>% filter(name > ...)
 * Hint Step 4: RT: mutate(data, nom = 1 - 2)
 * Hint Step 5: descriptives <- summarise()
