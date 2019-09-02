@@ -1,4 +1,4 @@
-# Combining ANOVA and Regression
+# Combining ANOVA and Regression (sometimes called an ANCOVA)
 
 ## Overview
 
