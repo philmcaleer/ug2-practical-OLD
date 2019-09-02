@@ -31,7 +31,7 @@ Let's now try out some calculations. We will start with just looking at effect s
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-Answering the following questions to check your answers. The solutions are at the bottom if you need them:
+Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
 * Enter, in digits, how many people were run in this study: `r fitb("26", ignore_ws = TRUE)`
 * Which of these codes is the appropriate calculation of `d` in this instance:`r mcq(c(answer = "d = t/sqrt(N)","d = 2t/sqrt(df)"))`
@@ -52,7 +52,7 @@ Answering the following questions to check your answers. The solutions are at th
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-Answering the following questions to check your answers. The solutions are at the bottom if you need them:
+Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
 * Enter, in digits, how many people were run in this study: `r fitb("32", ignore_ws = TRUE)`
 * Which of these codes is the appropriate calculation of `d` in this instance:`r mcq(c("d = t/sqrt(N)",answer = "d = 2t/sqrt(df)"))`
@@ -73,7 +73,7 @@ Answering the following questions to check your answers. The solutions are at th
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-Answering the following questions to check your answers. The solutions are at the bottom if you need them:
+Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
 * Enter, in digits, how many people were in each group in this study. Note, not the total number of participants: `r fitb("40", ignore_ws = TRUE)`
 * Which of these codes is the appropriate calculation of `d` in this instance:`r mcq(c(answer = "d = t/sqrt(N)","d = 2t/sqrt(df)"))`
@@ -107,7 +107,7 @@ Answering the following questions to check your answers. The solutions are at th
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-Answering the following questions to check your answers. The solutions are at the bottom if you need them:
+Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
 * Enter the correct `t-value` for this test, rounded to two decimal places: `r fitb(c("2.56","-2.56"))`
 
@@ -153,7 +153,7 @@ n_test <- power.t.test(delta = .4, sd = 1,
 
 And it would tell you that you would need `r n_test` people per condition. But you only get whole people and we like to be conservative on our estimates so we would actually run `r ceiling(n_test)` **per condition**. That is a lot of people!!!
 
-Let's get started. **But before you start with this next task**, you will need to load in packages such as the `tidyverse` and `broom`.
+Let's get started. **But before you start with this next task**, you will need to load in packages such as `tidyverse` and `broom`.
 
 ### Task 5: Sample size for standard power one-sample t-test {#Ch8InClassQueT5}
 
@@ -173,7 +173,7 @@ Using a pipeline, store the answer as a single value called `sample_size` (e.g. 
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-Answering the following question to check your answers. The solutions are at the bottom if you need them:
+Answer the following question to check your answers. The solutions are at the bottom if you need them:
 
 * Enter the minimum number of participants you would need in this one-sample t-test: `r fitb("151")`
 
@@ -192,7 +192,7 @@ Answering the following question to check your answers. The solutions are at the
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>  
 
-Answering the following questions to check your answers. The solutions are at the bottom if you need them:
+Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
 * Based on the information given, what will you set `type` as in the function? `r mcq(c("one.sample", answer = "two.sample"))`
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: `r fitb(c(".65", "0.65"),ignore_ws = TRUE)`
@@ -201,7 +201,7 @@ Answering the following questions to check your answers. The solutions are at th
 
 ### Task 7: Power of Published Research {#Ch8InClassQueT7}
 
-Thus far we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?
+Thus far, we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?
 
 1. one-sample: t(31) = 2.96, p = .006
 2. paired t-test: t(31) = 2.42, p = .022
@@ -228,4 +228,4 @@ Which of the t-tests do you believe to be underpowered? Why do you think this ma
 
 A high-powered study looking to detect a small effect size at a low alpha will require a large number of participants!
 
-You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.** However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel **#level2_2018**.
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.** However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel **#level2_2018**.

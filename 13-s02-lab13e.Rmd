@@ -57,7 +57,7 @@ Below you will find the solutions to the questions for the Activities for this c
 
 #### Estimation equations and decomposition matrix
 
-**Creating the Decomp Matrix**
+**Creating the Decomposition Matrix**
 
 ```{r ch13-inclass-t1-sol, echo = FALSE, results = 'asis'}
 decomp <- dmx
@@ -173,7 +173,7 @@ ggplot(cell_means, aes(A, m, group = B, shape = B, color = B)) +
 
 **Easter Egg Figure Solution**
 
-The plot above is functional but sometimes you want something a bit more communicative.  It is worth working on your figures so here is an example that you can think about for your report. Remember to look back through previous labs and homework as well (Semester 1: Lab 3, Lab 7, Lab 6, Lab 5 & 9 assignments, for instance) to see how figures can be improved.
+The plot above is functional but sometimes you want something a bit more communicative. It is worth working on your figures so, here is an example of what you can think about for your report. Remember to look back through previous labs and homework as well (Semester 1: Lab 3, Lab 7, Lab 6, Lab 5 & 9 assignments, for instance) to see how figures can be improved.
 
 The code below adds another few dimensions to the above figure. Copy and run the code in your Rmd, knitting it to HTML, and play with the different parts to see what they do. We have changed the legends to be more descriptive and to have more readable text, fixed the scale for the vertical axis, made the figure black and white without a box, we also added 95% confidence intervals and a figure caption. 
 
@@ -221,7 +221,8 @@ result <- ezANOVA(dat,
                   dv = Y_ijk, 
                   wid = id, 
                   between = .(A, B),
-                  detailed = TRUE)
+                  detailed = TRUE) %>%
+                  print()
 ```
 
 * Including the `detailed = TRUE` will give us the sums of squares information
@@ -267,7 +268,7 @@ dat <- read_csv("keysar_lin_barr_2003.csv")
 
 #### Task 2: Calculate cell means for the cell means.
 
-* The below code will give the table shown.
+* The code below will give the table shown.
 
 ```{r t2}
 cell_means <- dat %>%
@@ -283,7 +284,7 @@ knitr::kable(cell_means)
 
 #### Task 3: Marginal means for sex
 
-* The below code will give the table shown for the marginal means of sex.
+* The code below will give the table shown for the marginal means of sex.
 
 ```{r t3}
 marg_sex <- dat %>%
@@ -299,7 +300,7 @@ knitr::kable(marg_sex)
 
 #### Task 4: Marginal means for condition
 
-* The below code will give the table shown for the marginal means of condition.
+* The code below will give the table shown for the marginal means of condition.
 
 ```{r t4}
 marg_cond <- dat %>%
@@ -315,7 +316,7 @@ knitr::kable(marg_cond)
 
 #### Task 5: Interaction plot
 
-* The below code will produce the shown figure.
+* The code below will produce the shown figure.
 
 ```{r t5, fig.cap='You should have produced a similar figure'}
 ggplot(cell_means, aes(condition, m, shape = sex, group = sex, color = sex)) +
@@ -330,9 +331,9 @@ ggplot(cell_means, aes(condition, m, shape = sex, group = sex, color = sex)) +
 
 #### Task 6: Recap Question 1
 
-An acceptable hypothesis for the interaction effect of sex and condition would be:
+We want the alternative, not the null hypothesis here. So, an acceptable hypothesis for the interaction effect of sex and condition would be:
 
-**We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs))**
+**We hypothesised that there would be a significant interaction between condition and sex of participant on egocentric interference (mean looking time (msecs)).**
 
 As such the correct answer is:
 
@@ -346,7 +347,7 @@ answer_t6 <- 3
 
 A good description of the marginal means for sex would be:
 
-**The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex**
+**The female participants have an average longer looking time (M = 777.98, SD = 911.53) than the male participants (M = 555.04, SD = 707.81) which may suggest a significant main effect of sex.**
 
 As such the correct answer is:
 
@@ -360,7 +361,7 @@ answer_t7 <- 1
 
 A good description of the marginal means for condition would be:
 
-**The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23) which may suggest a significant main effect of condition.**
+**The participants in the false belief group had an average shorter looking time (M = 549.58, SD = 775.91) than the participants in the ignorance group (M = 749.58, SD = 861.23), which may suggest a significant main effect of condition.**
 
 As such the correct answer is:
 
@@ -372,7 +373,7 @@ answer_t8 <- 2
 
 #### Task 9: Running the factorial ANOVA
 
-* The below code will produce the shown ANOVA output
+* The code below will produce the shown ANOVA output
 
 ```{r t9, warning=FALSE, message=FALSE}
 mod <- ezANOVA(dat, dv = looktime, wid = subject,
@@ -404,7 +405,7 @@ answer_t10 <- 3
 
 There is no definitive way to write this paragraph but essentially your findings should report both main effects and the interaction, giving appropriate F outputs, e.g. F(1, 36) = .79, p = .38, and give some interpretation/qualification of the results using the means and standard deviations above, e.g. looking time was not significantly different between the false belief task (M = X, SD = XX) or the Ignorance task (M = XX, SD = XX). Something along the following would be appropriate:
 
-**A two-way between-subjects factorial ANOVA was conducted testing the main effects and interaction between sex (Male vs Female) and condition (false belief vs ignorance) on the average looking time (msecs) on a matching task.  Results revealed no significant interaction (F(1, 36) = .21, p = .647) suggesting that there is no modulation of condition by sex of participant in this looking task. Furthermore there was no significant main effect of sex (F(1, 36) = .64, p = .429) suggesting that male (M = 555.04, SD = 707.81) and female participants (M = 777.98, SD = 911.53) perform similarly in this task. Finally, there was no significant main effect of condition (F(1, 36) = .79, p = .38) suggesting that whether participants were given a false belief scenario (M = 594.58, SD = 775.91) or an ignorance scenario (M = 794.58, SD = 861.23) had no overall impact on their performance.**
+**A two-way between-subjects factorial ANOVA was conducted testing the main effects and interaction between sex (male vs. female) and condition (false belief vs. ignorance) on the average looking time (msecs) on a matching task. Results revealed no significant interaction (F(1, 36) = .21, p = .647) suggesting that there is no modulation of condition by sex of participant in this looking task. Furthermore, there was no significant main effect of sex (F(1, 36) = .64, p = .429) suggesting that male (M = 555.04, SD = 707.81) and female participants (M = 777.98, SD = 911.53) perform similarly in this task. Finally, there was no significant main effect of condition (F(1, 36) = .79, p = .38) suggesting that whether participants were given a false belief scenario (M = 594.58, SD = 775.91) or an ignorance scenario (M = 794.58, SD = 861.23) had no overall impact on their performance.**
 
 [Return to Task](#Ch13AssignQueT11)
 

@@ -1,6 +1,6 @@
 ## InClass Activity
 
-W are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
+We are going to jump straight into this one! To get you used to running a correlation we will use the examples in **Miller and Haden (2013)**, Chapter 11, looking at the **relationship** between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.
 
 <a href="./data/10-s02/inclass/ch10-inclass-data.zip" target = "_blank">Click here to download the data for today</a> or download it from Moodle.
 
@@ -27,7 +27,7 @@ Let's look at your data - we showed you a number of ways to do this in Semester 
 * number of minutes spent reading at home per week (`Home`), 
 * and number of minutes spent watching TV per week (`TV`). 
 
-For the lab we will focus on Reading Ability and IQ but for further practice you can look at other relationships in your free time.  
+For the lab we will focus on the relationship between Reading Ability and IQ but for further practice you can look at other relationships in your free time.  
 A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (**but do you see the issue with causality and direction**). Or phrasing the hypothesis more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, are positively correlated. This is the hypothesis we will test today but remember that we could always state the null hypothesis that there is no relationship between reading ability and IQ. First, however, we must check some assumptions of the correlation tests. The main assumptions we need to check are:
 
 * Is the data interval, ratio, or ordinal?
@@ -44,7 +44,7 @@ We will look at these in turn.
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
 
-If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and answer the following question.
+If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and then answer the following question.
 
 * **Check your thinking:** the type of data in this analysis is most probably `r mcq(c("ratio", answer = "interval", answer = "ordinal", "nominal"))` as the data is `r mcq(c(answer = "continuous","discrete"))` and there is unlikely to be a true zero
 
@@ -76,7 +76,7 @@ It looks like everyone has data in all the columns but let's test our skills a l
 <br>
 **Assumption 3: The shape of my data**
 
-The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers! You could also use z-scores to check for outliers with the cut-off usually being set at around $\pm2.5SD$, and you can check this in your free time using a mutate function (e.g. `mutate(z = (X - mean(X))/SD(X))`), but today we will just use visual checks.
+The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers! You could also use z-scores to check for outliers with the cut-off usually being set at around $\pm2.5SD$, and you can check this in your free time using the mutate function (e.g. `mutate(z = (X - mean(X))/SD(X))`), but today we will just use visual checks.
 
 ### Task 4 - Normality {#Ch10InClassQueT4}
 
@@ -84,7 +84,7 @@ Create the following figures and discuss the outputs with your group:
 
 * A histogram for Ability and a histogram for IQ. 
     - Are they both normally distributed? 
-* A scatterplot of IQ (IQ) as a function of Ability (Abil).
+* A scatterplot of IQ as a function of Ability.
     - Do you see any outliers? 
     - Does the relationship appear linear? 
     - Does the spread appear ok in terms of homoscedasticity?
@@ -95,7 +95,7 @@ Create the following figures and discuss the outputs with your group:
 * ggplot(mh, aes(x = , y = )) + geom_point()
 * Normality: something to keep in mind is that there are only 25 participants, so how 'normal' do we expect relationships to be
 * homoscedasticity is that the spread of data points around the (imaginary) line of best fit is even on both sides along the line; as opposed to very narrow at one point and very wide at others.
-* Remember these are all judgement calls.
+* Remember these are all judgement calls!
 ```
 `r unhide()`  
 <br>
@@ -112,9 +112,9 @@ Looking at the scatterplot you created in Task 4, spend a couple of minutes disc
 `r hide("Hints on discussing descriptives")`
 ```{block, type ="info"}
 * Hint 1: We hypothesised that reading ability and intelligence were positively correlated. Is that what you see in the scatterplot?
-* Hint 2: Keep in mind it is subjective at this stage
+* Hint 2: Keep in mind it is subjective at this stage.
 * Hint 3: Remember to only talk about a relationship and not a prediction. This is correlational work, not regression.
-* Hint 4: Can you say something about both the strength (weak, medium, strong) and the direction (positive, negative).
+* Hint 4: Can you say something about both the strength (weak, medium, strong) and the direction (positive, negative)?
 ```
 `r unhide()`  
 <br>
@@ -135,7 +135,7 @@ cor.test(dat$X, dat$Y, method = "pearson", alternative = "two.sided")
 
 * where `dat$X` means the column `X` in the tibble `dat`.  The dollar sign (`$`) is a way of indexing, or calling out, a specific column. 
 
-### Task 6 - Pearson or Spearman {#Ch10InClassQueT6}
+### Task 6 - Pearson or Spearman? {#Ch10InClassQueT6}
 
 Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called `results` (hint: `broom::tidy()`).
 
@@ -172,7 +172,7 @@ Look at `results`. Locate your correlation value, e.g. `results %>% pull(estimat
 
 Great, so far we have set a hypothesis for a correlation, checked the assumptions, run the correlation and interpreted it appropriately. So as you can see running the correlation is the easy bit. As in a lot of analyses it is getting your data in order, checking assumptions, and interpreting your output that is the hard part. 
 
-We have now walked you through one analysis but you can always go run more with the Miller and Haden dataset. There are six in total that could be run but watch out for Multiple Comparisons - where your Type 1 Error rate is inflated and where the chance of finding a significant effect is inflated by simply running numerous tests. Alternatively, we have another data set below that we want you to run a correlation on yourself but first we want to show you something that can be very handy when you want to view lots of correlations at once.
+We have now walked you through one analysis but you can always go run more with the Miller and Haden dataset. There are six in total that could be run but watch out for Multiple Comparisons - where your **Type 1** Error rate is inflated and where **the chance of finding a significant effect is inflated by simply running numerous tests.** Alternatively, we have another data set below that we want you to run a correlation on yourself but first we want to show you something that can be very handy when you want to view lots of correlations at once.
 
 ### Advanced 1: Matrix of Scatterplots
 
@@ -226,7 +226,7 @@ Great work so far! Now we really want to see what you can do yourself. In the da
 * **Explicit attitudes** were measured via a questionnaire where higher scores indicated a positive attitude towards vaping. 
 * **Implicit attitudes** were measured through an Implicit Association Test (IAT) using images of Vaping and Kitchen utensils and associating them with positive and negative words. 
 
-The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">here on the Noba Project</a> which has a good description of the procedure under the section "Subtle/Nonsconscious Research Methods"  
+The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">here on the Noba Project</a> which has a good description of the procedure under the section "Subtle/Nonsconscious Research Methods".  
 
 For today, you need to know that "Block 3" in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. "Block 5" in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were shorter in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.
 
@@ -234,7 +234,7 @@ For today, you need to know that "Block 3" in the experiment tested reaction tim
 
 Load in the data in `VapingData.csv` and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips.
 
-1. Start of by looking at the data.  You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores. Sex and Age.
+1. Start of by looking at the data.  You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores, Sex and Age.
 2. Accuracy is as a proportion and as such can't go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.
 3. We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of your research. Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).
 4. Now create an IAT score for participants by subtracting Block 3 reaction times (RT) away from Block 5 reaction times e.g (B5-B3). Use the paragraph above to understand how the scores relate to attitudes.
@@ -258,6 +258,6 @@ Load in the data in `VapingData.csv` and analyse it to test the hypothesis that 
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Excellent work, who would have thought that about Explicit and Implicit attitudes towards Vaping!!! 
+Excellent work, who would have thought that about Explicit and Implicit attitudes towards Vaping?! 
 
-You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.** If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. We won't incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don't think they are no longer relevant by their abscence.
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.** If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget. We won't incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don't think they are no longer relevant!

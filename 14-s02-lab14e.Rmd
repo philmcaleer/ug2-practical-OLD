@@ -5,7 +5,7 @@ ratings <- read_csv("data/14-s02/inclass/voice_ratings.csv")
 acoustics <- read_csv("data/14-s02/inclass/voice_acoustics.csv")
 ```
 
-Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
+Below you will find the solutions to the questions for the Activities in this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.
 
 ### InClass Ativities
 
@@ -23,7 +23,7 @@ acoustics <- read_csv("voice_acoustics.csv")
 
 #### Task 2
 
-* We are calling the new tibble `ratings_tidy`. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on that the tibble names might not match up so you may need to do a little bit of backtracing to see where tibbles are created.
+* We are calling the new tibble `ratings_tidy`. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.
 
 ```{r ch14-t2-reshape}
 ratings_tidy <- gather(ratings, participant, rating, P1:P28)
@@ -51,7 +51,7 @@ joined <- inner_join(ratings_mean, acoustics, "VoiceID") %>% filter(sex == "M")
 
 ### Task 5
 
-```{r ch14-t5-scatter_sol, fig.cap='Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating'}
+```{r ch14-t5-scatter_sol, echo = FALSE, fig.cap='Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating'}
 ggplot(joined, aes(value, mean_rating)) +
   geom_point() +
   geom_smooth(method = "lm") +
@@ -105,7 +105,7 @@ summary(mod_disp)
 
 **Multiple Linear Regression - Pitch + Dispersion**
 
-The model with both Pitch and Dispersion would be written as such:
+The model with both Pitch and Dispersion as predictors would be written as such:
 
 ```{r ch14-t7-mod3}
 mod_pitchdisp <- lm(mean_rating ~ Pitch + Dispersion, joined_wide)
@@ -149,7 +149,7 @@ predict(mod_pitchdisp, tibble(Pitch = 150,
 **Solution Version 3**
 
 * And if you want to bring it out as a single value, say for a write-up, you could do the following
-* This does pop out a warning about a `deprecated` function meaning that this wont work in future updates but for now it is ok to use.
+* This does pop out a warning about a `deprecated` function meaning that this won't work in future updates but for now it is ok to use.
 
 ```{r predict3}
 predict(mod_pitchdisp, tibble(Pitch = 150, 

@@ -18,11 +18,11 @@ You should also watch this short but nonetheless highly informative video by Dan
 
 * <a href = "https://www.youtube.com/watch?v=Lr-i4Ugoc5M&index=3&list=PLtAL5tCifMi5zG70dslERYcGApAQcvj1s" target = "_blank">Power Analysis and Sample Size Decisions</a> by Daniel Lakens
 
-Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you understand them better.
+Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you to understand them better.
 
 ### Optional
 
-There are a number of great webpages and blogs that will help you understand the concepts in this chapter. Here are some that we think might be fun for you to look at. You don't have to look at all these for this lab but do come back to them as they will really help you as you progress in the course. We are deliberately giving you a number of options here as for everyone there is that one analogy that will work best for you and that one paper that will make everything click in to place. That example will be different from person to person so having a variety of explanations will help.
+There are a number of great webpages and blogs that will help you understand the concepts in this chapter. Here are some that we think might be fun for you to look at. You don't have to look at all of these for this lab but do come back to them as they will really help you as you progress in the course. We are deliberately giving you a number of options here as for everyone there is that one analogy that will work best for you and that one paper that will make everything click into place. That example will be different from person to person so having a variety of explanations will help.
 
 * A YouTube video by Dan Quintana (University of Oslo) showing how to use the **`pwr`** package to calculate power in t-tests, correlations, and one-way ANOVAs <a href="https://www.youtube.com/watch?v=ZIjOG8LTTh8" target = "_blank">https://www.youtube.com/watch?v=ZIjOG8LTTh8</a>
 
@@ -40,6 +40,6 @@ There are a number of great webpages and blogs that will help you understand the
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
-Hopefully this has given you a good basis to understanding power, sample sizes, alpha, and effect sizes. These are difficult concepts to grasp and will take a lot of time thinking about them and interacting with them before they really start to sink in.  Hopefully however, if nothing else, the least you come away with is the idea that the number of participants you should run in a study is not an arbitrary decision but is in fact a relationship between the effect size you want to test for and the level of error (Type I or Type II) you are willing to accept.
+Hopefully this has given you a good basis to understanding power, sample sizes, alpha, and effect sizes. These are difficult concepts to grasp and it will take a lot of time thinking about them and interacting with them before they really start to sink in.  Hopefully however, if nothing else, the least you come away with is the idea that the number of participants you should run in a study is not an arbitrary decision but is in fact a relationship between the effect size you want to test for and the level of error (Type I or Type II) you are willing to accept.
 
-As always the best way to understand something is to put it into your own words so don't forget to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. See you in the lab!
+As always, the best way to understand something is to put it into your own words so don't forget to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel **#level2_2018**. See you in the lab!

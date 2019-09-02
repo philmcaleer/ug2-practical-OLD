@@ -29,7 +29,7 @@ n_participants <- ns_data %>%
   nrow()
 ```
 
-* Giving a n_participants value of `r n_participants`
+* Giving an n_participants value of `r n_participants`
 
 [Return to Task](#Ch6PreClassQueT2)
 
@@ -62,7 +62,7 @@ It is better practice to use the first two solutions, which pull the values stra
 #### PreClass Task 4
 
 * For `ns_data_mean` use `summarise()` to calculate the mean and then `pull()` the value.
-* For `ns_data_sd` use `summarise()` to calculate the mean and then `pull()` the value.
+* For `ns_data_sd` use `summarise()` to calculate the sd and then `pull()` the value.
 ```{r mean_sd, eval  = TRUE}
 # the mean
 ns_data_mean <- ns_data %>%
@@ -75,7 +75,7 @@ ns_data_sd <- ns_data %>%
   pull(sd)
 ```
 
-**NOTE:** You could print them out on the the screen if you wanted to "\n" is the end of line symbol so that they print on different lines
+**NOTE:** You could print them out on the screen if you wanted to "\n" is the end of line symbol so that they print on different lines
 
 ```{r printing-ouput}
 cat("The mean number of hours was", ns_data_mean, "\n")
@@ -217,7 +217,7 @@ imeans2 <- imeans %>%
   mutate(Category = "intellect")
 ```
 
-And then combine all the information in to one aingle tibble.
+And then combine all the information in to one single tibble.
 ```{r Ch6InClassQueT2-5, eval = FALSE, message = FALSE}
 ratings2 <- ratings %>%
   filter(Category %in% c("impression", "hire")) %>%
@@ -382,7 +382,7 @@ n_men <- nrow(crt2)
 
 **Solution:**
 
-When formatted to with inline R code as below:
+When formatted with inline R code as below:
 
 **`r backtick("r n_men")` men (mostly college students; for demographic details, see Table S1 in the Supplemental Material available online) were randomly administered a topical gel containing either testosterone (n = `r backtick("r cond_counts %>% filter(Treatment == 1) %>% pull(n)")`) or placebo (n = `r backtick("r cond_counts %>% filter(Treatment == 0) %>% pull(n)")`).**
 

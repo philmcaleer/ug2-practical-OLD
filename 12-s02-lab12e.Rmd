@@ -133,7 +133,7 @@ results <- ez::ezANOVA(dat,
                        between = sound)
 ```
 
-You didn't need to store the output but we have done it out of habit as often we want to do something with the results.  And remember we said that you get two tables in this output.  One of the tables is Levene's Test for Homogeneity of Variance and looks like:
+You didn't need to store the output but we have done so out of habit, as often we want to do something with the results.  And remember we said that you get two tables in this output.  One of the tables is Levene's Test for Homogeneity of Variance and it looks like:
 
 ```{r ez-output1, echo=FALSE, results='asis'}
 knitr::kable(results$`Levene's Test for Homogeneity of Variance`,

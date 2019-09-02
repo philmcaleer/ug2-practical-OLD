@@ -1,6 +1,6 @@
 ## InClass Activity 2 (Additional)
 
-In the preclass activity we focussed a lot on basic probability and **binomial distributions**. If you have followed it, and understood it correctly, you should be able to have a go at this following scenario to help deepen your understanding of the binomial distribution. Have a go and see how you get on. Solutions are at the bottom of the page. 
+In the preclass activity, we focused a lot on basic probability and **binomial distributions**. If you have followed it, and understood it correctly, you should be able to have a go at the following scenario to help deepen your understanding of the binomial distribution. Have a go and see how you get on. Solutions are at the bottom of the page. 
 
 ### Return of the Binomial
 
@@ -8,7 +8,7 @@ You design a psychology experiment where you are interested in how quickly peopl
 
 To test your experiment you run 1 block of your experiment and get concerned that you only saw 10 face images. As this is quite a low number out of a total of 60 you think something might be wrong. You decide to create a probability distribution for a given block of your experiment to test the likelihood of seeing a face (coded as 1) versus not seeing a face (coded as 0).
 
-You start off with the below code but it is incomplete. 
+You start off with the code below but it is incomplete. 
 
 ```{r binomial-base, eval = FALSE}
 blocks_5k <- replicate(n = NULL, 
@@ -19,7 +19,7 @@ blocks_5k <- replicate(n = NULL,
                          sum())
 ```
 
-1. Copy the code to a script and replace the `NULLs` with the correct value and statement to establish how many different number of faces you might seen in 1 block of 60 trials, over 5000 replications. Answering the following questions to help you out:
+1. Copy the code to a script and replace the `NULLs` with the correct value and statement to establish how many different numbers of faces you might see in 1 block of 60 trials, over 5000 replications. Answering the following questions to help you out:
 <br>
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
@@ -35,7 +35,7 @@ blocks_5k <- replicate(n = NULL,
 * The number of trials is the `size`, 60. 
 * And in order for the code to work, and to not run out of options, you need to set `replace` as TRUE.
 
-You saw this exact same code in the preclass so be sure to have had a look there. The solution code is shown in one of the below code chunks.
+You saw this exact same code in the preclass so be sure to have had a look there. The solution code is shown in one of the code chunks below.
 ```
 `r unhide()`
 
@@ -45,7 +45,7 @@ Note that the probability (`prob`) is set to weight not seeing a face (2/3) more
 ```
 `r unhide()`
 <br>
-2. Your `blocks_5k` code has created 5000 values where each value represents the number of faces you 'saw' in each individual block of 60 trials - like the number of heads you see in 10 flips. If your code has worked then running the below chunk should produce a probability distribution of your data. Run it and see. If not, something has gone wrong; debug or compare to the solution at the bottom of the page.  
+2. Your `blocks_5k` code has created 5000 values where each value represents the number of faces you 'saw' in each individual block of 60 trials - like the number of heads you see in 10 flips. If your code has worked, then running the chunk below should produce a probability distribution of your data. Run it and see. If not, something has gone wrong; debug or compare to the solution at the bottom of the page.  
 
 ```{r 5k-plot, include = TRUE, eval = FALSE}
 data5k <- tibble(faces_per_block = blocks_5k) %>% 
@@ -84,9 +84,9 @@ Discuss in your groups the following questions:
 
 `r hide("Portfolio Point - What does it say about your experimental design?")`
 ```{block, type ="info"}
-On the first point, it says that the probability of having a block with only 10 faces is pretty unlikely - it has only a small probability. However, it is still possible. Does that say there is an error in your code? Not necessarily as it is possible you just happened to get a block with only 10 faces. Despite it being a low probability it is not impossible. What it might say however is that if this is something that concerns you, this potentially low number of faces in a block, then you need to think about the overall design of your experiment and consider having an equal weighting of stimuli in each block.
+On the first point, it says that the probability of having a block with only 10 faces is pretty unlikely - it has only a small probability. However, it is still possible. Does that say there is an error in your code? Not necessarily as it is possible you just happened to get a block with only 10 faces. Despite it being a low probability it is not impossible. What it might say, however, is that if this is something that concerns you, this potentially low number of faces in a block, then you need to think about the overall design of your experiment and consider having an equal weighting of stimuli in each block.
 
-On the second point, you need to think about the width of the distribution. The probability of a face is 1/3 or p = .33. If there are 60 trials per block then that works out at approx on average 20 faces per block. The further you move away from that average, 20, the less probable it is to see that number of faces. E.g. 10 faces had a very low probability as will 30 faces. 40 faces will have almost no probability whatsoever. In only 5000 trials not all values will be represented.
+On the second point, you need to think about the width of the distribution. The probability of a face is 1/3 or p = .33. If there are 60 trials per block then that works out, on average, at approx 20 faces per block . The further you move away from that average, 20, the less probable it is to see that number of faces. E.g. 10 faces had a very low probability as will 30 faces. 40 faces will have almost no probability whatsoever. In only 5000 trials not all values will be represented.
 ```
 `r unhide()`  
 <br> 
@@ -104,7 +104,7 @@ On the second point, you need to think about the width of the distribution. The 
 
 2. You are looking for the cumulative probability for seeing more than but not including 25 faces in a block of 60 trials. What does this tell you about the apporpriate `binom()` function you require? Remember to set an appropriate call for `lower.tail`!
 
-3. The probability level has been provided for you (5% 0r .05). With this you are looking to find the minimum number of faces required to maintain this probability value. What does this tell you about the appropriate `binom()` function you require? If you are looking for the minimum number of faces required, is `lower.tail` set to TRUE or FALSE?
+3. The probability level has been provided for you (5% or .05). With this you are looking to find the minimum number of faces required to maintain this probability value. What does this tell you about the appropriate `binom()` function you require? If you are looking for the minimum number of faces required, is `lower.tail` set to TRUE or FALSE?
 ```
 `r unhide()` 
 
