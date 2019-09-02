@@ -111,7 +111,7 @@ and in Miller and Haden as
 
 $F = \frac{MS_{A}}{MS_{S(A)}}$
 
-And you will also remember that the mean square (MS) is a sums of squares (SS) divided by its degrees of freedom (df):
+And you will also remember that the mean square (MS) is a sums of squares (SS) divided by its degrees of freedom (df). If you don't remember what degrees of freedom are, go back to pages 21-23 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. They have a good explanation for it, however, these things are easy to forget, so make sure to qucikly skim back through the book. 
 
 $MS = \frac{SS}{df}$
 
