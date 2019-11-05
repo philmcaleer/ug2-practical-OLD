@@ -75,8 +75,8 @@ Here is a little recap of the columns (plus the two we will add):
 * $i$ - the first factor (here with two levels)
 * $j$ - the second factor (again here with two levels)
 * $k$ - the participant number within that $ij$ combination
-* $Y_ijk$ - a participants score on a DV
-* $mu$ - the overall grand mean (or baseline effect)
+* $Y_{ijk}$ - a participants score on a DV
+* $\mu$ (mu) - the overall grand mean (or baseline effect)
 * $A_i$ - the effect of the first factor $i$
 * $B_j$ - the effect of the second factor $j$
 * $\hat{AB}_{ij}$ - the effect of the AB interaction
