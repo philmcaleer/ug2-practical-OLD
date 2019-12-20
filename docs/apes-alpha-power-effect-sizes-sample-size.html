@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 8 APES - Alpha, Power, Effect Sizes, Sample Size | Level 2 Practical</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 8 APES - Alpha, Power, Effect Sizes, Sample Size | Level 2 Practical" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 
 
 
-<meta name="date" content="2019-07-14" />
+<meta name="date" content="2019-12-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="within-subjects-t-test.html">
-<link rel="next" href="reflection-semester-1.html">
+<link rel="prev" href="within-subjects-t-test.html"/>
+<link rel="next" href="reflection-semester-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -417,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT3"><i class="fa fa-check"></i><b>10.3.3</b> Task 3 - Missing Data</a></li>
 <li class="chapter" data-level="10.3.4" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT4"><i class="fa fa-check"></i><b>10.3.4</b> Task 4 - Normality</a></li>
 <li class="chapter" data-level="10.3.5" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT5"><i class="fa fa-check"></i><b>10.3.5</b> Task 5 - Descriptives</a></li>
-<li class="chapter" data-level="10.3.6" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT6"><i class="fa fa-check"></i><b>10.3.6</b> Task 6 - Pearson or Spearman</a></li>
+<li class="chapter" data-level="10.3.6" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT6"><i class="fa fa-check"></i><b>10.3.6</b> Task 6 - Pearson or Spearman?</a></li>
 <li class="chapter" data-level="10.3.7" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT7"><i class="fa fa-check"></i><b>10.3.7</b> Task 7 - Interpretation</a></li>
 <li class="chapter" data-level="10.3.8" data-path="correlations.html"><a href="correlations.html#advanced-1-matrix-of-scatterplots"><i class="fa fa-check"></i><b>10.3.8</b> Advanced 1: Matrix of Scatterplots</a></li>
 <li class="chapter" data-level="10.3.9" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT8"><i class="fa fa-check"></i><b>10.3.9</b> Task 8 - The Matrix</a></li>
@@ -536,27 +538,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.5.7" data-path="regression.html"><a href="regression.html#task-8"><i class="fa fa-check"></i><b>14.5.7</b> Task 8</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
-<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
-<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
-<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
-<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
-<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (sometimes called an ANCOVA)</a><ul>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
+<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
+<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
+<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
+<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#inclass-activity-13"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
-<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualise and Interpreting the relationship of smartphone use and wellbeing by sex</a></li>
-<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
-<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
-<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#inclass-activity-13"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
+<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
+<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
+<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
+<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#assignment-14"><i class="fa fa-check"></i><b>15.4</b> Assignment</a></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
-<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
-<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#inclass-activities-10"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#assignment-14"><i class="fa fa-check"></i><b>15.4</b> Assignment</a></li>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
+<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#inclass-activities-10"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
@@ -596,14 +598,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 8</span> APES - Alpha, Power, Effect Sizes, Sample Size</h1>
 <div id="overview-8" class="section level2">
 <h2><span class="header-section-number">8.1</span> Overview</h2>
-<p>Up until now we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses:</p>
+<p>Up until now, we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures, you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses:</p>
 <ul>
 <li><strong>Type I error</strong> - rejecting the null hypothesis when it is true (otherwise called <strong>alpha</strong> or <span class="math inline">\(\alpha\)</span>). Probably better recalled as <strong>False Positives</strong></li>
 <li><strong>Type II error</strong> - retaining the null hypothesis when it is false (otherwise called <strong>beta</strong> or <span class="math inline">\(\beta\)</span>). Probably better recalled as <strong>False Negatives</strong></li>
 </ul>
-<p>Building from there we have started to discuss the idea of <strong>power</strong> (<span class="math inline">\(1-\beta\)</span>) which, from your lectures and from the pre-class reading, you should understand is the long-run probability of correctly rejecting the null hypothesis for a fixed effect size and fixed sample size; i.e. correctly concluding there is an effect when the effect is real. The concept of power is useful for making decisions when you plan a study. <strong>The higher the power of your planned study, the better</strong>, with the field standard proposed as <span class="math inline">\(power &gt;= .8\)</span> for the targeted effect size and sample size. In fact, Registered Reports are often required to have a power of at least <span class="math inline">\(power &gt;= .9\)</span>. Keep in mind that power is defined as the probability of rejecting the null for a fixed effect size and fixed sample size. For a given sample size, power will be higher for effects that you assume to be larger (they are easier to detect). For a given effect size, power will be higher for a larger sample. Because you have little control over the size of the effect, typically you can increase the power of your study by either (1) increasing the size of your sample or (2) reducing sources of noise and measurement error in your study. Because power depends on several variables, it is useful to think of power as a <em>function</em> rather than as a single fixed quantity.</p>
-<p>Psychological research has been criticised for neglecting power during study planning, resulting in many underpowered studies. Low power, combined with undisclosed analytic flexibility and publication bias, is thought to be a key issue in the replication crisis within the field. As such there may be a large number of studies where the null hypothesis has been rejected when it should not have been; the field becomes noisy at that point and you are unsure which studies will replicate. It is issues like this that led us to redevelop our courses and why we really want you to understand power as much as possible.</p>
-<p>When planning a study any good researcher will consider four key elements, the <strong>APES</strong>:</p>
+<p>Building from there, we have started to discuss the idea of <strong>power</strong> (<span class="math inline">\(1-\beta\)</span>) which, from your lectures and from the pre-class reading, you should understand is the long-run probability of correctly rejecting the null hypothesis for a fixed effect size and fixed sample size; i.e. correctly concluding there is an effect when the effect is real. The concept of power is useful for making decisions when you plan a study. <strong>The higher the power of your planned study, the better</strong>, with the field standard proposed as <span class="math inline">\(power &gt;= .8\)</span> for the targeted effect size and sample size. In fact, Registered Reports are often required to have a power of at least <span class="math inline">\(power &gt;= .9\)</span>. Keep in mind that power is defined as the probability of rejecting the null for a fixed effect size and fixed sample size. For a given sample size, power will be higher for effects that you assume to be larger (they are easier to detect). For a given effect size, power will be higher for a larger sample. Because you have little control over the size of the effect, typically you can increase the power of your study by either (1) increasing the size of your sample or (2) reducing sources of noise and measurement error in your study. Because power depends on several variables, it is useful to think of power as a <em>function</em> rather than as a single fixed quantity.</p>
+<p>Psychological research has been criticised for neglecting power during study planning, resulting in many underpowered studies. Low power, combined with undisclosed analytic flexibility and publication bias, is thought to be a key issue in the replication crisis within the field. As such, there may be a large number of studies where the null hypothesis has been rejected when it should not have been; the field becomes noisy at that point and you are unsure which studies will replicate. It is issues like this that led us to redevelop our courses and why we really want you to understand power as much as possible.</p>
+<p>When planning a study, any good researcher will consider four key elements, the <strong>APES</strong>:</p>
 <ul>
 <li><strong>alpha</strong> - most commonly thought of as the significance level; usually set at <span class="math inline">\(\alpha = .05\)</span></li>
 <li><strong>power</strong> - the probability of rejecting the null for a given effect size and sample size, with .8 usually cited as the minimum power you should aim for</li>
@@ -636,11 +638,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href = "https://www.youtube.com/watch?v=Lr-i4Ugoc5M&index=3&list=PLtAL5tCifMi5zG70dslERYcGApAQcvj1s" target = "_blank">Power Analysis and Sample Size Decisions</a> by Daniel Lakens</li>
 </ul>
-<p>Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you understand them better.</p>
+<p>Remember to make notes about power, effect sizes, and sample sizes, as processing the concepts into your own words will really help you to understand them better.</p>
 </div>
 <div id="optional" class="section level3">
 <h3><span class="header-section-number">8.2.3</span> Optional</h3>
-<p>There are a number of great webpages and blogs that will help you understand the concepts in this chapter. Here are some that we think might be fun for you to look at. You don’t have to look at all these for this lab but do come back to them as they will really help you as you progress in the course. We are deliberately giving you a number of options here as for everyone there is that one analogy that will work best for you and that one paper that will make everything click in to place. That example will be different from person to person so having a variety of explanations will help.</p>
+<p>There are a number of great webpages and blogs that will help you understand the concepts in this chapter. Here are some that we think might be fun for you to look at. You don’t have to look at all of these for this lab but do come back to them as they will really help you as you progress in the course. We are deliberately giving you a number of options here as for everyone there is that one analogy that will work best for you and that one paper that will make everything click into place. That example will be different from person to person so having a variety of explanations will help.</p>
 <ul>
 <li><p>A YouTube video by Dan Quintana (University of Oslo) showing how to use the <strong><code>pwr</code></strong> package to calculate power in t-tests, correlations, and one-way ANOVAs <a href="https://www.youtube.com/watch?v=ZIjOG8LTTh8" target = "_blank">https://www.youtube.com/watch?v=ZIjOG8LTTh8</a></p></li>
 <li><p>A shiny app created by Lisa Debruine (University of Glasgow) on guessing the effect size between two conditions <a href="http://shiny.psy.gla.ac.uk/guess/" target = "_blank">http://shiny.psy.gla.ac.uk/guess/</a></p></li>
@@ -651,8 +653,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>A blog by Daniel Lakens on what Type I and Type II errors are acceptable. In short, justify everything <a href="http://daniellakens.blogspot.com/2019/05/justifying-your-alpha-by-minimizing-or.html" target = "_blank">http://daniellakens.blogspot.com/2019/05/justifying-your-alpha-by-minimizing-or.html</a></p></li>
 </ul>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Hopefully this has given you a good basis to understanding power, sample sizes, alpha, and effect sizes. These are difficult concepts to grasp and will take a lot of time thinking about them and interacting with them before they really start to sink in. Hopefully however, if nothing else, the least you come away with is the idea that the number of participants you should run in a study is not an arbitrary decision but is in fact a relationship between the effect size you want to test for and the level of error (Type I or Type II) you are willing to accept.</p>
-<p>As always the best way to understand something is to put it into your own words so don’t forget to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
+<p>Hopefully this has given you a good basis to understanding power, sample sizes, alpha, and effect sizes. These are difficult concepts to grasp and it will take a lot of time thinking about them and interacting with them before they really start to sink in. Hopefully however, if nothing else, the least you come away with is the idea that the number of participants you should run in a study is not an arbitrary decision but is in fact a relationship between the effect size you want to test for and the level of error (Type I or Type II) you are willing to accept.</p>
+<p>As always, the best way to understand something is to put it into your own words so don’t forget to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
 
 </div>
 </div>
@@ -699,7 +701,7 @@ According to Cohen (1988), the effect size is small (.2 to .5), medium (.5 to .8
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answering the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
 <ul>
 <li>Enter, in digits, how many people were run in this study: <input class='solveme nospaces' size='2' data-answer='["26"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = t/sqrt(N)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
@@ -729,7 +731,7 @@ According to Cohen (1988), the effect size is small (.2 to .5), medium (.5 to .8
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answering the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
 <ul>
 <li>Enter, in digits, how many people were run in this study: <input class='solveme nospaces' size='2' data-answer='["32"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = 2t/sqrt(df)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
@@ -759,7 +761,7 @@ A matched pairs is treated like a paired-sample t-test but with two separate gro
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answering the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
 <ul>
 <li>Enter, in digits, how many people were in each group in this study. Note, not the total number of participants: <input class='solveme nospaces' size='2' data-answer='["40"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = t/sqrt(N)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
@@ -818,7 +820,7 @@ Remember that convention is that people report the <code>t</code> and <code>d</c
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answering the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
 <ul>
 <li><p>Enter the correct <code>t-value</code> for this test, rounded to two decimal places: <input class='solveme nospaces' size='5' data-answer='["2.56","-2.56"]'/></p></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = 2t/sqrt(df)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
@@ -839,14 +841,14 @@ Remember that convention is that people report the <code>t</code> and <code>d</c
 <li><strong>alternative</strong> - the type of hypothesis; <code>&quot;two.sided&quot;, &quot;one.sided&quot;</code></li>
 </ul>
 <p>And it works on a leave one out principle. You give it all the info you have and it returns the element you are missing. So, for example, say you needed to know how many people per group you would need to detect an effect size as low as <code>d = .4</code> with <code>power = .8</code>, <code>alpha = .05</code> in a <code>two.sample (between-subjects) t-test</code> on a <code>two.sided</code> hypothesis test. You would do:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">.4</span>,
-             <span class="dt">sd =</span> <span class="dv">1</span>,
-             <span class="dt">power =</span> <span class="fl">.8</span>,
-             <span class="dt">sig.level =</span> <span class="fl">.05</span>,
-             <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,
-             <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">.4</span>,</a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">             <span class="dt">sd =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb303-3" data-line-number="3">             <span class="dt">power =</span> <span class="fl">.8</span>,</a>
+<a class="sourceLine" id="cb303-4" data-line-number="4">             <span class="dt">sig.level =</span> <span class="fl">.05</span>,</a>
+<a class="sourceLine" id="cb303-5" data-line-number="5">             <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
+<a class="sourceLine" id="cb303-6" data-line-number="6">             <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>)</a></code></pre></div>
 <p>And it would tell you that you would need 99.080565 people per condition. But you only get whole people and we like to be conservative on our estimates so we would actually run 100 <strong>per condition</strong>. That is a lot of people!!!</p>
-<p>Let’s get started. <strong>But before you start with this next task</strong>, you will need to load in packages such as the <code>tidyverse</code> and <code>broom</code>.</p>
+<p>Let’s get started. <strong>But before you start with this next task</strong>, you will need to load in packages such as <code>tidyverse</code> and <code>broom</code>.</p>
 </div>
 <div id="Ch8InClassQueT5" class="section level3">
 <h3><span class="header-section-number">8.3.5</span> Task 5: Sample size for standard power one-sample t-test</h3>
@@ -877,7 +879,7 @@ You will also need to use <code>tidy() %&gt;% pull(n)</code> to help you obtain 
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answering the following question to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following question to check your answers. The solutions are at the bottom if you need them:</p>
 <ul>
 <li>Enter the minimum number of participants you would need in this one-sample t-test: <input class='solveme nospaces' size='3' data-answer='["151"]'/></li>
 </ul>
@@ -907,7 +909,7 @@ You will also need to use <code>tidy()</code>, <code>pull()</code> to obtain Coh
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answering the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
 <ul>
 <li>Based on the information given, what will you set <code>type</code> as in the function? <select class='solveme' data-answer='["two.sample"]'> <option></option> <option>one.sample</option> <option>two.sample</option></select></li>
 <li>Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='solveme nospaces' size='4' data-answer='[".65","0.65"]'/></li>
@@ -917,7 +919,7 @@ You will also need to use <code>tidy()</code>, <code>pull()</code> to obtain Coh
 </div>
 <div id="Ch8InClassQueT7" class="section level3">
 <h3><span class="header-section-number">8.3.7</span> Task 7: Power of Published Research</h3>
-<p>Thus far we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?</p>
+<p>Thus far, we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?</p>
 <ol style="list-style-type: decimal">
 <li>one-sample: t(31) = 2.96, p = .006</li>
 <li>paired t-test: t(31) = 2.42, p = .022</li>
@@ -951,20 +953,20 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <li>Increasing power (.8 to .9) will require more participants.</li>
 </ul>
 <p>A high-powered study looking to detect a small effect size at a low alpha will require a large number of participants!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>.</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>.</p>
 
 </div>
 </div>
 <div id="assignment-7" class="section level2">
 <h2><span class="header-section-number">8.4</span> Assignment</h2>
 <p><strong>Lab 8: APES Assignment</strong></p>
-<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester1_Lab8.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/08-s01/homework/ch8-assign-file.zip">Download the assignment zip file from here</a> or on Moodle.</p>
+<p>In order to complete this assignment, you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester1_Lab8.Rmd</code>. This can be downloaded within a zip file from the link below. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/08-s01/homework/ch8-assign-file.zip">Download the assignment zip file from here</a> or on Moodle.</p>
 <p><em>NOTE</em>: in nearly all of the problems below, you will need to replace <code>NULL</code> with a value or a pipeline of code that computes a value. Please pay special attention as to what the question is asking for as the output, e.g. <em>value</em> or a <em>tibble</em>; when asked for a <em>value</em> as an output, make sure it is a single value and not a value stored in a tibble. Finally, when altering code inside the code blocks, please <em>do not</em> re-order or rename the code blocks (T1, T2, … etc.). If you do, this may impact your grade!</p>
 <p>It’s also recommended that you “Knit” a report to be able to see what you’ve accomplished and spot potential errors. A great thing to do is close the whole programme, restart it, and then knit your code. This will test whether you have remembered to include essential elements, such as libraries, in your code.</p>
 <p><strong>APES: Alpha, Power, Effect Size, and Sample Size</strong></p>
-<p>In the lab we have been looking at the interplay between the four components of Alpha, Power, Effect Size, and Sample Size. This is a very important part of experimental design to understand as it will help you understand which studies are worth paying attention to and it will help you design your own studies in the coming years so that you know just how many people to run and what to make of the effect that you find. If you have not yet done so, we highly recommend reading the blog suggested as PreClass reading material and carrying out the activities in the inclass activity. These will help you will both the practicalities and the interpretation of the following assignment.</p>
+<p>In the lab, we have been looking at the interplay between the four components of Alpha, Power, Effect Size, and Sample Size. This is a very important part of experimental design to understand as it will help you understand which studies are worth paying attention to and it will help you design your own studies in the coming years so that you know just how many people to run and what to make of the effect that you find. If you have not yet done so, we highly recommend reading the blog suggested as PreClass reading material and carrying out the activities in the inclass activity. These will help you will both the practicalities and the interpretation of the following assignment.</p>
 <p>Remember that this assignment is formative but the knowledge gained from the practical activities in this lab will be super important to your future-self!</p>
-<p><strong>Before starting lets check:</strong></p>
+<p><strong>Before starting let’s check:</strong></p>
 <ol style="list-style-type: decimal">
 <li>The <code>.Rmd</code> file is saved in your working directory. For assessments we ask that you save it with the format <code>GUID_Level2_Semester1_Lab8.Rmd</code> where <code>GUID</code> is replaced with your <code>GUID</code>. Though this is a formative assessment, it may be good practice to do the same here.</li>
 </ol>
@@ -972,16 +974,16 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <ul>
 <li>You will need to use the <code>tidyverse</code> and <code>broom</code> libraries in this assignment, so load them in the <code>library</code> code chunk below.</li>
 </ul>
-<p>You do not need the <code>pwr</code> library as all of the below questions can be completed with base functions but if you prefer to use the <code>pwr</code> library then load it below in the <code>libary</code> code chunk as well.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># TO DO, load in the two stated libraries as you will need functions from these libraries</span></code></pre>
+<p>You do not need the <code>pwr</code> library as all of the questions below can be completed with base functions but if you prefer to use the <code>pwr</code> library then load it below in the <code>library</code> code chunk as well.</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="co"># TO DO, load in the two stated libraries as you will need functions from these libraries</span></a></code></pre></div>
 <p><strong>Basic Calculations</strong></p>
 <div id="Ch8AssignQueT1" class="section level3">
 <h3><span class="header-section-number">8.4.1</span> Assignment Task 1</h3>
 <ul>
 <li>You set up a study so that it has a power value of <span class="math inline">\(power = .87\)</span>. To two decimal places, what is the Type II error rate of your study?</li>
 </ul>
-<p>Replace the <code>NULL</code> in the <code>T1</code> code chunk below with either a single value, or with mathematical notation, so that <code>error_rate</code> returns the actual value of the Type II error rate for this study. By mathematical notation we mean you to use the appropriate formula but insert the actual values.</p>
-<pre class="sourceCode r"><code class="sourceCode r">error_rate &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<p>Replace the <code>NULL</code> in the <code>T1</code> code chunk below with either a single value, or with mathematical notation, so that <code>error_rate</code> returns the actual value of the Type II error rate for this study. By mathematical notation, we mean you to use the appropriate formula but insert the actual values.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">error_rate &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT2" class="section level3">
 <h3><span class="header-section-number">8.4.2</span> Assignment Task 2</h3>
@@ -989,7 +991,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <li>You run an independent t-test and discover a significant effect, t(32) = 3.26, p &lt; .05. Using the appropriate formula, given in the inclass activity, calculate the effect size of this t-test.</li>
 </ul>
 <p>Replace the <code>NULL</code> in the <code>T2</code> code chunk below with mathematical notation so that <code>effect1</code> returns the value of the effect size. Do not round the value.</p>
-<pre class="sourceCode r"><code class="sourceCode r">effect1 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">effect1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT3" class="section level3">
 <h3><span class="header-section-number">8.4.3</span> Assignment Task 3</h3>
@@ -997,25 +999,25 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <li>You run a dependent t-test and discover a significant effect, t(43) = 2.24, p &lt; .05. Using the appropriate formula, given in the inclass activity, calculate the effect size of this t-test.</li>
 </ul>
 <p>Replace the <code>NULL</code> in the <code>T3</code> code chunk below with mathematical notation so that <code>effect2</code> returns the value of the effect size. Do not round the value.</p>
-<pre class="sourceCode r"><code class="sourceCode r">effect2 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">effect2 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 <p><strong>Using the Power function</strong></p>
 </div>
 <div id="Ch8AssignQueT4" class="section level3">
 <h3><span class="header-section-number">8.4.4</span> Assignment Task 4</h3>
 <ul>
-<li><p>Replace the NULL in the <code>T4</code> code chunk below with a pipeline combining <code>power.t.test()</code>, <code>tidy()</code>, <code>pull()</code> and <code>ceiling()</code>, to determine how many participants are needed to sufficiently power a paired-samples t-test at <span class="math inline">\(power = .9\)</span> with <span class="math inline">\(delta = .5\)</span>, <span class="math inline">\(sd = 1\)</span>? Assume a two-sided hypothesis with <span class="math inline">\(\alpha = .05\)</span>. Ceiling the answer to the nearest whole participant and store this value in <code>participants</code>.</p></li>
+<li><p>Replace the NULL in the <code>T4</code> code chunk below with a pipeline combining <code>power.t.test()</code>, <code>tidy()</code>, <code>pull()</code> and <code>ceiling()</code>, to determine how many participants are needed to sufficiently power a paired-samples t-test at <span class="math inline">\(power = .9\)</span> with <span class="math inline">\(delta = .5\)</span>, <span class="math inline">\(sd = 1\)</span>? Assume a two-sided hypothesis with <span class="math inline">\(\alpha = .05\)</span>, ceiling the answer to the nearest whole participant and store this value in <code>participants</code>.</p></li>
 <li><strong>Note1:</strong> If using the <code>pwr</code> package <code>pwr.t.test()</code> would be the ideal function.</li>
 <li><strong>Note2:</strong> If using the <code>pwr</code> package you do not declare <code>sd</code></li>
 <li><p><strong>Note3:</strong> If using the <code>pwr</code> package <code>delta</code> is the same as <code>d</code></p></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">participants &lt;-<span class="st"> </span><span class="ot">NULL</span> </code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1">participants &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT5" class="section level3">
 <h3><span class="header-section-number">8.4.5</span> Assignment Task 5</h3>
 <ul>
 <li>Using a pipeline similar to Task 4, what is the minimum effect size that a one-sample t-test study (two-tailed hypothesis) could reliably detect given the following details : <span class="math inline">\(\beta = .16, \alpha = 0.01, n = 30\)</span>. Round to two decimal places and replace the NULL in the <code>T5</code> code chunk below to store this value in <code>effect3</code>.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">effect3 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">effect3 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT6" class="section level3">
 <h3><span class="header-section-number">8.4.6</span> Assignment Task 6</h3>
@@ -1024,14 +1026,14 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <li>You run a between-subjects study and establish the following descriptives: Group 1 (M = 5.1, SD = 1.34, N = 32); Group 2 (M = 4.4, SD = 1.27, N = 32). Replace the <code>NULL</code> in the <code>T6</code> code chunk below with the following formula, substituting in the appropriate values, to calculate the t-value of this test. Calculate as Group1 minus Group2. Store the t-value in <code>tval</code>. Do not round <code>tval</code> and do not include the <code>t =</code> part of the formula.</li>
 </ul>
 <p><span class="math display">\[ t = \frac {{\bar{x_{1}}} - \bar{x_{2}}}{ \sqrt {\frac {{s_{1}}^2}{n_{1}} + \frac {{s_{2}}^2}{n_{2}}}}\]</span></p>
-<pre class="sourceCode r"><code class="sourceCode r">tval &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">tval &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT7" class="section level3">
 <h3><span class="header-section-number">8.4.7</span> Assignment Task 7</h3>
 <ul>
 <li>Using the <code>tval</code> calculated in Task 6, calculate the effect size of this study and store it as <code>d1</code> in the <code>T7</code> code chunk below, replacing the <code>NULL</code> with the appropriate formula and values. Do not round <code>d1</code>.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">d1 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">d1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT8" class="section level3">
 <h3><span class="header-section-number">8.4.8</span> Assignment Task 8</h3>
@@ -1043,10 +1045,10 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <li>The smallest effect size that this study can determine is d = .71. The detected effect size, <code>d1</code>, is smaller than this and as such this study is not suitably powered</li>
 </ol>
 <p>Replace the NULL in the <code>T8</code> code chunk below with the number of the statement that is a true summary of this study. It may help you to calculate and store the smallest achievable effect size of this study in <code>poss_d</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#hint: use poss_d to calculate the smallest possible effect size of this study to help you answer this question.</span>
-poss_d &lt;-<span class="st"> </span><span class="ot">NULL</span>
-
-answer_T8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="co">#hint: use poss_d to calculate the smallest possible effect size of this study to help you answer this question.</span></a>
+<a class="sourceLine" id="cb312-2" data-line-number="2">poss_d &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb312-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb312-4" data-line-number="4">answer_T8 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT9" class="section level3">
 <h3><span class="header-section-number">8.4.9</span> Assignment Task 9</h3>
@@ -1054,7 +1056,7 @@ answer_T8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre
 <p>Below is a paragraph from the results of Experiment 4 from <em>Schroeder, J., &amp; Epley, N. (2015). The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate’s appeal.</em> <em>Psychological Science</em>, <em>26</em>, <em>877-891</em>. We saw this paper in Lab 5 but you can find out more details at <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>.</p>
 <p><em>Recruiters believed that the job candidates had greater intellect - were more competent, thoughtful, and intelligent - when they listened to pitches (M = 5.63, SD = 1.61, n = 21) than when they read pitches (M = 3.65, SD = 1.91, n = 18), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], <strong>d1 = 1.16</strong>. The recruiters also formed more positive impressions of the candidates - rated them as more likeable and had a more positive and less negative impression of them - when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p &lt; .01, 95% CI of the difference = [0.55, 3.24], <strong>d2 = 0.94</strong>. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p &lt; .01, 95% CI of the difference = [0.41, 3.24], <strong>d3 = 0.86</strong>.</em></p>
 <p>Using the <code>power.t.test()</code> function, what is the minimum effect size that this paper could have reliably detected? Test at <span class="math inline">\(power = .8\)</span> for a two-sided hypothesis. Use the <span class="math inline">\(\alpha\)</span> stated in the paragraph and the smallest <em>n</em> stated; store the value as <code>effect4</code> in the <code>T9</code> code chunk below. Replace the <code>NULL</code> with your pipeline and round the effect size to two decimal places.</p>
-<pre class="sourceCode r"><code class="sourceCode r">effect4 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">effect4 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT10" class="section level3">
 <h3><span class="header-section-number">8.4.10</span> Assignment Task 10</h3>
@@ -1066,7 +1068,7 @@ answer_T8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre
 <li>This study does not have enough power to detect effect sizes at d1 or lower.</li>
 </ol>
 <p>Replace the NULL in the <code>T10</code> code chunk below with the number of the statement that is TRUE, storing the single value in <code>answer_t10</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT11" class="section level3">
 <h3><span class="header-section-number">8.4.11</span> Assignment Task 11</h3>
@@ -1085,13 +1087,13 @@ answer_T8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre
 <li>None of the statements are TRUE.</li>
 </ol>
 <p>Replace the NULL in the <code>T11</code> code chunk below with the number of the statement that is correct, storing the single value in <code>answer_t11</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">answer_t11 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">answer_t11 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="the-pwr-package" class="section level3">
 <h3><span class="header-section-number">8.4.12</span> The <strong><code>pwr</code></strong> package</h3>
-<p>An alternative solution to Task 9 would be to use the <code>pwr.t2n.test()</code> function from the <code>pwr</code> package <span class="citation">(Champely <a href="#ref-R-pwr">2018</a>)</span>. This would allow you to enter the <code>n</code> of both groups as there is a <code>n1</code> and a <code>n2</code> arguement. Were you to use thus, entering n1 = 18, n2 = 21, alpha = .01, the d drops just a little, changing the interpretation of Task 10. Feel free to try this analysis and see if you can figure out what would be the alternative answer to Task 10.</p>
+<p>An alternative solution to Task 9 would be to use the <code>pwr.t2n.test()</code> function from the <code>pwr</code> package <span class="citation">(Champely <a href="#ref-R-pwr">2018</a>)</span>. This would allow you to enter the <code>n</code> of both groups as there is an <code>n1</code> and an <code>n2</code> argument. Were you to use this, entering n1 = 18, n2 = 21, alpha = .01, the d drops just a little, changing the interpretation of Task 10. Feel free to try this analysis and see if you can figure out what would be the alternative answer to Task 10.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href="https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers, it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href="https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
 
 </div>
 </div>
@@ -1102,25 +1104,25 @@ answer_T8 &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre
 <h3><span class="header-section-number">8.5.1</span> InClass Activities</h3>
 <div id="inclass-task-1-4" class="section level4">
 <h4><span class="header-section-number">8.5.1.1</span> InClass Task 1</h4>
-<pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> </span><span class="fl">3.24</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span> <span class="op">+</span><span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">d &lt;-<span class="st"> </span><span class="fl">3.24</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span> <span class="op">+</span><span class="dv">1</span>)</a></code></pre></div>
 <ul>
-<li>Giving a effect size of d = 0.64 and as such a medium to large effect size according to Cohen (1988)</li>
+<li>Giving an effect size of d = 0.64 and as such a medium to large effect size according to Cohen (1988)</li>
 </ul>
 <p><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-5" class="section level4">
 <h4><span class="header-section-number">8.5.1.2</span> InClass Task 2</h4>
-<pre class="sourceCode r"><code class="sourceCode r">d &lt;-<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span><span class="fl">2.9</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">30</span>)</code></pre>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1">d &lt;-<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span><span class="fl">2.9</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">30</span>)</a></code></pre></div>
 <ul>
-<li>Giving a effect size of d = 1.06 and as a large effect size according to Cohen (1988)</li>
+<li>Giving a effect size of d = 1.06 and as such a large effect size according to Cohen (1988)</li>
 </ul>
 <p><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-4" class="section level4">
 <h4><span class="header-section-number">8.5.1.3</span> InClass Task 3</h4>
-<pre class="sourceCode r"><code class="sourceCode r">N =<span class="st"> </span><span class="dv">39</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
-
-d &lt;-<span class="st"> </span><span class="fl">2.1</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(N)</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1">N =<span class="st"> </span><span class="dv">39</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb318-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb318-3" data-line-number="3">d &lt;-<span class="st"> </span><span class="fl">2.1</span> <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(N)</a></code></pre></div>
 <ul>
 <li>Giving an N = 40 and an effect size of d = 0.33. This would be considered a small effect size according to Cohen (1988)</li>
 </ul>
@@ -1128,9 +1130,9 @@ d &lt;-<span class="st"> </span><span class="fl">2.1</span> <span class="op">/</
 </div>
 <div id="inclass-task-4-4" class="section level4">
 <h4><span class="header-section-number">8.5.1.4</span> InClass Task 4</h4>
-<pre class="sourceCode r"><code class="sourceCode r">t =<span class="st"> </span>(<span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">11</span>)<span class="op">/</span><span class="kw">sqrt</span>((<span class="fl">1.3</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">30</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">1.7</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">30</span>))
-
-d =<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>t)<span class="op">/</span><span class="kw">sqrt</span>((<span class="dv">30-1</span>) <span class="op">+</span><span class="st"> </span>(<span class="dv">30-1</span>))</code></pre>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1">t =<span class="st"> </span>(<span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">11</span>)<span class="op">/</span><span class="kw">sqrt</span>((<span class="fl">1.3</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">30</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">1.7</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">30</span>))</a>
+<a class="sourceLine" id="cb319-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb319-3" data-line-number="3">d =<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>t)<span class="op">/</span><span class="kw">sqrt</span>((<span class="dv">30-1</span>) <span class="op">+</span><span class="st"> </span>(<span class="dv">30-1</span>))</a></code></pre></div>
 <ul>
 <li>Giving a t-value of t = 2.56 and an effect size of d = 0.67.</li>
 <li>Remember that convention is that people tend to report the t and d as positive values.</li>
@@ -1139,15 +1141,15 @@ d =<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>t
 </div>
 <div id="inclass-task-5-3" class="section level4">
 <h4><span class="header-section-number">8.5.1.5</span> InClass Task 5</h4>
-<pre class="sourceCode r"><code class="sourceCode r">sample_size &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">.23</span>, 
-                            <span class="dt">sd =</span> <span class="dv">1</span>, 
-                            <span class="dt">power =</span> <span class="fl">.8</span>, 
-                            <span class="dt">sig.level =</span> <span class="fl">.05</span>, 
-                            <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, 
-                            <span class="dt">type =</span> <span class="st">&quot;one.sample&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(n) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ceiling</span>()</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">sample_size &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">.23</span>, </a>
+<a class="sourceLine" id="cb320-2" data-line-number="2">                            <span class="dt">sd =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb320-3" data-line-number="3">                            <span class="dt">power =</span> <span class="fl">.8</span>, </a>
+<a class="sourceLine" id="cb320-4" data-line-number="4">                            <span class="dt">sig.level =</span> <span class="fl">.05</span>, </a>
+<a class="sourceLine" id="cb320-5" data-line-number="5">                            <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb320-6" data-line-number="6">                            <span class="dt">type =</span> <span class="st">&quot;one.sample&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb320-7" data-line-number="7"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb320-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(n) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb320-9" data-line-number="9"><span class="st">  </span><span class="kw">ceiling</span>()</a></code></pre></div>
 <ul>
 <li>Giving a sample size of n = 151</li>
 </ul>
@@ -1155,14 +1157,14 @@ d =<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>t
 </div>
 <div id="inclass-task-6-2" class="section level4">
 <h4><span class="header-section-number">8.5.1.6</span> InClass Task 6</h4>
-<pre class="sourceCode r"><code class="sourceCode r">cohens &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">50</span>,
-                            <span class="dt">power =</span> <span class="fl">.9</span>, 
-                            <span class="dt">sig.level =</span> <span class="fl">.05</span>, 
-                            <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, 
-                            <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1">cohens &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">50</span>,</a>
+<a class="sourceLine" id="cb321-2" data-line-number="2">                            <span class="dt">power =</span> <span class="fl">.9</span>, </a>
+<a class="sourceLine" id="cb321-3" data-line-number="3">                            <span class="dt">sig.level =</span> <span class="fl">.05</span>, </a>
+<a class="sourceLine" id="cb321-4" data-line-number="4">                            <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb321-5" data-line-number="5">                            <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb321-6" data-line-number="6"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb321-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb321-8" data-line-number="8"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
 <ul>
 <li>Giving a cohen’s effect size of d = 0.65</li>
 </ul>
@@ -1171,45 +1173,45 @@ d =<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>t
 <div id="inclass-task-7-3" class="section level4">
 <h4><span class="header-section-number">8.5.1.7</span> InClass Task 7</h4>
 <p><strong>Example 1</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">ach_d_exp1 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>, 
-                    <span class="dt">n =</span> <span class="dv">32</span>, 
-                    <span class="dt">type =</span> <span class="st">&quot;one.sample&quot;</span>, 
-                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, 
-                    <span class="dt">sig.level =</span> <span class="fl">.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) 
-
-exp1_d &lt;-<span class="st"> </span><span class="fl">2.96</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">31</span><span class="op">+</span><span class="dv">1</span>) </code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">ach_d_exp1 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>, </a>
+<a class="sourceLine" id="cb322-2" data-line-number="2">                    <span class="dt">n =</span> <span class="dv">32</span>, </a>
+<a class="sourceLine" id="cb322-3" data-line-number="3">                    <span class="dt">type =</span> <span class="st">&quot;one.sample&quot;</span>, </a>
+<a class="sourceLine" id="cb322-4" data-line-number="4">                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb322-5" data-line-number="5">                    <span class="dt">sig.level =</span> <span class="fl">.05</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb322-6" data-line-number="6"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb322-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb322-8" data-line-number="8"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) </a>
+<a class="sourceLine" id="cb322-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb322-10" data-line-number="10">exp1_d &lt;-<span class="st"> </span><span class="fl">2.96</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">31</span><span class="op">+</span><span class="dv">1</span>) </a></code></pre></div>
 <ul>
 <li>Giving an achievable effect size of 0.51 and they found an effect size of 0.52.</li>
 </ul>
 <p>This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52</p>
 <p><strong>Example 2</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">ach_d_exp2 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>, 
-                    <span class="dt">n =</span> <span class="dv">32</span>, 
-                    <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>, 
-                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, 
-                    <span class="dt">sig.level =</span> <span class="fl">.05</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) 
-
-exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">31</span><span class="op">+</span><span class="dv">1</span>) </code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1">ach_d_exp2 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>, </a>
+<a class="sourceLine" id="cb323-2" data-line-number="2">                    <span class="dt">n =</span> <span class="dv">32</span>, </a>
+<a class="sourceLine" id="cb323-3" data-line-number="3">                    <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>, </a>
+<a class="sourceLine" id="cb323-4" data-line-number="4">                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb323-5" data-line-number="5">                    <span class="dt">sig.level =</span> <span class="fl">.05</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb323-6" data-line-number="6"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb323-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb323-8" data-line-number="8"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>) </a>
+<a class="sourceLine" id="cb323-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb323-10" data-line-number="10">exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">31</span><span class="op">+</span><span class="dv">1</span>) </a></code></pre></div>
 <ul>
 <li>Giving an achievable effect size of 0.51 and they found an effect size of 0.43.</li>
 </ul>
-<p>This effect might not be as reliable as it could be given that the effect size found was much lower than the achievable effect size. One issue here could be that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then it would have been advisable to have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies really is no easy task and this research is really important. To counter such scenarios some consider the Many Labs approach a good way ahead.</p>
+<p>This effect might not be as reliable as it could be given that the effect size found was much lower than the achievable effect size. One issue here could be that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then it would have been advisable to have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies really is no easy task and this research is really important. To counter such scenarios, some consider the Many Labs approach a good way ahead.</p>
 <p>You could take this analysis a step further by calculating the actual sample size required to achieve a power of .8 with an effect size of d = .4:</p>
-<pre class="sourceCode r"><code class="sourceCode r">sample_size &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,
-                            <span class="dt">delta =</span> <span class="fl">.4</span>, 
-                            <span class="dt">sd =</span> <span class="dv">1</span>, 
-                            <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>, 
-                            <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, 
-                            <span class="dt">sig.level =</span> <span class="fl">.05</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(n) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ceiling</span>()</code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1">sample_size &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,</a>
+<a class="sourceLine" id="cb324-2" data-line-number="2">                            <span class="dt">delta =</span> <span class="fl">.4</span>, </a>
+<a class="sourceLine" id="cb324-3" data-line-number="3">                            <span class="dt">sd =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb324-4" data-line-number="4">                            <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>, </a>
+<a class="sourceLine" id="cb324-5" data-line-number="5">                            <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb324-6" data-line-number="6">                            <span class="dt">sig.level =</span> <span class="fl">.05</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb324-7" data-line-number="7"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb324-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(n) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb324-9" data-line-number="9"><span class="st">  </span><span class="kw">ceiling</span>()</a></code></pre></div>
 <ul>
 <li>Suggesting a sample size of n = 52 would be appropriate.</li>
 </ul>
@@ -1219,12 +1221,12 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 <div id="homework-activity-1" class="section level3">
 <h3><span class="header-section-number">8.5.2</span> Homework Activity</h3>
 <p><strong>Libraries</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pwr)
-<span class="kw">library</span>(broom)
-<span class="kw">library</span>(tidyverse)</code></pre>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">library</span>(pwr)</a>
+<a class="sourceLine" id="cb325-2" data-line-number="2"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb325-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <div id="assignment-task-1-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.1</span> Assignment Task 1</h4>
-<pre class="sourceCode r"><code class="sourceCode r">error_rate &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">.87</span></code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1">error_rate &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">.87</span></a></code></pre></div>
 <ul>
 <li>The Type II error rate of your study would be <span class="math inline">\(\beta\)</span> = 0.13.</li>
 </ul>
@@ -1232,7 +1234,7 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-2-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.2</span> Assignment Task 2</h4>
-<pre class="sourceCode r"><code class="sourceCode r">effect1 &lt;-<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span><span class="fl">3.26</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">32</span>)</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1">effect1 &lt;-<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span><span class="fl">3.26</span>)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">32</span>)</a></code></pre></div>
 <ul>
 <li>The effect size would be d = 1.1525841</li>
 </ul>
@@ -1240,7 +1242,7 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-3-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.3</span> Assignment Task 3</h4>
-<pre class="sourceCode r"><code class="sourceCode r">effect2 &lt;-<span class="st"> </span><span class="fl">2.24</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">43</span><span class="op">+</span><span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1">effect2 &lt;-<span class="st"> </span><span class="fl">2.24</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">43</span><span class="op">+</span><span class="dv">1</span>)</a></code></pre></div>
 <ul>
 <li>The effect size would be d = 0.3376927</li>
 </ul>
@@ -1248,15 +1250,15 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-4-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.4</span> Assignment Task 4</h4>
-<pre class="sourceCode r"><code class="sourceCode r">participants &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.9</span>,
-                             <span class="dt">delta =</span> <span class="fl">.5</span>,
-                             <span class="dt">sd =</span> <span class="dv">1</span>,
-                             <span class="dt">sig.level =</span> <span class="fl">0.05</span>,
-                             <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>,
-                             <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(n) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ceiling</span>()</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1">participants &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.9</span>,</a>
+<a class="sourceLine" id="cb329-2" data-line-number="2">                             <span class="dt">delta =</span> <span class="fl">.5</span>,</a>
+<a class="sourceLine" id="cb329-3" data-line-number="3">                             <span class="dt">sd =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb329-4" data-line-number="4">                             <span class="dt">sig.level =</span> <span class="fl">0.05</span>,</a>
+<a class="sourceLine" id="cb329-5" data-line-number="5">                             <span class="dt">type =</span> <span class="st">&quot;paired&quot;</span>,</a>
+<a class="sourceLine" id="cb329-6" data-line-number="6">                             <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-7" data-line-number="7"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(n) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-9" data-line-number="9"><span class="st">  </span><span class="kw">ceiling</span>()</a></code></pre></div>
 <ul>
 <li>Given the detailed scenario, the appropriate number of participants would be n = 44</li>
 </ul>
@@ -1264,14 +1266,14 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-5-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.5</span> Assignment Task 5</h4>
-<pre class="sourceCode r"><code class="sourceCode r">effect3 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="dv">1</span><span class="fl">-.16</span>,
-                        <span class="dt">n =</span> <span class="dv">30</span>,
-                        <span class="dt">sig.level =</span> <span class="fl">0.01</span>,
-                        <span class="dt">type =</span> <span class="st">&quot;one.sample&quot;</span>,
-                        <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1">effect3 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="dv">1</span><span class="fl">-.16</span>,</a>
+<a class="sourceLine" id="cb330-2" data-line-number="2">                        <span class="dt">n =</span> <span class="dv">30</span>,</a>
+<a class="sourceLine" id="cb330-3" data-line-number="3">                        <span class="dt">sig.level =</span> <span class="fl">0.01</span>,</a>
+<a class="sourceLine" id="cb330-4" data-line-number="4">                        <span class="dt">type =</span> <span class="st">&quot;one.sample&quot;</span>,</a>
+<a class="sourceLine" id="cb330-5" data-line-number="5">                        <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-6" data-line-number="6"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-8" data-line-number="8"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
 <ul>
 <li>Given the detailed scenario, we would be able to detect an effect size of d = 0.69</li>
 </ul>
@@ -1279,7 +1281,7 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-6-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.6</span> Assignment Task 6</h4>
-<pre class="sourceCode r"><code class="sourceCode r">tval &lt;-<span class="st"> </span>(<span class="fl">5.1</span> <span class="op">-</span><span class="st"> </span><span class="fl">4.4</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="fl">1.34</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">32</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">1.27</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">32</span>))</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">tval &lt;-<span class="st"> </span>(<span class="fl">5.1</span> <span class="op">-</span><span class="st"> </span><span class="fl">4.4</span>) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="fl">1.34</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">32</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">1.27</span><span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">32</span>))</a></code></pre></div>
 <ul>
 <li>Given the stated means and standard deviations, the t-value for this study would be t = 2.1448226</li>
 </ul>
@@ -1287,7 +1289,7 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-7-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.7</span> Assignment Task 7</h4>
-<pre class="sourceCode r"><code class="sourceCode r">d1 &lt;-<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>tval)<span class="op">/</span><span class="kw">sqrt</span>((<span class="dv">32-1</span>)<span class="op">+</span>(<span class="dv">32-1</span>))</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1">d1 &lt;-<span class="st"> </span>(<span class="dv">2</span><span class="op">*</span>tval)<span class="op">/</span><span class="kw">sqrt</span>((<span class="dv">32-1</span>)<span class="op">+</span>(<span class="dv">32-1</span>))</a></code></pre></div>
 <ul>
 <li>Given the t-value in Task 6, the effect size of this study would be d = 0.5447855.</li>
 </ul>
@@ -1295,16 +1297,16 @@ exp2_d &lt;-<span class="st"> </span><span class="fl">2.42</span><span class="op
 </div>
 <div id="assignment-task-8-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.8</span> Assignment Task 8</h4>
-<pre class="sourceCode r"><code class="sourceCode r">poss_d &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,
-                        <span class="dt">n =</span> <span class="dv">32</span>,
-                        <span class="dt">sig.level =</span> <span class="fl">0.05</span>,
-                        <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>,
-                        <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)
-
-answer_T8 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1">poss_d &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,</a>
+<a class="sourceLine" id="cb333-2" data-line-number="2">                        <span class="dt">n =</span> <span class="dv">32</span>,</a>
+<a class="sourceLine" id="cb333-3" data-line-number="3">                        <span class="dt">sig.level =</span> <span class="fl">0.05</span>,</a>
+<a class="sourceLine" id="cb333-4" data-line-number="4">                        <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>,</a>
+<a class="sourceLine" id="cb333-5" data-line-number="5">                        <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb333-6" data-line-number="6"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb333-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb333-8" data-line-number="8"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb333-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb333-10" data-line-number="10">answer_T8 &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
 <ul>
 <li>The smallest effect size that this study can determine is d = 0.71. The detected effect size, <code>d1</code>, is smaller than this (d1 = 0.5447855) and as such this study is not suitably powered.</li>
 <li>Given that outcome, the 4th statement is the most suitable answer - answer_T8 = 4.</li>
@@ -1313,15 +1315,15 @@ answer_T8 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
 </div>
 <div id="assignment-task-9-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.9</span> Assignment Task 9</h4>
-<pre class="sourceCode r"><code class="sourceCode r">effect4 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,
-                        <span class="dt">n =</span> <span class="dv">18</span>,
-                        <span class="dt">sd =</span> <span class="dv">1</span>,
-                        <span class="dt">sig.level =</span> <span class="fl">.01</span>,
-                        <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,
-                        <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">round</span>(<span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1">effect4 &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,</a>
+<a class="sourceLine" id="cb334-2" data-line-number="2">                        <span class="dt">n =</span> <span class="dv">18</span>,</a>
+<a class="sourceLine" id="cb334-3" data-line-number="3">                        <span class="dt">sd =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb334-4" data-line-number="4">                        <span class="dt">sig.level =</span> <span class="fl">.01</span>,</a>
+<a class="sourceLine" id="cb334-5" data-line-number="5">                        <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
+<a class="sourceLine" id="cb334-6" data-line-number="6">                        <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb334-7" data-line-number="7"><span class="st">  </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb334-8" data-line-number="8"><span class="st">  </span><span class="kw">pull</span>(delta) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb334-9" data-line-number="9"><span class="st">  </span><span class="kw">round</span>(<span class="dv">3</span>)</a></code></pre></div>
 <ul>
 <li>The smallest stated n is n = 18 and the stated <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(\alpha\)</span> = .01</li>
 <li>Given these details, the minimum effect size that this paper could have reliably detected was d = 1.198</li>
@@ -1330,7 +1332,7 @@ answer_T8 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
 </div>
 <div id="assignment-task-10-1" class="section level4">
 <h4><span class="header-section-number">8.5.2.10</span> Assignment Task 10</h4>
-<pre class="sourceCode r"><code class="sourceCode r">answer_t10 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
 <ul>
 <li>This study does not have enough power to detect effect sizes at d1 or lower and as such answer_t10 = 4</li>
 </ul>
@@ -1338,7 +1340,7 @@ answer_T8 &lt;-<span class="st"> </span><span class="dv">4</span></code></pre>
 </div>
 <div id="assignment-task-11" class="section level4">
 <h4><span class="header-section-number">8.5.2.11</span> Assignment Task 11</h4>
-<pre class="sourceCode r"><code class="sourceCode r">answer_t11 &lt;-<span class="st"> </span><span class="dv">2</span></code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1">answer_t11 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <ul>
 <li>In general, increasing sample size will increase the power of a study whereas lowering alpha (from .05 to .01) will decrease the power of a study. As such, statements a and c, answer_t11 = 2.</li>
 </ul>
@@ -1451,11 +1453,13 @@ window.onload = function() {
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1499,8 +1503,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

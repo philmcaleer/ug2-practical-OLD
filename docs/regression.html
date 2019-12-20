@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 14 Regression | Level 2 Practical</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 14 Regression | Level 2 Practical" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 
 
 
-<meta name="date" content="2019-07-14" />
+<meta name="date" content="2019-12-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="continuing-the-glm-two-factor-designs.html">
-<link rel="next" href="combining-anova-and-regression.html">
+<link rel="prev" href="continuing-the-glm-two-factor-designs.html"/>
+<link rel="next" href="combining-anova-and-regression-sometimes-called-an-ancova.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -417,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT3"><i class="fa fa-check"></i><b>10.3.3</b> Task 3 - Missing Data</a></li>
 <li class="chapter" data-level="10.3.4" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT4"><i class="fa fa-check"></i><b>10.3.4</b> Task 4 - Normality</a></li>
 <li class="chapter" data-level="10.3.5" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT5"><i class="fa fa-check"></i><b>10.3.5</b> Task 5 - Descriptives</a></li>
-<li class="chapter" data-level="10.3.6" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT6"><i class="fa fa-check"></i><b>10.3.6</b> Task 6 - Pearson or Spearman</a></li>
+<li class="chapter" data-level="10.3.6" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT6"><i class="fa fa-check"></i><b>10.3.6</b> Task 6 - Pearson or Spearman?</a></li>
 <li class="chapter" data-level="10.3.7" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT7"><i class="fa fa-check"></i><b>10.3.7</b> Task 7 - Interpretation</a></li>
 <li class="chapter" data-level="10.3.8" data-path="correlations.html"><a href="correlations.html#advanced-1-matrix-of-scatterplots"><i class="fa fa-check"></i><b>10.3.8</b> Advanced 1: Matrix of Scatterplots</a></li>
 <li class="chapter" data-level="10.3.9" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT8"><i class="fa fa-check"></i><b>10.3.9</b> Task 8 - The Matrix</a></li>
@@ -536,27 +538,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.5.7" data-path="regression.html"><a href="regression.html#task-8"><i class="fa fa-check"></i><b>14.5.7</b> Task 8</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
-<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
-<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
-<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
-<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
-<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (sometimes called an ANCOVA)</a><ul>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
+<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
+<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
+<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
+<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#inclass-activity-13"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
-<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualise and Interpreting the relationship of smartphone use and wellbeing by sex</a></li>
-<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
-<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
-<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#inclass-activity-13"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
+<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
+<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
+<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
+<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#assignment-14"><i class="fa fa-check"></i><b>15.4</b> Assignment</a></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
-<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
-<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#inclass-activities-10"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#assignment-14"><i class="fa fa-check"></i><b>15.4</b> Assignment</a></li>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
+<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#inclass-activities-10"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
@@ -596,8 +598,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 14</span> Regression</h1>
 <div id="overview-14" class="section level2">
 <h2><span class="header-section-number">14.1</span> Overview</h2>
-<p>For the past few weeks we have been looking at designs where you have categorical factors and where you want to say whether there is an effect of a given factor or an interaction between two factors. And we have looked at this through decomposition matrices and through the <strong><code>ezANOVA</code></strong> package. We also mentioned how this approach can be extrapolated into designs with more than two-factors such as three-way ANOVAs (three factors) and larger, but also into within-subject designs where every participant sees every stimuli, and mixed-designs where you have at least one between and one within factor. We will look at these different types of designs next year.</p>
-<p>Today, however, we want to start looking at predicting relationships from continuous variables through regression. You will already be familiar with many of the terms here from your lecture series but through looking at a practical example relating to voice research in the lab, and through reading about regression in Miller and Haden (2013) in the PreClass, it should start to become more concrete for you. Regression is still part of the GLM and eventually the goal will be to show you how to analyse designs that has both categorical and continuous variables as much of real data is made up like that. But for now we will just look at simple and mulitple linear regression to make you more comfortable with carrying out and interpreting these analyses.</p>
+<p>For the past few weeks we have been looking at designs where you have categorical factors/IVs and where you want to see whether there is an effect of a given factor or an interaction between two factors on a continuous DV. And we have looked at this through decomposition matrices and through the <strong><code>ezANOVA</code></strong> package. We also briefly mentioned how this approach can be extrapolated into designs with more than two-factors such as three-way ANOVAs (three factors) and larger, but also into within-subject designs where every participant sees every stimuli, and mixed-designs where you have at least one between and one within factor. We will look in-depth at these different types of designs next year.</p>
+<p>Today, however, we want to start looking at predicting relationships from continuous variables through regression. You will already be familiar with many of the terms here from your lecture series.In addition, by looking at a practical example (relating to voice research) in the lab, and by reading about regression in Miller and Haden (2013) in the PreClass, it should start to become more concrete for you. Regression is still part of the GLM and eventually the goal will be to show you how to analyse designs that has both categorical and continuous variables as much of real data is made up like that. But for now we will just look at simple and multitple linear regression to make you more comfortable with carrying out and interpreting these analyses.</p>
 <p>The goals of this chapter are to:</p>
 <ol style="list-style-type: decimal">
 <li>Introduce the concepts that underpin linear regression.</li>
@@ -608,7 +610,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="preclass-activity-11" class="section level2">
 <h2><span class="header-section-number">14.2</span> PreClass Activity</h2>
-<p>As in previous chapters the preclass activity is to read the following chapter from Miller and Haden (2013). You may also want to try reading Chapter 14 as well on Multiple Regression but really more to add to your understanding of the general goal, as opposed to the underlying computations. Finally, reviewing your lecture on Simple Linear and Multiple Linear Regression will really help your understanding of this lab</p>
+<p>As in previous chapters, the PreClass activity is to read the following chapter from Miller and Haden (2013). You may also want to try reading Chapter 14 as well on Multiple Regression but really more to add to your understanding of the general goal, as opposed to the underlying computations. Finally, reviewing your lecture on Simple Linear and Multiple Linear Regression will really help your understanding of this lab.</p>
 <div id="read-4" class="section level3">
 <h3><span class="header-section-number">14.2.1</span> Read</h3>
 <p><strong>Chapter</strong></p>
@@ -623,28 +625,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.3</span> InClass Activity</h2>
 <p>You have been reading about regression in Miller and Haden (2013) and have been looking at it in the lectures. Today, to help get a practical understanding of regression, you will be working with real data and using regression to explore the question of whether there is a relationship between voice acoustics and ratings of perceived trustworthiness.</p>
 <p><strong>The Voice</strong></p>
-<p>The prominent theory of voice production is the <strong>source-filter theory</strong> (Fant, 1960) which suggests that vocalisaion is a two step process: air is pushed through the larynx (vocal chords) creating a vibration, i.e. the source, and this is then shaped and moulded into words and utterances as it passes through the neck, mouth and noise, and depending on the shape of those structures at any given time you produce different sounds, i.e. the filter. One common measure of the source is pitch (otherwise called Fundamental Frequency or F0 (F-zero)) (Titze, 1994) which is a measure of the vibration of the vocal chords, in Hertz (Hz); males have on average a lower pitch than females for example. Likewise one measure of the filter is called formant dispersion (measured again in Hz), and is effectively a measure of the length of someone’s vocal tract (or neck). Height and neck length are suggested to be negatively correlated with formant dispersion, so tall people tend to have smaller formant dispersion. So all in, the sound of your voice is thought to give some indication of what you look like.</p>
+<p>The prominent theory of voice production is the <strong>source-filter theory</strong> (Fant, 1960) which suggests that vocalisation is a two step process: air is pushed through the larynx (vocal chords) creating a vibration, i.e. the source, and this is then shaped and moulded into words and utterances as it passes through the neck, mouth and nose, and depending on the shape of those structures at any given time you produce different sounds, i.e. the filter. One common measure of the source is pitch (otherwise called Fundamental Frequency or F0 (F-zero)) (Titze, 1994), which is a measure of the vibration of the vocal chords, in Hertz (Hz); males have on average a lower pitch than females for example. Likewise, one measure of the filter is called formant dispersion (measured again in Hz), and is effectively a measure of the length of someone’s vocal tract (or neck). Height and neck length are suggested to be negatively correlated with formant dispersion, so tall people tend to have smaller formant dispersion. So all in, the sound of your voice is thought to give some indication of what you look like.</p>
 <p>More recently, work has focussed on what the sound of your voice suggests about your personality. <a href = "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090779" target = "_blank">McAleer, Todorov and Belin (2014)</a> suggested that vocal acoustics give a perception of your trustworthiness and dominance to others, regardless of whether or not it is accurate. One extension of this is that trust may be driven by malleable aspects of your voice (e.g. your pitch) but not so much by static aspects of your voice (e.g. your formant dispersion). Pitch is considered malleable because you can control the air being pushed through your vocal chords (though you have no conscious control of your vocal chords), whereas dispersion may be controlled by the structure of your throat which is much more rigid due to muscle, bone, and other things that keep your head attached. This idea of certain traits being driven by malleable features and others by static features was previously suggested by <a href = "https://www.pnas.org/content/105/32/11087" target = "_blank">Oosterhof and Todorov (2008)</a> and has been tested with some validation by <a href = "https://link.springer.com/article/10.1007/s10919-015-0214-8" target = "_blank">Rezlescu, Penton, Walsh, Tsujimura, Scott and Banissy (2015)</a>.</p>
-<p>So the research question today is can vocal acoustics, namely pitch and formant dispersion, predict perceived trustworthiness from a person’s voice. We will only look at male voices today, but you have the data for female voices as well should you wish to practice (note that in the field, tendency is to analyse male and female voices separately as they are effectively sexually dimorphic). As such, we hypothesise that a linear combination of pitch and dispersion will predict perceived vocal trustworthiness in male voices. This is what we will analyse.</p>
+<p>So the research question today is: can vocal acoustics, namely pitch and formant dispersion, predict perceived trustworthiness from a person’s voice? We will only look at male voices today, but you have the data for female voices as well should you wish to practice (note that in the field, tendency is to analyse male and female voices separately as they are effectively sexually dimorphic). As such, we hypothesise that <strong>a linear combination of pitch and dispersion will predict perceived vocal trustworthiness in male voices</strong>. This is what we will analyse.</p>
 <p><strong>Let’s begin.</strong></p>
-<p>First to run this analysis you will need to download the data from Moodle or <a href="data/14-s02/inclass/ch14-inclass-data.zip">from here</a>. You will see in this folder that there are two datafiles:</p>
+<p>First, to run this analysis you will need to download the data from Moodle or <a href="data/14-s02/inclass/ch14-inclass-data.zip">from here</a>. You will see in this folder that there are two datafiles:</p>
 <ul>
-<li>voice_acoustics.csv - shows the VoiceID, the sex of voice, and the pitch and dispersion values.</li>
-<li>voice_ratings.csv - shows the VoiceID and the ratings of each voice by 28 participants on a scale of 1 to 9 where 9 was extremely trustworthy and 1 was extremely untrustworthy.</li>
+<li>voice_acoustics.csv - shows the VoiceID, the sex of voice, and the pitch and dispersion values</li>
+<li>voice_ratings.csv - shows the VoiceID and the ratings of each voice by 28 participants on a scale of 1 to 9 where 9 was extremely trustworthy and 1 was extremely untrustworthy</li>
 </ul>
-<p>Have a look at the layout of the data and orientate yourself with it. The ratings data is rather messy and in a different layout to the acoustics but can you tell what is what:</p>
+<p>Have a look at the layout of the data and familiarise yourself with it. The ratings data is rather messy and in a different layout to the acoustics but can you tell what is what?</p>
 <ul>
 <li>Looking at the layout of the acoustics data it appears to be in <select class='solveme' data-answer='["tidy"]'> <option></option> <option>long</option> <option>wide</option> <option>tidy</option></select></li>
 <li>Looking at the layout of the ratings data it appears to be in <select class='solveme' data-answer='["wide"]'> <option></option> <option>long</option> <option>wide</option></select></li>
 </ul>
-<p>We are going to need to do some data-wrangling before we do any analysis!!!!!!</p>
+<p>We are going to need to do some data-wrangling before we do any analysis!!!</p>
 <div id="Ch14InClassQueT1" class="section level3">
 <h3><span class="header-section-number">14.3.1</span> Task 1: Setup</h3>
-<p>Open a new script or Rmd (depending on how you like to work) and load in the tidyverse, broom, and the two CSV datasets into tibbles called <code>ratings</code> and <code>acoustics</code>. Probably best if the ratings are in <code>ratings</code> and the acoustics in <code>acoustics</code></p>
+<p>Open a new script or Rmd (depending on how you like to work) and load in the tidyverse, broom, and the two CSV datasets into tibbles called <code>ratings</code> and <code>acoustics</code>. Probably best if the ratings are in <code>ratings</code> and the acoustics in <code>acoustics</code>.</p>
 </div>
 <div id="Ch14InClassQueT2" class="section level3">
 <h3><span class="header-section-number">14.3.2</span> Task 2: Restructuring the ratings</h3>
-<p>Next we need to calculate a mean rating score for each voice. We are analysing the voices and not specifically what each participant rated each voice as (that is for another year) so we need to average all participants ratings for each individual voice and get a mean rating for each voice. You will see in your data that the voices are identified in the VoiceID column.</p>
+<p>Next we need to calculate a mean rating score for each voice. We are analysing the voices and not specifically what each participant rated each voice as (that is for another year) so we need to average across all participants, their ratings for each individual voice and get a mean rating for each voice. You will see in your data that the voices are identified in the VoiceID column.</p>
 <p>Recall the difference between <strong>wide</strong> and <strong>long</strong> data. In wide data, each row represents an individual case, with observations for that case in separate columns; in long data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the <code>VoiceID</code> variable). Before we calculate means, what you need to do is to restructure the ratings data into the appropriate “tidy” format; i.e., so that it looks like the table below.</p>
 <table>
 <caption>
@@ -750,7 +752,7 @@ gather(data, new_column_name, new_column_name, first-column:last-column)
 </div>
 <div id="Ch14InClassQueT3" class="section level3">
 <h3><span class="header-section-number">14.3.3</span> Task 3: Calculate mean trustworthiness rating for each voice</h3>
-<p>Now that you’ve gotten your ratings data into a more tidy format we now have to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting table in a variable named <code>ratings_mean</code>.</p>
+<p>Now that you’ve gotten your ratings data into a more tidy format, the next step is to calculate the mean rating (<code>mean_rating</code>) for each voice. Remember that each voice is identified by the <code>VoiceID</code> variable. Store the resulting table in a variable named <code>ratings_mean</code>.</p>
 <div class="solution">
 <button>
 Hint for Task 3
@@ -908,7 +910,7 @@ Hint for Task 4
 <div class="info">
 <ul>
 <li>
-inner join by the common column in both datasets
+inner_join by the common column in both datasets
 </li>
 <li>
 filter to keep just Male voices
@@ -921,7 +923,7 @@ filter to keep just Male voices
 <h3><span class="header-section-number">14.3.5</span> Task 5: Scatterplot</h3>
 <p>As always, where possible, it is a good idea to visualise your data. Now that we have all of the variables in one place, reproduce the scatterplot shown below and then try to answer the following questions.</p>
 <ul>
-<li>According to the scatterplot, there appears to be a <select class='solveme' data-answer='["positive relationship"]'> <option></option> <option>negative relationship</option> <option>positive relationship</option></select> between both pitch and trustworthines and dispersion and trustworthiness though the relationship with <select class='solveme' data-answer='["pitch"]'> <option></option> <option>dispersion</option> <option>pitch</option></select> seems stronger.</li>
+<li>According to the scatterplot, there appears to be a <select class='solveme' data-answer='["positive relationship"]'> <option></option> <option>negative relationship</option> <option>positive relationship</option></select> between both pitch and trustworthiness and dispersion and trustworthiness though the relationship with <select class='solveme' data-answer='["pitch"]'> <option></option> <option>dispersion</option> <option>pitch</option></select> seems stronger.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:scatter"></span>
 <img src="14-s02-lab14c_files/figure-html/scatter-1.png" alt="Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating" width="100%" />
@@ -948,7 +950,7 @@ coord_cartesian or scale_y_continuous
 facet_wrap(scales = “free”)
 </li>
 <li>
-did you know also that you can control the number of columns and rows in a facet_wrap by adding nrow and ncol
+did you know also that you can control the number of columns and rows in a facet_wrap by adding nrow and ncol?
 </li>
 </ul>
 </div>
@@ -956,7 +958,7 @@ did you know also that you can control the number of columns and rows in a facet
 </div>
 <div id="Ch14InClassQueT6" class="section level3">
 <h3><span class="header-section-number">14.3.6</span> Task 6: Spreading the data</h3>
-<p>Ok so we are starting to get an understanding of our data and we want to start thinking about the regression. However the regression would be easier to work with if Pitch and Dispersion were in separate columns.</p>
+<p>Ok so we are starting to get an understanding of our data and we want to start thinking about the regression. However, the regression would be easier to work with if Pitch and Dispersion were in separate columns.</p>
 <ul>
 <li>Create a new tibble where Pitch and Dispersion data have been split into two columns called <code>Pitch</code> and <code>Dispersion</code> respectively.</li>
 </ul>
@@ -975,7 +977,7 @@ spread() needs the data, name of the categorical column to spread, and the name 
 </div>
 <div id="Ch14InClassQueT7" class="section level3">
 <h3><span class="header-section-number">14.3.7</span> Task 7: The Regressions</h3>
-<p>Excellent, we are now in a position to regress away. Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of collinearity. Calculate the correlation between Pitch and Dispersion and fill in this statement.</p>
+<p>Excellent, we are now in a position to regress away. Oh hang on, we should probably check the correlation between Pitch and Dispersion as remember the issue of <strong>collinearity</strong>. Calculate the correlation between Pitch and Dispersion and fill in this statement.</p>
 <ul>
 <li>The correlation between Pitch and Dispersion is <select class='solveme' data-answer='["rho = .239"]'> <option></option> <option>rho = .239</option> <option>rho = -.239</option> <option>rho = .186</option> <option>rho = -.186</option></select> which would suggest that we have no issues with collinearity as our two predictors are only slightly correlated and the correlation here is not significant.</li>
 </ul>
@@ -985,7 +987,7 @@ spread() needs the data, name of the categorical column to spread, and the name 
 <li>Run the simple linear regression of predicting trustworthiness mean ratings from Pitch, and store the model in <code>mod_pitch</code></li>
 <li>Run the simple linear regression of predicting trustworthiness mean ratings from Dispersion, and store the model in <code>mod_disp</code></li>
 </ul>
-<p><strong>Mulitple Linear Regression</strong></p>
+<p><strong>Multitple Linear Regression</strong></p>
 <ul>
 <li>Run the multiple linear regression of predicting trustworthiness mean ratings from Pitch and Dispersion, and store the model in <code>mod_pitchdisp</code></li>
 </ul>
@@ -1000,7 +1002,7 @@ Hint for Task 7
 </p>
 <ul>
 <li>
-You should probably use a Spearman correlation for the correlation between Pitch and Dispersion because as the scales are very different although measured both in (Hz)
+You should probably use a Spearman correlation for the correlation between Pitch and Dispersion because the scales are very different although measured both in (Hz)
 </li>
 <li>
 You may need to refer back to Chapter 10 on correlations to remember how to use <code>cor.test()</code>.
@@ -1023,7 +1025,7 @@ lm(dv ~ iv1 + iv2, data = my_data) for multiple linear regression
 <div id="Ch14InClassQueT8" class="section level3">
 <h3><span class="header-section-number">14.3.8</span> Task 8: Making interpretations</h3>
 <p>Let’s look at the <code>mod_pitch</code> model together.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_pitch)</code></pre>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1048,13 +1050,13 @@ lm(dv ~ iv1 + iv2, data = my_data) for multiple linear regression
 <ul>
 <li>The dispersion as a predictor by itself model would explain approximately <select class='solveme' data-answer='["3%"]'> <option></option> <option>3%</option> <option>13%</option> <option>31%</option> <option>33%</option></select></li>
 <li>In fact, the dispersion by itself model is <select class='solveme' data-answer='["not significant"]'> <option></option> <option>not significant</option> <option>significant</option></select> and therefor <select class='solveme' data-answer='["no use"]'> <option></option> <option>no use</option> <option>very useful</option></select> as a model</li>
-<li>Looking at the multiple linear regression model, the explained variance is <select class='solveme' data-answer='["30.5%"]'> <option></option> <option>3.05%</option> <option>13.5%</option> <option>30.5%</option> <option>33.5%</option></select> and as such explains <select class='solveme' data-answer='["less"]'> <option></option> <option>less</option> <option>more</option></select> variance than the pitch only model.</li>
+<li>Looking at the multiple linear regression model, the explained variance is <select class='solveme' data-answer='["30.5%"]'> <option></option> <option>3.05%</option> <option>13.5%</option> <option>30.5%</option> <option>33.5%</option></select>and as such explains <select class='solveme' data-answer='["less"]'> <option></option> <option>less</option> <option>more</option></select> variance than the pitch only model.</li>
 </ul>
 <p>What the above should remind you is that it is not the case that simply putting all the possible predictors into a model will make it a better model. For every predictor you add there is a penalty associated with the Adjusted-R^2 and if the explained variance attributable to the new predictor is not greater than the penalty to overall explained variance then you may actually end up with a worse model despite having more predictors. We will look at model comparison more in the coming months and years but it is always good to keep the rule of parsimony in mind!</p>
 </div>
 <div id="Ch14InClassQueT9" class="section level3">
 <h3><span class="header-section-number">14.3.9</span> Task 9: Making predictions</h3>
-<p>Congratulations! You have successfully constructed a linear model relating trustworthiness to pitch and dispersion and you can think about applying this knowledge to other challlenges - perhaps go look at female voices? However, one last thing you might want to do that we will quickly show you is how to make a prediction using the <code>predict()</code> function. One way you use this, though see solutions, is:</p>
+<p>Congratulations! You have successfully constructed a linear model relating trustworthiness to pitch and dispersion and you can think about applying this knowledge to other challenges - perhaps go look at female voices? However, one last thing you might want to do that we will quickly show you is how to make a prediction using the <code>predict()</code> function. One way you use this, though see solutions, is:</p>
 <pre><code>predict(mod, newdata)</code></pre>
 <p>where <code>newdata</code> is a tibble with new observations on X (e.g. <code>pitch</code> or <code>dispersion</code>) for which you want to predict the corresponding Y values (<code>mean_rating</code>).</p>
 <ul>
@@ -1077,7 +1079,7 @@ tibble(Pitch = Value, Dispersion = Value)
 <p><strong>WAIT!</strong> - Didn’t we just say that the <code>mod_pitchdisp</code> model is not as good as <code>mod_pitch</code>. Yep. We did. But we wanted to show you how to enter different predictors into the <code>predict()</code> function. So whilst this is a good teaching aid, you are 100% correct in thinking that in reality we would be better making predictions with just the <code>mod_pitch</code> model as it explains more variance overall. Well done for spotting that!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
 <p>Great! Now you know how to make predictions why not try a few more. Choose some pitch values see what you get! Go record your voice. Extract the pitch using something like <a href = "http://www.fon.hum.uva.nl/praat/" target = "_blank">PRAAT</a>. Put it in the <code>predict()</code> function. Get a rating of trustworthiness for your voice. Go run a study that has your voice rated for trustworthiness and see how close the model was. Given the explained variance is not great it probably won’t be that close but you start to see how, in principle, the idea of regression and prediction of relationships works. The greater the explained variance of your predictors, the better your prediction will be for a novel participant/observation/event!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel <strong>#level2_2019</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -1088,47 +1090,41 @@ tibble(Pitch = Value, Dispersion = Value)
 </div>
 <div id="solutions-to-questions-13" class="section level2">
 <h2><span class="header-section-number">14.5</span> Solutions to Questions</h2>
-<p>Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
+<p>Below you will find the solutions to the questions for the Activities in this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
 <div id="inclass-ativities" class="section level3">
 <h3><span class="header-section-number">14.5.1</span> InClass Ativities</h3>
 <div id="task-1" class="section level4">
 <h4><span class="header-section-number">14.5.1.1</span> Task 1</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)
-
-ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)
-acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
+<a class="sourceLine" id="cb432-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb432-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb432-4" data-line-number="4">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_ratings.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb432-5" data-line-number="5">acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;voice_acoustics.csv&quot;</span>)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT1">Return to Task</a></p>
 </div>
 <div id="task-2" class="section level4">
 <h4><span class="header-section-number">14.5.1.2</span> Task 2</h4>
 <ul>
-<li>We are calling the new tibble <code>ratings_tidy</code>. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on that the tibble names might not match up so you may need to do a little bit of backtracing to see where tibbles are created.</li>
+<li>We are calling the new tibble <code>ratings_tidy</code>. We did not state what to call it as by now you can make that decision yourself. Just remember that when debugging your analysis paths from now on, the tibble names might not match up so, you may need to do a little bit of backtracking to see where tibbles were created.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">ratings_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(ratings, participant, rating, P1<span class="op">:</span>P28)</code></pre>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb433-1" data-line-number="1">ratings_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(ratings, participant, rating, P1<span class="op">:</span>P28)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT2">Return to Task</a></p>
 </div>
 </div>
 <div id="task-3" class="section level3">
 <h3><span class="header-section-number">14.5.2</span> Task 3</h3>
-<pre class="sourceCode r"><code class="sourceCode r">ratings_mean &lt;-<span class="st"> </span>ratings_tidy <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(VoiceID) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_rating =</span> <span class="kw">mean</span>(rating))</code></pre>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb434-1" data-line-number="1">ratings_mean &lt;-<span class="st"> </span>ratings_tidy <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb434-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(VoiceID) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb434-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_rating =</span> <span class="kw">mean</span>(rating))</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT3">Return to Task</a></p>
 </div>
 <div id="task-4" class="section level3">
 <h3><span class="header-section-number">14.5.3</span> Task 4</h3>
-<pre class="sourceCode r"><code class="sourceCode r">joined &lt;-<span class="st"> </span><span class="kw">inner_join</span>(ratings_mean, acoustics, <span class="st">&quot;VoiceID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" data-line-number="1">joined &lt;-<span class="st"> </span><span class="kw">inner_join</span>(ratings_mean, acoustics, <span class="st">&quot;VoiceID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sex <span class="op">==</span><span class="st"> &quot;M&quot;</span>)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT4">Return to Task</a></p>
 </div>
 <div id="task-5" class="section level3">
 <h3><span class="header-section-number">14.5.4</span> Task 5</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(joined, <span class="kw">aes</span>(value, mean_rating)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>measures, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
 <div class="figure" style="text-align: center">
 <img src="14-s02-lab14e_files/figure-html/ch14-t5-scatter_sol-1.png" alt="Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating" width="100%" />
 <p class="caption">
@@ -1143,16 +1139,16 @@ acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <li><code>spread()</code> often catches people out. It is a bit like the reverse of <code>gather()</code></li>
 <li>It takes in the data and you tell it which values you want spread and by which column - though in the order of data, column, value. Makes sense huh!</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">joined_wide &lt;-<span class="st"> </span>joined <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(measures, value)</code></pre>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" data-line-number="1">joined_wide &lt;-<span class="st"> </span>joined <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">spread</span>(measures, value)</a></code></pre></div>
 <p><a href="regression.html#Ch14InClassQueT6">Return to Task</a></p>
 </div>
 <div id="task-7" class="section level3">
 <h3><span class="header-section-number">14.5.6</span> Task 7</h3>
 <p><strong>Simple Linear Regression - Pitch</strong></p>
 <p>The pitch model would be written as such:</p>
-<pre class="sourceCode r"><code class="sourceCode r">mod_pitch &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch, joined_wide)</code></pre>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb437-1" data-line-number="1">mod_pitch &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch, joined_wide)</a></code></pre></div>
 <p>And give the following output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_pitch)</code></pre>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1"><span class="kw">summary</span>(mod_pitch)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch, data = joined_wide)
@@ -1173,9 +1169,9 @@ acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 ## F-statistic: 14.83 on 1 and 30 DF,  p-value: 0.0005732</code></pre>
 <p><strong>Simple Linear Regression - Dispersion</strong></p>
 <p>The Dispersion model would be written as such:</p>
-<pre class="sourceCode r"><code class="sourceCode r">mod_disp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Dispersion, joined_wide)</code></pre>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1">mod_disp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
 <p>And give the following output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_disp)</code></pre>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1"><span class="kw">summary</span>(mod_disp)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Dispersion, data = joined_wide)
@@ -1193,10 +1189,10 @@ acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 ## Multiple R-squared:  0.06191,    Adjusted R-squared:  0.03064 
 ## F-statistic:  1.98 on 1 and 30 DF,  p-value: 0.1697</code></pre>
 <p><strong>Multiple Linear Regression - Pitch + Dispersion</strong></p>
-<p>The model with both Pitch and Dispersion would be written as such:</p>
-<pre class="sourceCode r"><code class="sourceCode r">mod_pitchdisp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch <span class="op">+</span><span class="st"> </span>Dispersion, joined_wide)</code></pre>
+<p>The model with both Pitch and Dispersion as predictors would be written as such:</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1">mod_pitchdisp &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_rating <span class="op">~</span><span class="st"> </span>Pitch <span class="op">+</span><span class="st"> </span>Dispersion, joined_wide)</a></code></pre></div>
 <p>And give the following output:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod_pitchdisp)</code></pre>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb444-1" data-line-number="1"><span class="kw">summary</span>(mod_pitchdisp)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mean_rating ~ Pitch + Dispersion, data = joined_wide)
@@ -1226,22 +1222,22 @@ acoustics &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <div id="task-9" class="section level4">
 <h4><span class="header-section-number">14.5.7.1</span> Task 9</h4>
 <p><strong>Solution Version 1</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">newdata &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, <span class="dt">Dispersion =</span> <span class="dv">1100</span>)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(mod_pitchdisp, newdata)</code></pre>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1">newdata &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, <span class="dt">Dispersion =</span> <span class="dv">1100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, newdata)</a></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 2</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, 
-                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>))</code></pre>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
+<a class="sourceLine" id="cb449-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>))</a></code></pre></div>
 <pre><code>##        1 
 ## 5.289819</code></pre>
 <p><strong>Solution Version 3</strong></p>
 <ul>
 <li>And if you want to bring it out as a single value, say for a write-up, you could do the following</li>
-<li>This does pop out a warning about a <code>deprecated</code> function meaning that this wont work in future updates but for now it is ok to use.</li>
+<li>This does pop out a warning about a <code>deprecated</code> function meaning that this won’t work in future updates but for now it is ok to use.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, 
-                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="kw">predict</span>(mod_pitchdisp, <span class="kw">tibble</span>(<span class="dt">Pitch =</span> <span class="dv">150</span>, </a>
+<a class="sourceLine" id="cb451-2" data-line-number="2">                              <span class="dt">Dispersion =</span> <span class="dv">1100</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## Warning: &#39;tidy.numeric&#39; is deprecated.
 ## See help(&quot;Deprecated&quot;)</code></pre>
 <pre><code>## [1] 5.3</code></pre>
@@ -1343,16 +1339,18 @@ window.onload = function() {
         </div>
       </div>
 <a href="continuing-the-glm-two-factor-designs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="combining-anova-and-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="combining-anova-and-regression-sometimes-called-an-ancova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1396,8 +1394,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

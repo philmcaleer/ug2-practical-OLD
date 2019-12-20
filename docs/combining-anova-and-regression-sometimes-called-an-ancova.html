@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 10 Correlations | Level 2 Practical</title>
+  <title>Lab 15 Combining ANOVA and Regression (sometimes called an ANCOVA) | Level 2 Practical</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 10 Correlations | Level 2 Practical" />
+  <meta property="og:title" content="Lab 15 Combining ANOVA and Regression (sometimes called an ANCOVA) | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 10 Correlations | Level 2 Practical" />
+  <meta name="twitter:title" content="Lab 15 Combining ANOVA and Regression (sometimes called an ANCOVA) | Level 2 Practical" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reflection-semester-1.html"/>
-<link rel="next" href="introduction-to-glm-one-factor-anova.html"/>
+<link rel="prev" href="regression.html"/>
+<link rel="next" href="reflection-semester-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -594,740 +594,647 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="correlations" class="section level1">
-<h1><span class="header-section-number">Lab 10</span> Correlations</h1>
-<div id="overview-10" class="section level2">
-<h2><span class="header-section-number">10.1</span> Overview</h2>
-<p>As you will read in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> as part of the preclass reading, correlations are <strong>used to detect and quantify relationships among numerical variables</strong>. In short, you measure two variables and the correlation analysis tells you whether or not they are related in some manner - positively (i.e. one increases as the other increases) or negatively (i.e. one decreases as the other increases). However, unfortunately, you may have heard people say lots of negative things about correlations:</p>
-<ul>
-<li>they do not prove causality</li>
-<li>they suffer from the bidirectional problem (A vs B is the same as B vs A)</li>
-<li>any relationship found may be the result of an unknown third variable (e.g. murders and ice-creams)</li>
-</ul>
-<p>But whilst these are true, correlations are an incredibly useful and commonly used measure in the field, so don’t be put off from using them or designing a study that uses correlations. In fact, they can be used in a variety of areas. Some examples include:</p>
-<ul>
-<li>looking at reading ability and IQ scores such as in Miller and Haden Chapter 11, which we will also look at today;</li>
-<li>exploring personality traits in voices (see <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185651" target = "_blank">Phil McAleer’s work on Voices</a>);</li>
-<li>or traits in faces (see <a href="http://facelab.org/" target = "_blank">Lisa DeBruine’s and Ben Jones’s work</a>);</li>
-<li>brain-imaging analysis looking at activation in say the Amygdala in relation to emotion of faces (see <a href="https://psych.princeton.edu/person/alexander-todorov" target = "_blank">Alex Todorov’s work at Princeton</a>);</li>
-<li>social attidues, both implicit and explicit, as Helena Paterson will discuss in her Social lectures this semester;</li>
-<li>or a whole variety of fields where you simply measure the variables of interest.</li>
-</ul>
-<p>To actually carry out a correlation is very simple and we will show you that today in a little while: you just need the <code>cor.test()</code> function. The harder part of correlations is really wrangling the data (which you’ve learned to do in Semester 1) and interpreting the data (which we will focus more on today). So, we are going to run a few correlations today, showing you how to do one, and asking you to peform others to give you some good practice at running and interpreting the relationships between two variables.</p>
-<p><strong>Note:</strong> When dealing with correlations it is better to refer to <strong>relationships</strong> and NOT predictions. In a correlation, X does not predict Y, that is really more regression which we will look at later on this semester. In a correlation, what we can say is that X and Y are related in some way. Try to get the correct terminology and please feel free to pull us up if we say the wrong thing in class. It is an easy slip of the tongue to make!</p>
-<p>In this lab we will:</p>
-<ul>
-<li>Introduce the Miller and Haden book, which we will be using throughout the rest of the semester.</li>
-<li>Show you the thought process of a researcher running a correlational analysis.</li>
-<li>Give you practice in running and writing up a correlation.</li>
-</ul>
+<div id="combining-anova-and-regression-sometimes-called-an-ancova" class="section level1">
+<h1><span class="header-section-number">Lab 15</span> Combining ANOVA and Regression (sometimes called an ANCOVA)</h1>
+<div id="overview-15" class="section level2">
+<h2><span class="header-section-number">15.1</span> Overview</h2>
+<p>Over the last few weeks of the semester we have been really building up our skills on regression and on ANOVAs and now we’ll focus on seeing the link between them. Most places would tell you that they are separate entities but, as you will see from the reading and activities in this lab, they are related. ANOVAs to some degree are just a special type of regression where you have <strong>categorical</strong> predictors. The question you probably now have is, well, if they are related, can’t we merge them and combine categorical and continuous predictors in some fashion? Yes, yes we can! And that is exactly what we are going to do today whilst learning a little bit about screen time and well-being.</p>
+<p>The goals of this lab are:</p>
+<ol style="list-style-type: decimal">
+<li>to gain a conceptual understanding of how ANOVA and regression are interlinked</li>
+<li>to get practical experience in analysing continuous and categorical variables in one design</li>
+<li>to consolidate the wrangling skills we have learnt for the past two years</li>
+</ol>
 
 </div>
-<div id="preclass-activity-7" class="section level2">
-<h2><span class="header-section-number">10.2</span> PreClass Activity</h2>
-<p>The majority of the PreClass activities this semester will involve reading a chapter or two from <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a> and trying out a couple of tasks. This is an excellent free textbook that we will use to introduce you to the General Linear Model, a model that underlies all the analysis you have seen and will see this year. But, for now, we will start off with some introduction to correlations. Have a read at the chapter, use the visualiser, play the game, and we will see you in the lab.</p>
-<div id="read" class="section level3">
-<h3><span class="header-section-number">10.2.1</span> Read</h3>
-<p><strong>Chapter</strong></p>
-<ul>
-<li>Read Chapters 10 and 11 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>.</li>
-</ul>
-<p>Both chapters are really short but give a good basis to understanding correlational analysis. Please note, in Chapter 10 you might not know some of the the terminology yet, e.g. ANOVA means Analysis of Variance and GLM means General Linear Model (Reading Chapter 1 might help). We will go into depth on these terms in the coming chapters.</p>
+<div id="preclass-activity-12" class="section level2">
+<h2><span class="header-section-number">15.2</span> PreClass Activity</h2>
+<p>In this final PreClass we have two activities. The first is a very short blog by Prof. Dorothy Bishop that helps draw the links between ANOVA and Regression. The second is really the first part of the InClass activity. It is quite a long InClass, which you will be able to cope with, but we have split it across the PreClass and InClass to allow you some time to get some of the more basic wrangling steps out of the way and so you can come to the class and focus on the actual analysis. It would be worth doing most, if not all, of the activity now.</p>
+<div id="read-5" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> Read</h3>
+<p><strong>Blog</strong></p>
+<p>Read this short blog by Prof. Dorothy Bishop on combining ANOVA and regression, and how it all fits together.</p>
+<p><a href="https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1" target = "_blank">ANOVA, t-tests and regression: different ways of showing the same thing</a></p>
 </div>
-<div id="watch-1" class="section level3">
-<h3><span class="header-section-number">10.2.2</span> Watch</h3>
-<p><strong>Visualisation</strong></p>
+<div id="activity" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> Activity</h3>
+<p><strong>Background: Smartphone screen time and wellbeing</strong></p>
+<p>There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We’ll be looking at data from this recent study of English adolescents:</p>
+<blockquote>
+<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204–215.</p>
+</blockquote>
+<p>This was a large-scale study that found support for the “Goldilocks” hypothesis among adolescents: that there is a “just right” amount of screen time, such that any amount more or less than this amount is associated with lower well-being. Much like the work you have been doing, this was a <em>huge</em> survey study with data containing responses from <em>over 120,000</em> participants! Fortunately, the authors made the data from this study openly available, which allows us to dig deeper into their results. And the question we want to expand on in this exercise is whether the relationship between screen time and well-being is modulated by partcipant’s (self-reported) sex. In other words, does screen time have a bigger impact on males or females, or is it the same for both?</p>
+<p>The dependent measure used in the study was the <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/" target = "_blank">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70.</p>
+<p>On <a href="https://osf.io/82ybd/">Przybylski &amp; Weinstein’s page for this study on the Open Science Framework</a>, you can find the <a href="https://osf.io/82ybd/">participant survey</a>, which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the <a href="https://osf.io/82ybd/">raw data</a>; however, for the purpose of this exercise, you will be using local pre-processed copies of the data found in the accompanying zip file on Moodle or <a href="data/15-s02/inclass/ch15-preclass-inclass-data.zip">download from here</a>.</p>
+<p>Przybylski and Weinstein looked at multiple measures of screen time, but again for the interests of this exercise we will be focusing on smartphone use, but do feel free to expand your skills after by looking at different definitions of screen time. Overall, Przybylski and Weinstein suggested that decrements in wellbeing started to appear when respondents reported more than one hour of daily smartphone use. So, bringing it back to our additional variable of sex, our question is now, does the negative association between hours of use and wellbeing (beyond the one-hour point) differ for boys and girls?</p>
+<p>Let’s think about this in terms of the variables. We have:</p>
 <ul>
-<li>Have a look at this visualisation of correlations by Kristoffer Magnusson: <a href = "https://rpsychologist.com/d3/correlation/" target = "_blank">https://rpsychologist.com/d3/correlation/</a>.</li>
+<li><p>a continuous<span class="math inline">\(^*\)</span> DV, well-being;</p></li>
+<li><p>a continuous<span class="math inline">\(^*\)</span> predictor, screen time;</p></li>
+<li><p>a categorical predictor, sex.</p></li>
+</ul>
+<p><strong>Note:</strong> these variables (<span class="math inline">\(^*\)</span>) are technically only <strong>quasi-continuous</strong> inasmuch as that only discrete values are possible. However, there are a sufficient number of discrete categories in our data that we can treat the data as effectively continuous.</p>
+<p>Now, in terms of analysis, what we are effectively trying to do is to estimate <strong>two slopes</strong> relating screen time to well-being, one for girls and one for boys, and then statistically compare these slopes. Sort of like running a correlation for boys, a correlation for girls, and comparing the two. Or alternatively, where you would run a regression (to estimate the slopes) but also one where you would need a t-test (to compare two groups). But the expressive power of regression allows us to do this all within a single model. Again, as we have seen building up to this lab, <strong>an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical.</strong> But remember, although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. As such people like regression, and the general linear model, as it allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care in how you numerically code the categorical predictors. We will use an approach called <strong>deviation coding</strong> which we will look at today later in this lab.</p>
+<p><strong>Let’s Begin!</strong></p>
+</div>
+<div id="Ch15PreClassQueT1" class="section level3">
+<h3><span class="header-section-number">15.2.3</span> Loading in the data</h3>
+<p>As always we will need to load in the tidyverse package and load in the data from the accompanying csv files, <code>wellbeing.csv</code>, <code>participant_info.csv</code>, and <code>screen_time.csv</code>.</p>
+<ul>
+<li><p>Create a new R Markdown file and put the csv files in the same directory with the Rmd file you’ve just created. Then load them in as follows (the solution is at the end of the chapter):</p></li>
+<li><strong>pinfo</strong> stores participant_info.csv</li>
+<li><strong>wellbeing</strong> stores wellbeing.csv</li>
+<li><p><strong>screen</strong> stores screen_time.csv</p></li>
+</ul>
+<p><strong>The Data</strong></p>
+<p>Take a look at the resulting tibbles <code>pinfo</code>, <code>wellbeing</code>, and <code>screen</code>. The <code>wellbeing</code> tibble has information from the <strong>WEMWBS</strong> questionnaire; <code>screen</code> has information about screen time use on weekends (variables ending with <code>we</code>) and weekdays (variables ending with <code>wk</code>) for four types of activities: using a computer (variables starting with <code>Comph</code>; Q10 on the survey), playing video games (variables starting with <code>Comp</code>; Q9 on the survey), using a smartphone (variables starting with <code>Smart</code>; Q11 on the survey) and watching TV (variables starting with <code>Watch</code>; Q8 on the survey). If you want more information about these variables, look at the items 8-11 on pages 4-5 of the the <a href="https://osf.io/82ybd/">PDF version of the survey on the OSF website</a>.</p>
+<ul>
+<li>note that sex is coded as male = 1, female = 0.</li>
+<li>also, Serial is common across all datasets and is the participant ID.</li>
+</ul>
+</div>
+<div id="Ch15PreClassQueT2" class="section level3">
+<h3><span class="header-section-number">15.2.4</span> Compute the well-being score for each participant</h3>
+<p>Ok, our data is in and we need to create a well-being score for each participant on each item of the WEMWBS. To do this, and to calculate the well-being score for each participant, we simply <strong>sum</strong> all the items together for that participant.</p>
+<ul>
+<li>Write code to create a new tibble, called <code>wemwbs</code>, with two variables: <code>Serial</code>, and <code>tot_wellbeing</code>, which is the the total WEMWBS score for each participant.</li>
+</ul>
+<div class="solution">
+<button>
+Hint to compute scores
+</button>
+<div class="info">
+<ul>
+<li>
+Step 1: reshape table from wide to long
+</li>
+<li>
+Step 2: <code>group_by()</code>; <code>summarise(tot_wellbeing = …)</code>
+</li>
+<li>
+Alternatively, mutate on the sum of all columns, then select the two needed.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="Ch15PreClassQueT3" class="section level3">
+<h3><span class="header-section-number">15.2.5</span> Visualising Screen time on all technologies</h3>
+<p>Great, so we have the well-being scores sorted out, we now need to think about the screen time usage and whether it is being used on a weekday or a weekend. As always, to get an idea of the data, it is often very useful to visualize the distributions of variables before proceeding with the analysis.</p>
+<ul>
+<li>Try recreating this figure based on the data in <code>screen</code>. Note that this will require some tidying of the data in <code>screen</code>:</li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>After having read Miller and Haden Chapter 11, use this visualisation page to visually replicate the scatterplots in Figures 11.3 and 11.4 - use a sample of 100. After that, visually replicate the scatterplots in Figure 11.5. Each time you change the correlation, pay attention to the shared variance (the overlap between the two variables) and see how this changes with the changing level of association.</li>
-<li>Also, try setting the correlation to r = .5 and then moving a sinlge dot to see how one data point, a potential outlier, can change the stated correlation value between two variables</li>
+<li><p>You’ll first need to gather the <code>screen</code> tibble into long format and then break apart the column names into <strong>two</strong> separate columns, one for the name of the variable (<code>Watch</code>, <code>Comp</code>, <code>Comph</code>, and <code>Smart</code>) and the other for part of the week (<code>wk</code> and <code>we</code>). This is going to take using the <code>separate()</code> function which we haven’t used yet but we think you can manage.</p></li>
+<li><p>Next, you’ll need to alter the values of the variables to reflect the more descriptive text that appears in the plot (e.g., <code>&quot;Watch&quot;</code> becomes <code>&quot;Watching TV&quot;</code>; <code>&quot;wk&quot;</code> becomes <code>&quot;Weekday&quot;</code>). This is a <code>recode()</code> issue which you have done a number of times.</p></li>
 </ol>
+<p>This is quite a tricky bit of wrangling which we think you are capable of but, do not be put off if you can’t quite get it yet. The code is at the end of the chapter for you to use once you have had a shot at it.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch15-st-plot"></span>
+<img src="15-s02-lab15b_files/figure-html/ch15-st-plot-1.png" alt="Count of the hours of usage of different types of social media at Weekdays and Weekends" width="100%" />
+<p class="caption">
+Figure 15.1: Count of the hours of usage of different types of social media at Weekdays and Weekends
+</p>
 </div>
-<div id="play" class="section level3">
-<h3><span class="header-section-number">10.2.3</span> Play</h3>
-<p><strong>Guess the correlation</strong></p>
+<div class="solution">
+<button>
+Hints on Wrangling Steps 1 and 2
+</button>
+<div class="info">
+<p>
+<strong>Step 1</strong>
+</p>
 <ul>
-<li>Now that you are well versed in interpreting scatterplots (scattergrams) have a go at this online game: <a href = "http://guessthecorrelation.com/" target = "_blank">http://guessthecorrelation.com/</a>.</li>
+<li>
+<code>gather()</code> the data in <code>screen</code> into three columns: Serial, var, hours
+</li>
+<li>
+<code>?separate()</code> in the console
+</li>
+<li>
+<code>seperate(data, column_name_containing_variables_to_split, c(“column_1_to_create”,“column_2_to_create”), “character_to_split_by”)</code>
+</li>
+<li>
+each variable (category) has an underscore in its name. Use that to split it. I.e. <code>Comph_we</code> will get split into <code>Comph</code> and <code>we</code>
+</li>
 </ul>
-<p>Read the instuctions on the ‘About’ tab of the menu and then play the game. Try to achieve your highest score possible before giving up - at worst, 50 points. Last year’s top score was 206; do not let us down here! Post your amazing scores on the lab forum pages. The best posted score will win a free copy of Rstudio!!! This sounds a bit of fun but being able to interpret scatterplots with a reasonable degree of accuracy can really help your understanding of a relationship.</p>
+<p>
+<strong>Step 2</strong>
+</p>
+<p>
+data %&gt;% mutate(new_variable_name = recode(old_variable_name, “wk” = “Weekday”, “we” = “Weekend”))
+</p>
+</div>
+</div>
+</div>
+<div id="Ch15PreClassQueT4" class="section level3">
+<h3><span class="header-section-number">15.2.6</span> Visualising the Screen time and Well-being relationship</h3>
+<p>Brilliant, that is truly excellent work and you should be really pleased with yourself. Looking at the figures, it would appear that there is not much difference between screen time use of smartphones in weekend and weekdays so we could maybe collapse that variable together later when we come to analyse it. Overall, people tend to be using all the different technologies for a peak around 3 hours, and then each distribution tails off as you get longer exposure suggesting that there are some that stay online a long time. Video games is the exception where there is a huge peak in the first hour and then a tailing off after that.</p>
+<p>But first, another visualisation. We should have a look at the relationship between screen time (for the four different technologies) and measures of well-being. This relationship looks like this shown below and the code to recreate this figure is underneath:</p>
+<div class="figure" style="text-align: center"><span id="fig:combined-hide"></span>
+<img src="15-s02-lab15b_files/figure-html/combined-hide-1.png" alt="Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends" width="100%" />
+<p class="caption">
+Figure 15.2: Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends
+</p>
+</div>
+<p>At the start we said we were only going to focus on smartphones. So looking at the bottom left of the figure we could suggest that smartphone use of more than 1 hour per day is associated with increasingly negative well-being the longer screen time people have. This looks to be a similar effect for Weekdays and Weekends, though perhaps overall well-being in Weekdays is marginally lower than in Weekends (the line for Weekday is lower on the y-axis than Weekends). This makes some sense as people tend to be happier on Weekends! Sort of makes you wish we had more of them right?</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p>That is great work today and it just shows you how far you have come with your wrangling skills over the last couple of years. We will pick up from here in the lab during the week where we will start to look at the relationship in boys and girls. Don’t forget to make any notes for yourself that you think will be good to remember - rounding off your Portfolio and bank on skills that you have built up. Any questions or problems, as always post them on the forums or bring them to the lab for discussion.</p>
 
 </div>
 </div>
-<div id="inclass-activity-7" class="section level2">
-<h2><span class="header-section-number">10.3</span> InClass Activity</h2>
-<p>We are going to jump straight into this one! To get you used to running a correlation we will use the examples in <strong>Miller and Haden (2013)</strong>, Chapter 11, looking at the <strong>relationship</strong> between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations.</p>
-<p><a href="./data/10-s02/inclass/ch10-inclass-data.zip" target = "_blank">Click here to download the data for today</a> or download it from Moodle.</p>
-<div id="Ch10InClassQueT1" class="section level3">
-<h3><span class="header-section-number">10.3.1</span> Task 1 - The Data</h3>
-<p>After downloading the data folder, unzip the folder, set your working directory appropriately, open a new script, and load in the Miller and Haden data (<code>MillerHadenData.csv</code>), storing it in a tibble called <code>mh</code>.</p>
+<div id="inclass-activity-13" class="section level2">
+<h2><span class="header-section-number">15.3</span> InClass Activity</h2>
+<p><strong>Continued: Smartphone screen time and wellbeing</strong></p>
+<p>We are going to jump straight into this as you will have already started the analysis in the PreClass activity but as a quick recap, there is currently much debate surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. In the PreClass, and continuing today, we have been looking at data from this recent study of English adolescents:</p>
+<blockquote>
+<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204–215.</p>
+</blockquote>
+<p>This was a large-scale study that found support for the “Goldilocks” hypothesis among adolescents: that there is a “just right” amount of screen time, such that any amount more or less than this amount is associated with lower well-being. The dependent measure used in the study was the <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/" target = "_blank">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70, and we have been working with a version of some of the available data which can be found in the accompanying zip file on Moodle or <a href = "data/15-s02/inclass/ch15-preclass-inclass-data.zip" target = "_blank">download from here</a></p>
+<p>Przybylski and Weinstein looked at multiple measures of screen time, but again for the interests of this exercise we will be focusing on smartphone use only, but do feel free to expand your skills after by looking at different definitions of screen time. Overall, Przybylski and Weinstein suggested that decrements in wellbeing started to appear when respondents reported more than one hour of daily smartphone use. So, bringing it back to our additional variable of sex, our question is now, does the negative association between hours of use and wellbeing (beyond the one-hour point) differ for boys and girls?</p>
+<p>Let’s think about this in terms of the variables. We have:</p>
 <ul>
-<li><strong>Note 1:</strong> Remember that in reality you could store the data under any name you like but to make it easier for a demonstrator to debug with you it is handy if we all use the same names.</li>
-<li><strong>Note 2:</strong> You will find that the instructions for tasks are sparse this semester as we want you to really push the skills you learnt in Semester 1. Don’t worry though, we are always here to help, so if you get stuck, ask!</li>
+<li><p>a continuous DV, well-being;</p></li>
+<li><p>a continuous predictor, screen time;</p></li>
+<li><p>a categorical predictor, sex.</p></li>
 </ul>
-<div class="solution">
-<button>
-Task 1: Hints for loading in Data
-</button>
-<div class="info">
-<ul>
-<li>
-Hint 1: We are going to need the following libraries: tidyverse, broom
-</li>
-<li>
-Hint 2: mh &lt;- read_csv()
-</li>
-<li>
-Remember that we will always ask you to use read_csv() to load in data.
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-Let’s look at your data - we showed you a number of ways to do this in Semester 1. As in Miller and Haden, we have 5 columns:</p>
-<ul>
-<li>the particpant (<code>Participant</code>),</li>
-<li>Reading Ability (<code>Abil</code>),</li>
-<li>Intelligence (<code>IQ</code>),</li>
-<li>number of minutes spent reading at home per week (<code>Home</code>),</li>
-<li>and number of minutes spent watching TV per week (<code>TV</code>).</li>
-</ul>
-<p>For the lab we will focus on the relationship between Reading Ability and IQ but for further practice you can look at other relationships in your free time.<br />
-A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (<strong>but do you see the issue with causality and direction</strong>). Or phrasing the hypothesis more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, are positively correlated. This is the hypothesis we will test today but remember that we could always state the null hypothesis that there is no relationship between reading ability and IQ. First, however, we must check some assumptions of the correlation tests. The main assumptions we need to check are:</p>
-<ul>
-<li>Is the data interval, ratio, or ordinal?</li>
-<li>Is there a data point for each participant on both variables?</li>
-<li>Is the data normally distributed in both variables?</li>
-<li>Does the relationship between variables appear linear?</li>
-<li>Does the spread have homoscedasticity?</li>
-</ul>
-<p>We will look at these in turn.</p>
-<p><strong>Assumption 1: Level of Measurement</strong></p>
-</div>
-<div id="Ch10InClassQueT2" class="section level3">
-<h3><span class="header-section-number">10.3.2</span> Task 2 - Interval or Ordinal</h3>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
-<p>If we are going to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have? Discuss with your group for a few minutes and then answer the following question.</p>
-<ul>
-<li><strong>Check your thinking:</strong> the type of data in this analysis is most probably <select class='solveme' data-answer='["interval","ordinal"]'> <option></option> <option>ratio</option> <option>interval</option> <option>ordinal</option> <option>nominal</option></select> as the data is <select class='solveme' data-answer='["continuous"]'> <option></option> <option>continuous</option> <option>discrete</option></select> and there is unlikely to be a true zero</li>
-</ul>
-<div class="solution">
-<button>
-Hints on data type
-</button>
-<div class="info">
-<ul>
-<li>
-are the variables continuous?
-</li>
-<li>
-is the difference between 1 and 2 on the scale equal to the difference between 2 and 3?
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<strong>Assumption 2: Pairs of Data</strong></p>
-<p>All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can’t correlate against an empty cell! So now go check that you have a data point in both columns for each participant. After that, try answering the question in Task 3</p>
-</div>
-<div id="Ch10InClassQueT3" class="section level3">
-<h3><span class="header-section-number">10.3.3</span> Task 3 - Missing Data</h3>
-<p>It looks like everyone has data in all the columns but let’s test our skills a little whilst we are here. Answer the following questions:</p>
+<p>And to recap in terms of analysis, what we are effectively trying to do is to estimate <strong>two slopes</strong> relating screen time to well-being, one for girls and one for boys, and then statistically compare these slopes. Again, as we have seen building up to this lab, <strong>an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical.</strong> But remember, although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. As such people like regression, and the general linear model, as it allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care of how you numerically code the <strong>categorical predictors</strong>. We will use an approach called <strong>deviation coding</strong> which we will look at today later in this lab.</p>
+<p><strong>Let’s Begin!</strong></p>
+<div id="Ch15InClassQueT1" class="section level3">
+<h3><span class="header-section-number">15.3.1</span> Smartphone and well-being for boys and girls</h3>
+<p>Continuing from where we left on in the PreClass, so far we have been matching what the original authors suggested we would find in the data, this drop off in self-reported well-being for longer exposures of smart-phone use (i.e. &gt;1 hour). However, we said we wanted to look at this in terms of males and females, or boys and girls really, so we need to do a bit more wrangling. Also, as above we said there seemed to be only a small difference between Weekday and Weekends so, we will collapse weekday and weekend usage in smartphones.</p>
 <ol style="list-style-type: decimal">
-<li>How is missing data represented in a tibble? <select class='solveme' data-answer='["NA"]'> <option></option> <option>an empty cell</option> <option>NA</option> <option>a large number</option> <option>don’t know</option></select></li>
-<li>Which code would leave you with just the participants who were missing Reading Ability data in mh:
-<select class='solveme' data-answer='["filter(mh, is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
-<li>Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class='solveme' data-answer='["filter(mh, !is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select></li>
+<li>Create a new table, <code>smarttot</code>, that takes the information in <code>screen2</code> and keeps only the smarthphone usage.</li>
+<li>Now, create an average smartphone usage for each participant, called <code>tothours</code>, using a group_by and summarise, regardless of whether or not it is the weekend or weekday, i.e. the mean number of hours per day of smartphone use (averaged over weekends/weekdays) for that participant.</li>
+<li>Now, create a new tibble <code>smart_wb</code> that only includes participants from <code>smarttot</code> who used a smartphone for more than one hour per day each week, and then combine this tibble with the information in the <code>wemwbs</code> tibble and the <code>pinfo</code> tibble.</li>
 </ol>
-<div class="solution">
-<button>
-Hints on removing missing data points
-</button>
-<div class="info">
-<ul>
-<li>
-filter(dat, is.na(variable)) versus filter(dat, !is.na(variable))
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<strong>Assumption 3: The shape of my data</strong></p>
-<p>The remaining assumptions are all best checked through visualisations. You could use histograms to check that the data (Abil and IQ) are both normally distributed, and you could use a scatterplot (scattergrams) of IQ as a function of Abil to check whether the relationship is linear, with homoscedasticity, and without outliers! You could also use z-scores to check for outliers with the cut-off usually being set at around <span class="math inline">\(\pm2.5SD\)</span>, and you can check this in your free time using the mutate function (e.g. <code>mutate(z = (X - mean(X))/SD(X))</code>), but today we will just use visual checks.</p>
-</div>
-<div id="Ch10InClassQueT4" class="section level3">
-<h3><span class="header-section-number">10.3.4</span> Task 4 - Normality</h3>
-<p>Create the following figures and discuss the outputs with your group:</p>
-<ul>
-<li>A histogram for Ability and a histogram for IQ.
-<ul>
-<li>Are they both normally distributed?</li>
-</ul></li>
-<li>A scatterplot of IQ as a function of Ability.
-<ul>
-<li>Do you see any outliers?</li>
-<li>Does the relationship appear linear?</li>
-<li>Does the spread appear ok in terms of homoscedasticity?</li>
-</ul></li>
-</ul>
-<div class="solution">
-<button>
-Hints to create figures
-</button>
-<div class="info">
-<ul>
-<li>
-ggplot(mh, aes(x = )) + geom_histogram()
-</li>
-<li>
-ggplot(mh, aes(x = , y = )) + geom_point()
-</li>
-<li>
-Normality: something to keep in mind is that there are only 25 participants, so how ‘normal’ do we expect relationships to be
-</li>
-<li>
-homoscedasticity is that the spread of data points around the (imaginary) line of best fit is even on both sides along the line; as opposed to very narrow at one point and very wide at others.
-</li>
-<li>
-Remember these are all judgement calls!
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<strong>Descriptives of a correlation</strong></p>
-<p>A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis</p>
-</div>
-<div id="Ch10InClassQueT5" class="section level3">
-<h3><span class="header-section-number">10.3.5</span> Task 5 - Descriptives</h3>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
-<p>Looking at the scatterplot you created in Task 4, spend a couple of minutes discussing and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis?</p>
-<div class="solution">
-<button>
-Hints on discussing descriptives
-</button>
-<div class="info">
-<ul>
-<li>
-Hint 1: We hypothesised that reading ability and intelligence were positively correlated. Is that what you see in the scatterplot?
-</li>
-<li>
-Hint 2: Keep in mind it is subjective at this stage.
-</li>
-<li>
-Hint 3: Remember to only talk about a relationship and not a prediction. This is correlational work, not regression.
-</li>
-<li>
-Hint 4: Can you say something about both the strength (weak, medium, strong) and the direction (positive, negative)?
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<strong>The correlation</strong></p>
-<p>Finally we will run the correlation using the <code>cor.test()</code> function. Remember that for help on any function you can type <code>?cor.test</code> in the console window. The <code>cor.test()</code> function requires:</p>
-<ul>
-<li>the column name of Variable 1</li>
-<li>the column name of Variable 2</li>
-<li>the type of correlation you want to run: e.g. “pearson”, “spearman”</li>
-<li>the type of NHST tail you want to run: e.g. “one.sided”, “two.sided”</li>
-</ul>
-<p>For example, if your data is stored in <code>dat</code> and you are wanting a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
-<pre><code>cor.test(dat$X, dat$Y, method = &quot;pearson&quot;, alternative = &quot;two.sided&quot;)</code></pre>
-<ul>
-<li>where <code>dat$X</code> means the column <code>X</code> in the tibble <code>dat</code>. The dollar sign (<code>$</code>) is a way of indexing, or calling out, a specific column.</li>
-</ul>
-</div>
-<div id="Ch10InClassQueT6" class="section level3">
-<h3><span class="header-section-number">10.3.6</span> Task 6 - Pearson or Spearman?</h3>
-<p>Based on your answers to Task 5, spend a couple of minutes deciding with your group which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided). Now, run the correlation between IQ and Ability and save it in a tibble called <code>results</code> (hint: <code>broom::tidy()</code>).</p>
-<div class="solution">
-<button>
-Hints to correlation
-</button>
-<div class="info">
-<ul>
-<li>
-Hint 1: the data looked reasonably normal and linear so method would be?
-</li>
-<li>
-Hint 2: results &lt;- cor.test(mh$Abil……, method = ….., alternative….) %&gt;% tidy()
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<strong>Interpreting the Correlation</strong></p>
-<p>You should now have a tibble called <code>results</code> that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now, is interpret the output of the correlation.</p>
-</div>
-<div id="Ch10InClassQueT7" class="section level3">
-<h3><span class="header-section-number">10.3.7</span> Task 7 - Interpretation</h3>
-<p>Look at <code>results</code>. Locate your correlation value, e.g. <code>results %&gt;% pull(estimate)</code> and then with your group, answer the following questions:</p>
-<ul>
-<li>The direction of the relationship between Ability and IQ is: <select class='solveme' data-answer='["positive"]'> <option></option> <option>positive</option> <option>negative</option> <option>no relationship</option></select></li>
-<li>The strength of the relationship between Ability and IQ is: <select class='solveme' data-answer='["medium"]'> <option></option> <option>strong</option> <option>medium</option> <option>weak</option></select></li>
-<li>Based on <span class="math inline">\(\alpha = .05\)</span> the relationship between Ability and IQ is: <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>not significant</option></select></li>
-<li>Based on the output, given the hypothesis that the reading ability of school children, as measured through a standardized test, and intelligence, again through a standardized test, are positively correlated, we can say that the hypothesis: <select class='solveme' data-answer='["is supported"]'> <option></option> <option>is supported</option> <option>is not supported</option> <option>is proven</option> <option>is not proven</option></select></li>
-</ul>
-<div class="solution">
-<button>
-Hints to interpretation
-</button>
-<div class="info">
-<ul>
-<li>
-Hint1: If Y increases as X increases then the relationship is positive. If Y increases as X decreases then the relationship is negative. If there is no change in Y as X changes then there is no relationship
-</li>
-<li>
-Hint2: Depending on the field most correlation values greater than .5 would be strong; .3 to .5 as medium, and .1 to .3 as small.
-</li>
-<li>
-Hint3: The field standard says less than .05 is significant.
-</li>
-<li>
-Hint4: Hypotheses can only be supported or not supported, never proven.
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<strong>Recap so far</strong></p>
-<p>Great, so far we have set a hypothesis for a correlation, checked the assumptions, run the correlation and interpreted it appropriately. So as you can see running the correlation is the easy bit. As in a lot of analyses it is getting your data in order, checking assumptions, and interpreting your output that is the hard part.</p>
-<p>We have now walked you through one analysis but you can always go run more with the Miller and Haden dataset. There are six in total that could be run but watch out for Multiple Comparisons - where your <strong>Type 1</strong> Error rate is inflated and where <strong>the chance of finding a significant effect is inflated by simply running numerous tests.</strong> Alternatively, we have another data set below that we want you to run a correlation on yourself but first we want to show you something that can be very handy when you want to view lots of correlations at once.</p>
-</div>
-<div id="advanced-1-matrix-of-scatterplots" class="section level3">
-<h3><span class="header-section-number">10.3.8</span> Advanced 1: Matrix of Scatterplots</h3>
-<p>Above we ran one correlation and if we wanted to do a different correlation then we would have to edit the <code>cor.test()</code> line and run it again. However, when you have lots of variables in a dataset, to get a quick overview of patterns, one thing you might want to do is run all the correlations at the same time or create a matrix of scatterplots at the one time. You can do this with functions from the <code>Hmisc</code> library - already installed in the Boyd Orr Labs. We will use the Miller and Haden data here again which you should still have in a tibble called <code>mh</code>.</p>
-<p>First, we need to get rid of the Participant column as we don’t want to correlate that with anything. It won’t tell us anything. Copy and run the below line of code</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;Hmisc&quot;</span>)</a>
-<a class="sourceLine" id="cb338-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb338-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Participant)</a></code></pre></div>
-<p>Now run the following line. The <code>pairs()</code> function from the <code>Hmisc</code> library creates a matrix of scatterplots which you can then use to view all the relationships at the one time.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">pairs</span>(mh)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch10-advance-pairs"></span>
-<img src="10-s02-lab10c_files/figure-html/ch10-advance-pairs-1.png" alt="Matrix of Correlation plots of Miller and Haden (2013) data" width="100%" />
-<p class="caption">
-Figure 10.1: Matrix of Correlation plots of Miller and Haden (2013) data
-</p>
-</div>
-<p>And the <code>rcorr()</code> function creates a matrix of correlations and p-values. But watch out, it only accepts the data in matrix format. Run the following two lines of code.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1">mh_mx =<span class="st"> </span><span class="kw">as.matrix</span>(mh, <span class="dt">type =</span> <span class="st">&quot;pearson&quot;</span>)</a>
-<a class="sourceLine" id="cb340-2" data-line-number="2"><span class="kw">rcorr</span>(mh_mx)</a></code></pre></div>
-<pre><code>##       Abil   IQ  Home    TV
-## Abil  1.00 0.45  0.74 -0.29
-## IQ    0.45 1.00  0.20  0.25
-## Home  0.74 0.20  1.00 -0.65
-## TV   -0.29 0.25 -0.65  1.00
-## 
-## n= 25 
-## 
-## 
-## P
-##      Abil   IQ     Home   TV    
-## Abil        0.0236 0.0000 0.1624
-## IQ   0.0236        0.3337 0.2368
-## Home 0.0000 0.3337        0.0005
-## TV   0.1624 0.2368 0.0005</code></pre>
-</div>
-<div id="Ch10InClassQueT8" class="section level3">
-<h3><span class="header-section-number">10.3.9</span> Task 8 - The Matrix</h3>
-<p>After running the above lines, spend a few minutes answering the following questions with your group. The solutions are at the end of the chapter. The first table outputted is the correlation values and the second table is the p-values.</p>
-<ol style="list-style-type: decimal">
-<li>Why do the tables look symmetrical around a blank diagonal?</li>
-<li>What is the strongest positive correlation?</li>
-<li>What is the strongest negative correlation?</li>
-</ol>
-<div class="solution">
-<button>
-Hints to Matrix of correlations
-</button>
-<div class="info">
-<ul>
-<li>
-Hint1: There is no hint, this is just a cheeky test to make sure you have read the correlation chapter in Miller and Haden, like we asked you to! :-) If you are unsure of these answers, the solutions are at the end of the chapter.
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="advanced-2-attitudes-towards-vaping" class="section level3">
-<h3><span class="header-section-number">10.3.10</span> Advanced 2: Attitudes towards Vaping</h3>
-<p>Great work so far! Now we really want to see what you can do yourself. In the data folder there is another file called <code>VapingData.csv</code>. This data comes from a lab we used to run looking at implicit and explicit attitudes towards vaping.</p>
-<ul>
-<li><strong>Explicit attitudes</strong> were measured via a questionnaire where higher scores indicated a positive attitude towards vaping.</li>
-<li><strong>Implicit attitudes</strong> were measured through an Implicit Association Test (IAT) using images of Vaping and Kitchen utensils and associating them with positive and negative words.</li>
-</ul>
-<p>The IAT works on the principal that associations that go together (that are congruent, e.g. warm and sun) should be quicker to respond to than associations that do not go together (that are incongruent, e.g. warm and ice). You can read up more on the procedure at a later date <a href="https://nobaproject.com/modules/research-methods-in-social-psychology" target = "_blank">here on the Noba Project</a> which has a good description of the procedure under the section “Subtle/Nonsconscious Research Methods”.</p>
-<p>For today, you need to know that “Block 3” in the experiment tested reaction times and accuracy towards congruent associations, pairing positive words with Kitchen utensils and negative words with Vaping. “Block 5” in the experiment tested reaction times and accuracy towards incongruent associations, pairing positive words with Vaping and negative words with Kitchen Utensils. As such, if reaction times were longer in Block 5 than in Block 3 then people are considered to hold the view that Vaping is negative (i.e. congruent associations are quicker than incongruent associations). However, if reaction times were shorter in Block 5 than in Block 3 then people are considered to hold the view that Vaping is positive (i.e. incongruent associations were quicker than congruent associations). The difference between reaction times in Block5 and Block3 is called the participants IAT score.</p>
-</div>
-<div id="Ch10InClassQueT9" class="section level3">
-<h3><span class="header-section-number">10.3.11</span> Task 9 - Attitudes to Vaping</h3>
-<p>Load in the data in <code>VapingData.csv</code> and analyse it to test the hypothesis that Implicit and Explicit attitudes towards Vaping are positively related. Here are some pointers, hints and tips.</p>
-<ol style="list-style-type: decimal">
-<li>Start of by looking at the data. You have 8 columns. Reaction times and Accuracy scores for blocks 3 and 5. The Explicit Vaping Questionnaire Scores, Sex and Age.</li>
-<li>Accuracy is as a proportion and as such can’t go above 1. Participants entered their own data so some might have made a mistake. Get rid of everybody who had an accuracy greater than 1 in either block 3 or block 5.</li>
-<li>We also only want participants that were paying attention so best remove anybody whose average accuracy score across Blocks 3 and 5 was less than 80%. Note - this value is aribtrary and if you wanted, in your own experiment, you could use a more relaxed or strict cut-off based on other studies or guidance. Note that these decisions should be set out at the start of your research. Finally, in this instance, remember, the values are in proportions not percentages (so 80% will be .8).</li>
-<li>Now create an IAT score for participants by subtracting Block 3 reaction times (RT) away from Block 5 reaction times e.g (B5-B3). Use the paragraph above to understand how the scores relate to attitudes.</li>
-<li>Create a descriptives summary of the number of people, the mean RT and Vaping Questionnaire Score. Why might these averages be useful? Why are averages not always useful in correlations?</li>
-<li>Check your assumptions of correlations as we did above and descriptives, thinking about how it compares to the hypothesis.</li>
-<li>Run the appropriate correlation based on your assumptions and interpret the output.</li>
-</ol>
-<div class="solution">
-<button>
-Hints for Vaping
-</button>
-<div class="info">
-<ul>
-<li>
-<p>
-libraries might include tidyverse and broom
-</p>
-</li>
-<li>
-Hint Step 1: read_csv()
-</li>
-<li>
-Hint Step 2: filter(Accuracy &lt; 1 OR Accuracy &lt;= 1 OR Accuracy &gt; 1 OR Accuracy &gt;= 1)
-</li>
-<li>
-Hint Step 3: average accuracy: mutate(data, name = (1 + 2)/2) %&gt;% filter(name &gt; …)
-</li>
-<li>
-Hint Step 4: RT: mutate(data, nom = 1 - 2)
-</li>
-<li>
-Hint Step 5: descriptives &lt;- summarise()
-</li>
-<li>
-Hint Step 6: assumptions would be type of data, normality, linear relationship, homoscedasicity, data points for everyone!
-</li>
-<li>
-<p>
-Hint Step 7: results &lt;- cor.test(method = “pearson”)?
-</p>
-</li>
-</ul>
-</div>
-</div>
-<p><br>
-<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Excellent work, who would have thought that about Explicit and Implicit attitudes towards Vaping?!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2019. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget. We won’t incorporate Portfolio points this semester as by now you should know what sort of information you need to make a note of for yourself, and the more independent you are in your learning the better it will be, but please don’t think they are no longer relevant!</p>
-
-</div>
-</div>
-<div id="assignment-9" class="section level2">
-<h2><span class="header-section-number">10.4</span> Assignment</h2>
-<p>This is a summative assignment. Instructions as to how to access and submit your assignment will be made available during the course.</p>
-
-</div>
-<div id="solutions-to-questions-9" class="section level2">
-<h2><span class="header-section-number">10.5</span> Solutions to Questions</h2>
-<p>Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
-<div id="inclass-activity-8" class="section level3">
-<h3><span class="header-section-number">10.5.1</span> InClass Activity</h3>
-<div id="inclass-task-1-5" class="section level4">
-<h4><span class="header-section-number">10.5.1.1</span> InClass Task 1</h4>
-<ul>
-<li>Loading in the data and the two libraries needed</li>
-<li>Good point to remind you that:
-<ul>
-<li>we use <code>read_csv()</code> to load in data</li>
-<li>the order that libraries are read in is important. If there are any conflicts in terms of libraries then the last library that is loaded will be the functions you are using.</li>
-</ul></li>
-</ul>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;broom&quot;</span>)</a>
-<a class="sourceLine" id="cb342-2" data-line-number="2"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb342-3" data-line-number="3">mh &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MillerHadenData.csv&quot;</span>)</a></code></pre></div>
-<p><a href="correlations.html#Ch10InClassQueT1">Return to Task</a></p>
-</div>
-<div id="inclass-task-2-6" class="section level4">
-<h4><span class="header-section-number">10.5.1.2</span> InClass Task 2</h4>
-<ul>
-<li>Actually the information within the textbook is unclear as to whether the data is interval or ordinal so we have accepted both as you could make a case for both arguments. A quick google search will show just as many people who think that IQ is interval as think it is oridinal. In terms of Reading Ability, again we probably don’t know enough information about this scale to make a clear judgement but it is at least ordinal and could well be interval.</li>
-</ul>
-<p><a href="correlations.html#Ch10InClassQueT2">Return to Task</a></p>
-</div>
-<div id="inclass-task-3-5" class="section level4">
-<h4><span class="header-section-number">10.5.1.3</span> InClass Task 3</h4>
-<ul>
-<li><p>Missing data is represented by NA. It stands for Not Available but is a very good way of improving your Scottish accent. For example, “is that a number” can be replied with “NA!”.</p></li>
-<li><p>If you want to keep everybody from the whole dataset that has a score for Ability you would use:</p></li>
-</ul>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="op">!</span><span class="kw">is.na</span>(Abil))</a></code></pre></div>
-<pre><code>## # A tibble: 25 x 5
-##    Participant  Abil    IQ  Home    TV
-##          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1           1    61   107   144   487
-##  2           2    56   109   123   608
-##  3           3    45    81   108   640
-##  4           4    66   100   155   493
-##  5           5    49    92   103   636
-##  6           6    62   105   161   407
-##  7           7    61    92   138   463
-##  8           8    55   101   119   717
-##  9           9    62   118   155   643
-## 10          10    61    99   121   674
-## # ... with 15 more rows</code></pre>
-<ul>
-<li>Alternatively, if you want to keep everybody from the whole dataset that does not have a score for Ability you would use:</li>
-</ul>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="kw">is.na</span>(Abil))</a></code></pre></div>
-<pre><code>## # A tibble: 0 x 5
-## # ... with 5 variables: Participant &lt;dbl&gt;, Abil &lt;dbl&gt;, IQ &lt;dbl&gt;,
-## #   Home &lt;dbl&gt;, TV &lt;dbl&gt;</code></pre>
-<p>Remember that you would need to store the output of this step, so really it would be something like <code>mh &lt;- filter(mh, !is.na(Abil))</code></p>
-<p><a href="correlations.html#Ch10InClassQueT3">Return to Task</a></p>
-</div>
-<div id="inclass-task-4-5" class="section level4">
-<h4><span class="header-section-number">10.5.1.4</span> InClass Task 4</h4>
-<ul>
-<li>Reading ability data appears as normal as expected for 25 participants. Hard to say how close to normality something should look when there are so few participants.</li>
-</ul>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb347-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-1"></span>
-<img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-1-1.png" alt="Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)" width="100%" />
-<p class="caption">
-Figure 10.2: Histogram showing the distribution of Reading Ability Scores from Miller and Haden (2013)
-</p>
-</div>
-<ul>
-<li>IQ data appears as normal as expected for 25 participants</li>
-</ul>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb348-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-2"></span>
-<img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-2-1.png" alt="Histogram showing the distribution of IQ Scores from Miller and Haden (2013)" width="100%" />
-<p class="caption">
-Figure 10.3: Histogram showing the distribution of IQ Scores from Miller and Haden (2013)
-</p>
-</div>
-<ul>
-<li>The relationship between reading ability and IQ scores appears appears linear and with no clear outliers. Data also appears homeoscedastic.</li>
-</ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="kw">ggplot</span>(mh, <span class="kw">aes</span>(<span class="dt">x =</span> Abil, <span class="dt">y =</span> IQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb349-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT4-3"></span>
-<img src="10-s02-lab10e_files/figure-html/ch10InClassSolT4-3-1.png" alt="Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data" width="100%" />
-<p class="caption">
-Figure 10.4: Scatterplot of IQ scores as a function of Reading Ability from Miller and Haden (2013) data
-</p>
-</div>
-<p><a href="correlations.html#Ch10InClassQueT4">Return to Task</a></p>
-</div>
-<div id="inclass-task-5-4" class="section level4">
-<h4><span class="header-section-number">10.5.1.5</span> InClass Task 5</h4>
-<p>Based on the scatterplot we might suggest that as reading ability scores increase, IQ scores also increase and as such it would appear that our data is inline with our hypothesis that the two variables are positively correlated. This appears to be a medium strength relationship.</p>
-<p><a href="correlations.html#Ch10InClassQueT5">Return to Task</a></p>
-</div>
-<div id="inclass-task-6-3" class="section level4">
-<h4><span class="header-section-number">10.5.1.6</span> InClass Task 6</h4>
-<ul>
-<li>We are going to run a pearson correlation as we would argue the data is interval and the relationship is linear.</li>
-<li>The correlation would be run as follows - tidying it into a nice and useable table.</li>
-</ul>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(mh<span class="op">$</span>Abil, </a>
-<a class="sourceLine" id="cb350-2" data-line-number="2">                    mh<span class="op">$</span>IQ, </a>
-<a class="sourceLine" id="cb350-3" data-line-number="3">                    <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>, </a>
-<a class="sourceLine" id="cb350-4" data-line-number="4">                    <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb350-5" data-line-number="5"><span class="st">  </span>tidy</a></code></pre></div>
-<ul>
-<li>The output of the table would look as follows:</li>
-</ul>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch10InClassSolT6-tab">Table 10.1: </span>The correlation output of the Reading Ability and IQ relationship.
-</caption>
+<p>The finished table should look something like this (we are only showing the first 5 rows here):</p>
+<table>
 <thead>
 <tr>
-<th style="text-align:right;">
-estimate
+<th style="text-align:center;">
+Serial
 </th>
-<th style="text-align:right;">
-statistic
+<th style="text-align:center;">
+tothours
 </th>
-<th style="text-align:right;">
-p.value
+<th style="text-align:center;">
+tot_wellbeing
 </th>
-<th style="text-align:right;">
-parameter
+<th style="text-align:center;">
+sex
 </th>
-<th style="text-align:right;">
-conf.low
+<th style="text-align:center;">
+minority
 </th>
-<th style="text-align:right;">
-conf.high
-</th>
-<th style="text-align:left;">
-method
-</th>
-<th style="text-align:left;">
-alternative
+<th style="text-align:center;">
+deprived
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-0.451
+<td style="text-align:center;">
+1000003
 </td>
-<td style="text-align:right;">
-2.425
+<td style="text-align:center;">
+2.0
 </td>
-<td style="text-align:right;">
-0.024
+<td style="text-align:center;">
+41
 </td>
-<td style="text-align:right;">
-23
+<td style="text-align:center;">
+0
 </td>
-<td style="text-align:right;">
-0.068
+<td style="text-align:center;">
+0
 </td>
-<td style="text-align:right;">
-0.718
+<td style="text-align:center;">
+1
 </td>
-<td style="text-align:left;">
-Pearson’s product-moment correlation
+</tr>
+<tr>
+<td style="text-align:center;">
+1000004
 </td>
-<td style="text-align:left;">
-two.sided
+<td style="text-align:center;">
+2.5
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1000005
+</td>
+<td style="text-align:center;">
+3.5
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1000006
+</td>
+<td style="text-align:center;">
+2.0
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1000008
+</td>
+<td style="text-align:center;">
+1.5
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<p><a href="correlations.html#Ch10InClassQueT6">Return to Task</a></p>
-</div>
-<div id="inclass-task-7-4" class="section level4">
-<h4><span class="header-section-number">10.5.1.7</span> InClass Task 7</h4>
-<p>In the Task 6 output:</p>
+<div class="solution">
+<button>
+Hints for Wrangling Steps
+</button>
+<div class="info">
+<p>
+<strong>Step 1</strong>
+</p>
 <ul>
-<li>The correlation value (r) is stored in <code>estimate</code></li>
-<li>The degrees of freedom (N-2) is stored in <code>parameter</code></li>
-<li>The p-value is stored in <code>p.value</code></li>
-<li>And <code>statistic</code> is the t-value associated with this analysis as correlations use the t-distribution (same as in Semester 1) to determine probability of an outcome.</li>
+<li>
+<code>filter(“Using Smartphone”)</code> to keep only smartphone use
+</li>
 </ul>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb351-2" data-line-number="2"><span class="st">  </span><span class="kw">pull</span>(p.value) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb351-3" data-line-number="3"><span class="st">  </span><span class="kw">round</span>(<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb351-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb351-5" data-line-number="5">df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb351-6" data-line-number="6"><span class="st">  </span><span class="kw">pull</span>(parameter)</a>
-<a class="sourceLine" id="cb351-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb351-8" data-line-number="8">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb351-9" data-line-number="9"><span class="st">  </span><span class="kw">pull</span>(estimate) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb351-10" data-line-number="10"><span class="st">  </span><span class="kw">round</span>(<span class="dv">2</span>)</a></code></pre></div>
-<p>And we can use that information to write-up the following using inline coding for accuracy:</p>
+<p>
+<strong>Step 2</strong>
+</p>
 <ul>
-<li>A pearson correlation found reading ability and intelligence to be positively correlated with a medium to strong relationship, (r(<code>`r df`</code>) = <code>`r correlation`</code>, p = <code>`r pvalue`</code>). As such we can say that our hypothesis is supported and that there appears to be a relationship between reading ability and IQ in that as reading ability increases so does intelligence.</li>
+<li>
+group_by(Participant) %&gt;% summarise(tothours = mean())
+</li>
 </ul>
-<p>Which when knitted would read as:</p>
+<p>
+<strong>Step 3</strong>
+</p>
 <ul>
-<li>A pearson correlation found reading ability and intelligence to be positively correlated with a medium to strong relationship, (r(23) = 0.45, p = 0.024). As such we can say that our hypothesis is supported and that there appears to be a relationship between reading ability and IQ in that as reading ability increases so does intelligence.</li>
+<li>
+<code>filter()</code>, <code>inner_join()</code>
+</li>
+<li>
+hours greater than 1
+</li>
+<li>
+what is the common column to join each time by? Participant?
+</li>
 </ul>
-<p><a href="correlations.html#Ch10InClassQueT7">Return to Task</a></p>
 </div>
-<div id="inclass-task-8-3" class="section level4">
-<h4><span class="header-section-number">10.5.1.8</span> InClass Task 8</h4>
+</div>
+</div>
+<div id="Ch15InClassQueT2" class="section level3">
+<h3><span class="header-section-number">15.3.2</span> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</h3>
+<p>Excellent! Lots of visualisation and wrangling in the PreClass and today but that is what we have been working on and building our skills on up to this point so, we are coping fine! Just a couple more visualisation and wrangles to go before we run the analysis (the easy part!)</p>
+<ul>
+<li>Using the data in <code>smart_wb</code> create the following figure. You will need to first calculate the mean wellbeing scores for each combination of <code>sex</code> and <code>tothours</code>, and then create a plot that includes separate regression lines for each sex.</li>
+<li>Next, or if you just want to look at the figure and not create it, make a brief interpretation of the figure. Think about it in terms of who has the overall lower mean wellbeing score and also are both the slopes the same or is one more negative, one more positive, etc.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:last-fig-hide"></span>
+<img src="15-s02-lab15c_files/figure-html/last-fig-hide-1.png" alt="Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)" width="100%" />
+<p class="caption">
+Figure 15.3: Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)
+</p>
+</div>
+</div>
+<div id="a-side-point-on-mean-centering-and-deviation-coding" class="section level3">
+<h3><span class="header-section-number">15.3.3</span> A side point on mean centering and deviation coding</h3>
+<p>Last bit of wrangling, I promise, before the analysis. Here, we will introduce something that is worth doing to help with our interpretation. You can read up more on this later, and we will cover it in later years more in-depth, but when you have continuous variables in a regression, it is often sensible to transform them by <strong>mean centering</strong> them which has two very useful outcomes:</p>
 <ol style="list-style-type: decimal">
-<li>The table looks the same across the diaganol because the correlation of e.g. Abil vs Abil is not shown, and the correlation of Abil vs Home is the same as the correlation of Home vs Abil</li>
-<li>The strongest positive correlation is between the number of minutes spend reading at home (Home) and Reading Ability (abil), r(23) = .74, p &lt; .001</li>
-<li>The strongest negative correlation is between the number of minutes spend reading at home (Home) and minutes spent watching TV per week (TV), r(23) = -.65, p &lt; .001</li>
+<li><p>the intercept of the model now shows the predicted value of <span class="math inline">\(Y\)</span> for the mean value of the predictor variable rather than the predicted value of <span class="math inline">\(Y\)</span> at the zero value of the unscaled variable as it normally would;</p></li>
+<li><p>if there are interactions in the model, any lower-order effects (e.g. main effects) can be interpreted as they would have been, had it been simply an ANOVA.</p></li>
 </ol>
-<p><a href="correlations.html#Ch10InClassQueT8">Return to Task</a></p>
+<p>These steps seem rather worthwhile in terms of interpretation and the process is really straightforward. You can <strong>mean center a continuous predictor</strong>, for example <code>X</code>, simply by subtracting the mean from each value of the predictor: i.e.<code>X_centered = X - mean(X)</code>.</p>
+<p>A second very useful thing to do that aids the interpretation is to convert your categorical variables into what is called <strong>deviation coding</strong>. Again, we are going to focus more on this in L3 but it is good to hear the term in advance as you will see it from time to time. Again, all this does is to allow you to interpret the categorical predictors as if it were an ANOVA.</p>
+<p>We are going to do both of these steps, <strong>mean centering of our continuous variable</strong> and <strong>deviation coding of our categorical variable</strong>. Here is the code to do it. Copy it and run it but be sure that you understand what it is doing.</p>
+<ul>
+<li>totothours_c is the mean centered values of tothours</li>
+<li>sex_c is the deviation coding of the sex column (sex) where male, which was coded as 1, is now coded as .5, and female is now coded as -.5 instead of 0. The <code>ifelse()</code> basically says, if that column you want me to look at, says this (e.g. sex == 1), then I will put a .5, otherwise (or else) I will put a -.5.</li>
+</ul>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1">smart_wb &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb454-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tothours_c =</span> tothours <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(tothours),</a>
+<a class="sourceLine" id="cb454-3" data-line-number="3">         <span class="dt">sex_c =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="fl">.5</span>, <span class="fl">-.5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb454-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tothours, <span class="op">-</span>sex)</a></code></pre></div>
 </div>
-<div id="inclass-task-9" class="section level4">
-<h4><span class="header-section-number">10.5.1.9</span> InClass Task 9</h4>
-<p><strong>Step 1</strong></p>
+<div id="Ch15InClassQueT3" class="section level3">
+<h3><span class="header-section-number">15.3.4</span> Estimating model parameters</h3>
+<p>Superb! And now finally, after all that wrangling and visualisation, the models. Finally, we are going to see if there is statistical support for our above interpretation of the Figure 15.3, where we saw that overall, girls have lower well-being and that they are affected more by prolonged smartphone usage than boys are. Just to recap, the previous authors have already looked at smartphone usage and wellbeing but, we want to look at whether it has more of an impact in girls than boys, or boys than girls, or about the same.</p>
+<p>The multiple regression model, from the general linear model, for this analysis would be written as:</p>
+<p><span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + e_i\)</span></p>
+<p>where:</p>
 <ul>
-<li>Reading in the Vaping Data using <code>read_csv()</code></li>
+<li><span class="math inline">\(Y_i\)</span> is the wellbeing score for participant <span class="math inline">\(i\)</span>;</li>
+<li><span class="math inline">\(X_{1i}\)</span> is the mean-centered smartphone use predictor variable for participant <span class="math inline">\(i\)</span>;</li>
+<li><span class="math inline">\(X_{2i}\)</span> is gender, where we used deviation coding (-.5 = female, .5 = male);</li>
+<li><span class="math inline">\(X_{3i}\)</span> is the interaction between smartphone use and gender (<span class="math inline">\(= X_{1i} \times X_{2i}\)</span>)</li>
 </ul>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;VapingData.csv&quot;</span>)</a></code></pre></div>
-<p><strong>Steps 2 to 4</strong></p>
+<p>You have seen multiple regression models before in R and they usually take a format something like, <code>y ~ a + b</code>. The one for this analysis is very similar but with one difference, we need to add the interaction. To do that, instead of saying <code>a + b</code> we do <code>a * b</code>. This will return us the effects of a and b by themselves as well as the interaction of a and b. Just like you would in an ANOVA but here one of the variables is continuous and one is categorical.</p>
 <ul>
-<li>The main wrangle of parts 2 to 4</li>
+<li>With that in mind, using the data in <code>smart_wb</code>, use the <code>lm()</code> function to estimate the model for this analysis where we predict <code>tot_wellbeing</code> from mean centered smartphone usage (tothours_c) and the deviation coded sex (sex_c)</li>
 </ul>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb353-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK3_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb353-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(IAT_BLOCK5_Acc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb353-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_ACC =</span> (IAT_BLOCK3_Acc <span class="op">+</span><span class="st"> </span>IAT_BLOCK5_Acc)<span class="op">/</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb353-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(IAT_ACC <span class="op">&gt;</span><span class="st"> </span><span class="fl">.8</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb353-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">IAT_RT =</span> IAT_BLOCK5_RT <span class="op">-</span><span class="st"> </span>IAT_BLOCK3_RT)</a></code></pre></div>
-<p><strong>Step 5</strong></p>
+<div class="solution">
+<button>
+Hints on model
+</button>
+<div class="info">
 <ul>
-<li>It is always worth thinking about which averages are informative and which are not.
-<ul>
-<li>Knowing the average explicit attitude towards vaping could well be informative.</li>
-<li>In contrast, if you are using an ordinal scale and people use the whole of the scale then the average may just tell you the middle of the scale you are using - which you already know and really isnt that informative. So it is always worth thinking about what your descriptives are calculating.</li>
-</ul></li>
+<li>
+R formulas look like this: <code>y ~ a + b + a:b</code> where <code>a:b</code> means interaction
+</li>
+<li>
+This can be written in short form of <code>y ~ a * b</code>
+</li>
 </ul>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb354-2" data-line-number="2">                          <span class="dt">mean_IAT_ACC =</span> <span class="kw">mean</span>(IAT_ACC),</a>
-<a class="sourceLine" id="cb354-3" data-line-number="3">                          <span class="dt">mean_IAT_RT =</span> <span class="kw">mean</span>(IAT_RT),</a>
-<a class="sourceLine" id="cb354-4" data-line-number="4">                          <span class="dt">mean_VPQ =</span> <span class="kw">mean</span>(VapingQuestionnaireScore, </a>
-<a class="sourceLine" id="cb354-5" data-line-number="5">                                          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p><strong>Step 6</strong></p>
+</div>
+</div>
+<p><br>
+* Next, use the <code>summary()</code> function on your model output to view it. The ouput should look as follows:</p>
+<pre><code>## 
+## Call:
+## lm(formula = tot_wellbeing ~ tothours_c * sex_c, data = smart_wb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -36.881  -5.721   0.408   6.237  27.264 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      47.43724    0.03557 1333.74   &lt;2e-16 ***
+## tothours_c       -0.54518    0.01847  -29.52   &lt;2e-16 ***
+## sex_c             5.13968    0.07113   72.25   &lt;2e-16 ***
+## tothours_c:sex_c  0.45205    0.03693   12.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.135 on 71029 degrees of freedom
+## Multiple R-squared:  0.09381,    Adjusted R-squared:  0.09377 
+## F-statistic:  2451 on 3 and 71029 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="Ch15InClassQueT4" class="section level3">
+<h3><span class="header-section-number">15.3.5</span> Final Interpretations</h3>
+<p>Finally, just some quick interpretation questions to round off all our work! To help you, here is some info:</p>
 <ul>
-<li>A couple of visual checks of normality through histograms</li>
+<li>The intercept for the male regression line can be calculated by: the Intercept + (the beta of sex_c * .5)</li>
+<li>The slope of the male regression line can be calculated by: the beta of the tothours_c + (the beta of interaction * .5)</li>
+<li>The intercept for the female regression line can be calculated by: the Intercept + (the beta of sex_c * -.5)</li>
+<li>The slope of the female regression line can be calculated by: the beta of the tothours_c + (the beta of interaction * -.5)</li>
 </ul>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb355-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</a></code></pre></div>
-<pre><code>## Warning: Removed 11 rows containing non-finite values (stat_bin).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-1"></span>
-<img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-1-1.png" alt="Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)" width="100%" />
+<p>Look at your model output in the <code>summary()</code> and try to answer the following questions. The solutions are below.</p>
+<ul>
+<li><p>The interaction between smartphone use and gender is shown by the variable <select class='solveme' data-answer='["tothours_c:sex_c"]'> <option></option> <option>tothours_c</option> <option>sex_c</option> <option>tothours_c:sex_c</option></select>, and this interaction was <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
+<li><p>To two decimal places, the intercept for male participants is: <input class='solveme nospaces' size='5' data-answer='["50.01"]'/></p></li>
+<li><p>To two decimal places, the slope for male participants is: <input class='solveme nospaces' size='5' data-answer='["-0.32","-.32"]'/></p></li>
+<li><p>To two decimal places, the intercept for female participants is: <input class='solveme nospaces' size='5' data-answer='["44.87"]'/></p></li>
+<li><p>To two decimal places, the slope for female participants is: <input class='solveme nospaces' size='5' data-answer='["-0.77","-.77"]'/></p></li>
+</ul>
+<p>As such, given the model of <code>Y = intercept + (slope * X)</code> where Y is wellbeing and X is total hours on smartphone, what would be the predicted wellbeing score for a male and a female who use their smartphones for 8 hours. Give your answer to two decimal places:</p>
+<ul>
+<li>Male: <input class='solveme nospaces' size='5' data-answer='["47.45"]'/></li>
+<li>Female: <input class='solveme nospaces' size='5' data-answer='["38.71"]'/></li>
+</ul>
+<p>And finally, what is the most reasonable interpretation of these results? <select class='solveme' data-answer='["smartphone use was more negatively associated with wellbeing for girls than for boys"]'> <option></option> <option>smartphone use harms girls more than boys</option> <option>smartphone use harms boys more than girls</option> <option>there is no evidence for gender differences in the relationship between smartphone use and well-being</option> <option>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p>You should now be ready to complete any future Homework Assignment related to ANCOVAs. We will hold off from a formula assignment on this approach just now and we will look at it again later in the semester, but for now, if you have any questions, please post them on the slack forum under the channel <strong>#level2_2019</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+
+</div>
+</div>
+<div id="assignment-14" class="section level2">
+<h2><span class="header-section-number">15.4</span> Assignment</h2>
+<p>We will hold off from a formal assignment (formative or summative) on this approach just now and we will look at it again later in the semester, but for now, if you have any questions, please post them on the slack forum under the channel #level2_2019. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+
+</div>
+<div id="solutions-to-questions-14" class="section level2">
+<h2><span class="header-section-number">15.5</span> Solutions to Questions</h2>
+<p>Below you will find the solutions to the questions for the PreClass and InClass activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
+<div id="preclass-activities-2" class="section level3">
+<h3><span class="header-section-number">15.5.1</span> PreClass Activities</h3>
+<div id="loading-the-data" class="section level4">
+<h4><span class="header-section-number">15.5.1.1</span> Loading the Data</h4>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb456-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb456-3" data-line-number="3">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;participant_info.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb456-4" data-line-number="4">wellbeing &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;wellbeing.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb456-5" data-line-number="5">screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;screen_time.csv&quot;</span>)</a></code></pre></div>
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT1">Return to Task</a></p>
+</div>
+<div id="compute-the-well-being-score-for-each-participant" class="section level4">
+<h4><span class="header-section-number">15.5.1.2</span> Compute the well-being score for each participant</h4>
+<ul>
+<li>Both of these solutions would produce the same output.</li>
+</ul>
+<p><strong>Version 1</strong></p>
+<ul>
+<li>bit quicker in terms of coding and reduces chance of error by perhaps forgetting to include a specific column</li>
+</ul>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1">wemwbs &lt;-<span class="st"> </span>wellbeing <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb457-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;score&quot;</span>, <span class="op">-</span>Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb457-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb457-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tot_wellbeing =</span> <span class="kw">sum</span>(score))</a></code></pre></div>
+<p><strong>Version 2</strong></p>
+<ul>
+<li>this one is a bit slower</li>
+</ul>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">wemwbs &lt;-<span class="st"> </span>wellbeing <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb458-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_wellbeing =</span> WBOptimf <span class="op">+</span><span class="st"> </span>WBUseful <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb458-3" data-line-number="3"><span class="st">           </span>WBRelax <span class="op">+</span><span class="st"> </span>WBIntp <span class="op">+</span><span class="st">   </span>WBEnergy <span class="op">+</span><span class="st"> </span>WBDealpr <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb458-4" data-line-number="4"><span class="st">           </span>WBThkclr <span class="op">+</span><span class="st"> </span>WBGoodme <span class="op">+</span><span class="st"> </span>WBClsep <span class="op">+</span><span class="st"> </span>WBConfid <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb458-5" data-line-number="5"><span class="st">           </span>WBMkmind <span class="op">+</span><span class="st"> </span>WBLoved <span class="op">+</span><span class="st"> </span>WBIntthg <span class="op">+</span><span class="st"> </span>WBCheer) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb458-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Serial, tot_wellbeing) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb458-7" data-line-number="7"><span class="st">  </span><span class="kw">arrange</span>(Serial)</a></code></pre></div>
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT2">Return to Task</a></p>
+</div>
+<div id="visualising-screen-time-on-all-technologies" class="section level4">
+<h4><span class="header-section-number">15.5.1.3</span> Visualising Screen time on all technologies</h4>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1"><span class="co">## screen time</span></a>
+<a class="sourceLine" id="cb459-2" data-line-number="2">screen_long &lt;-<span class="st"> </span>screen <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb459-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;hours&quot;</span>, <span class="op">-</span>Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb459-4" data-line-number="4"><span class="st">  </span><span class="kw">separate</span>(var, <span class="kw">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb459-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb459-6" data-line-number="6">screen2 &lt;-<span class="st"> </span>screen_long <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb459-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">variable =</span> <span class="kw">recode</span>(variable,</a>
+<a class="sourceLine" id="cb459-8" data-line-number="8">               <span class="st">&quot;Watch&quot;</span> =<span class="st"> &quot;Watching TV&quot;</span>,</a>
+<a class="sourceLine" id="cb459-9" data-line-number="9">               <span class="st">&quot;Comp&quot;</span> =<span class="st"> &quot;Playing Video Games&quot;</span>,</a>
+<a class="sourceLine" id="cb459-10" data-line-number="10">               <span class="st">&quot;Comph&quot;</span> =<span class="st"> &quot;Using Computers&quot;</span>,</a>
+<a class="sourceLine" id="cb459-11" data-line-number="11">               <span class="st">&quot;Smart&quot;</span> =<span class="st"> &quot;Using Smartphone&quot;</span>),</a>
+<a class="sourceLine" id="cb459-12" data-line-number="12">     <span class="dt">day =</span> <span class="kw">recode</span>(day,</a>
+<a class="sourceLine" id="cb459-13" data-line-number="13">              <span class="st">&quot;wk&quot;</span> =<span class="st"> &quot;Weekday&quot;</span>,</a>
+<a class="sourceLine" id="cb459-14" data-line-number="14">              <span class="st">&quot;we&quot;</span> =<span class="st"> &quot;Weekend&quot;</span>))</a>
+<a class="sourceLine" id="cb459-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb459-16" data-line-number="16"><span class="kw">ggplot</span>(screen2, <span class="kw">aes</span>(hours)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb459-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb459-18" data-line-number="18"><span class="st">  </span><span class="kw">facet_grid</span>(day <span class="op">~</span><span class="st"> </span>variable)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch15-sol-st-plot-sol"></span>
+<img src="15-s02-lab15e_files/figure-html/ch15-sol-st-plot-sol-1.png" alt="Count of the hours of usage of different types of social media at Weekdays and Weekends" width="100%" />
 <p class="caption">
-Figure 10.5: Histogram showing the distribution of Scores on the Vaping Questionnaire (Explicit)
+Figure 15.4: Count of the hours of usage of different types of social media at Weekdays and Weekends
 </p>
 </div>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb357-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">10</span>)</a></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-2"></span>
-<img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-2-1.png" alt="Histogram showing the distribution of IAT Reaction Times (Implicit)" width="100%" />
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT3">Return to Task</a></p>
+</div>
+<div id="visualising-the-screen-time-and-well-being-relationship" class="section level4">
+<h4><span class="header-section-number">15.5.1.4</span> Visualising the Screen time and Well-being relationship</h4>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">dat_means &lt;-<span class="st"> </span><span class="kw">inner_join</span>(wemwbs, screen2, <span class="st">&quot;Serial&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb460-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(variable, day, hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb460-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wellbeing =</span> <span class="kw">mean</span>(tot_wellbeing))</a>
+<a class="sourceLine" id="cb460-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb460-5" data-line-number="5"><span class="kw">ggplot</span>(dat_means, <span class="kw">aes</span>(hours, mean_wellbeing, <span class="dt">linetype =</span> day)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb460-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb460-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb460-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch15-sol-combined"></span>
+<img src="15-s02-lab15e_files/figure-html/ch15-sol-combined-1.png" alt="Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends" width="100%" />
 <p class="caption">
-Figure 10.6: Histogram showing the distribution of IAT Reaction Times (Implicit)
+Figure 15.5: Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends
 </p>
 </div>
-<ul>
-<li>A check of the relationship between reaction times on the IAT and scores on the Vaping Questionnaire</li>
-<li>Remember that, often, the scatterplot is considered the descriptive of the correlation, hence why you see them including in journal articles to support the stated relationship.</li>
-<li>The scatterplot can be used to make descriptive claims about the direction of the relationship, the strength of the relationship, whether it is linear or not, and to check for outliers and homeoscedasticity.</li>
-</ul>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1"><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> IAT_RT, <span class="dt">y =</span> VapingQuestionnaireScore)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb358-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb358-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:ch10InClassSolT9-6-3"></span>
-<img src="10-s02-lab10e_files/figure-html/ch10InClassSolT9-6-3-1.png" alt="A scatterplot showing the relationship between implicit IAT reaction times (x) and explicit Vaping Questionnaire Scores (y)" width="100%" />
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT4">Return to Task</a></p>
+</div>
+</div>
+<div id="inclass-activities-10" class="section level3">
+<h3><span class="header-section-number">15.5.2</span> InClass Activities</h3>
+<div id="smartphone-and-well-being-for-boys-and-girls" class="section level4">
+<h4><span class="header-section-number">15.5.2.1</span> Smartphone and well-being for boys and girls</h4>
+<p><strong>Solution Steps 1 to 2</strong></p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">smarttot &lt;-<span class="st"> </span>screen2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb461-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(variable <span class="op">==</span><span class="st"> &quot;Using Smartphone&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb461-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb461-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tothours =</span> <span class="kw">mean</span>(hours))</a></code></pre></div>
+<p><strong>Solution Step 3</strong></p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">smart_wb &lt;-<span class="st"> </span>smarttot <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb462-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(tothours <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb462-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(wemwbs, <span class="st">&quot;Serial&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb462-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(pinfo, <span class="st">&quot;Serial&quot;</span>) </a></code></pre></div>
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT1">Return to Task</a></p>
+</div>
+<div id="visualise-and-interpreting-the-relationship-of-smartphone-use-and-wellbeing-by-sex" class="section level4">
+<h4><span class="header-section-number">15.5.2.2</span> Visualise and Interpreting the relationship of smartphone use and wellbeing by sex</h4>
+<p><strong>The Figure</strong></p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1">smart_wb_gen &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb463-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(tothours, sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb463-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wellbeing =</span> <span class="kw">mean</span>(tot_wellbeing))</a>
+<a class="sourceLine" id="cb463-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb463-5" data-line-number="5"><span class="kw">ggplot</span>(smart_wb_gen, <span class="kw">aes</span>(tothours, mean_wellbeing, <span class="dt">color =</span> <span class="kw">factor</span>(sex))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb463-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb463-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch15-use-wb-bysex"></span>
+<img src="15-s02-lab15e_files/figure-html/ch15-use-wb-bysex-1.png" alt="Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)" width="100%" />
 <p class="caption">
-Figure 10.7: A scatterplot showing the relationship between implicit IAT reaction times (x) and explicit Vaping Questionnaire Scores (y)
+Figure 15.6: Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)
 </p>
 </div>
+<p><strong>A brief Interpretation</strong></p>
+<p>Girls show lower overall well-being compared to boys. In addition, the slope for girls appears more negative than that for boys; the one for boys appears relatively flat. This suggests that the negative association between well-being and smartphone use is stronger for girls.</p>
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT2">Return to Task</a></p>
+</div>
+<div id="estimating-model-parameters" class="section level4">
+<h4><span class="header-section-number">15.5.2.3</span> Estimating model parameters</h4>
 <ul>
-<li>A quick look at the data reveals some people do not have a Vaping Questionnaire score and some don’t have an IAT score. The correlation only works when people have a score on both factors so we remove all those that only have a score on one of the factors.</li>
+<li>This is the chunk we gave in the materials.</li>
 </ul>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1">dat &lt;-<span class="st"> </span>dat <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb360-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(VapingQuestionnaireScore)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb360-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(IAT_RT))</a></code></pre></div>
-<p><strong>Step 7</strong></p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1">smart_wb &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb464-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tothours_c =</span> tothours <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(tothours),</a>
+<a class="sourceLine" id="cb464-3" data-line-number="3">         <span class="dt">sex_c =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="fl">.5</span>, <span class="fl">-.5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb464-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tothours, <span class="op">-</span>sex)</a></code></pre></div>
 <ul>
-<li>The analysis and the write-up.</li>
+<li>and the model would be specified as:</li>
 </ul>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">cor.test</span>(dat<span class="op">$</span>VapingQuestionnaireScore, dat<span class="op">$</span>IAT_RT, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1">correlation &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(estimate)</a>
-<a class="sourceLine" id="cb362-2" data-line-number="2">df &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(parameter)</a>
-<a class="sourceLine" id="cb362-3" data-line-number="3">pvalue &lt;-<span class="st"> </span>results <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(p.value)</a></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(tot_wellbeing <span class="op">~</span><span class="st"> </span>tothours_c <span class="op">*</span><span class="st"> </span>sex_c, smart_wb)</a></code></pre></div>
 <ul>
-<li>With inline coding:</li>
+<li>or alternatively</li>
 </ul>
-<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(<code>`r df`</code>) = <code>`r correlation`</code>, p = <code>`r pvalue`</code>. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(tot_wellbeing <span class="op">~</span><span class="st"> </span>tothours_c <span class="op">+</span><span class="st"> </span>sex_c <span class="op">+</span><span class="st"> </span>tothours_c<span class="op">:</span>sex_c, smart_wb)</a></code></pre></div>
 <ul>
-<li>and appears as when knitted:</li>
+<li>and the output called by:</li>
 </ul>
-<p>Testing the hypothesis that there would be a relaionship beween implicit and explicit attitudes towards vaping, a pearson correlation found no significant relationship between IAT reaction times (implicit attitude) and answers on a Vaping Questionnaire (explicit attitude), r(143) = -0.1043797, p = 0.2115059. Overall this suggests that there is no direct relationship between implicit and explicit attitudes when relating to Vaping and as such our hypothesis was not supported.</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="kw">summary</span>(mod)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = tot_wellbeing ~ tothours_c + sex_c + tothours_c:sex_c, 
+##     data = smart_wb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -36.881  -5.721   0.408   6.237  27.264 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      47.43724    0.03557 1333.74   &lt;2e-16 ***
+## tothours_c       -0.54518    0.01847  -29.52   &lt;2e-16 ***
+## sex_c             5.13968    0.07113   72.25   &lt;2e-16 ***
+## tothours_c:sex_c  0.45205    0.03693   12.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.135 on 71029 degrees of freedom
+## Multiple R-squared:  0.09381,    Adjusted R-squared:  0.09377 
+## F-statistic:  2451 on 3 and 71029 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT3">Return to Task</a></p>
+</div>
+<div id="final-interpretations" class="section level4">
+<h4><span class="header-section-number">15.5.2.4</span> Final Interpretations</h4>
+<ul>
+<li><p>The interaction between smartphone use and gender is shown by the variable tothours_c:sex_c, and this interaction was significant at the <span class="math inline">\(\alpha = .05\)</span> level, meaning that there is an significant interaction between sex and hours of smartphone usage on wellbeing</p></li>
+<li>To two decimal places, the intercept for male participants is: 50.01</li>
+<li>To two decimal places, the slope for male participants is: -0.32</li>
+<li>To two decimal places, the intercept for female participants is: 44.87</li>
+<li><p>To two decimal places, the slope for female participants is: -0.77</p></li>
+</ul>
+<p>As such, given the model of <code>Y = intercept + (slope * X)</code> where Y is wellbeing and X is total hours on smartphone, what would be the predicted wellbeing score for a male and a female who use their smartphones for 8 hours. Give your answer to two decimal places:</p>
+<ul>
+<li>Male: 47.45</li>
+<li>Female: 38.71</li>
+</ul>
+<p>And finally, the most reasonable interpretation of these results is that smartphone use was more negatively associated with wellbeing for girls than for boys.</p>
+<p><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT4">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
 </div>
@@ -1424,8 +1331,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="reflection-semester-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduction-to-glm-one-factor-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reflection-semester-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

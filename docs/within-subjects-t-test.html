@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lab 7 Within-Subjects t-test | Level 2 Practical</title>
   <meta name="description" content="ug2-practical-materials" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lab 7 Within-Subjects t-test | Level 2 Practical" />
   <meta property="og:type" content="book" />
@@ -23,15 +23,15 @@
 
 
 
-<meta name="date" content="2019-07-14" />
+<meta name="date" content="2019-12-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="nhst-and-one-sample-t-tests.html">
-<link rel="next" href="apes-alpha-power-effect-sizes-sample-size.html">
+<link rel="prev" href="nhst-and-one-sample-t-tests.html"/>
+<link rel="next" href="apes-alpha-power-effect-sizes-sample-size.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -417,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT3"><i class="fa fa-check"></i><b>10.3.3</b> Task 3 - Missing Data</a></li>
 <li class="chapter" data-level="10.3.4" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT4"><i class="fa fa-check"></i><b>10.3.4</b> Task 4 - Normality</a></li>
 <li class="chapter" data-level="10.3.5" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT5"><i class="fa fa-check"></i><b>10.3.5</b> Task 5 - Descriptives</a></li>
-<li class="chapter" data-level="10.3.6" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT6"><i class="fa fa-check"></i><b>10.3.6</b> Task 6 - Pearson or Spearman</a></li>
+<li class="chapter" data-level="10.3.6" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT6"><i class="fa fa-check"></i><b>10.3.6</b> Task 6 - Pearson or Spearman?</a></li>
 <li class="chapter" data-level="10.3.7" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT7"><i class="fa fa-check"></i><b>10.3.7</b> Task 7 - Interpretation</a></li>
 <li class="chapter" data-level="10.3.8" data-path="correlations.html"><a href="correlations.html#advanced-1-matrix-of-scatterplots"><i class="fa fa-check"></i><b>10.3.8</b> Advanced 1: Matrix of Scatterplots</a></li>
 <li class="chapter" data-level="10.3.9" data-path="correlations.html"><a href="correlations.html#Ch10InClassQueT8"><i class="fa fa-check"></i><b>10.3.9</b> Task 8 - The Matrix</a></li>
@@ -536,27 +538,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.5.7" data-path="regression.html"><a href="regression.html#task-8"><i class="fa fa-check"></i><b>14.5.7</b> Task 8</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression</a><ul>
-<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
-<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
-<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
-<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
-<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
-<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
-<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
-<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
+<li class="chapter" data-level="15" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html"><i class="fa fa-check"></i><b>15</b> Combining ANOVA and Regression (sometimes called an ANCOVA)</a><ul>
+<li class="chapter" data-level="15.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#overview-15"><i class="fa fa-check"></i><b>15.1</b> Overview</a></li>
+<li class="chapter" data-level="15.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#preclass-activity-12"><i class="fa fa-check"></i><b>15.2</b> PreClass Activity</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#read-5"><i class="fa fa-check"></i><b>15.2.1</b> Read</a></li>
+<li class="chapter" data-level="15.2.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#activity"><i class="fa fa-check"></i><b>15.2.2</b> Activity</a></li>
+<li class="chapter" data-level="15.2.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT1"><i class="fa fa-check"></i><b>15.2.3</b> Loading in the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT2"><i class="fa fa-check"></i><b>15.2.4</b> Compute the well-being score for each participant</a></li>
+<li class="chapter" data-level="15.2.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT3"><i class="fa fa-check"></i><b>15.2.5</b> Visualising Screen time on all technologies</a></li>
+<li class="chapter" data-level="15.2.6" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15PreClassQueT4"><i class="fa fa-check"></i><b>15.2.6</b> Visualising the Screen time and Well-being relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#inclass-activity-13"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
-<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
-<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualise and Interpreting the relationship of smartphone use and wellbeing by sex</a></li>
-<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
-<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
-<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
+<li class="chapter" data-level="15.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#inclass-activity-13"><i class="fa fa-check"></i><b>15.3</b> InClass Activity</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT1"><i class="fa fa-check"></i><b>15.3.1</b> Smartphone and well-being for boys and girls</a></li>
+<li class="chapter" data-level="15.3.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT2"><i class="fa fa-check"></i><b>15.3.2</b> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</a></li>
+<li class="chapter" data-level="15.3.3" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#a-side-point-on-mean-centering-and-deviation-coding"><i class="fa fa-check"></i><b>15.3.3</b> A side point on mean centering and deviation coding</a></li>
+<li class="chapter" data-level="15.3.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT3"><i class="fa fa-check"></i><b>15.3.4</b> Estimating model parameters</a></li>
+<li class="chapter" data-level="15.3.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#Ch15InClassQueT4"><i class="fa fa-check"></i><b>15.3.5</b> Final Interpretations</a></li>
 </ul></li>
-<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#assignment-14"><i class="fa fa-check"></i><b>15.4</b> Assignment</a></li>
-<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
-<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
-<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression.html"><a href="combining-anova-and-regression.html#inclass-activities-10"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
+<li class="chapter" data-level="15.4" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#assignment-14"><i class="fa fa-check"></i><b>15.4</b> Assignment</a></li>
+<li class="chapter" data-level="15.5" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#solutions-to-questions-14"><i class="fa fa-check"></i><b>15.5</b> Solutions to Questions</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#preclass-activities-2"><i class="fa fa-check"></i><b>15.5.1</b> PreClass Activities</a></li>
+<li class="chapter" data-level="15.5.2" data-path="combining-anova-and-regression-sometimes-called-an-ancova.html"><a href="combining-anova-and-regression-sometimes-called-an-ancova.html#inclass-activities-10"><i class="fa fa-check"></i><b>15.5.2</b> InClass Activities</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="reflection-semester-2.html"><a href="reflection-semester-2.html"><i class="fa fa-check"></i><b>16</b> Reflection - Semester 2</a><ul>
@@ -596,7 +598,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 7</span> Within-Subjects t-test</h1>
 <div id="overview-7" class="section level2">
 <h2><span class="header-section-number">7.1</span> Overview</h2>
-<p>In the previous labs we have looked at one-sample t-tests and between-samples t-tests. For today’s activities we are going to look at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same participants</strong> is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
+<p>In the previous labs, we have looked at one-sample t-tests and between-samples t-tests. For today’s activities we are going to look at the remaining type of t-test; the <strong>within-subjects t-test</strong> (sometimes called the <strong>dependent sample</strong> or <strong>paired sample t-test</strong>). The within-subjects t-test is a statistical procedure used to determine whether the mean difference between two sets of observations <strong>from the same participants</strong> is zero. As in all tests, the within-subjects t-test has two competing hypotheses: the null hypothesis and the alternative hypothesis.</p>
 <ul>
 <li>The null hypothesis assumes that the true mean difference between the paired samples is zero.</li>
 <li>The alternative hypothesis assumes that the true mean difference between the paired samples is not equal to zero.</li>
@@ -618,7 +620,7 @@ Portfolio Point - The assumption of variance
 One of the main differences in the assumptions between a between-subjects t-test and a within-subjects t-test is the assumption of equal variance.
 </p>
 <p>
-The between-subjects t-test classically would have an assumption of equal variance. Or at least what is known as the Student’s t-test has the assumption of equal variance. The top half of the equation of the formula (the numerator) is the difference in means of the two samples whereas the denominator relates to the variance of both groups. As such in the Student’s t-test if the variances are unequal then you can get erroneous results. Modern thinking however, and this is from your preclass reading, suggests that it is always better to run a Welch’s t-test for between-subjects where the assumption is that variance is not equal. From now on, unless stated otherwise, you should run a Welch’s t-test.
+The between-subjects t-test classically would have an assumption of equal variance. Or at least what is known as the Student’s t-test has the assumption of equal variance. The top half of the equation of the formula (the numerator) is the difference in means of the two samples whereas the denominator relates to the variance of both groups. As such, in the Student’s t-test, if the variances are unequal then you can get erroneous results. Modern thinking however, and this is from your preclass reading, suggests that it is always better to run a Welch’s t-test for between-subjects where the assumption is that variance is not equal. From now on, unless stated otherwise, you should run a Welch’s t-test.
 </p>
 <p>
 In practice:
@@ -659,13 +661,13 @@ Conversely, there is no concern with variance in a within-subjects t-test becaus
 <ol style="list-style-type: decimal">
 <li>Copy the script within the blog into an R script and try running it to see the difference between Welch’s t-test (the recommended in the blog) and Student’s t-test (the standard in the field). <strong>Note:</strong> You will need the <strong><code>car</code></strong> package. This is installed already in the Boyd Orr labs so if doing this in the labs, do not install the package, just call it to the library with library(car).</li>
 </ol>
-<p>Don’t worry if you don’t yet understand all the code. It is highly commented but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third one that you see in the blog, the one with the red line on it and compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other.</p>
+<p>Don’t worry if you don’t yet understand all the code. It is highly commented but it is tricky. The key thing is to try and run it and to look at the figures that come out of it - particularly the third one that you see in the blog, the one with the red line on it that compares p-values in the two tests. Look at how many tests (dots) are significant on one test and not the other.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Change the values for n1, n2, sd1 and sd2 at the top of the script to see what effect this has on the Type 1 Error rate (alpha = .05). Again look at the figure with the red line, comparing significance on one test versus significance on the other. This is what should change depending on the n of each sample and whether the variance is equal or not.</p></li>
 <li><p>Think about the overall point of this blog and which test we should use when conducting a t-test. We will look at this more in the lectures and labs.</p></li>
 </ol>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>That’s it for today! This is a bit of a change to the PreClass activities you have done so far, and you will start to see this approach more in Semester 2 - reading blogs and chapters. Don’t forget though that it is really important to store the information in your own words, to help you really understand it, so you might want to go back and add any informative points to your Portfolio. Post any questions on the the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
+<p>That’s it for today! This is a bit of a change to the PreClass activities you have done so far, and you will start to see this approach more in Semester 2 - reading blogs and chapters. Don’t forget though that it is really important to store the information in your own words, to help you really understand it, so you might want to go back and add any informative points to your Portfolio. Post any questions on the Moodle forum or the slack forum <a href = "https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> under the channel <strong>#level2_2018</strong>. See you in the lab!</p>
 
 </div>
 </div>
@@ -674,7 +676,7 @@ Conversely, there is no concern with variance in a within-subjects t-test becaus
 <p><strong>Juror Decision Making: Does the order of information affect juror judgements of guilt or innocence?</strong></p>
 <p>For this activity we will look at a replication of Furnham (1986) that the School of Psychology, University of Glasgow, carried out in 2016 - 2017. It would be worth familiarising yourself with the original study at some point for more information regarding the concepts of the study, but it is not essential in order to complete the assignment: <a href="http://www.tandfonline.com/doi/abs/10.1080/00221309.1986.9711045" target = "_blank">Furnham, A. (1986), The Robustness of the Recency Effect: Studies Using Legal Evidence</a></p>
 <p>The overall aim of the original experiment was to investigate whether the decision a jury member makes about the innocence or guilt of a defendant could be influenced by something as simple as <strong>when crucial evidence is presented during a trial</strong>. During the experiment participants (Level 2 Psychology students) listened to a series of recordings that recreated the 1804 trial of a man known as Joseph Parker who was accused of assuming two identities and marrying two women; i.e. bigamy. Each participant listened to the same recordings of evidence, presented by both prosecution and defence witnesses, and were asked to judge how guilty they thought Mr. Parker was at 14 different points during the experiment on a scale of 1 to 9: 1 being innocent and 9 being guilty.</p>
-<p>The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a <strong>critical</strong> piece of evidence was presented. This critical evidence proved that the defendant was innocenct. The <strong>middle</strong> group heard this evidence at Timepoint 9 of the trial whereas the <strong>late</strong> group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today’s exercise, we will only focus on the <strong>late</strong> group.</p>
+<p>The manipulation in the experiment was that the order of evidence was altered so that half the participants received one order and the other half received the second order. Key to the order change was the time at which a <strong>critical</strong> piece of evidence was presented. This critical evidence proved that the defendant was innocent. The <strong>middle</strong> group heard this evidence at Timepoint 9 of the trial whereas the <strong>late</strong> group heard this evidence at Timepoint 13. You will have an opportunity to look at all the data in due course but, for today’s exercise, we will only focus on the <strong>late</strong> group.</p>
 <p>In this exercise, your task is to analyse the data to examine whether the participants’ ratings of guilt significantly changed <strong>before</strong> and <strong>after</strong> the presentation of the critical evidence in the <strong>late</strong> condition. If the critical evidence, which proved the defendant’s innocence, had the desired effect then you should see a significant drop in ratings of guilt after hearing this evidence (Timepoint 13) compared to before (Timepoint 12). Or in other words, <strong>we hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.</strong></p>
 <div id="Ch7InClassQueT1" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Task 1: Load the Data</h3>
@@ -688,7 +690,7 @@ Conversely, there is no concern with variance in a within-subjects t-test becaus
 </div>
 <div id="Ch7InClassQueT2" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Task 2: Wrangle the Data</h3>
-<p>As above, you are only interested in the <strong>Late</strong> group for this assignment and only for <strong>Timepoints 12 (rating before key evidence) and 13 (rating after key evidence)</strong>. But having had a look at <code>ratings</code> you will see that the Timepoints are in <code>wide</code> format (columns <code>1</code> to <code>14</code> - each a different timepoint) and the <code>Evidence</code> column shows the data has the <code>Middle</code> group as well. <strong><em>Hmmmm!</em></strong></p>
+<p>As above, you are only interested in the <strong>Late</strong> group for this assignment and only for <strong>Timepoints 12 (rating before key evidence) and 13 (rating after key evidence)</strong>. But having had a look at <code>ratings</code> you will see that the Timepoints are in <code>wide</code> format (columns <code>1</code> to <code>14</code> - each a different timepoint) and the <code>Evidence</code> column contains the <code>Middle</code> group as well. <strong><em>Hmmmm!</em></strong></p>
 <ol style="list-style-type: decimal">
 <li><p><code>filter()</code> only those participants from the <code>Late</code> condition.</p></li>
 <li><p><code>select()</code> only the Timepoints 12 and 13.</p></li>
@@ -831,7 +833,7 @@ Use <code>mutate(diff = …?)</code> in your pipeline.
 </div>
 <div id="Ch7InClassQueT3" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> Task 3: Look at the Histogram for Normality</h3>
-<p>Before running an inferential analysis we need to check the assumption of normality. Because the within-subject t-test is based on difference scores, we should calculate the difference scores and check that the distribution of these scores is approximately Normal.</p>
+<p>Before running an inferential analysis, we need to check the assumption of normality. Because the within-subject t-test is based on difference scores, we should calculate the difference scores and check that the distribution of these scores is approximately Normal.</p>
 <p>In this task we will do it through creating a <strong>histogram</strong> for the difference scores. Create a histogram and set the binwidth to something reasonable for this experiment.</p>
 <div class="solution">
 <button>
@@ -921,7 +923,7 @@ Helpful Hint
 Different calculations can be used within the same <code>summarise()</code> function as long as they are calculated in the order which you require them. For example, you first need to calculate the participant number, <code>n = n()</code>, and the standard deviation, <code>sd = sd(variable)</code>, in order to calculate the standard error, <code>se = sd/sqrt(n)</code>, which is required to calculate your Confidence Intervals.
 </li>
 <li>
-For the 95% Confidence Interval, you need to calculate an LowerCI and a UpperCI using the appropriate formula.
+For the 95% Confidence Interval, you need to calculate a LowerCI and an UpperCI using the appropriate formula.
 </li>
 </ol>
 </div>
@@ -956,8 +958,8 @@ If you were looking to calculate a 99% Confidence Interval you would instead use
 <li>Feel free to embellish the figure as you see fit.</li>
 </ul></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),
-              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</code></pre>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
+<a class="sourceLine" id="cb293-2" data-line-number="2">              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -980,7 +982,7 @@ In the above code for error bars, the aesthetic, <code>aes()</code>, allows you 
 </div>
 </div>
 <p><br></p>
-<p><strong>Important to remember</strong>: as we have mentioned in previous labs, barplots are not that informative in themselves. Keep in mind that going ahead in your research that you should look to use plots that incorporate a good indication of the distribution/spread of the individual data points as well.</p>
+<p><strong>Important to remember</strong>: as we have mentioned in previous labs, barplots are not that informative in themselves. Going ahead in your research, keep in mind that you should look to use plots that incorporate a good indication of the distribution/spread of the individual data points as well.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
 <p>Think back to the hypothesis. <strong>We hypothesised that there would be a significant decrease in ratings of guilt, caused by presentation of the critical evidence, from Timepoint 12 to Timepoint 13.</strong> Spend a few minutes talking to your group about whether you think there will be a significant difference between the two timepoints. What evidence do you have? Think about the overlap of confidence intervals! Remember the key thing at this stage is that it is a subjective impression - “It appears that there might be….” or words to that effect.</p>
 </div>
@@ -1047,10 +1049,10 @@ your <code>results</code> states degrees of freedom as <code>parameter</code>, a
 </div>
 </div>
 <p><br>
-<strong>Note:</strong> When writing a code or your own report, you can make your write-up reproducible as well by using the output of your tibbles and calling specific columns. For example, t(<code>`r results$parameter`</code>) = <code>`r results$statistic %&gt;% abs()`</code>, p &lt; .001, when knitted will become t(74) = 8.23, p &lt; .001. So code can prevent mistakes in write-ups!</p>
+<strong>Note:</strong> When writing a code for your own report, you can make your write-up reproducible as well by using the output of your tibbles and calling specific columns. For example, t(<code>`r results$parameter`</code>) = <code>`r results$statistic %&gt;% abs()`</code>, p &lt; .001, when knitted will become t(74) = 8.23, p &lt; .001. So code can prevent mistakes in write-ups!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you have completed the activities for this week’s lab! You can see how performing the t-test is only a small part of the entire process: wrangling the data, calculating descriptives, and plotting the data to check the distributions and assumptions is a major part of the analysis process. Over the past labs you have been building all of these skills and so you should be able to see them being put to good use now that we have moved onto more complex data analysis. Running the inferential part is usually just one line of code.</p>
-<p>If you’re wanting to practice your skills further you could perform a t-test for the “middle” group where the crucial evidence was presented on time point 9. Otherwise, you should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+<p>Well done, you have completed the activities for this week’s lab! You can see how performing the t-test is only a small part of the entire process: wrangling the data, calculating descriptives, and plotting the data to check the distributions and assumptions is a major part of the analysis process. Over the past labs, you have been building all of these skills and so you should be able to see them being put to good use now that we have moved onto more complex data analysis. Running the inferential part is usually just one line of code.</p>
+<p>If you’re wanting to practice your skills further, you could perform a t-test for the “middle” group where the crucial evidence was presented on time point 9. Otherwise, you should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is summative and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab.</strong> If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
@@ -1066,27 +1068,27 @@ your <code>results</code> states degrees of freedom as <code>parameter</code>, a
 <h3><span class="header-section-number">7.5.1</span> InClass Activities</h3>
 <div id="inclass-task-1-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.1</span> InClass Task 1</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
-<span class="kw">library</span>(tidyverse)
-ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb294-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb294-3" data-line-number="3">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-4" class="section level4">
 <h4><span class="header-section-number">7.5.1.2</span> InClass Task 2</h4>
-<pre class="sourceCode r"><code class="sourceCode r">lates &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> Twelve <span class="op">-</span><span class="st"> </span>Thirteen)</code></pre>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">lates &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb295-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> Twelve <span class="op">-</span><span class="st"> </span>Thirteen)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.3</span> InClass Task 3</h4>
-<pre class="sourceCode r"><code class="sourceCode r">lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(diff)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Difference in GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb296-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(diff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb296-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb296-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Difference in GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb296-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task3"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task3-1.png" alt="Potential Solution to Task 3" width="100%" />
 <p class="caption">
@@ -1098,10 +1100,10 @@ Figure 7.1: Potential Solution to Task 3
 <div id="inclass-task-4-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.4</span> InClass Task 4</h4>
 <p>The Task only asks for the boxplot. We have added some additional functions to tidy up the figure a bit that you might want to play with.</p>
-<pre class="sourceCode r"><code class="sourceCode r">lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> diff)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> diff)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb297-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task4"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task4-1.png" alt="Potential Solution to Task 4" width="100%" />
 <p class="caption">
@@ -1112,16 +1114,16 @@ Figure 7.2: Potential Solution to Task 4
 </div>
 <div id="inclass-task-5-2" class="section level4">
 <h4><span class="header-section-number">7.5.1.5</span> InClass Task 5</h4>
-<pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>diff) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve, Thirteen) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),
-            <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),
-            <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),
-            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),
-            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,
-            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb298-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>diff) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve, Thirteen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb298-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb298-6" data-line-number="6">            <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb298-7" data-line-number="7">            <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb298-8" data-line-number="8">            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb298-9" data-line-number="9">            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,</a>
+<a class="sourceLine" id="cb298-10" data-line-number="10">            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT5">Return to Task</a></p>
 </div>
 <div id="inclass-task-6-1" class="section level4">
@@ -1130,17 +1132,17 @@ Figure 7.2: Potential Solution to Task 4
 <li>A basic barplot with 95% Confidence Intervals.</li>
 <li>We have embellished the figure a little but you can mess around with the code to see what each bit does.</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#E2A458&quot;</span>, <span class="st">&quot;#61589C&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),
-                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_classic</span>()</code></pre>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#E2A458&quot;</span>, <span class="st">&quot;#61589C&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
+<a class="sourceLine" id="cb299-8" data-line-number="8">                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task6-1"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task6-1-1.png" alt="Possible Solution to Task 7" width="100%" />
 <p class="caption">
@@ -1150,14 +1152,14 @@ Figure 7.3: Possible Solution to Task 7
 <ul>
 <li>An alternative way to display just the means and errorbars would be to use the pointrange approach. This image shows again the 95% CI</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb300-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span></a>
+<a class="sourceLine" id="cb300-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb300-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb300-5" data-line-number="5"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb300-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb300-7" data-line-number="7"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb300-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task6-2"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task6-2-1.png" alt="Alternative Solution to Task 7" width="100%" />
 <p class="caption">
@@ -1171,9 +1173,9 @@ Figure 7.4: Alternative Solution to Task 7
 <ul>
 <li>Remember to set <code>paired = TRUE</code> to run the within-subjects t-test</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Twelve),
-                  lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Thirteen), <span class="dt">paired =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">tidy</span>()</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Twelve),</a>
+<a class="sourceLine" id="cb301-2" data-line-number="2">                  lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Thirteen), <span class="dt">paired =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT7">Return to Task</a></p>
 </div>
 <div id="inclass-task-8-2" class="section level4">
@@ -1181,9 +1183,9 @@ Figure 7.4: Alternative Solution to Task 7
 <p>A potential write-up for this study would be as follows:</p>
 <p><strong>A paired-samples t-test was run to compare the change in guilt ratings before (M = 5.8, SD = 1.5) and after (M = 4.04, SD = 1.93) the crucial evidence was heard. A significant difference was found (t(74) = 8.23, p &lt; .001) with Timepoint 13 having an average rating 1.76 units lower than Timepoint 12. This tells us that the critical evidence did have an influence on the rating of guilt by jury members.</strong></p>
 <p>When rounding off p-values that are less than .001, rounding will give you a value of 0 which is a bit silly. Values less than .001 would normally be written as p &lt; .001. To create a reader-friendly p-value, then you could try something like the following in your code:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, 
-       <span class="st">&quot;p &lt; .001&quot;</span>, 
-       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, </a>
+<a class="sourceLine" id="cb302-2" data-line-number="2">       <span class="st">&quot;p &lt; .001&quot;</span>, </a>
+<a class="sourceLine" id="cb302-3" data-line-number="3">       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT8">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
@@ -1287,11 +1289,13 @@ window.onload = function() {
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1335,8 +1339,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

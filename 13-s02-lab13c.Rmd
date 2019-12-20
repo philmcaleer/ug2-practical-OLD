@@ -30,12 +30,11 @@ make_facdata <- function(nper = 3,
                  AB = rep(c(AB / 4, -AB / 4, -AB / 4, AB / 4), each = nper))
   
   dat2 <- dat %>% 
-    group_by(i, j) %>%
-    nest()  
+    nest(data = c(-i, -j))  
   
   this_sd <- sample(3:5, 1)
   dat2[["err"]] <- rerun(nrow(dat2), make_resids(nper, this_sd))
-  dat2 %>% unnest() %>%
+  dat2 %>% unnest(c(data, err)) %>%
     mutate(k = rep(1:nper, 4), Y_ijk = mu + A + B + AB + err) %>%
     select(i, j, k, Y_ijk, mu, A_i = A, B_j = B, AB_ij = AB, err)
 }
@@ -43,13 +42,12 @@ make_facdata <- function(nper = 3,
 fmt_facdata <- function(x) {
   d2 <- x %>%
     select(i, j, Y_ijk) %>%
-    group_by(i, j) %>%
-    nest() %>%
+    nest(data = c(Y_ijk)) %>%
     mutate(cell = map_chr(data, ~ paste(.x[["Y_ijk"]], collapse = ", ")),
            A = paste0("A", i),
            B = paste0("B", j)) %>%
     select(` ` = A, B, cell) %>%
-    spread(B, cell)
+    pivot_wider(names_from = B, values_from = cell)
 }
 
 nper <- 3L
