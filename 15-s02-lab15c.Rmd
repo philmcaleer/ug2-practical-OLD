@@ -169,8 +169,10 @@ You have seen multiple regression models before in R and they usually take a for
 - This can be written in short form of `y ~ a * b`
 ```
 `r unhide()`
-<br>
+
+
 * Next, use the `summary()` function on your model output to view it. The ouput should look as follows:
+
 
 ```{r mod, echo = FALSE}
 mod <- lm(tot_wellbeing ~ tothours_c * sex_c, smart_wb)
