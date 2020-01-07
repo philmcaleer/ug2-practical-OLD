@@ -190,8 +190,7 @@ Good practice in a Report is to include information about where we got the data 
 ```{block, type = "info"}
 You can get the web address by following the link to the paper shown towards the beginning of this lab activity. Include the https part.
 
-Use the R Markdown cheatsheet to see how to insert links. It has something to do with square brackets and circular brackets next to each other - e.g. []().
-")
+Use the R Markdown cheatsheet to see how to insert links. It has something to do with square brackets [] and circular brackets () next to each other.
 ```
 `r unhide()`
 
@@ -247,7 +246,7 @@ You can use RStudio's autocomplete (the tab button) to see the different options
 
 **Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.** 
 
-We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report!. You can compare it to the one we have created to see if they match by clicking <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.html" target = "_blank">here for the html output</a> or <a href = "./data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.Rmd" target = "_blank">here for the R Markdown code</a>. Fix anything that is not formatted as in our template.**  
+We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report! Compare your report to the one we have created to see if they match by clicking <a href = "https://github.com/philmcaleer/ug2-practical/blob/master/data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.html" target = "_blank">here for the html output</a> or <a href = "https://github.com/philmcaleer/ug2-practical/blob/master/data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.Rmd" target = "_blank">here for the R Markdown code</a>. **Fix anything that is not formatted as in our template.**  
 
 `r hide("Portfolio Point - The Power of R Markdown and the ggplot Package")`
 ```{block, type = "info"}
