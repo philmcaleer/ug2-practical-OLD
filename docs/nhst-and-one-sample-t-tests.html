@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1251,7 +1251,7 @@ This is why it’s important to have reproducible data analyses for others to ex
 <p>We will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called <code>ratings2</code> - which has the following structure:</p>
 <pre><code>## # A tibble: 12 x 4
 ##    eval_id Category   Rating condition
-##      &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    
+##      &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    
 ##  1       1 hire         6    listened 
 ##  2       1 impression   7    listened 
 ##  3       1 intellect    6    listened 
@@ -2006,9 +2006,9 @@ Figure 6.4: Figure 2A from Nave, Nadler, Zava, and Camerer (2017) which you shou
 ##   Category estimate1 estimate2 statistic p.value parameter conf.low
 ##   &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 hire          4.71      2.89      2.62 0.0127         37    0.414
-## 2 impress~      5.97      4.07      2.85 0.00709        37    0.548
-## 3 intelle~      5.63      3.65      3.53 0.00114        37    0.845
-## # ... with 3 more variables: conf.high &lt;dbl&gt;, method &lt;chr&gt;,
+## 2 impress…      5.97      4.07      2.85 0.00709        37    0.548
+## 3 intelle…      5.63      3.65      3.53 0.00114        37    0.845
+## # … with 3 more variables: conf.high &lt;dbl&gt;, method &lt;chr&gt;,
 ## #   alternative &lt;chr&gt;</code></pre>
 </div>
 </div>

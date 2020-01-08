@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-01-07" />
+<meta name="date" content="2020-01-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1059,7 +1059,7 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="op">!</span><span class="kw">is.na</span>(Abil))</a></code></pre></div>
 <pre><code>## # A tibble: 25 x 5
 ##    Participant  Abil    IQ  Home    TV
-##          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##          &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
 ##  1           1    61   107   144   487
 ##  2           2    56   109   123   608
 ##  3           3    45    81   108   640
@@ -1070,14 +1070,14 @@ Hint Step 7: results &lt;- cor.test(method = “pearson”)?
 ##  8           8    55   101   119   717
 ##  9           9    62   118   155   643
 ## 10          10    61    99   121   674
-## # ... with 15 more rows</code></pre>
+## # … with 15 more rows</code></pre>
 <ul>
 <li>Alternatively, if you want to keep everybody from the whole dataset that does not have a score for Ability you would use:</li>
 </ul>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">filter</span>(mh, <span class="kw">is.na</span>(Abil))</a></code></pre></div>
 <pre><code>## # A tibble: 0 x 5
-## # ... with 5 variables: Participant &lt;dbl&gt;, Abil &lt;dbl&gt;, IQ &lt;dbl&gt;,
-## #   Home &lt;dbl&gt;, TV &lt;dbl&gt;</code></pre>
+## # … with 5 variables: Participant &lt;int&gt;, Abil &lt;int&gt;, IQ &lt;int&gt;, Home &lt;int&gt;,
+## #   TV &lt;int&gt;</code></pre>
 <p>Remember that you would need to store the output of this step, so really it would be something like <code>mh &lt;- filter(mh, !is.na(Abil))</code></p>
 <p><a href="correlations.html#Ch10InClassQueT3">Return to Task</a></p>
 </div>
