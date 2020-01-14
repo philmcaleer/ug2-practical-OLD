@@ -84,7 +84,7 @@ Create the following figures and discuss the outputs with your group:
 
 * A histogram for Ability and a histogram for IQ. 
     - Are they both normally distributed? 
-* A scatterplot of IQ as a function of Ability.
+* A scatterplot of IQ (IQ) as a function of Ability (Abil).
     - Do you see any outliers? 
     - Does the relationship appear linear? 
     - Does the spread appear ok in terms of homoscedasticity?
