@@ -118,7 +118,7 @@ This could alternatively calculated using coding as such:
 pf(f_obs, 2, 6, lower.tail = FALSE)
 ```
 
-Which would give a p-value of p = `r pf(f_obs, 2, 6, lower.tail = FALSE) %>% round(3)` and again could be written up as F(2, 6) = `r f_obs`, p = `r pf(f_obs, 2, 6, lower.tail = FALSE) %>% round(3)`, suggesting no significant effect of ambiance or location on concentration as measured through the number of typos.
+Which would give a p-value of p = `r pf(f_obs, 2, 6, lower.tail = FALSE) %>% round(3)` and again could be written up as F(2, 6) = `r f_obs %>% round(3)`, p = `r pf(f_obs, 2, 6, lower.tail = FALSE) %>% round(3)`, suggesting no significant effect of ambiance or location on concentration as measured through the number of typos.
 
 [Return to Task](#Ch12InClassQueT3)
 

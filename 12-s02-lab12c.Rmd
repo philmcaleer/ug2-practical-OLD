@@ -209,7 +209,7 @@ There are various options for running ANOVAs in R, but the function we will be u
 <br>
 **Conclusion**
 
-Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .31. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).
+Not much to be honest with you! The study returns a non-significant finding suggesting that there is no significant effect of ambient noise on concentration, F(2, 6) = 1.413, p = .31, ges = .32. However, before you go off and publish this highly underpowered study we should probably look to replicate it with a larger sample (which you could calculate using your skills from Chapter 8).
 
 <span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span>
 
