@@ -101,8 +101,8 @@ Here are some hints but again the code is in the solutions if you can't quite ge
 
 **Hints:**
 
-* `AB_ij` ($\hat{A}_{ij}$) is what is left of the mean value of all participants in that group once you have removed the effect of the grand mean, the effect of factor one, and the effect of factor two
-* `err` ($\widehat{S(AB)}_{ijk}$) is what is left from an individual's score after removing the effect of the grand mean, the effect of factor A, the effect of factor B, and the interaction effect.
+* `AB_ij` - ($\hat{A}_{ij}$) - is what is left of the mean value of all participants in that group once you have removed the effect of the grand mean, the effect of factor one, and the effect of factor two
+* `err` - ($\widehat{S(AB)}_{ijk}$) - is what is left from an individual's score after removing the effect of the grand mean, the effect of factor A, the effect of factor B, and the interaction effect.
 
 ```{r decomp-matrix-hidden, include=FALSE}
 decomp <- dmx
