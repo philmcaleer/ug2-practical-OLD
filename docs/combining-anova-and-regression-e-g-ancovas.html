@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 11 Introduction to GLM: One-factor ANOVA | Level 2 Practical</title>
+  <title>Lab 15 Combining ANOVA and Regression (e.g. ANCOVAs) | Level 2 Practical</title>
   <meta name="description" content="ug2-practical-materials" />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 11 Introduction to GLM: One-factor ANOVA | Level 2 Practical" />
+  <meta property="og:title" content="Lab 15 Combining ANOVA and Regression (e.g. ANCOVAs) | Level 2 Practical" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 11 Introduction to GLM: One-factor ANOVA | Level 2 Practical" />
+  <meta name="twitter:title" content="Lab 15 Combining ANOVA and Regression (e.g. ANCOVAs) | Level 2 Practical" />
   
   <meta name="twitter:description" content="ug2-practical-materials" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="correlations.html"/>
-<link rel="next" href="continuing-the-glm-one-factor-anova.html"/>
+<link rel="prev" href="regression.html"/>
+<link rel="next" href="reflection-semester-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -594,2276 +594,649 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction-to-glm-one-factor-anova" class="section level1">
-<h1><span class="header-section-number">Lab 11</span> Introduction to GLM: One-factor ANOVA</h1>
-<div id="overview-11" class="section level2">
-<h2><span class="header-section-number">11.1</span> Overview</h2>
-<p>A key way that we attempt to learn from data is to build a <strong>statistical model</strong> that captures relationships among variables. In this chapter we will introduce you to the General Linear Model (GLM) and you will read about this approach in the Miller and Haden (2013) textbook (Chapters 1-3) as part of the PreClass. This is a common approach in statistics in Psychology and it encapsulates a range of common analytical techniques that you are already familiar with and will become even more familiar with throughout this semester as we will spend some of the next few lessons looking at it and reading about it. The GLM covers all the t-tests and correlations you have looked at, and the ANOVA and regression we are going to come on to.</p>
-<p>One of the best ways to learn about linear models is to do things “by hand” on a “toy” dataset. As such, the goals of this inclass assignment are:</p>
-<ul>
-<li>to recap and practice entering data into a “tibble” (tidyverse data frame - as in Semester 1 Lab 5);</li>
-<li>to learn how to estimate model parameters from a dataset;</li>
-<li>to learn how to derive a <strong>decomposition matrix</strong> that expresses each observation as a linear sum of model components and error.</li>
-</ul>
-<p>These terms will become more familiar to you over the labs and from reading Miller and Haden, but remember to make notes for yourself to help your solidify your learning.</p>
-<p><strong>Note:</strong> You will notice a slight change in the assignments this semester in that you are required to do a little more computation than before, but all the skills you need will of course be shown to you or you already have them. Last semester we developed your general practical data skills and now this semester we want to up your understanding of the analysis and data you are working with by working through the models by hand before running the functions. We did a little of this with the t-test but this time we will focus on the General Linear Model (GLM) as this one modelling approach covers a number of different analyses. As always ask as many questions as you like!</p>
+<div id="combining-anova-and-regression-e.g.ancovas" class="section level1">
+<h1><span class="header-section-number">Lab 15</span> Combining ANOVA and Regression (e.g. ANCOVAs)</h1>
+<p><strong>Note:</strong> This chapter looks at regression where you have one continuous IV and one categorical IV. More often than not this approach would be called an <strong>ANCOVA</strong>. However, it can also simply be considered as multitple regression, or the General Linear Model, as really that is what it is all about; just extended to having a mix of continuous and categorical variables.</p>
+<div id="overview-15" class="section level2">
+<h2><span class="header-section-number">15.1</span> Overview</h2>
+<p>Over the last few weeks of the semester we have been really building up our skills on regression and on ANOVAs and now we’ll focus on seeing the link between them. Most places would tell you that they are separate entities but, as you will see from the reading and activities in this lab, they are related. ANOVAs to some degree are just a special type of regression where you have <strong>categorical</strong> predictors. The question you probably now have is, well, if they are related, can’t we merge them and combine categorical and continuous predictors in some fashion? Yes, yes we can! And that is exactly what we are going to do today whilst learning a little bit about screen time and well-being.</p>
+<p>The goals of this lab are:</p>
+<ol style="list-style-type: decimal">
+<li>to gain a conceptual understanding of how ANOVA and regression are interlinked</li>
+<li>to get practical experience in analysing continuous and categorical variables in one design</li>
+<li>to consolidate the wrangling skills we have learnt for the past two years</li>
+</ol>
 
 </div>
-<div id="preclass-activity-8" class="section level2">
-<h2><span class="header-section-number">11.2</span> PreClass Activity</h2>
-<p>The PreClass Activity for this Chapter is just reading. It is quite a bit of reading but don’t worry if you don’t understand it all first time round. The best way to look at it will be to read through as prep, get the gist, then use it to support the class activity and re-read to consolidate knowledge for the assessment.</p>
-<div id="read-1" class="section level3">
-<h3><span class="header-section-number">11.2.1</span> Read</h3>
-<p><strong>Chapters</strong></p>
-<ul>
-<li>As preparation, please read chapters 1 to 3 of <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target = "_blank">Miller and Haden (2013)</a>. In this week’s InClass activity we will be working up to the concept of Sums of Squares which is around Section 3.4 of Miller and Haden (2013)</li>
-</ul>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-
+<div id="preclass-activity-12" class="section level2">
+<h2><span class="header-section-number">15.2</span> PreClass Activity</h2>
+<p>In this final PreClass we have two activities. The first is a very short blog by Prof. Dorothy Bishop that helps draw the links between ANOVA and Regression. The second is really the first part of the InClass activity. It is quite a long InClass, which you will be able to cope with, but we have split it across the PreClass and InClass to allow you some time to get some of the more basic wrangling steps out of the way and so you can come to the class and focus on the actual analysis. It would be worth doing most, if not all, of the activity now.</p>
+<div id="read-5" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> Read</h3>
+<p><strong>Blog</strong></p>
+<p>Read this short blog by Prof. Dorothy Bishop on combining ANOVA and regression, and how it all fits together.</p>
+<p><a href="https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1" target = "_blank">ANOVA, t-tests and regression: different ways of showing the same thing</a></p>
 </div>
-</div>
-<div id="inclass-activity-9" class="section level2">
-<h2><span class="header-section-number">11.3</span> InClass Activity</h2>
-<p><strong>One-factor ANOVA: Worked example</strong></p>
-<p>Today we are going to start with a step-by-step example of building a model for an ANOVA (Analysis of Variance). After that you will perform the steps yourself. If you feel comfortable with the examples in Chapter 3 of Miller and Haden, feel free to skim this part and move onto the exercises below. You can find further examples and step-by-step walkthroughs at the end of Miller and Haden (2013), Chapter 3.</p>
-<p><strong>NOTE:</strong> We assume from the preclass reading that you are now at least familiar with the terms <strong>estimation equations</strong>, <strong>decomposition matrices</strong>, and <strong>sums of squares</strong>, though perhaps you don’t quite fully understand them. This activity will help.</p>
-<p>An ANOVA is a method of analysis for analysing data where you have more than two conditions (levels) for an independent variable (factor), and/or you have more than one independent variable (factors). Thinking back, a t-test is where you normally only have two conditions (levels), right? Well an ANOVA is just an extension of that. For example instead of just comparing IQ scores for professors vs. hooligans (t-test), you can compare IQ scores for professors vs. hooligans vs. politicians (ANOVA); though one might argue that the latter two conditions (levels) are one and the same.</p>
-<p>Let’s assume that you have data from a one-factor design with three-levels (i.e. one independent variable with three conditions like above). To make this example concrete, let’s pretend you are studying how consuming food before an exam affects student performance. You randomly assign 12 participants to three separate groups (four participants per group): (1) no food, glass of water only (Control); (2) all-you-can-eat buffet (Buffet); and (3) side salad (Salad). (We chose a small number of participants to simplify the computations; obviously if you were going to do this study in real life, you’d need <strong>far more</strong> than 12 participants to make this worthwhile). For your dependent variable, you measure the number of questions answered correctly on a difficult exam (100 points possible). The exam is administered right after consuming the meal (or drinking water, for the control group).</p>
-<p>This is called a <strong>one-factor design</strong> because there is a single factor, which we might call “pre-exam consumption”, that has three different levels: water, buffet, and salad. It is a <strong>between-subjects design</strong> because there are different people in each group. In textbooks you might see this referred to as a one-way between-subjects ANOVA.</p>
-<p>For our analysis, we want to test whether there is any difference in exam performance across the levels of the factor. We won’t complete the analysis today but we will look at setting up our model which we would then take on further to see if there is a difference between groups.</p>
-<p>Here’s how the exam performance looks like for each of the three groups:</p>
-<ul>
-<li><strong>Control</strong>: 37, 80, 64, 51</li>
-<li><strong>Buffet</strong>: 33, 47, 55, 41</li>
-<li><strong>Salad</strong>: 59, 23, 50, 60</li>
-</ul>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>To make sure you understand, answer the following questions about the above experiment:</p>
-<ol style="list-style-type: decimal">
-<li>Factor is another name for a <select class='solveme' data-answer='["variable"]'> <option></option> <option>level</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
-<li>Level is another name for a <select class='solveme' data-answer='["condition"]'> <option></option> <option>factor</option> <option>condition</option> <option>control</option> <option>variable</option></select> of the experiment</li>
-<li>In this experiment we have <select class='solveme' data-answer='["1 factor with 3 levels"]'> <option></option> <option>1 factor with 3 levels</option> <option>1 level with 3 factors</option> <option>3 variables with 1 condition</option></select></li>
-<li>Because each group contains different participants then this is a <select class='solveme' data-answer='["between-subjects design"]'> <option></option> <option>within-subjects design</option> <option>between-subjects design</option> <option>mixed design</option></select></li>
-<li>The fourth participant in the Control condition scored <select class='solveme' data-answer='["51"]'> <option></option> <option>60</option> <option>41</option> <option>51</option> <option>64</option></select> on the exam</li>
-</ol>
-<p><strong>Estimating model components</strong></p>
-<p>Great so we understand our experiment! Now, the General Linear Model (GLM) that we will fit to these data is:</p>
-<p><span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span></p>
-<p>Where:</p>
-<ul>
-<li><span class="math inline">\(Y_{ij}\)</span> is the observed value for observation <span class="math inline">\(j\)</span> of group <span class="math inline">\(i\)</span> - i.e. a given participant’s score in a given group;</li>
-<li><span class="math inline">\(\mu\)</span> (pronounced “mu”) is the population grand mean (estimated by the sample grand mean);</li>
-<li><span class="math inline">\(A_i\)</span> is the deviation of the population mean of group <span class="math inline">\(i\)</span> from the population grand mean;</li>
-<li><span class="math inline">\(S(A)_{ij}\)</span> is the error or residual, defined as the observed value (<span class="math inline">\(Y_{ij}\)</span>) minus the model prediction (<span class="math inline">\(\hat{Y}_{ij}\)</span>), or the actual value minus the predicted value.</li>
-<li>Finally, the sum of <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span> is known as the fitted value or the typical value or the predicted value of a participant in a condition and is written as: <span class="math inline">\(\hat{Y}_{ij}\)</span>. The “party hat” that <span class="math inline">\({Y}_{ij}\)</span> is wearing in this part, i.e. <span class="math inline">\(\hat{Y}_{ij}\)</span>, is there to remind us that it is not the actual score of your participant (in a given condition), but an <strong>estimate</strong> of that value. So, when we are working in predicted values (values we haven’t actually collected, just predicted) then we stick the “party hat” on the symbol. If we are working in real values (that we have collected) then no party hat!</li>
-</ul>
-<p>We begin by applying the <strong>estimation equations</strong>. Our estimate of the population grand mean <span class="math inline">\(\mu\)</span>, will be based on the grand mean of the sample. We will call this <span class="math inline">\(\hat{\mu}\)</span> (notice once again, the “party hat”).</p>
-<p>The estimation equations for our model (seen in Table 3.3 on page 18 of Miller and Haden (2013)) are:</p>
-<ul>
-<li><p><span class="math inline">\(\hat{\mu} = Y_{..}\)</span></p></li>
-<li><p><span class="math inline">\(\hat{A}_i = Y_{i.} - \hat{\mu}\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{S(A)}_{ij} = Y_{ij} - (\hat{\mu} + \hat{A}_i) = Y_{ij} - \hat{\mu} - \hat{A}_i\)</span></p></li>
-</ul>
-<p>where</p>
-<ul>
-<li><p><span class="math inline">\(Y_{..}\)</span> is the mean of all 12 observations in the sample a.k.a. the baseline</p></li>
-<li><p><span class="math inline">\(Y_{i.}\)</span> is the mean of the 4 observations in group <span class="math inline">\(i\)</span>.</p></li>
-<li><p><span class="math inline">\(\hat{A}_i\)</span> is the respective group mean minus the sample mean a.k.a. between-subjects variance</p></li>
-<li><p><span class="math inline">\(\widehat{S(A)}_{ij}\)</span> is the individual error term for a given participant, or how much they deviate from the group contribution.</p></li>
-</ul>
-<p>Applying these estimation equations to the data above yields the following decomposition matrix:</p>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch11-dmx-show">Table 11.1: </span>Decomposition Matrix of our data
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-i
-</th>
-<th style="text-align:right;">
-j
-</th>
-<th style="text-align:right;">
-Yij
-</th>
-<th style="text-align:right;">
-mu
-</th>
-<th style="text-align:right;">
-Ai
-</th>
-<th style="text-align:right;">
-err
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-37
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
--21
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-22
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-64
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
--7
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
--11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-47
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-41
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
--3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-59
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
--25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-12
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br>
-In the above table:</p>
-<ul>
-<li>the column <code>mu</code> represents the value of <span class="math inline">\(\hat{\mu}\)</span>,</li>
-<li>the columns <code>Ai</code> represents the value of <span class="math inline">\(\hat{A}_i\)</span>,</li>
-<li>and the column <code>err</code> represents the value of <span class="math inline">\(\widehat{S(A)}_{ij}\)</span>.</li>
-</ul>
-<p>Spend a few moments understanding how this table expresses each of the 12 observed values in our example (the <span class="math inline">\(Y_{ij}\)</span>s) in terms of the linear model: <span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span>.</p>
-<p>For example, if the Control group is group <span class="math inline">\(i\)</span> = 1, then for the first participant, <span class="math inline">\(j\)</span> = 1, you would get:</p>
-<ul>
-<li><span class="math inline">\(Y_{ij} = \mu + A_i + S(A)_{ij}\)</span></li>
-<li><span class="math inline">\(Y_{ij} = mu + Ai + err\)</span></li>
-<li><span class="math inline">\(37 = 50 + 8 + -21\)</span></li>
-</ul>
-<p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>To make sure you understand the above equations before going on to calculate your own, answer the following questions about the above table which expresses the GLM decomposition matrix, and then check your answers.</p>
-<ol style="list-style-type: decimal">
-<li>In which column of the table are the 12 observed values - i.e. the 12 original scores from the participants?
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<div class="info">
-<p>
-The column named <code>Yij</code>
-</p>
-</div>
-</div>
-<p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>What is the estimated grand mean of this sample? (hint: <span class="math inline">\(\hat{\mu}\)</span>)
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<p><strong>The estimate grand mean of the sample is 50</strong></p>
-</div>
-<p><br></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Which rows of the table contain the data and model estimates for the <strong>Buffet</strong> group if they are group 2?
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<div class="info">
-<p>
-The rows where <code>i</code> is equal to 2; in other words, rows 5-8
-</p>
-</div>
-</div>
-<p><br></p>
-<ol start="4" style="list-style-type: decimal">
-<li>What is the value of <span class="math inline">\(\hat{A}_1\)</span> and in what rows does it appear?
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<p><strong>The value would be 8</strong></p>
-<div class="info">
-<p>
-This value appears in column <code>Ai</code>, rows 1-4, where <code>i</code> equals 1. This can be thought of as the difference between that given group and the sample mean that is applied to all participants within that group. In other words this would be the value of the <strong>typical</strong> participant in that group - as opposed to an individual participant in that group. Note that, conceptually this gives you the effect of your manipulation (food consumption style) and the different <code>i_s</code> allow you do so for each of the different styles you look at.
-</p>
-</div>
-</div>
-<p><br></p>
-<ol start="5" style="list-style-type: decimal">
-<li>What is the value of <span class="math inline">\(\widehat{S(A)}_{32}\)</span>? (hint: this can be read as where i = 3 and j = 2)
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<p><strong>The value would be -25</strong></p>
-<div class="info">
-<p>
-This value appears in column <code>err</code>, where <code>i</code> equals 3 and <code>j</code> equals 2. This can be thought of the unique difference for that participant from the sample mean and group mean, meaning that we take into consideration that each subject is unique.
-</p>
-</div>
-</div>
-<p><br></p>
-<ol start="6" style="list-style-type: decimal">
-<li>What is the model’s prediction for a ‘typical’ participant in the “Salad” group? (hint: (<span class="math inline">\(\hat{Y}_{ij}\)</span> = mu + Ai)
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<p><strong>The prediction would be <span class="math inline">\(\hat{Y}_{ij} = \hat{\mu} + \hat{A}_3\)</span> = 50 + -2 = 48</strong></p>
-<div class="info">
-<ul>
-<li>
-A ‘typical’ participant is one where the residual is 0.
-</li>
-<li>
-The model prediction is also known as the “fitted value” for this group.
-</li>
-</ul>
-</div>
-</div>
-<p><br></p>
-<ol start="7" style="list-style-type: decimal">
-<li>Where in the table are the differences found between this ‘typical’ participant prediction and the observed values in the salad group?
-<br></li>
-</ol>
-<div class="solution">
-<button>
-Answer
-</button>
-<div class="info">
-<p>
-These are the called the “residuals” (<span class="math inline"><span class="math inline">\(\widehat{S(A)}_{ij}\)</span></span>s) and are found in the <code>err</code> column of the table in rows 9-12. As above they are the difference between that specific individual participant and the typical participant for that group.
-</p>
-</div>
-</div>
-<div id="recreate-decomposition-matrix-from-the-raw-data" class="section level3">
-<h3><span class="header-section-number">11.3.1</span> Recreate decomposition matrix from the raw data</h3>
-<p>So we have shown you where all the parts of the table come from and how to calculate them. Now, for this part, your task is to reproduce the <strong>decomposition matrix</strong> tibble shown above, reproduced here:</p>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch11-dmx-show2">Table 11.2: </span>Decomposition Matrix of our data
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-i
-</th>
-<th style="text-align:right;">
-j
-</th>
-<th style="text-align:right;">
-Yij
-</th>
-<th style="text-align:right;">
-mu
-</th>
-<th style="text-align:right;">
-Ai
-</th>
-<th style="text-align:right;">
-err
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-37
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
--21
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-22
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-64
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
--7
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
--11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-47
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-41
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
--3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-59
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
--25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-12
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>You will do this by typing the observed values into a tibble, and then writing code to add columns with estimates of the individual components. At the end, your table should look exactly like the one above. You already know how to do all the data-wrangling elements, so today really try to focus on understanding what the values mean.</p>
-</div>
-<div id="Ch11InClassQueT1" class="section level3">
-<h3><span class="header-section-number">11.3.2</span> Step 1: Create the basic tibble</h3>
-<ul>
-<li>Create a tibble named <code>dmx</code> (short for decomposition matrix). It will eventually contain all of the columns in the one above, but for now, just create the columns <code>i</code>, <code>j</code>, and <code>Yij</code> as they appear above.</li>
-<li>You already know how to create a tibble (don’t forget to load the tidyverse package first). In case you need to refresh your memory, see <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf" target = "_blank">page 2 of this cheatsheet on data input</a> or refer back to the preclass activities of Lab 5 Semester 1.</li>
-<li>You should just type in the values for <code>Yij</code> but try to use the rep() function for columns <code>i</code> (the group) and <code>j</code> (the participant).</li>
-</ul>
-<div class="solution">
-<button>
-Step 1 Hints
-</button>
-<div class="info">
-<ul>
-<li>
-You will need some wrangling functions so don’t forget to load in tidyverse
-</li>
-<li>
-Create a tibble as <code>dmx &lt;- tibble(i = NA, j = NA, Yij = NA)</code>
-</li>
-<li>
-When using the <code>rep()</code> function remember that you can use <code>each</code> or <code>times</code> as calls in rep: <code>rep(1:3, each = 4)</code>
-</li>
-<li>
-When typing in numbers the c() function will allow you to put in numbers such as <code>Column = c(37, 80, 64, 31)</code>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="Ch11InClassQueT2" class="section level3">
-<h3><span class="header-section-number">11.3.3</span> Step 2: Estimate the Grand Mean <span class="math inline">\(\hat{\mu}\)</span></h3>
-<p>Great, we have our group numbers <span class="math inline">\(i\)</span>, our participant numbers <span class="math inline">\(j\)</span>, and our participant scores <span class="math inline">\(Yij\)</span>. Now we need to start expanding out <code>dmx</code>. First thing we need is the grand mean: <span class="math inline">\(\hat{\mu}\)</span></p>
-<ul>
-<li>Add a column to the table, called <code>mu</code> representing <span class="math inline">\(\hat{\mu}\)</span>. Call the resulting table <code>dmx2</code>. Remember that you can add a column to a table using <code>mutate()</code>.</li>
-</ul>
-<div class="solution">
-<button>
-Step 2 Hints
-</button>
-<div class="info">
-<ul>
-<li>
-When calculating <code>mu</code> keep in mind that each value of <code>mu</code> should be the grand mean of the sample; the mean of all participants regardless of group.
-</li>
-</ul>
-<p>
-<code>dmx2 &lt;- dmx %&gt;% mutate(mu = ???)</code>
-</p>
-</div>
-</div>
-</div>
-<div id="Ch11InClassQueT3" class="section level3">
-<h3><span class="header-section-number">11.3.4</span> Step 3: Entering the estimates <span class="math inline">\(\hat{A}_1\)</span>, <span class="math inline">\(\hat{A}_2\)</span>, <span class="math inline">\(\hat{A}_3\)</span></h3>
-<p>Good! Now we need to add on a column showing the typical effect of being a member of a particular group; the <code>Ai</code> column.</p>
-<ul>
-<li>Add a column to the table <code>dmx2</code> called <code>Ai</code>, with the three estimates for <span class="math inline">\(\hat{A}_i\)</span>. Store the resulting tibble in <code>dmx3</code>.</li>
-<li><span class="math inline">\(\hat{A}_i\)</span> is the difference between the grand mean <span class="math inline">\(\hat{\mu}\)</span> and the mean of individual groups. This means that you will need to group people by the group they belong to.</li>
-<li>Add the <code>ungroup()</code> function to the end of your pipeline as you won’t need this grouping after.</li>
-</ul>
-<div class="solution">
-<button>
-Step 3 Hints
-</button>
-<div class="info">
-<ul>
-<li>
-To calculate the column <span class="math inline"><span class="math inline">\(\hat{A}_i\)</span></span> would be something like:
-</li>
-</ul>
-<p>
-dmx3 &lt;- dmx2 %&gt;% group_by() %&gt;% mutate(Ai = something - something) %&gt;% ungroup()
-</p>
-</div>
-</div>
-</div>
-<div id="Ch11InClassQueT4" class="section level3">
-<h3><span class="header-section-number">11.3.5</span> Step 4: Calculate Residuals <span class="math inline">\(\widehat{S(A)}_{ij}\)</span></h3>
-<p>Well done, you’re almost there! We just need to add on the final column, <code>err</code>, which is called the <strong>residuals</strong> or in other words, the difference between the score of a typical participant for that group (<code>mu</code> + <code>Ai</code>) and a given individual participant’ score (<code>Yij</code>).</p>
-<ul>
-<li>Add a column called <code>err</code> to <code>dmx3</code> and store the result in <code>dmx4</code>. The column <code>err</code> should contain the residuals - the difference between the observed (Yij) and fitted (typical) values.</li>
-</ul>
-<div class="solution">
-<button>
-Step 4 Hints
-</button>
-<div class="info">
-<p>
-For calculating <code>err</code> you would use:
-</p>
-<p>
-<span class="math inline"><span class="math inline">\(\widehat{S(A)}_{ij} = Y_{ij} - \hat{Y}_{ij}\)</span></span>
-</p>
-<p>
-where:
-</p>
-<p>
-<span class="math inline"><span class="math inline">\(\hat{Y}_{ij} = \hat{\mu} + \hat{A}_i\)</span></span>
-</p>
-</div>
-</div>
-</div>
-<div id="Ch11InClassQueT5" class="section level3">
-<h3><span class="header-section-number">11.3.6</span> Step 5: Sums of squares</h3>
-<p>Once you have your dmx, you can start performing the calculations. Sums of squares are used in calculations for performing tests on model components, which we will learn more about soon, but you can practice them for now as shown in Section 3.4 of Miller and Haden (2013).</p>
-<ul>
-<li>Square all the individual values in the columns <code>Yij</code>, <code>mu</code>, <code>Ai</code>, and <code>err</code> in <code>dmx4</code>,</li>
-<li>Now sum up the squared values for each of these columns.<br />
-</li>
-<li>Save these in a variable called <code>sstbl</code>.</li>
-</ul>
-<p>Here is an example of how you would square a value <code>x</code>: <code>x^2</code>. The <code>^2</code> means take <code>x</code> to the power of 2. So typing <code>3^2</code> in the console will give you <code>9</code> (try it if you’re unsure). It also works for columns!</p>
-<ul>
-<li>the Sums of Squares of <code>Yij</code> is called the Sums of Squares total or <span class="math inline">\(SS_{total}\)</span>.</li>
-<li>the Sums of Squares of <code>mu</code> is called the Sums of Squares of the grand mean or <span class="math inline">\(SS_{\mu}\)</span> and sometimes called the intercept.</li>
-<li>the Sums of Squares of <code>Ai</code> is called the Sums of Squares of A or <span class="math inline">\(SS_{A}\)</span> and sometimes called <span class="math inline">\(SS_{between}\)</span>.</li>
-<li>the Sums of Squares of <code>err</code> is called the Sums of Squares error or <span class="math inline">\(SS_{error}\)</span> and sometimes called <span class="math inline">\(SS_{within}\)</span>.</li>
-</ul>
-<div class="solution">
-<button>
-Step 5 Hints
-</button>
-<div class="info">
-<ul>
-<li>
-Mutate on the squared values:
-</li>
-</ul>
-<p>
-<code>dmx4 %&gt;% mutate(Yij2 = Yij^2, …)</code>
-</p>
-<ul>
-<li>
-And sum up using:
-</li>
-</ul>
-<p>
-<code>summarise(ss_Y = sum(Yij2), ss_mu = …)</code>
-</p>
-</div>
-</div>
-<p><br>
-<span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done! Display <code>dmx4</code> in the console and compare it to the table above. How did you do? If the values in your <code>dmx4</code> do not match the table above then you need to go back and look at where it has gone wrong. Alternatively you should look at the solutions at the end of the chapter.</p>
-<p>To recap, what we are doing here is setting up the ANOVA to compare the three groups to see if there is a significant difference between each group. Doing it this way allows us to get an understanding of where the numbers come from, and it highlights that the analysis is about comparing variance within groups and variance between groups. <strong>If the variance between groups is larger than the variance within groups then it is likely that your experimental manipulation has had an effect. Conversely, if the variance within groups is larger than the variance between groups then there is likely to be no effect of your experimental manipulation.</strong></p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2019</strong></p>
-
-</div>
-</div>
-<div id="assignment-10" class="section level2">
-<h2><span class="header-section-number">11.4</span> Assignment</h2>
-<p><strong>Lab 11: Introduction to GLM: One-factor ANOVA</strong></p>
-<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester2_Lab2.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/11-s02/homework/ch11-assign-file.zip">Download the Assignment .zip file from here</a> or on Moodle.</p>
-<p><strong>Single Answer and Multiple Choice Questions</strong></p>
-<p>For this assignment you will answer a series of short single and Mulitple Choice Questions, followed by a calculation of a decomposition matrix in the final task. In order to complete this formative assignment you will need to have completed the inclass activity and have read Miller and Haden Chapter 3.</p>
-<p><strong>Before starting let’s check:</strong></p>
-<ol style="list-style-type: decimal">
-<li>The <code>.Rmd</code> file is saved in a folder and that you have set your working directory to that folder. For assessments we ask that you save it with the format <code>GUID_Level2_Semester2_Lab2.Rmd</code> where <code>GUID</code> is replaced with your <code>GUID</code>. Though this is a formative assessment, it may be good practice to do the same here.</li>
-</ol>
-<p><strong>Let’s Begin!</strong></p>
-<div id="Ch11AssignQueT1" class="section level3">
-<h3><span class="header-section-number">11.4.1</span> Question 1</h3>
-<p>Consider the following description of a study.</p>
+<div id="activity" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> Activity</h3>
+<p><strong>Background: Smartphone screen time and wellbeing</strong></p>
+<p>There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We’ll be looking at data from this recent study of English adolescents:</p>
 <blockquote>
-<p>You are investigating whether there is seasonal variation in students’ bodyweight. In other words, is there any evidence that bodyweight differs across the four seasons (Winter, Spring, Summer, and Fall - #AllYouGotToDoIsCall)?</p>
+<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204–215.</p>
 </blockquote>
-<p>Which of the models shown below would be the the general linear model corresponding to this study?</p>
+<p>This was a large-scale study that found support for the “Goldilocks” hypothesis among adolescents: that there is a “just right” amount of screen time, such that any amount more or less than this amount is associated with lower well-being. Much like the work you have been doing, this was a <em>huge</em> survey study with data containing responses from <em>over 120,000</em> participants! Fortunately, the authors made the data from this study openly available, which allows us to dig deeper into their results. And the question we want to expand on in this exercise is whether the relationship between screen time and well-being is modulated by partcipant’s (self-reported) sex. In other words, does screen time have a bigger impact on males or females, or is it the same for both?</p>
+<p>The dependent measure used in the study was the <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/" target = "_blank">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70.</p>
+<p>On <a href="https://osf.io/82ybd/">Przybylski &amp; Weinstein’s page for this study on the Open Science Framework</a>, you can find the <a href="https://osf.io/82ybd/">participant survey</a>, which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the <a href="https://osf.io/82ybd/">raw data</a>; however, for the purpose of this exercise, you will be using local pre-processed copies of the data found in the accompanying zip file on Moodle or <a href="data/15-s02/inclass/ch15-preclass-inclass-data.zip">download from here</a>.</p>
+<p>Przybylski and Weinstein looked at multiple measures of screen time, but again for the interests of this exercise we will be focusing on smartphone use, but do feel free to expand your skills after by looking at different definitions of screen time. Overall, Przybylski and Weinstein suggested that decrements in wellbeing started to appear when respondents reported more than one hour of daily smartphone use. So, bringing it back to our additional variable of sex, our question is now, does the negative association between hours of use and wellbeing (beyond the one-hour point) differ for boys and girls?</p>
+<p>Let’s think about this in terms of the variables. We have:</p>
+<ul>
+<li><p>a continuous<span class="math inline">\(^*\)</span> DV, well-being;</p></li>
+<li><p>a continuous<span class="math inline">\(^*\)</span> predictor, screen time;</p></li>
+<li><p>a categorical predictor, sex.</p></li>
+</ul>
+<p><strong>Note:</strong> these variables (<span class="math inline">\(^*\)</span>) are technically only <strong>quasi-continuous</strong> inasmuch as that only discrete values are possible. However, there are a sufficient number of discrete categories in our data that we can treat the data as effectively continuous.</p>
+<p>Now, in terms of analysis, what we are effectively trying to do is to estimate <strong>two slopes</strong> relating screen time to well-being, one for girls and one for boys, and then statistically compare these slopes. Sort of like running a correlation for boys, a correlation for girls, and comparing the two. Or alternatively, where you would run a regression (to estimate the slopes) but also one where you would need a t-test (to compare two groups). But the expressive power of regression allows us to do this all within a single model. Again, as we have seen building up to this lab, <strong>an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical.</strong> But remember, although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. As such people like regression, and the general linear model, as it allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care in how you numerically code the categorical predictors. We will use an approach called <strong>deviation coding</strong> which we will look at today later in this lab.</p>
+<p><strong>Let’s Begin!</strong></p>
+</div>
+<div id="Ch15PreClassQueT1" class="section level3">
+<h3><span class="header-section-number">15.2.3</span> Loading in the data</h3>
+<p>As always we will need to load in the tidyverse package and load in the data from the accompanying csv files, <code>wellbeing.csv</code>, <code>participant_info.csv</code>, and <code>screen_time.csv</code>.</p>
+<ul>
+<li><p>Create a new R Markdown file and put the csv files in the same directory with the Rmd file you’ve just created. Then load them in as follows (the solution is at the end of the chapter):</p></li>
+<li><strong>pinfo</strong> stores participant_info.csv</li>
+<li><strong>wellbeing</strong> stores wellbeing.csv</li>
+<li><p><strong>screen</strong> stores screen_time.csv</p></li>
+</ul>
+<p><strong>The Data</strong></p>
+<p>Take a look at the resulting tibbles <code>pinfo</code>, <code>wellbeing</code>, and <code>screen</code>. The <code>wellbeing</code> tibble has information from the <strong>WEMWBS</strong> questionnaire; <code>screen</code> has information about screen time use on weekends (variables ending with <code>we</code>) and weekdays (variables ending with <code>wk</code>) for four types of activities: using a computer (variables starting with <code>Comph</code>; Q10 on the survey), playing video games (variables starting with <code>Comp</code>; Q9 on the survey), using a smartphone (variables starting with <code>Smart</code>; Q11 on the survey) and watching TV (variables starting with <code>Watch</code>; Q8 on the survey). If you want more information about these variables, look at the items 8-11 on pages 4-5 of the the <a href="https://osf.io/82ybd/">PDF version of the survey on the OSF website</a>.</p>
+<ul>
+<li>note that sex is coded as male = 1, female = 0.</li>
+<li>also, Serial is common across all datasets and is the participant ID.</li>
+</ul>
+</div>
+<div id="Ch15PreClassQueT2" class="section level3">
+<h3><span class="header-section-number">15.2.4</span> Compute the well-being score for each participant</h3>
+<p>Ok, our data is in and we need to create a well-being score for each participant on each item of the WEMWBS. To do this, and to calculate the well-being score for each participant, we simply <strong>sum</strong> all the items together for that participant.</p>
+<ul>
+<li>Write code to create a new tibble, called <code>wemwbs</code>, with two variables: <code>Serial</code>, and <code>tot_wellbeing</code>, which is the the total WEMWBS score for each participant.</li>
+</ul>
+<div class="solution">
+<button>
+Hint to compute scores
+</button>
+<div class="info">
+<ul>
+<li>
+Step 1: reshape table from wide to long
+</li>
+<li>
+Step 2: <code>group_by()</code>; <code>summarise(tot_wellbeing = …)</code>
+</li>
+<li>
+Alternatively, mutate on the sum of all columns, then select the two needed.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="Ch15PreClassQueT3" class="section level3">
+<h3><span class="header-section-number">15.2.5</span> Visualising Screen time on all technologies</h3>
+<p>Great, so we have the well-being scores sorted out, we now need to think about the screen time usage and whether it is being used on a weekday or a weekend. As always, to get an idea of the data, it is often very useful to visualize the distributions of variables before proceeding with the analysis.</p>
+<ul>
+<li>Try recreating this figure based on the data in <code>screen</code>. Note that this will require some tidying of the data in <code>screen</code>:</li>
+</ul>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(Y_{ij} = \mu + A_{ij} + S(A)_{ij}\)</span></li>
-<li><span class="math inline">\(Y_{ijkm} = \mu + A_{i} + B_{j} + C_{k} + D_{m} + S_{ijkm}\)</span></li>
-<li><span class="math inline">\(Y_{ij} = \beta_0 + \beta_1 X_1 + e_{ij}\)</span></li>
-<li><span class="math inline">\(Y_{ijkm} = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_3 + \beta_4 X_4 + e_{ijkm}\)</span></li>
+<li><p>You’ll first need to gather the <code>screen</code> tibble into long format and then break apart the column names into <strong>two</strong> separate columns, one for the name of the variable (<code>Watch</code>, <code>Comp</code>, <code>Comph</code>, and <code>Smart</code>) and the other for part of the week (<code>wk</code> and <code>we</code>). This is going to take using the <code>separate()</code> function which we haven’t used yet but we think you can manage.</p></li>
+<li><p>Next, you’ll need to alter the values of the variables to reflect the more descriptive text that appears in the plot (e.g., <code>&quot;Watch&quot;</code> becomes <code>&quot;Watching TV&quot;</code>; <code>&quot;wk&quot;</code> becomes <code>&quot;Weekday&quot;</code>). This is a <code>recode()</code> issue which you have done a number of times.</p></li>
 </ol>
-<p>Replace the NULL in the Q1 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
-<hr />
-<p>For the next few questions consider the decomposition matrix for a one-factor design with three groups, shown below .</p>
+<p>This is quite a tricky bit of wrangling which we think you are capable of but, do not be put off if you can’t quite get it yet. The code is at the end of the chapter for you to use once you have had a shot at it.</p>
+<div class="figure" style="text-align: center"><span id="fig:ch15-st-plot"></span>
+<img src="15-s02-lab15b_files/figure-html/ch15-st-plot-1.png" alt="Count of the hours of usage of different types of social media at Weekdays and Weekends" width="100%" />
+<p class="caption">
+Figure 15.1: Count of the hours of usage of different types of social media at Weekdays and Weekends
+</p>
+</div>
+<div class="solution">
+<button>
+Hints on Wrangling Steps 1 and 2
+</button>
+<div class="info">
+<p>
+<strong>Step 1</strong>
+</p>
+<ul>
+<li>
+<code>gather()</code> the data in <code>screen</code> into three columns: Serial, var, hours
+</li>
+<li>
+<code>?separate()</code> in the console
+</li>
+<li>
+<code>seperate(data, column_name_containing_variables_to_split, c(“column_1_to_create”,“column_2_to_create”), “character_to_split_by”)</code>
+</li>
+<li>
+each variable (category) has an underscore in its name. Use that to split it. I.e. <code>Comph_we</code> will get split into <code>Comph</code> and <code>we</code>
+</li>
+</ul>
+<p>
+<strong>Step 2</strong>
+</p>
+<p>
+data %&gt;% mutate(new_variable_name = recode(old_variable_name, “wk” = “Weekday”, “we” = “Weekend”))
+</p>
+</div>
+</div>
+</div>
+<div id="Ch15PreClassQueT4" class="section level3">
+<h3><span class="header-section-number">15.2.6</span> Visualising the Screen time and Well-being relationship</h3>
+<p>Brilliant, that is truly excellent work and you should be really pleased with yourself. Looking at the figures, it would appear that there is not much difference between screen time use of smartphones in weekend and weekdays so we could maybe collapse that variable together later when we come to analyse it. Overall, people tend to be using all the different technologies for a peak around 3 hours, and then each distribution tails off as you get longer exposure suggesting that there are some that stay online a long time. Video games is the exception where there is a huge peak in the first hour and then a tailing off after that.</p>
+<p>But first, another visualisation. We should have a look at the relationship between screen time (for the four different technologies) and measures of well-being. This relationship looks like this shown below and the code to recreate this figure is underneath:</p>
+<div class="figure" style="text-align: center"><span id="fig:combined-hide"></span>
+<img src="15-s02-lab15b_files/figure-html/combined-hide-1.png" alt="Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends" width="100%" />
+<p class="caption">
+Figure 15.2: Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends
+</p>
+</div>
+<p>At the start we said we were only going to focus on smartphones. So looking at the bottom left of the figure we could suggest that smartphone use of more than 1 hour per day is associated with increasingly negative well-being the longer screen time people have. This looks to be a similar effect for Weekdays and Weekends, though perhaps overall well-being in Weekdays is marginally lower than in Weekends (the line for Weekday is lower on the y-axis than Weekends). This makes some sense as people tend to be happier on Weekends! Sort of makes you wish we had more of them right?</p>
+<p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
+<p>That is great work today and it just shows you how far you have come with your wrangling skills over the last couple of years. We will pick up from here in the lab during the week where we will start to look at the relationship in boys and girls. Don’t forget to make any notes for yourself that you think will be good to remember - rounding off your Portfolio and bank on skills that you have built up. Any questions or problems, as always post them on the forums or bring them to the lab for discussion.</p>
+
+</div>
+</div>
+<div id="inclass-activity-13" class="section level2">
+<h2><span class="header-section-number">15.3</span> InClass Activity</h2>
+<p><strong>Continued: Smartphone screen time and wellbeing</strong></p>
+<p>We are going to jump straight into this as you will have already started the analysis in the PreClass activity but as a quick recap, there is currently much debate surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. In the PreClass, and continuing today, we have been looking at data from this recent study of English adolescents:</p>
+<blockquote>
+<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204–215.</p>
+</blockquote>
+<p>This was a large-scale study that found support for the “Goldilocks” hypothesis among adolescents: that there is a “just right” amount of screen time, such that any amount more or less than this amount is associated with lower well-being. The dependent measure used in the study was the <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/" target = "_blank">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70, and we have been working with a version of some of the available data which can be found in the accompanying zip file on Moodle or <a href = "data/15-s02/inclass/ch15-preclass-inclass-data.zip" target = "_blank">download from here</a></p>
+<p>Przybylski and Weinstein looked at multiple measures of screen time, but again for the interests of this exercise we will be focusing on smartphone use only, but do feel free to expand your skills after by looking at different definitions of screen time. Overall, Przybylski and Weinstein suggested that decrements in wellbeing started to appear when respondents reported more than one hour of daily smartphone use. So, bringing it back to our additional variable of sex, our question is now, does the negative association between hours of use and wellbeing (beyond the one-hour point) differ for boys and girls?</p>
+<p>Let’s think about this in terms of the variables. We have:</p>
+<ul>
+<li><p>a continuous DV, well-being;</p></li>
+<li><p>a continuous predictor, screen time;</p></li>
+<li><p>a categorical predictor, sex.</p></li>
+</ul>
+<p>And to recap in terms of analysis, what we are effectively trying to do is to estimate <strong>two slopes</strong> relating screen time to well-being, one for girls and one for boys, and then statistically compare these slopes. Again, as we have seen building up to this lab, <strong>an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical.</strong> But remember, although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. As such people like regression, and the general linear model, as it allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care of how you numerically code the <strong>categorical predictors</strong>. We will use an approach called <strong>deviation coding</strong> which we will look at today later in this lab.</p>
+<p><strong>Let’s Begin!</strong></p>
+<div id="Ch15InClassQueT1" class="section level3">
+<h3><span class="header-section-number">15.3.1</span> Smartphone and well-being for boys and girls</h3>
+<p>Continuing from where we left on in the PreClass, so far we have been matching what the original authors suggested we would find in the data, this drop off in self-reported well-being for longer exposures of smart-phone use (i.e. &gt;1 hour). However, we said we wanted to look at this in terms of males and females, or boys and girls really, so we need to do a bit more wrangling. Also, as above we said there seemed to be only a small difference between Weekday and Weekends so, we will collapse weekday and weekend usage in smartphones.</p>
+<ol style="list-style-type: decimal">
+<li>Create a new table, <code>smarttot</code>, that takes the information in <code>screen2</code> and keeps only the smarthphone usage.</li>
+<li>Now, create an average smartphone usage for each participant, called <code>tothours</code>, using a group_by and summarise, regardless of whether or not it is the weekend or weekday, i.e. the mean number of hours per day of smartphone use (averaged over weekends/weekdays) for that participant.</li>
+<li>Now, create a new tibble <code>smart_wb</code> that only includes participants from <code>smarttot</code> who used a smartphone for more than one hour per day each week, and then combine this tibble with the information in the <code>wemwbs</code> tibble and the <code>pinfo</code> tibble.</li>
+</ol>
+<p>The finished table should look something like this (we are only showing the first 5 rows here):</p>
 <table>
 <thead>
-<tr class="header">
-<th align="right"><span class="math inline">\(i\)</span></th>
-<th align="right"><span class="math inline">\(j\)</span></th>
-<th align="right"><span class="math inline">\(Y_{ij}\)</span></th>
-<th align="right"><span class="math inline">\(\hat{\mu}\)</span></th>
-<th align="right"><span class="math inline">\(\hat{A}_{i}\)</span></th>
-<th align="right"><span class="math inline">\(\widehat{S(A)}_{ij}\)</span></th>
+<tr>
+<th style="text-align:center;">
+Serial
+</th>
+<th style="text-align:center;">
+tothours
+</th>
+<th style="text-align:center;">
+tot_wellbeing
+</th>
+<th style="text-align:center;">
+sex
+</th>
+<th style="text-align:center;">
+minority
+</th>
+<th style="text-align:center;">
+deprived
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">6</td>
-<td align="right">-1</td>
-<td align="right">-1</td>
+<tr>
+<td style="text-align:center;">
+1000003
+</td>
+<td style="text-align:center;">
+2.0
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
 </tr>
-<tr class="even">
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">6</td>
-<td align="right">6</td>
-<td align="right">-1</td>
-<td align="right">1</td>
+<tr>
+<td style="text-align:center;">
+1000004
+</td>
+<td style="text-align:center;">
+2.5
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="right">-2</td>
+<tr>
+<td style="text-align:center;">
+1000005
+</td>
+<td style="text-align:center;">
+3.5
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
 </tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">8</td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="right">2</td>
+<tr>
+<td style="text-align:center;">
+1000006
+</td>
+<td style="text-align:center;">
+2.0
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
 </tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">-5</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="right">12</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">5</td>
+<tr>
+<td style="text-align:center;">
+1000008
+</td>
+<td style="text-align:center;">
+1.5
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="Ch11AssignQueT2" class="section level3">
-<h3><span class="header-section-number">11.4.2</span> Question 2</h3>
-<p>According to the above decomposition matrix, the population grand mean is estimated to be:</p>
-<ol style="list-style-type: decimal">
-<li>0</li>
-<li>6</li>
-<li>36</li>
-<li>can’t answer; not observed</li>
-</ol>
-<p>Replace the NULL in the Q2 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
-</div>
-<div id="Ch11AssignQueT3" class="section level3">
-<h3><span class="header-section-number">11.4.3</span> Question 3</h3>
-<p>According to the above decomposition matrix, the value of <span class="math inline">\(\hat{A}_3\)</span> is:</p>
-<ol style="list-style-type: decimal">
-<li>6</li>
-<li>0</li>
-<li>1</li>
-<li>can’t answer; not observed</li>
-</ol>
-<p>Replace the NULL in the Q3 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
-</div>
-<div id="Ch11AssignQueT4" class="section level3">
-<h3><span class="header-section-number">11.4.4</span> Question 4</h3>
-<p>According to the above decomposition matrix, the predicted value for a participant in group 1 is what?</p>
-<p><strong>Hint</strong>: this is the “fitted” or “typical” for that group (<span class="math inline">\(\hat{Y}_{ij}\)</span>) as opposed to the actual value (<span class="math inline">\(Y_{ij}\)</span>)</p>
-<p>Replace the NULL in the Q4 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
-</div>
-<div id="Ch11AssignQueT5" class="section level3">
-<h3><span class="header-section-number">11.4.5</span> Question 5</h3>
-<p>Which observation or observations has/have the largest residual(s)?</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(Y_{21}\)</span></li>
-<li><span class="math inline">\(Y_{21}\)</span> and <span class="math inline">\(Y_{22}\)</span></li>
-<li><span class="math inline">\(Y_{31}\)</span></li>
-<li><span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></li>
-</ol>
-<p>Replace the NULL in the Q5 code chunk with the statement number that corresponds to the correct answer (e.g. 1, 2, 3 or 4).</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
-</div>
-<div id="Ch11AssignQueT6" class="section level3">
-<h3><span class="header-section-number">11.4.6</span> Question 6</h3>
-<p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{total}\)</span> be for this model?</p>
-<p>Replace the NULL in the Q6 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
-</div>
-<div id="Ch11AssignQueT7" class="section level3">
-<h3><span class="header-section-number">11.4.7</span> Question 7</h3>
-<p>From your reading of Miller and Haden Chapter 3, and from the inclass activity Section 5, based on the above decomposition matrix, what would <span class="math inline">\(SS_{error}\)</span> be for this model?</p>
-<p>Replace the NULL in the Q7 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1">Q7 &lt;-<span class="st"> </span><span class="ot">NULL</span>  <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
-</div>
-<div id="Ch11AssignQueT8" class="section level3">
-<h3><span class="header-section-number">11.4.8</span> Question 8</h3>
-<p>From reading Miller and Haden Chapter 3, and from the inclass activity Section 5, a study with a one-factor design with GLM <span class="math inline">\(Y_{ij} = \mu + A_{ij} + S(A)_{ij}\)</span> is found to have the following SS:</p>
+<div class="solution">
+<button>
+Hints for Wrangling Steps
+</button>
+<div class="info">
+<p>
+<strong>Step 1</strong>
+</p>
 <ul>
-<li><span class="math inline">\(SS_{total} = 280\)</span>,</li>
-<li><span class="math inline">\(SS_{\mu} = 40\)</span>,</li>
-<li>and <span class="math inline">\(SS_{error} = 60\)</span>.</li>
+<li>
+<code>filter(“Using Smartphone”)</code> to keep only smartphone use
+</li>
 </ul>
-<p>Given those values, what is the value of <span class="math inline">\(SS_{A}\)</span>?</p>
-<p><strong>hint:</strong> <span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></p>
-<p>Replace the NULL in the Q8 code chunk with the actual value of the correct answer (e.g a number).</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># replace NULL with your answer (a number)</span></a></code></pre></div>
+<p>
+<strong>Step 2</strong>
+</p>
+<ul>
+<li>
+group_by(Participant) %&gt;% summarise(tothours = mean())
+</li>
+</ul>
+<p>
+<strong>Step 3</strong>
+</p>
+<ul>
+<li>
+<code>filter()</code>, <code>inner_join()</code>
+</li>
+<li>
+hours greater than 1
+</li>
+<li>
+what is the common column to join each time by? Participant?
+</li>
+</ul>
 </div>
-<div id="Ch11AssignQueT9" class="section level3">
-<h3><span class="header-section-number">11.4.9</span> Question 9: Create your own decomposition matrix</h3>
-<p>Finally, this last task tests your ability to set up a decomposition matrix as shown inclass. The code chunk below creates the basic table structure you will need to complete this task. Run the code and have a look at the table, but DO NOT CHANGE IT!</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1"><span class="co">## run this block, have a look at the structure of dsetup,</span></a>
-<a class="sourceLine" id="cb371-2" data-line-number="2"><span class="co">## but don&#39;t change anything</span></a>
-<a class="sourceLine" id="cb371-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb371-4" data-line-number="4"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb371-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb371-6" data-line-number="6">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb371-7" data-line-number="7">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb371-8" data-line-number="8">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb371-9" data-line-number="9">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb371-10" data-line-number="10">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb371-11" data-line-number="11">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a></code></pre></div>
-<p>In the code chunk below, flesh out the values in <code>dsetup</code> to create a decomposition matrix for the data shown below (a one-factor design with four levels), but with the actual numeric values replacing the NA values.</p>
+</div>
+</div>
+<div id="Ch15InClassQueT2" class="section level3">
+<h3><span class="header-section-number">15.3.2</span> Visualising and Interpreting the relationship between smartphone use and wellbeing by sex</h3>
+<p>Excellent! Lots of visualisation and wrangling in the PreClass and today but that is what we have been working on and building our skills on up to this point so, we are coping fine! Just a couple more visualisation and wrangles to go before we run the analysis (the easy part!)</p>
 <ul>
-<li>Group 1: 84, 86, 61</li>
-<li>Group 2: 83, 71, 95</li>
-<li>Group 3: 56, 95, 92</li>
-<li>Group 4: 68, 76, 93</li>
+<li>Using the data in <code>smart_wb</code> create the following figure. You will need to first calculate the mean wellbeing scores for each combination of <code>sex</code> and <code>tothours</code>, and then create a plot that includes separate regression lines for each sex.</li>
+<li>Next, or if you just want to look at the figure and not create it, make a brief interpretation of the figure. Think about it in terms of who has the overall lower mean wellbeing score and also are both the slopes the same or is one more negative, one more positive, etc.</li>
 </ul>
-<p><strong>IMPORTANT!</strong></p>
+<div class="figure" style="text-align: center"><span id="fig:last-fig-hide"></span>
+<img src="15-s02-lab15c_files/figure-html/last-fig-hide-1.png" alt="Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)" width="100%" />
+<p class="caption">
+Figure 15.3: Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)
+</p>
+</div>
+</div>
+<div id="a-side-point-on-mean-centering-and-deviation-coding" class="section level3">
+<h3><span class="header-section-number">15.3.3</span> A side point on mean centering and deviation coding</h3>
+<p>Last bit of wrangling, I promise, before the analysis. Here, we will introduce something that is worth doing to help with our interpretation. You can read up more on this later, and we will cover it in later years more in-depth, but when you have continuous variables in a regression, it is often sensible to transform them by <strong>mean centering</strong> them which has two very useful outcomes:</p>
+<ol style="list-style-type: decimal">
+<li><p>the intercept of the model now shows the predicted value of <span class="math inline">\(Y\)</span> for the mean value of the predictor variable rather than the predicted value of <span class="math inline">\(Y\)</span> at the zero value of the unscaled variable as it normally would;</p></li>
+<li><p>if there are interactions in the model, any lower-order effects (e.g. main effects) can be interpreted as they would have been, had it been simply an ANOVA.</p></li>
+</ol>
+<p>These steps seem rather worthwhile in terms of interpretation and the process is really straightforward. You can <strong>mean center a continuous predictor</strong>, for example <code>X</code>, simply by subtracting the mean from each value of the predictor: i.e.<code>X_centered = X - mean(X)</code>.</p>
+<p>A second very useful thing to do that aids the interpretation is to convert your categorical variables into what is called <strong>deviation coding</strong>. Again, we are going to focus more on this in L3 but it is good to hear the term in advance as you will see it from time to time. Again, all this does is to allow you to interpret the categorical predictors as if it were an ANOVA.</p>
+<p>We are going to do both of these steps, <strong>mean centering of our continuous variable</strong> and <strong>deviation coding of our categorical variable</strong>. Here is the code to do it. Copy it and run it but be sure that you understand what it is doing.</p>
 <ul>
-<li>Make sure the <strong>final table with your result</strong> has the name <code>dmx</code>. Check spelling and capitalization.</li>
-<li>The values should be computed based on the <code>Yij</code> values such that if the <code>Yij</code> values were to change then your code would still produce the correct decomposition matrix.</li>
-<li><strong>DO NOT</strong> change the column names, the column ordering, and make sure it has the right number of rows and columns. You should have 12 rows by 6 columns.</li>
-<li>Make sure your code runs without error in a fresh R session, and make sure no warnings are generated by the code chunk named <code>dmx_warning</code>, which validates your response.</li>
+<li>totothours_c is the mean centered values of tothours</li>
+<li>sex_c is the deviation coding of the sex column (sex) where male, which was coded as 1, is now coded as .5, and female is now coded as -.5 instead of 0. The <code>ifelse()</code> basically says, if that column you want me to look at, says this (e.g. sex == 1), then I will put a .5, otherwise (or else) I will put a -.5.</li>
 </ul>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1"><span class="co"># </span><span class="al">TODO</span><span class="co">: DO STUFF WITH dsetup</span></a>
-<a class="sourceLine" id="cb372-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb372-3" data-line-number="3"><span class="co"># you can change or remove the line below,</span></a>
-<a class="sourceLine" id="cb372-4" data-line-number="4"><span class="co"># but make sure your final table is called dmx</span></a>
-<a class="sourceLine" id="cb372-5" data-line-number="5">dmx &lt;-<span class="st"> </span><span class="ot">NULL</span> </a></code></pre></div>
-<pre><code>## Warning: If this warning appears in the output, you have not yet defined
-## &#39;dmx&#39; properly. Check column names (including capitalization), column data
-## types, and table structure.</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1">smart_wb &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb454-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tothours_c =</span> tothours <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(tothours),</a>
+<a class="sourceLine" id="cb454-3" data-line-number="3">         <span class="dt">sex_c =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="fl">.5</span>, <span class="fl">-.5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb454-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tothours, <span class="op">-</span>sex)</a></code></pre></div>
+</div>
+<div id="Ch15InClassQueT3" class="section level3">
+<h3><span class="header-section-number">15.3.4</span> Estimating model parameters</h3>
+<p>Superb! And now finally, after all that wrangling and visualisation, the models. Finally, we are going to see if there is statistical support for our above interpretation of the Figure 15.3, where we saw that overall, girls have lower well-being and that they are affected more by prolonged smartphone usage than boys are. Just to recap, the previous authors have already looked at smartphone usage and wellbeing but, we want to look at whether it has more of an impact in girls than boys, or boys than girls, or about the same.</p>
+<p>The multiple regression model, from the general linear model, for this analysis would be written as:</p>
+<p><span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + e_i\)</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(Y_i\)</span> is the wellbeing score for participant <span class="math inline">\(i\)</span>;</li>
+<li><span class="math inline">\(X_{1i}\)</span> is the mean-centered smartphone use predictor variable for participant <span class="math inline">\(i\)</span>;</li>
+<li><span class="math inline">\(X_{2i}\)</span> is gender, where we used deviation coding (-.5 = female, .5 = male);</li>
+<li><span class="math inline">\(X_{3i}\)</span> is the interaction between smartphone use and gender (<span class="math inline">\(= X_{1i} \times X_{2i}\)</span>)</li>
+</ul>
+<p>You have seen multiple regression models before in R and they usually take a format something like, <code>y ~ a + b</code>. The one for this analysis is very similar but with one difference, we need to add the interaction. To do that, instead of saying <code>a + b</code> we do <code>a * b</code>. This will return us the effects of a and b by themselves as well as the interaction of a and b. Just like you would in an ANOVA but here one of the variables is continuous and one is categorical.</p>
+<ul>
+<li>With that in mind, using the data in <code>smart_wb</code>, use the <code>lm()</code> function to estimate the model for this analysis where we predict <code>tot_wellbeing</code> from mean centered smartphone usage (tothours_c) and the deviation coded sex (sex_c)</li>
+</ul>
+<div class="solution">
+<button>
+Hints on model
+</button>
+<div class="info">
+<ul>
+<li>
+R formulas look like this: <code>y ~ a + b + a:b</code> where <code>a:b</code> means interaction
+</li>
+<li>
+This can be written in short form of <code>y ~ a * b</code>
+</li>
+</ul>
+</div>
+</div>
+<ul>
+<li>Next, use the <code>summary()</code> function on your model output to view it. The ouput should look as follows:</li>
+</ul>
+<pre><code>## 
+## Call:
+## lm(formula = tot_wellbeing ~ tothours_c * sex_c, data = smart_wb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -36.881  -5.721   0.408   6.237  27.264 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      47.43724    0.03557 1333.74   &lt;2e-16 ***
+## tothours_c       -0.54518    0.01847  -29.52   &lt;2e-16 ***
+## sex_c             5.13968    0.07113   72.25   &lt;2e-16 ***
+## tothours_c:sex_c  0.45205    0.03693   12.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.135 on 71029 degrees of freedom
+## Multiple R-squared:  0.09381,    Adjusted R-squared:  0.09377 
+## F-statistic:  2451 on 3 and 71029 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="Ch15InClassQueT4" class="section level3">
+<h3><span class="header-section-number">15.3.5</span> Final Interpretations</h3>
+<p>Finally, just some quick interpretation questions to round off all our work! To help you, here is some info:</p>
+<ul>
+<li>The intercept for the male regression line can be calculated by: the Intercept + (the beta of sex_c * .5)</li>
+<li>The slope of the male regression line can be calculated by: the beta of the tothours_c + (the beta of interaction * .5)</li>
+<li>The intercept for the female regression line can be calculated by: the Intercept + (the beta of sex_c * -.5)</li>
+<li>The slope of the female regression line can be calculated by: the beta of the tothours_c + (the beta of interaction * -.5)</li>
+</ul>
+<p>Look at your model output in the <code>summary()</code> and try to answer the following questions. The solutions are below.</p>
+<ul>
+<li><p>The interaction between smartphone use and gender is shown by the variable <select class='solveme' data-answer='["tothours_c:sex_c"]'> <option></option> <option>tothours_c</option> <option>sex_c</option> <option>tothours_c:sex_c</option></select>, and this interaction was <select class='solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
+<li><p>To two decimal places, the intercept for male participants is: <input class='solveme nospaces' size='5' data-answer='["50.01"]'/></p></li>
+<li><p>To two decimal places, the slope for male participants is: <input class='solveme nospaces' size='5' data-answer='["-0.32","-.32"]'/></p></li>
+<li><p>To two decimal places, the intercept for female participants is: <input class='solveme nospaces' size='5' data-answer='["44.87"]'/></p></li>
+<li><p>To two decimal places, the slope for female participants is: <input class='solveme nospaces' size='5' data-answer='["-0.77","-.77"]'/></p></li>
+</ul>
+<p>As such, given the model of <code>Y = intercept + (slope * X)</code> where Y is wellbeing and X is total hours on smartphone, what would be the predicted wellbeing score for a male and a female who use their smartphones for 8 hours. Give your answer to two decimal places:</p>
+<ul>
+<li>Male: <input class='solveme nospaces' size='5' data-answer='["47.45"]'/></li>
+<li>Female: <input class='solveme nospaces' size='5' data-answer='["38.71"]'/></li>
+</ul>
+<p>And finally, what is the most reasonable interpretation of these results? <select class='solveme' data-answer='["smartphone use was more negatively associated with wellbeing for girls than for boys"]'> <option></option> <option>smartphone use harms girls more than boys</option> <option>smartphone use harms boys more than girls</option> <option>there is no evidence for gender differences in the relationship between smartphone use and well-being</option> <option>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solutions which can be found at the end of this Chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href = "https://rguppies.slack.com" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2019</strong>.</p>
-<p>See you in the next lab!</p>
+<p>You should now be ready to complete any future Homework Assignment related to ANCOVAs. We will hold off from a formula assignment on this approach just now and we will look at it again later in the semester, but for now, if you have any questions, please post them on the slack forum under the channel <strong>#level2_2019</strong>. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
 
 </div>
 </div>
-<div id="solutions-to-questions-10" class="section level2">
-<h2><span class="header-section-number">11.5</span> Solutions to Questions</h2>
-<p>Below you will find the solutions to the questions for the Activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
-<div id="inclass-activities-7" class="section level3">
-<h3><span class="header-section-number">11.5.1</span> InClass Activities</h3>
-<div id="inclass-step-1" class="section level4">
-<h4><span class="header-section-number">11.5.1.1</span> InClass Step 1</h4>
-<ul>
-<li>The basic tibble would be created as follows.</li>
-<li>When it comes to <span class="math inline">\(Y_{ij}\)</span>, simply typing in the values in order was what was needed.</li>
-</ul>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb374-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb374-3" data-line-number="3">dmx &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">4</span>), </a>
-<a class="sourceLine" id="cb374-4" data-line-number="4">              <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">times =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb374-5" data-line-number="5">              <span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">37</span>, <span class="dv">80</span>, <span class="dv">64</span>, <span class="dv">51</span>,</a>
-<a class="sourceLine" id="cb374-6" data-line-number="6">                    <span class="dv">33</span>, <span class="dv">47</span>, <span class="dv">55</span>, <span class="dv">41</span>,</a>
-<a class="sourceLine" id="cb374-7" data-line-number="7">                    <span class="dv">59</span>, <span class="dv">23</span>, <span class="dv">50</span>, <span class="dv">60</span>))</a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT1">Return to Task</a></p>
+<div id="assignment-14" class="section level2">
+<h2><span class="header-section-number">15.4</span> Assignment</h2>
+<p>We will hold off from a formal assignment (formative or summative) on this approach just now and we will look at it again later in the semester, but for now, if you have any questions, please post them on the slack forum under the channel #level2_2019. Finally, don’t forget to add any useful information to your Portfolio before you leave it too long and forget.</p>
+
 </div>
-<div id="inclass-step-2" class="section level4">
-<h4><span class="header-section-number">11.5.1.2</span> InClass Step 2</h4>
-<ul>
-<li>The Grand Mean can be added as follows:</li>
-</ul>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" data-line-number="1">dmx2 &lt;-<span class="st"> </span>dmx <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb375-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">mu =</span> <span class="kw">mean</span>(Yij))</a></code></pre></div>
-<ul>
-<li>And would appear as:</li>
-</ul>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch11InClass-s2-answer-show">Table 11.3: </span>Decomposition Matrix with Grand Mean added
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-i
-</th>
-<th style="text-align:right;">
-j
-</th>
-<th style="text-align:right;">
-Yij
-</th>
-<th style="text-align:right;">
-mu
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-37
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-64
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-47
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-41
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-59
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:right;">
-50
-</td>
-</tr>
-</tbody>
-</table>
+<div id="solutions-to-questions-14" class="section level2">
+<h2><span class="header-section-number">15.5</span> Solutions to Questions</h2>
+<p>Below you will find the solutions to the questions for the PreClass and InClass activities for this chapter. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
+<div id="preclass-activities-2" class="section level3">
+<h3><span class="header-section-number">15.5.1</span> PreClass Activities</h3>
+<div id="loading-the-data" class="section level4">
+<h4><span class="header-section-number">15.5.1.1</span> Loading the Data</h4>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb456-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb456-3" data-line-number="3">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;participant_info.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb456-4" data-line-number="4">wellbeing &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;wellbeing.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb456-5" data-line-number="5">screen &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;screen_time.csv&quot;</span>)</a></code></pre></div>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT1">Return to Task</a></p>
 </div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT2">Return to Task</a></p>
-</div>
-<div id="inclass-step-3" class="section level4">
-<h4><span class="header-section-number">11.5.1.3</span> InClass Step 3</h4>
+<div id="compute-the-well-being-score-for-each-participant" class="section level4">
+<h4><span class="header-section-number">15.5.1.2</span> Compute the well-being score for each participant</h4>
 <ul>
-<li>The estimates <span class="math inline">\(\hat{A}_1\)</span>, <span class="math inline">\(\hat{A}_2\)</span>, <span class="math inline">\(\hat{A}_3\)</span>, or in other words the unique contribution of each group, are calculated as follows.</li>
-<li>The key point is grouping by <code>i</code> so that each group is accounted for individually.</li>
+<li>Both of these solutions would produce the same output.</li>
 </ul>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" data-line-number="1">dmx3 &lt;-<span class="st"> </span>dmx2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb376-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb376-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb376-4" data-line-number="4"><span class="st">  </span><span class="kw">ungroup</span>()</a></code></pre></div>
+<p><strong>Version 1</strong></p>
 <ul>
-<li>And would appear as:</li>
+<li>bit quicker in terms of coding and reduces chance of error by perhaps forgetting to include a specific column</li>
 </ul>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch11InClass-s3-answer-show">Table 11.4: </span>Decomposition Matrix with Group Estimates added
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-i
-</th>
-<th style="text-align:right;">
-j
-</th>
-<th style="text-align:right;">
-Yij
-</th>
-<th style="text-align:right;">
-mu
-</th>
-<th style="text-align:right;">
-Ai
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-37
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-64
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-47
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-41
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-59
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT3">Return to Task</a></p>
-</div>
-<div id="inclass-step-4" class="section level4">
-<h4><span class="header-section-number">11.5.1.4</span> InClass Step 4</h4>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1">wemwbs &lt;-<span class="st"> </span>wellbeing <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb457-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;score&quot;</span>, <span class="op">-</span>Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb457-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb457-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tot_wellbeing =</span> <span class="kw">sum</span>(score))</a></code></pre></div>
+<p><strong>Version 2</strong></p>
 <ul>
-<li>The residuals are calculated as follows:</li>
+<li>this one is a bit slower</li>
 </ul>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1">dmx4 &lt;-<span class="st"> </span>dmx3 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb377-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</a></code></pre></div>
-<ul>
-<li>And would appear as:</li>
-</ul>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch11InClass-s4-answer-show">Table 11.5: </span>Decomposition Matrix with Residuals added
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-i
-</th>
-<th style="text-align:right;">
-j
-</th>
-<th style="text-align:right;">
-Yij
-</th>
-<th style="text-align:right;">
-mu
-</th>
-<th style="text-align:right;">
-Ai
-</th>
-<th style="text-align:right;">
-err
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-37
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
--21
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-22
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-64
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
--7
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
--11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-47
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-41
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--6
-</td>
-<td style="text-align:right;">
--3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-59
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
--25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-60
-</td>
-<td style="text-align:right;">
-50
-</td>
-<td style="text-align:right;">
--2
-</td>
-<td style="text-align:right;">
-12
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">wemwbs &lt;-<span class="st"> </span>wellbeing <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb458-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tot_wellbeing =</span> WBOptimf <span class="op">+</span><span class="st"> </span>WBUseful <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb458-3" data-line-number="3"><span class="st">           </span>WBRelax <span class="op">+</span><span class="st"> </span>WBIntp <span class="op">+</span><span class="st">   </span>WBEnergy <span class="op">+</span><span class="st"> </span>WBDealpr <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb458-4" data-line-number="4"><span class="st">           </span>WBThkclr <span class="op">+</span><span class="st"> </span>WBGoodme <span class="op">+</span><span class="st"> </span>WBClsep <span class="op">+</span><span class="st"> </span>WBConfid <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb458-5" data-line-number="5"><span class="st">           </span>WBMkmind <span class="op">+</span><span class="st"> </span>WBLoved <span class="op">+</span><span class="st"> </span>WBIntthg <span class="op">+</span><span class="st"> </span>WBCheer) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb458-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Serial, tot_wellbeing) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb458-7" data-line-number="7"><span class="st">  </span><span class="kw">arrange</span>(Serial)</a></code></pre></div>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT2">Return to Task</a></p>
 </div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT4">Return to Task</a></p>
+<div id="visualising-screen-time-on-all-technologies" class="section level4">
+<h4><span class="header-section-number">15.5.1.3</span> Visualising Screen time on all technologies</h4>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1"><span class="co">## screen time</span></a>
+<a class="sourceLine" id="cb459-2" data-line-number="2">screen_long &lt;-<span class="st"> </span>screen <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb459-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;var&quot;</span>, <span class="st">&quot;hours&quot;</span>, <span class="op">-</span>Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb459-4" data-line-number="4"><span class="st">  </span><span class="kw">separate</span>(var, <span class="kw">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb459-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb459-6" data-line-number="6">screen2 &lt;-<span class="st"> </span>screen_long <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb459-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">variable =</span> <span class="kw">recode</span>(variable,</a>
+<a class="sourceLine" id="cb459-8" data-line-number="8">               <span class="st">&quot;Watch&quot;</span> =<span class="st"> &quot;Watching TV&quot;</span>,</a>
+<a class="sourceLine" id="cb459-9" data-line-number="9">               <span class="st">&quot;Comp&quot;</span> =<span class="st"> &quot;Playing Video Games&quot;</span>,</a>
+<a class="sourceLine" id="cb459-10" data-line-number="10">               <span class="st">&quot;Comph&quot;</span> =<span class="st"> &quot;Using Computers&quot;</span>,</a>
+<a class="sourceLine" id="cb459-11" data-line-number="11">               <span class="st">&quot;Smart&quot;</span> =<span class="st"> &quot;Using Smartphone&quot;</span>),</a>
+<a class="sourceLine" id="cb459-12" data-line-number="12">     <span class="dt">day =</span> <span class="kw">recode</span>(day,</a>
+<a class="sourceLine" id="cb459-13" data-line-number="13">              <span class="st">&quot;wk&quot;</span> =<span class="st"> &quot;Weekday&quot;</span>,</a>
+<a class="sourceLine" id="cb459-14" data-line-number="14">              <span class="st">&quot;we&quot;</span> =<span class="st"> &quot;Weekend&quot;</span>))</a>
+<a class="sourceLine" id="cb459-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb459-16" data-line-number="16"><span class="kw">ggplot</span>(screen2, <span class="kw">aes</span>(hours)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb459-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb459-18" data-line-number="18"><span class="st">  </span><span class="kw">facet_grid</span>(day <span class="op">~</span><span class="st"> </span>variable)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch15-sol-st-plot-sol"></span>
+<img src="15-s02-lab15e_files/figure-html/ch15-sol-st-plot-sol-1.png" alt="Count of the hours of usage of different types of social media at Weekdays and Weekends" width="100%" />
+<p class="caption">
+Figure 15.4: Count of the hours of usage of different types of social media at Weekdays and Weekends
+</p>
 </div>
-<div id="inclass-step-5-version-1" class="section level4">
-<h4><span class="header-section-number">11.5.1.5</span> InClass Step 5 (version 1)</h4>
-<ul>
-<li><code>mutate()</code> on the squared values column</li>
-<li><code>select()</code> only those columns</li>
-<li><code>summarise(sum)</code> those columns</li>
-</ul>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb378-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij2 =</span> Yij<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb378-3" data-line-number="3">         <span class="dt">mu2 =</span> mu<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb378-4" data-line-number="4">         <span class="dt">Ai2 =</span> Ai<span class="op">^</span><span class="dv">2</span>,</a>
-<a class="sourceLine" id="cb378-5" data-line-number="5">         <span class="dt">err2 =</span> err<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb378-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(Yij2, mu2, Ai2, err2) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb378-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">ss_Y =</span> <span class="kw">sum</span>(Yij2),</a>
-<a class="sourceLine" id="cb378-8" data-line-number="8">            <span class="dt">ss_mu =</span> <span class="kw">sum</span>(mu2),</a>
-<a class="sourceLine" id="cb378-9" data-line-number="9">            <span class="dt">ss_Ai =</span> <span class="kw">sum</span>(Ai2),</a>
-<a class="sourceLine" id="cb378-10" data-line-number="10">            <span class="dt">ss_err =</span> <span class="kw">sum</span>(err2))</a></code></pre></div>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT3">Return to Task</a></p>
 </div>
-<div id="inclass-step-5-version-2" class="section level4">
-<h4><span class="header-section-number">11.5.1.6</span> InClass Step 5 (version 2)</h4>
-<ul>
-<li><p>There is an alternative way to do the above in a supercool, superquick, two lines of code using dplyr’s “scoping” technique. Have a look at ?dplyr::scoped and ?dplyr::summarise_all.</p></li>
-<li><p>Don’t worry if you don’t understand this yet, as it is pretty advanced, but as you can see it gives the same output as we created in class.</p></li>
-</ul>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1">sstbl &lt;-<span class="st"> </span>dmx4 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb379-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Yij<span class="op">:</span>err) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb379-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise_all</span>(<span class="kw">list</span>(<span class="dt">name =</span> <span class="op">~</span><span class="st"> </span><span class="kw">sum</span>(.<span class="op">^</span><span class="dv">2</span>)))</a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11InClassQueT5">Return to Task</a></p>
+<div id="visualising-the-screen-time-and-well-being-relationship" class="section level4">
+<h4><span class="header-section-number">15.5.1.4</span> Visualising the Screen time and Well-being relationship</h4>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">dat_means &lt;-<span class="st"> </span><span class="kw">inner_join</span>(wemwbs, screen2, <span class="st">&quot;Serial&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb460-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(variable, day, hours) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb460-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wellbeing =</span> <span class="kw">mean</span>(tot_wellbeing))</a>
+<a class="sourceLine" id="cb460-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb460-5" data-line-number="5"><span class="kw">ggplot</span>(dat_means, <span class="kw">aes</span>(hours, mean_wellbeing, <span class="dt">linetype =</span> day)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb460-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb460-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb460-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>variable, <span class="dt">nrow =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch15-sol-combined"></span>
+<img src="15-s02-lab15e_files/figure-html/ch15-sol-combined-1.png" alt="Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends" width="100%" />
+<p class="caption">
+Figure 15.5: Scatterplot showing the relationship between screen time and mean well-being across four technologies for Weekdays and Weekends
+</p>
+</div>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15PreClassQueT4">Return to Task</a></p>
 </div>
 </div>
-<div id="homework-activities" class="section level3">
-<h3><span class="header-section-number">11.5.2</span> Homework Activities</h3>
-<div id="assignment-question-1" class="section level4">
-<h4><span class="header-section-number">11.5.2.1</span> Assignment Question 1</h4>
-<ul>
-<li>The correct model for this scenario would be:</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(Y_{ij} = \mu + A_{ij} + S(A)_{ij}\)</span></li>
-</ol>
-<ul>
-<li>As such the correct answer is:</li>
-</ul>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1">mcq1 &lt;-<span class="st"> </span><span class="dv">1</span></a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT1">Return to Task</a></p>
+<div id="inclass-activities-10" class="section level3">
+<h3><span class="header-section-number">15.5.2</span> InClass Activities</h3>
+<div id="smartphone-and-well-being-for-boys-and-girls" class="section level4">
+<h4><span class="header-section-number">15.5.2.1</span> Smartphone and well-being for boys and girls</h4>
+<p><strong>Solution Steps 1 to 2</strong></p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">smarttot &lt;-<span class="st"> </span>screen2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb461-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(variable <span class="op">==</span><span class="st"> &quot;Using Smartphone&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb461-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Serial) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb461-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">tothours =</span> <span class="kw">mean</span>(hours))</a></code></pre></div>
+<p><strong>Solution Step 3</strong></p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">smart_wb &lt;-<span class="st"> </span>smarttot <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb462-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(tothours <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb462-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(wemwbs, <span class="st">&quot;Serial&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb462-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(pinfo, <span class="st">&quot;Serial&quot;</span>) </a></code></pre></div>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT1">Return to Task</a></p>
 </div>
-<div id="assignment-question-2" class="section level4">
-<h4><span class="header-section-number">11.5.2.2</span> Assignment Question 2</h4>
-<p>The population grand mean for the shown decomposition matrix is <span class="math inline">\(\hat{\mu}\)</span> = 6</p>
-<ul>
-<li>As such the correct answer is:</li>
-</ul>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1">mcq2 &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT2">Return to Task</a></p>
+<div id="visualise-and-interpreting-the-relationship-of-smartphone-use-and-wellbeing-by-sex" class="section level4">
+<h4><span class="header-section-number">15.5.2.2</span> Visualise and Interpreting the relationship of smartphone use and wellbeing by sex</h4>
+<p><strong>The Figure</strong></p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1">smart_wb_gen &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb463-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(tothours, sex) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb463-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_wellbeing =</span> <span class="kw">mean</span>(tot_wellbeing))</a>
+<a class="sourceLine" id="cb463-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb463-5" data-line-number="5"><span class="kw">ggplot</span>(smart_wb_gen, <span class="kw">aes</span>(tothours, mean_wellbeing, <span class="dt">color =</span> <span class="kw">factor</span>(sex))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb463-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb463-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</a></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:ch15-use-wb-bysex"></span>
+<img src="15-s02-lab15e_files/figure-html/ch15-use-wb-bysex-1.png" alt="Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)" width="100%" />
+<p class="caption">
+Figure 15.6: Scatterplot and slopes for relationships between total hours and mean wellbeing score for boys (cyan) and girls (red)
+</p>
 </div>
-<div id="assignment-question-3" class="section level4">
-<h4><span class="header-section-number">11.5.2.3</span> Assignment Question 3</h4>
-<p>The value for the shown decomposition matrix is <span class="math inline">\(\hat{A}_3\)</span> = 1</p>
-<ul>
-<li>As such the correct answer is:</li>
-</ul>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1">mcq3 &lt;-<span class="st"> </span><span class="dv">3</span></a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT3">Return to Task</a></p>
+<p><strong>A brief Interpretation</strong></p>
+<p>Girls show lower overall well-being compared to boys. In addition, the slope for girls appears more negative than that for boys; the one for boys appears relatively flat. This suggests that the negative association between well-being and smartphone use is stronger for girls.</p>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT2">Return to Task</a></p>
 </div>
-<div id="assignment-question-4" class="section level4">
-<h4><span class="header-section-number">11.5.2.4</span> Assignment Question 4</h4>
-<p>The “fitted” or “typical” value for a participant in Group 1 would be <span class="math inline">\(\hat{Y}_{ij}\)</span> = <span class="math inline">\(\mu\)</span> + <span class="math inline">\(A_i\)</span>..</p>
+<div id="estimating-model-parameters" class="section level4">
+<h4><span class="header-section-number">15.5.2.3</span> Estimating model parameters</h4>
 <ul>
-<li>As such the correct answer is:</li>
+<li>This is the chunk we gave in the materials.</li>
 </ul>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1">Q4 &lt;-<span class="st"> </span><span class="dv">5</span></a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT4">Return to Task</a></p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1">smart_wb &lt;-<span class="st"> </span>smart_wb <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb464-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tothours_c =</span> tothours <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(tothours),</a>
+<a class="sourceLine" id="cb464-3" data-line-number="3">         <span class="dt">sex_c =</span> <span class="kw">ifelse</span>(sex <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="fl">.5</span>, <span class="fl">-.5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb464-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>tothours, <span class="op">-</span>sex)</a></code></pre></div>
+<ul>
+<li>and the model would be specified as:</li>
+</ul>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(tot_wellbeing <span class="op">~</span><span class="st"> </span>tothours_c <span class="op">*</span><span class="st"> </span>sex_c, smart_wb)</a></code></pre></div>
+<ul>
+<li>or alternatively</li>
+</ul>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">lm</span>(tot_wellbeing <span class="op">~</span><span class="st"> </span>tothours_c <span class="op">+</span><span class="st"> </span>sex_c <span class="op">+</span><span class="st"> </span>tothours_c<span class="op">:</span>sex_c, smart_wb)</a></code></pre></div>
+<ul>
+<li>and the output called by:</li>
+</ul>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="kw">summary</span>(mod)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = tot_wellbeing ~ tothours_c + sex_c + tothours_c:sex_c, 
+##     data = smart_wb)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -36.881  -5.721   0.408   6.237  27.264 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      47.43724    0.03557 1333.74   &lt;2e-16 ***
+## tothours_c       -0.54518    0.01847  -29.52   &lt;2e-16 ***
+## sex_c             5.13968    0.07113   72.25   &lt;2e-16 ***
+## tothours_c:sex_c  0.45205    0.03693   12.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.135 on 71029 degrees of freedom
+## Multiple R-squared:  0.09381,    Adjusted R-squared:  0.09377 
+## F-statistic:  2451 on 3 and 71029 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT3">Return to Task</a></p>
 </div>
-<div id="assignment-question-5" class="section level4">
-<h4><span class="header-section-number">11.5.2.5</span> Assignment Question 5</h4>
-<p>The participants/observations with the largest residuals are <span class="math inline">\(Y_{31}\)</span> and <span class="math inline">\(Y_{32}\)</span></p>
+<div id="final-interpretations" class="section level4">
+<h4><span class="header-section-number">15.5.2.4</span> Final Interpretations</h4>
 <ul>
-<li>As such the correct answer is:</li>
+<li><p>The interaction between smartphone use and gender is shown by the variable tothours_c:sex_c, and this interaction was significant at the <span class="math inline">\(\alpha = .05\)</span> level, meaning that there is an significant interaction between sex and hours of smartphone usage on wellbeing</p></li>
+<li>To two decimal places, the intercept for male participants is: 50.01</li>
+<li>To two decimal places, the slope for male participants is: -0.32</li>
+<li>To two decimal places, the intercept for female participants is: 44.87</li>
+<li><p>To two decimal places, the slope for female participants is: -0.77</p></li>
 </ul>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1">Q5 &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT5">Return to Task</a></p>
-</div>
-<div id="assignment-question-6" class="section level4">
-<h4><span class="header-section-number">11.5.2.6</span> Assignment Question 6</h4>
-<p>The <span class="math inline">\(SS_{total}\)</span> for this model would be calculated as:</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1">Q6 &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">6</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">8</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">12</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<p>As such, given the model of <code>Y = intercept + (slope * X)</code> where Y is wellbeing and X is total hours on smartphone, what would be the predicted wellbeing score for a male and a female who use their smartphones for 8 hours. Give your answer to two decimal places:</p>
 <ul>
-<li>As such giving a <span class="math inline">\(SS_{total}\)</span> of 280</li>
+<li>Male: 47.45</li>
+<li>Female: 38.71</li>
 </ul>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT6">Return to Task</a></p>
-</div>
-<div id="assignment-question-7" class="section level4">
-<h4><span class="header-section-number">11.5.2.7</span> Assignment Question 7</h4>
-<p>The <span class="math inline">\(SS_{error}\)</span> for this model would be calculated as:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1">Q7 &lt;-<span class="st"> </span>(<span class="op">-</span><span class="dv">1</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="op">-</span><span class="dv">5</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span><span class="op">^</span><span class="dv">2</span></a></code></pre></div>
-<ul>
-<li>As such giving a <span class="math inline">\(SS_{error}\)</span> of 60</li>
-</ul>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT7">Return to Task</a></p>
-</div>
-<div id="assignment-question-8" class="section level4">
-<h4><span class="header-section-number">11.5.2.8</span> Assignment Question 8</h4>
-<p>From reading Miller and Haden Chapter 3, and from the inclass activity Section 5, a study with a one-factor design with GLM <span class="math inline">\(Y_{ij} = \mu + A_{ij} + S(A)_{ij}\)</span> is found to have the following SS:</p>
-<ul>
-<li><span class="math inline">\(SS_{total} = 280\)</span>,</li>
-<li><span class="math inline">\(SS_{\mu} = 40\)</span>,</li>
-<li><span class="math inline">\(SS_{error} = 60\)</span>.<br />
-</li>
-<li><span class="math inline">\(SS_{total}\)</span> = <span class="math inline">\(SS_{\mu}\)</span> + <span class="math inline">\(SS_{A}\)</span> + <span class="math inline">\(SS_{error}\)</span></li>
-</ul>
-<p>Given the above values and formula the value of <span class="math inline">\(SS_{A}\)</span> would be <span class="math inline">\(SS_{A}\)</span> = 180</p>
-<ul>
-<li>As such the correct answer is:</li>
-</ul>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1">Q8 &lt;-<span class="st"> </span><span class="dv">180</span></a></code></pre></div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT8">Return to Task</a></p>
-</div>
-<div id="assignment-question-9" class="section level4">
-<h4><span class="header-section-number">11.5.2.9</span> Assignment Question 9</h4>
-<p>Entering the following values:</p>
-<ul>
-<li>Group 1: 84, 86, 61</li>
-<li>Group 2: 83, 71, 95</li>
-<li>Group 3: 56, 95, 92</li>
-<li>Group 4: 68, 76, 93</li>
-</ul>
-<p><code>dmx</code> can be created as shown:</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1">dsetup &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">i =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">3</span>),</a>
-<a class="sourceLine" id="cb388-2" data-line-number="2">                 <span class="dt">j =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">times =</span> <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb388-3" data-line-number="3">                 <span class="dt">Yij =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb388-4" data-line-number="4">                 <span class="dt">mu =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb388-5" data-line-number="5">                 <span class="dt">Ai =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb388-6" data-line-number="6">                 <span class="dt">err =</span> <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb388-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb388-8" data-line-number="8">dmx &lt;-<span class="st"> </span>dsetup <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb388-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Yij =</span> <span class="kw">c</span>(<span class="dv">84</span>, <span class="dv">86</span>, <span class="dv">61</span>,</a>
-<a class="sourceLine" id="cb388-10" data-line-number="10">                 <span class="dv">83</span>, <span class="dv">71</span>, <span class="dv">95</span>,</a>
-<a class="sourceLine" id="cb388-11" data-line-number="11">                 <span class="dv">56</span>, <span class="dv">95</span>, <span class="dv">92</span>,</a>
-<a class="sourceLine" id="cb388-12" data-line-number="12">                 <span class="dv">68</span>, <span class="dv">76</span>, <span class="dv">93</span>),</a>
-<a class="sourceLine" id="cb388-13" data-line-number="13">         <span class="dt">mu =</span> <span class="kw">mean</span>(Yij)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb388-14" data-line-number="14"><span class="st">  </span><span class="kw">group_by</span>(i) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb388-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ai =</span> <span class="kw">mean</span>(Yij) <span class="op">-</span><span class="st"> </span>mu) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb388-16" data-line-number="16"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb388-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">err =</span> Yij <span class="op">-</span><span class="st"> </span>(mu <span class="op">+</span><span class="st"> </span>Ai))</a></code></pre></div>
-<p>Producing the following output:</p>
-<div style="border: 0px;overflow-x: scroll; width:100%; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ch11-decomp-mx-output">Table 11.6: </span>Decomposition Matrix of Ch11 Assignment Task 9
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-i
-</th>
-<th style="text-align:right;">
-j
-</th>
-<th style="text-align:right;">
-Yij
-</th>
-<th style="text-align:right;">
-mu
-</th>
-<th style="text-align:right;">
-Ai
-</th>
-<th style="text-align:right;">
-err
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-84
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
--3
-</td>
-<td style="text-align:right;">
-7
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-86
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
--3
-</td>
-<td style="text-align:right;">
-9
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-61
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
--3
-</td>
-<td style="text-align:right;">
--16
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-83
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-71
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
--12
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-95
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-12
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-56
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
--25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-95
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-14
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-92
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-68
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
--1
-</td>
-<td style="text-align:right;">
--11
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
--1
-</td>
-<td style="text-align:right;">
--3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-93
-</td>
-<td style="text-align:right;">
-80
-</td>
-<td style="text-align:right;">
--1
-</td>
-<td style="text-align:right;">
-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="introduction-to-glm-one-factor-anova.html#Ch11AssignQueT9">Return to Task</a></p>
+<p>And finally, the most reasonable interpretation of these results is that smartphone use was more negatively associated with wellbeing for girls than for boys.</p>
+<p><a href="combining-anova-and-regression-e-g-ancovas.html#Ch15InClassQueT4">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 
 </div>
@@ -2960,8 +1333,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="correlations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="continuing-the-glm-one-factor-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reflection-semester-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

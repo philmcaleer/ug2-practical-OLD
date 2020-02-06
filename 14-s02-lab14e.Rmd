@@ -51,7 +51,7 @@ joined <- inner_join(ratings_mean, acoustics, "VoiceID") %>% filter(sex == "M")
 
 ### Task 5
 
-```{r ch14-t5-scatter_sol, echo = FALSE, fig.cap='Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating'}
+```{r ch14-t5-scatter-sol, echo = FALSE, fig.cap='Scatterplot showing the relationship between the voice measures of Dispersion (left) and Pitch (right) and Mean Trustworthiness Rating'}
 ggplot(joined, aes(value, mean_rating)) +
   geom_point() +
   geom_smooth(method = "lm") +
