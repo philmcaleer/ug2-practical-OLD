@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-04-06" />
+<meta name="date" content="2020-05-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,7 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lets-begin"><i class="fa fa-check"></i><b>1.2.1</b> Let’s Begin</a></li>
 <li class="chapter" data-level="1.2.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#code-chunks"><i class="fa fa-check"></i><b>1.2.2</b> Code Chunks</a></li>
 <li class="chapter" data-level="1.2.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#knitting-code"><i class="fa fa-check"></i><b>1.2.3</b> Knitting Code</a></li>
-<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-rules-to-code-chunks"><i class="fa fa-check"></i><b>1.2.4</b> Adding Rules to Code Chunks</a></li>
+<li class="chapter" data-level="1.2.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-code-chunk-rules-and-options"><i class="fa fa-check"></i><b>1.2.4</b> Adding Code Chunk Rules and Options</a></li>
 <li class="chapter" data-level="1.2.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#adding-inline-code"><i class="fa fa-check"></i><b>1.2.5</b> Adding Inline Code</a></li>
 <li class="chapter" data-level="1.2.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#formatting-the-r-markdown-file"><i class="fa fa-check"></i><b>1.2.6</b> Formatting the R Markdown File</a></li>
 </ul></li>
@@ -164,6 +164,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#assignment"><i class="fa fa-check"></i><b>1.4</b> Assignment</a></li>
 <li class="chapter" data-level="1.5" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#solutions-to-questions"><i class="fa fa-check"></i><b>1.5</b> Solutions to Questions</a><ul>
 <li class="chapter" data-level="1.5.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activities"><i class="fa fa-check"></i><b>1.5.1</b> InClass Activities</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-comparison"><i class="fa fa-check"></i><b>1.6</b> InClass Comparison</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lab-1---the-magnitude-of-the-ponzo-illusion-varies-as-a-function-of-age"><i class="fa fa-check"></i><b>1.6.1</b> Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</a></li>
+<li class="chapter" data-level="1.6.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#introduction"><i class="fa fa-check"></i><b>1.6.2</b> Introduction</a></li>
+<li class="chapter" data-level="1.6.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#methods"><i class="fa fa-check"></i><b>1.6.3</b> Methods</a></li>
+<li class="chapter" data-level="1.6.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#results"><i class="fa fa-check"></i><b>1.6.4</b> Results</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
@@ -958,8 +964,8 @@ If you were looking to calculate a 99% Confidence Interval you would instead use
 <li>Feel free to embellish the figure as you see fit.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
-<a class="sourceLine" id="cb293-2" data-line-number="2">              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1"><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
+<a class="sourceLine" id="cb295-2" data-line-number="2">              <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>)</a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1068,27 +1074,27 @@ your <code>results</code> states degrees of freedom as <code>parameter</code>, a
 <h3><span class="header-section-number">7.5.1</span> InClass Activities</h3>
 <div id="inclass-task-1-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.1</span> InClass Task 1</h4>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
-<a class="sourceLine" id="cb294-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb294-3" data-line-number="3">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb296-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb296-3" data-line-number="3">ratings &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;GuiltJudgements.csv&quot;</span>)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-4" class="section level4">
 <h4><span class="header-section-number">7.5.1.2</span> InClass Task 2</h4>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">lates &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb295-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb295-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb295-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb295-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> Twelve <span class="op">-</span><span class="st"> </span>Thirteen)</a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">lates &lt;-<span class="st"> </span>ratings <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Evidence <span class="op">==</span><span class="st"> &quot;Late&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Participant, Evidence, <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb297-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Twelve =</span> <span class="st">`</span><span class="dt">12</span><span class="st">`</span>, <span class="dt">Thirteen =</span> <span class="st">`</span><span class="dt">13</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb297-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">diff =</span> Twelve <span class="op">-</span><span class="st"> </span>Thirteen)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.3</span> InClass Task 3</h4>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb296-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(diff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb296-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb296-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Difference in GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb296-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb298-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(diff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Difference in GuiltRating&quot;</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb298-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task3"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task3-1.png" alt="Potential Solution to Task 3" width="100%" />
 <p class="caption">
@@ -1100,10 +1106,10 @@ Figure 7.1: Potential Solution to Task 3
 <div id="inclass-task-4-3" class="section level4">
 <h4><span class="header-section-number">7.5.1.4</span> InClass Task 4</h4>
 <p>The Task only asks for the boxplot. We have added some additional functions to tidy up the figure a bit that you might want to play with.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> diff)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb297-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb297-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">y =</span> diff)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb299-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb299-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task4"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task4-1.png" alt="Potential Solution to Task 4" width="100%" />
 <p class="caption">
@@ -1114,16 +1120,16 @@ Figure 7.2: Potential Solution to Task 4
 </div>
 <div id="inclass-task-5-2" class="section level4">
 <h4><span class="header-section-number">7.5.1.5</span> InClass Task 5</h4>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb298-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>diff) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve, Thirteen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb298-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb298-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
-<a class="sourceLine" id="cb298-6" data-line-number="6">            <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),</a>
-<a class="sourceLine" id="cb298-7" data-line-number="7">            <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),</a>
-<a class="sourceLine" id="cb298-8" data-line-number="8">            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb298-9" data-line-number="9">            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,</a>
-<a class="sourceLine" id="cb298-10" data-line-number="10">            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1">descriptives &lt;-<span class="st"> </span>lates <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb300-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>diff) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb300-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(Timepoint, GuiltRating, Twelve, Thirteen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb300-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(Timepoint) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb300-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb300-6" data-line-number="6">            <span class="dt">mean =</span> <span class="kw">mean</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb300-7" data-line-number="7">            <span class="dt">sd =</span> <span class="kw">sd</span>(GuiltRating),</a>
+<a class="sourceLine" id="cb300-8" data-line-number="8">            <span class="dt">se =</span> sd<span class="op">/</span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb300-9" data-line-number="9">            <span class="dt">LowerCI =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se,</a>
+<a class="sourceLine" id="cb300-10" data-line-number="10">            <span class="dt">UpperCI =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span><span class="op">*</span>se)</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT5">Return to Task</a></p>
 </div>
 <div id="inclass-task-6-1" class="section level4">
@@ -1132,17 +1138,17 @@ Figure 7.2: Potential Solution to Task 4
 <li>A basic barplot with 95% Confidence Intervals.</li>
 <li>We have embellished the figure a little but you can mess around with the code to see what each bit does.</li>
 </ul>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#E2A458&quot;</span>, <span class="st">&quot;#61589C&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
-<a class="sourceLine" id="cb299-8" data-line-number="8">                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb299-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb301-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#E2A458&quot;</span>, <span class="st">&quot;#61589C&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI),</a>
+<a class="sourceLine" id="cb301-8" data-line-number="8">                <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="dt">width =</span> <span class="fl">.15</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-10" data-line-number="10"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task6-1"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task6-1-1.png" alt="Possible Solution to Task 7" width="100%" />
 <p class="caption">
@@ -1152,14 +1158,14 @@ Figure 7.3: Possible Solution to Task 7
 <ul>
 <li>An alternative way to display just the means and errorbars would be to use the pointrange approach. This image shows again the 95% CI</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb300-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span></a>
-<a class="sourceLine" id="cb300-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb300-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb300-5" data-line-number="5"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
-<a class="sourceLine" id="cb300-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb300-7" data-line-number="7"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb300-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">ggplot</span>(descriptives, <span class="kw">aes</span>(<span class="dt">x =</span> Timepoint, <span class="dt">y =</span> mean, <span class="dt">fill =</span> Timepoint)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb302-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> LowerCI, <span class="dt">ymax =</span> UpperCI))<span class="op">+</span></a>
+<a class="sourceLine" id="cb302-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;Twelve&quot;</span>,<span class="st">&quot;Thirteen&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb302-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Timepoint of Evidence&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;GuiltRating&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb302-5" data-line-number="5"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb302-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb302-7" data-line-number="7"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">9</span>), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="fl">0.5</span>,<span class="fl">2.5</span>), <span class="dt">expand =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb302-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ch7-task6-2"></span>
 <img src="07-s01-lab07e_files/figure-html/ch7-task6-2-1.png" alt="Alternative Solution to Task 7" width="100%" />
 <p class="caption">
@@ -1173,9 +1179,9 @@ Figure 7.4: Alternative Solution to Task 7
 <ul>
 <li>Remember to set <code>paired = TRUE</code> to run the within-subjects t-test</li>
 </ul>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Twelve),</a>
-<a class="sourceLine" id="cb301-2" data-line-number="2">                  lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Thirteen), <span class="dt">paired =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">results &lt;-<span class="st"> </span><span class="kw">t.test</span>(lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Twelve),</a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">                  lates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pull</span>(Thirteen), <span class="dt">paired =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="st">  </span><span class="kw">tidy</span>()</a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT7">Return to Task</a></p>
 </div>
 <div id="inclass-task-8-2" class="section level4">
@@ -1183,9 +1189,9 @@ Figure 7.4: Alternative Solution to Task 7
 <p>A potential write-up for this study would be as follows:</p>
 <p><strong>A paired-samples t-test was run to compare the change in guilt ratings before (M = 5.8, SD = 1.5) and after (M = 4.04, SD = 1.93) the crucial evidence was heard. A significant difference was found (t(74) = 8.23, p &lt; .001) with Timepoint 13 having an average rating 1.76 units lower than Timepoint 12. This tells us that the critical evidence did have an influence on the rating of guilt by jury members.</strong></p>
 <p>When rounding off p-values that are less than .001, rounding will give you a value of 0 which is a bit silly. Values less than .001 would normally be written as p &lt; .001. To create a reader-friendly p-value, then you could try something like the following in your code:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, </a>
-<a class="sourceLine" id="cb302-2" data-line-number="2">       <span class="st">&quot;p &lt; .001&quot;</span>, </a>
-<a class="sourceLine" id="cb302-3" data-line-number="3">       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">ifelse</span>(results<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">.001</span>, </a>
+<a class="sourceLine" id="cb304-2" data-line-number="2">       <span class="st">&quot;p &lt; .001&quot;</span>, </a>
+<a class="sourceLine" id="cb304-3" data-line-number="3">       <span class="kw">paste0</span>(<span class="st">&quot;p = &quot;</span>, <span class="kw">round</span>(results<span class="op">$</span>p.value,<span class="dv">3</span>))) </a></code></pre></div>
 <p><a href="within-subjects-t-test.html#Ch7InClassQueT8">Return to Task</a></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 

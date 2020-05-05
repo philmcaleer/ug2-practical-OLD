@@ -23,16 +23,19 @@ In terms of remembering all the functions, the truth is you don't have to know t
 ```
 `r unhide()`
 
+
 **A Note on Tidy Data** 
 
-In the style of programming we teach, the most efficient format/layout of data is what is known as `Tidy Data`, and any data in this format is easily processed through the `tidyverse` package. However, the data you work with will not always be formatted in the most efficient way possible. If that happens then our first step is to put it into `Tidy Data` format. There are three fundamental rules defining `Tidy Data`:
+In the style of programming we teach, the most efficient format/layout of data is what is known as `Tidy Data`, and any data in this format is easily processed through the `tidyverse` package. You can read more about this type of data layout in this paper: [Tidy Data (Wickham, 2014)](https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf). It is a surprisingly good read. 
+
+However, the data you work with will not always be formatted in the most efficient way possible. If that happens then our first step is to put it into `Tidy Data` format. There are three fundamental rules defining `Tidy Data`:
 
 1. Each variable must have its own column.
 2. Each observation must have its own row.
 3. Each value must have its own cell (i.e. no grouping two variables together, e.g. time/date in one cell). 
     i) A cell is where any specific row and column meet; a single data point in a tibble is a cell. 
 
-`r hide("Explain this - If it isnt Tidy then what is it?")`
+`r hide("Explain this - If it isn't Tidy then what is it?")`
 ```{block, type ="info"}
 We use `Tidy Data` because it is really efficient and works well with the `tidyverse`. However, people used to use data structured in `long` format or `wide` format. 
     
@@ -43,10 +46,10 @@ Wide format on the other hand, again each row was a participant, but each column
 `Tidy` is a mix of both of these approachs and works best for data-wrangling.
 ```
 `r unhide()`
-
+<br>
 **Today's Lab - Analysing the Autism Specturm Quotient (AQ)**
 
-To continue building your data wrangling skills we will recap the L11 lab on tidying up data from the Autism Spectrum Quotient (AQ) questionnaire. In that lab we used the AQ10; a non-diagnostic short form of the AQ with only 10 questions per participant. It is a discrete scale and the higher a participant scores on the AQ10 the more autistic-like traits they are said to display. Anyone scoring 7 or above is recommended for further diagnosis. You can see an example of the AQ10 through this link: <a href="http://docs.autismresearchcentre.com/tests/AQ10.pdf">AQ10 Example</a>. Remember you can revisit your Level 1 notes at any time but we will recap here for you. 
+To continue building your data wrangling skills we will recap on skills from Level 1 by tidying up data from the Autism Spectrum Quotient (AQ) questionnaire. In that lab we used the AQ10; a non-diagnostic short form of the AQ with only 10 questions per participant. It is a discrete scale and the higher a participant scores on the AQ10 the more autistic-like traits they are said to display. Anyone scoring 7 or above is recommended for further diagnosis. You can see an example of the AQ10 through this link: <a href="http://docs.autismresearchcentre.com/tests/AQ10.pdf">AQ10 Example</a>. Remember you can revisit your Level 1 notes at any time but we will recap here for you. 
 
 We have 66 participants and your goal in this lab is to find an AQ score for each of them through your data-wrangling skills. 
 
@@ -65,7 +68,7 @@ We have four data files to work with:
 `csv` stands for 'comma separated values', and is a very basic way of transferring data. It really just stores numbers and text and nothing else. The great thing about being this basic is that it can be read by many different machines and does not need expensive licenses to open it.
 ```
 `r unhide()`
-
+<br>
 Now **set your working directory** to the folder where you saved the `.csv` files. Do this through the dropdown menus at the top toolbar: `Session >> Set Working Directory >> Choose Directory` and then find your folder with your `.csv` files. This should be somewhere on your M: drive, but never in a folder titled `R`. 
 
 Today we will work in an Rscript instead of .Rmd but if you want to turn the lab into an RMarkdown report or to add elements to your Portfolio then please feel free.

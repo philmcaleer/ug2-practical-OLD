@@ -70,7 +70,7 @@ In setting up this Rmd file, if you have followed these steps correctly, you wil
 If you don't see the document header, then you've probably created an R Script instead. Refer back to the PreClass activity and try again. Look further down the list of File options on the top menu. If stuck, speak to a tutor.
 ```
 `r unhide()`
-
+<br>
 You can now remove the parts of the generic R Markdown code that we do not need; anything **after** the `setup` code chunk can be removed (see Figure \@ref(fig:img-setup-chunk)). So anything after line 11 can be removed. Leave the first code chunk however - lines 8 to 10 - as these lines make R Markdown show code chunks unless otherwise specified.
 
 `r hide("Portfolio Point - Code Chunk Reminders")`
@@ -234,7 +234,8 @@ Nearly all research reports have a figure so we will want to add one as well.
 2. Add the below code to the chunk and set the `include` rule so that both the code and the plot are included in the final report.
 
 ```{r Ch1InClassT9, eval = FALSE}
-ggplot(ponzo_data, aes(x = Mean_Age, y = ComparisonLength, color = Sex)) +
+ggplot(ponzo_data, 
+       aes(x = Mean_Age, y = ComparisonLength, color = Sex)) +
   geom_point()
 ```
 
@@ -243,10 +244,10 @@ ggplot(ponzo_data, aes(x = Mean_Age, y = ComparisonLength, color = Sex)) +
 You can use RStudio's autocomplete (the tab button) to see the different options for the different rules. For example, type `include =` and then hit the tab button on your keyboard. You should see the options of `TRUE` or `FALSE`. This works for a lot of functions you can't quite remember how to spell as well.
 ```
 `r unhide()`
-
+<br>
 **Again, knit your document to make sure it is working correctly. Below your table you should now have the ggplot code followed by the nice scatterplot.** 
 
-We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report! Compare your report to the one we have created to see if they match by clicking <a href = "https://github.com/philmcaleer/ug2-practical/blob/master/data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.html" target = "_blank">here for the html output</a> or <a href = "https://github.com/philmcaleer/ug2-practical/blob/master/data/01-s01/inclass/L2_Lab1_Inclass_ProducedTemplate_Ponzo.Rmd" target = "_blank">here for the R Markdown code</a>. **Fix anything that is not formatted as in our template.**  
+We will learn more about how to improve the visualisations as we progress but for now you have completed the bones of your first report! Compare your report to the one we have created to see if they match, which can be found at the end of this chapter using menu on the left (i.e. InClass Comparison) or [click here to download the .Rmd file in a zip folder](data/01-s01/inclass/ProducedPonzoTemplate.zip). **Fix anything that is not formatted as in our template.**  
 
 `r hide("Portfolio Point - The Power of R Markdown and the ggplot Package")`
 ```{block, type = "info"}
@@ -256,7 +257,7 @@ The code above uses the `ggplot2` package you used in Level 1. This is the main 
 
 ```
 `r unhide()`  
-
+<br>
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);"> **Group Discussion Point** </span>
 
 In your group, have a brief discussion about the figure to answer the following question.
@@ -273,4 +274,4 @@ What does each dot represent in the Figure, and what is the pattern of the dots?
 
 **Great work!** We have now created a rough layout of a report. The only section we are missing is the Discussion where you relate the information from previous research to what your study showed. Feel free to add one in your own time; read the short summary at the end of the actual paper to help get your thoughts together. We will talk more about the structuring of reports all throughout the year so you will have a great idea of how to write one by the end of Level 2. Well done on succesfully creating your own R Markdown file! 
 
-You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is SUMMATIVE and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab**. If you have any questions, please post them on the slack forum under the channel #level2_2018. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.
+You should now be ready to complete the Homework Assignment for this lab. **The assignment for this Lab is SUMMATIVE and should be submitted through the Moodle Level 2 Assignment Submission Page no later than 1 minute before your next lab**. If you have any questions, please post them on the forums. Finally, don't forget to add any useful information to your Portfolio before you leave it too long and forget.

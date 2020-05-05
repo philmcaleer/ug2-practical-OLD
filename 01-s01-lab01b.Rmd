@@ -78,7 +78,7 @@ Within the curly brackets, on the first line of the chunk, the word `cars` is in
 Remember knitting just means converting or rendering your file as a pdf, webpage, etc. Crashing means that you had an error in your code that stopped your knitting from working or finishing. You can usually find the problem line of code from the error message you'll see.
 ```
 `r unhide()`
-
+<br>
 The second line in the above **code chunk** is the R code we have written: `summary(cars)`. In this case, we are just asking for a `summary()` of the inbuilt dataset `cars`. R has a lot of inbuilt datasets for you to practice on; `cars` is one of these.
 
 The third line closes off the code chunk, again with the three backwards apostrophes. This means that whatever is contained between the first and third lines will be the code that is run.  
@@ -121,7 +121,7 @@ After saving the file, a webpage should appear. The first thing to notice is tha
 knitr::include_graphics("images/s01-lab01/preclass/rmd_summary2.png")
 ```
 
-### Adding Rules to Code Chunks
+### Adding Code Chunk Rules and Options
 
 It can often be a good idea or even necessary to show the data or the outcome of a test in your report, for example if you were writing a report and wanted to include a table of results. But what if your code displayed a table that was 10,000 lines long? In that case we might want to not show the output and only show the code. You can do this by including a rule within the first line of your code chunk - your \`\`\`{r name, rule = option} line. You have already seen a rule before in the standard default chunk, the `include` rule, but there are a number of others.  
 
@@ -189,26 +189,26 @@ In the second question, `include = FALSE` technically would hide the code, but t
 `r unhide()`  
 <br>  
 
-* True or False, writing `echo = TRUE` has the same effect on the output of a code as if you had no echo rule at all: `r torf(TRUE)`
+* True or False, writing `echo = TRUE` has the same effect on the output of a code chunk as if you had no echo rule at all: `r torf(TRUE)`
 
 `r hide("Explain This - Echo True or Not at all")`
 ```{block, type = "info"}
-All of the rules have a default mode. For example, `echo`, `include`, and `eval` are usually by default set to `TRUE`. As a result, if you don't declare any `echo` rule, i.e. you don't declare `echo = FALSE`, then it is the same as declaring `echo = TRUE`. So no rule means that you are wanting that rule set as `TRUE`.
+All of the code chunk rules have a default option. For example, `echo`, `include`, and `eval` are usually by default set to `TRUE`. As a result, if you don't set any `echo` rule, i.e. you don't specifically set `echo = FALSE` in your code chunk, then it is the same as setting `echo = TRUE`. So not specifying an option will give you the default setting for that option.
 ```
 `r unhide()`  
 <br>  
 
-* True or False, there is no difference between the rules `results = "hide"` and `eval = FALSE` as they both hide the output: `r torf(FALSE)`
+* True or False, there is no difference between setting `results = "hide"` and `eval = FALSE` as they both hide the output: `r torf(FALSE)`
 
 `r hide("Explain This - What's the difference?")`
 ```{block, type = "info"}
-In the first rule, `results = "hide"`, the code is evaluated and results are produced but the output is hidden. In the second rule, `eval = FALSE`, the code is not evaluated and therefore no results or output have been produced. If you need your output for a later part of the code then you would use the `results` rule. If you don't need the output and just want to show the code as an example then you would use the `eval` rule.
+With setting `results = "hide"`, the code is evaluated and results are produced but the output is hidden. With setting `eval = FALSE`, the code is not evaluated and therefore no results or output have been produced. If you need your output for a later part of the code then you would might use `results = "hide"`. If you don't need the output and just want to show the code as an example then you might use `eval = FALSE`.
 ```
 `r unhide()`  
 
 ### Adding Inline Code
 
-An alternative way to add code to a report is through what is called **inline coding**. Inline coding is slightly different to code chunks; you don't use a code chunk in fact. Inline coding can be inserted using a back-tick, then the letter `r`, followed by a space, the code you want to include, then another back-tick. For example, writing `r backtick("r 2 + 2")` would return the answer **4** when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this in line with your text, e.g.:
+An alternative way to add code to a report is through what is called using **inline code**. With inline code you don't use a code chunk. Instead the code appears **inline** with the text. Inline code can be inserted using a back-tick, then the letter `r`, followed by a space, the code you want to include, then another back-tick. For example, writing `r backtick("r 2 + 2")` would return the answer **4** when you knit the file instead of showing the code. Note that you do not do this inside a code chunk, you do this in line with your text, e.g.:
 <br><br>
 **"We ran `r backtick("r 2+2")` people".** 
 <br><br>
@@ -222,7 +222,7 @@ So inline coding is really useful if you want to do calculations **within your t
 
 - You need `r mcq(c("Two", "One", answer = "Three"))` back tick(s) to insert **code chunks**
 
-- Why is this inline code, `r backtick("r 6 * 8")` , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. `r mcq(c("You need a space between each back tick and the code", "Inline code cannot complete calcuations", answer = "Curly brackets are only needed for code chunks"))`
+- Why is this inline code, `r backtick("{r} 6 * 8")` , not going to show the calculated answer when you knit the file? Try editing the code line in Rmarkdown and knitting it to get it to work. `r mcq(c("You need a space between each back tick and the code", "Inline code cannot complete calcuations", answer = "Curly brackets are only needed for code chunks"))`
 
 `r hide("Explain This - Why are these answers correct?")`
 ```{block, type = "info"}
