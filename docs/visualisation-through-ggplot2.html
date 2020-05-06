@@ -214,6 +214,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#inclass-actitivies"><i class="fa fa-check"></i><b>2.5.2</b> InClass Actitivies</a></li>
 <li class="chapter" data-level="2.5.3" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#assignment-solution"><i class="fa fa-check"></i><b>2.5.3</b> Assignment Solution</a></li>
 </ul></li>
+<li class="chapter" data-level="2.6" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#additional-material"><i class="fa fa-check"></i><b>2.6</b> Additional Material</a><ul>
+<li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-read_csv"><i class="fa fa-check"></i>More on read_csv()</a></li>
+<li class="chapter" data-level="" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html#more-on-code-layout"><i class="fa fa-check"></i>More on Code Layout</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Visualisation Through <strong><code>ggplot2</code></strong></a><ul>
 <li class="chapter" data-level="3.1" data-path="visualisation-through-ggplot2.html"><a href="visualisation-through-ggplot2.html#overview-3"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
@@ -634,10 +638,10 @@ Figure 3.1: The Mental Rotation Task as shown in Ganis and Kievit (2016) Figure 
 <li>Open a new Rscript and save it within the folder that contains the data, giving the script a sensible name, e.g. <code>Lab3_preclass_visualisations.R</code></li>
 <li>Copy the three code lines below into your script and run them to bring <code>tidyverse</code> into the library and to read in the two datafiles.</li>
 </ol>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb66-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb66-3" data-line-number="3">menrot &lt;-<span class="kw">read_csv</span>(<span class="st">&quot;MentalRotationBehavioralData.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb66-4" data-line-number="4">demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb76-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb76-3" data-line-number="3">menrot &lt;-<span class="kw">read_csv</span>(<span class="st">&quot;MentalRotationBehavioralData.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb76-4" data-line-number="4">demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</a></code></pre></div>
 <div class="solution">
 <button>
 Portfolio Point - Why load tidyverse and not just ggplot2?
@@ -705,7 +709,7 @@ it works on a concept of <strong>layers</strong>
 </li>
 </ol>
 <p>
-Looking at point a: The first thing you enter is your dataframe, your <code>data</code>. Then within the <code>aes()</code> you say what is my <code>x_axis</code> and <code>y_axis</code>, using the column names from within your dataframe. <code>aes</code> stands for aesthetics - how do you want it to look. Finally you tell the code what type of plot you want.
+Looking at point a: The first thing you enter is your dataframe, your <code>data</code>. Then within the <code>aes()</code> you say what is my <code>x_axis</code> and <code>y_axis</code>, using the column names from within your dataframe. <code>aes</code> stands for aesthetics and maps data into visual features. Finally you tell the code what type of plot you want.
 </p>
 <p>
 On point b: Layers are a common way for graphics to work. Think about it as creating your first layer and then adding more layers on top to create the figure you want. The first layer is always your data and the x and y axes. The second layer, added by using the plus symbol ‘+’, is the type of plot. We will look at adding more layers as we progress.
@@ -724,15 +728,15 @@ On point b: Layers are a common way for graphics to work. Think about it as crea
 <li>It then plots a scatterplot (<code>geom_point()</code>) where <code>age</code> is plotted on the x axis, and <code>Mean_Time</code> is on the y axis</li>
 <li>Finally, it uses an additional <code>aes</code> call to <code>color</code> by <code>Sex</code> which will color each point based on whether it was a male or female participant responding:</li>
 </ol>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">menrot_time_age &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb67-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)</a>
-<a class="sourceLine" id="cb67-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb67-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_time_age, </a>
-<a class="sourceLine" id="cb67-6" data-line-number="6">       <span class="kw">aes</span>(<span class="dt">x =</span> Age, </a>
-<a class="sourceLine" id="cb67-7" data-line-number="7">           <span class="dt">y =</span> Mean_Time, </a>
-<a class="sourceLine" id="cb67-8" data-line-number="8">           <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb67-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">menrot_time_age &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)</a>
+<a class="sourceLine" id="cb77-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb77-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_time_age, </a>
+<a class="sourceLine" id="cb77-6" data-line-number="6">       <span class="kw">aes</span>(<span class="dt">x =</span> Age, </a>
+<a class="sourceLine" id="cb77-7" data-line-number="7">           <span class="dt">y =</span> Mean_Time, </a>
+<a class="sourceLine" id="cb77-8" data-line-number="8">           <span class="dt">color =</span> Sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb77-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim1"></span>
 <img src="03-s01-lab03b_files/figure-html/dim1-1.png" alt="A scatterplot of Mean Time as a function of Age" width="100%" />
 <p class="caption">
@@ -768,13 +772,13 @@ When comparing sex, based on the color of the dots, again there appears to be no
 <li>Wrangles the data to create an average response time for each participant, <code>Mean_Time</code>, and then filters this information for correct trials only. This is then stored in <code>menrot_hist_correct</code></li>
 <li>Plots a histogram (<code>geom_histogram()</code>) where <code>Mean_Time</code> is plotted on the x axis, and the count of each value in <code>Mean_Time</code> is plotted on the y axis. The code creates the y axis automatically and we don’t have to state it:</li>
 </ol>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">menrot_hist_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb68-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>)</a>
-<a class="sourceLine" id="cb68-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb68-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_hist_correct, </a>
-<a class="sourceLine" id="cb68-6" data-line-number="6">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Time)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb68-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">menrot_hist_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb78-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb78-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>)</a>
+<a class="sourceLine" id="cb78-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb78-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_hist_correct, </a>
+<a class="sourceLine" id="cb78-6" data-line-number="6">       <span class="kw">aes</span>(<span class="dt">x =</span> Mean_Time)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb78-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim2"></span>
 <img src="03-s01-lab03b_files/figure-html/dim2-1.png" alt="A histogram of distribution of Mean Time counts" width="100%" />
 <p class="caption">
@@ -810,17 +814,19 @@ As the y axis is the count of the values on the x axis, the most common overall 
 <ol style="list-style-type: decimal">
 <li>Repeats the first two wrangle steps as when we created a scatterplot, but additionally groups by <code>CorrectResponse</code>, and stores the data in <code>menrot_box_correct</code></li>
 <li>Plots a boxplot (<code>geom_boxplot()</code>) of the overall average response times on the y-axis, <code>Mean_Time</code>, split by the condition <code>CorrectResponse</code> on the x-axis</li>
-<li>Uses an additional <code>aes</code> call to <code>fill</code> the colour of the boxplots, of the two categories, based on whether <code>CorrectResponse</code> was correct or incorrect:</li>
+<li>Uses an additional <code>aes</code> call to <code>fill</code> the colour of the boxplots, of the two categories, based on whether <code>CorrectResponse</code> was correct or incorrect.</li>
+<li>Turns off the legend using the <code>guides()</code> call as it isn’t needed because the x-axis tells you which group is which. More on that later though.</li>
 </ol>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">menrot_box_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)</a>
-<a class="sourceLine" id="cb69-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb69-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_box_correct, </a>
-<a class="sourceLine" id="cb69-6" data-line-number="6">       <span class="kw">aes</span>(<span class="dt">x =</span> CorrectResponse, </a>
-<a class="sourceLine" id="cb69-7" data-line-number="7">           <span class="dt">y =</span> Mean_Time, </a>
-<a class="sourceLine" id="cb69-8" data-line-number="8">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb69-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">menrot_box_correct &lt;-<span class="st"> </span><span class="kw">group_by</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Mean_Time =</span> <span class="kw">mean</span>(Time, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>)</a>
+<a class="sourceLine" id="cb79-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb79-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_box_correct, </a>
+<a class="sourceLine" id="cb79-6" data-line-number="6">       <span class="kw">aes</span>(<span class="dt">x =</span> CorrectResponse, </a>
+<a class="sourceLine" id="cb79-7" data-line-number="7">           <span class="dt">y =</span> Mean_Time, </a>
+<a class="sourceLine" id="cb79-8" data-line-number="8">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb79-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb79-10" data-line-number="10"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim4"></span>
 <img src="03-s01-lab03b_files/figure-html/dim4-1.png" alt="A boxplot of the spreads of Mean Time for Correct and Incorrect Responses" width="100%" />
 <p class="caption">
@@ -855,20 +861,20 @@ The median is one of the 5 values required to make a boxplot and is shown as the
 <li>Plots a barplot (<code>geom_bar()</code>) with the condition <code>Sex</code> on the x axis, the <code>Avg_Percent</code> on the y axis, created through the wrangle, and <code>fill</code> the bars based on <code>CorrectResponse</code></li>
 <li>Finally, within the <code>geom_bar</code> it says to treat the data as final values and not to average them, <code>stat = &quot;identity&quot;</code>, and makes both columns visible by moving them apart <code>position = position_dodge(.9))</code> - without this last step the bars would overlap and you wouldn’t see everything. Try changing the <code>.9</code></li>
 </ol>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span></a>
-<a class="sourceLine" id="cb70-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb70-3" data-line-number="3">menrot_resp_sex &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb70-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb70-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> (n<span class="op">/</span>total_n_trials)<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb70-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb70-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Avg_Percent =</span> <span class="kw">mean</span>(PercentPerParticipant))</a>
-<a class="sourceLine" id="cb70-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb70-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, </a>
-<a class="sourceLine" id="cb70-10" data-line-number="10">       <span class="kw">aes</span>(<span class="dt">x =</span> Sex, </a>
-<a class="sourceLine" id="cb70-11" data-line-number="11">           <span class="dt">y =</span> Avg_Percent, </a>
-<a class="sourceLine" id="cb70-12" data-line-number="12">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb70-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, </a>
-<a class="sourceLine" id="cb70-14" data-line-number="14">           <span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span></a>
+<a class="sourceLine" id="cb80-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb80-3" data-line-number="3">menrot_resp_sex &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb80-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> (n<span class="op">/</span>total_n_trials)<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Avg_Percent =</span> <span class="kw">mean</span>(PercentPerParticipant))</a>
+<a class="sourceLine" id="cb80-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb80-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, </a>
+<a class="sourceLine" id="cb80-10" data-line-number="10">       <span class="kw">aes</span>(<span class="dt">x =</span> Sex, </a>
+<a class="sourceLine" id="cb80-11" data-line-number="11">           <span class="dt">y =</span> Avg_Percent, </a>
+<a class="sourceLine" id="cb80-12" data-line-number="12">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb80-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, </a>
+<a class="sourceLine" id="cb80-14" data-line-number="14">           <span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim5"></span>
 <img src="03-s01-lab03b_files/figure-html/dim5-1.png" alt="A barplot of the average percent Correct and Incorrect responses for Female and Male participants - using geom_bar()" width="100%" />
 <p class="caption">
@@ -876,11 +882,11 @@ Figure 3.5: A barplot of the average percent Correct and Incorrect responses for
 </p>
 </div>
 <p><code>geom_col()</code> - short for column - is an alternative to <code>geom_bar()</code> that does not require the part of the code where you say to not do anything to the data, i.e. <code>stat=&quot;identity&quot;</code>. This is shown below. Notice the difference in codes but that they produce the same figure!</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, </a>
-<a class="sourceLine" id="cb71-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Sex, </a>
-<a class="sourceLine" id="cb71-3" data-line-number="3">           <span class="dt">y =</span> Avg_Percent, </a>
-<a class="sourceLine" id="cb71-4" data-line-number="4">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb71-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_resp_sex, </a>
+<a class="sourceLine" id="cb81-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> Sex, </a>
+<a class="sourceLine" id="cb81-3" data-line-number="3">           <span class="dt">y =</span> Avg_Percent, </a>
+<a class="sourceLine" id="cb81-4" data-line-number="4">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb81-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:dim6"></span>
 <img src="03-s01-lab03b_files/figure-html/dim6-1.png" alt="A barplot of the average percent Correct and Incorrect responses for Female and Male participants - using geom_col()" width="100%" />
 <p class="caption">
@@ -924,24 +930,24 @@ The final point shows that you can add a lot more calls than just x and y axis t
 <li><p><code>guides</code> - remove it and see what happens. Do you understand why we use <code>fill</code> in this situation but perhaps not others?</p></li>
 </ul>
 <p>Try running and editing this code.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span></a>
-<a class="sourceLine" id="cb72-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb72-3" data-line-number="3">menrot_better_plot &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb72-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb72-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> n<span class="op">/</span>total_n_trials) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb72-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb72-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Avg_Percent =</span> <span class="kw">mean</span>(PercentPerParticipant))</a>
-<a class="sourceLine" id="cb72-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb72-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_better_plot, </a>
-<a class="sourceLine" id="cb72-10" data-line-number="10">       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,</a>
-<a class="sourceLine" id="cb72-11" data-line-number="11">           <span class="dt">y =</span> Avg_Percent, </a>
-<a class="sourceLine" id="cb72-12" data-line-number="12">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb72-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb72-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sex of Participant&quot;</span>, </a>
-<a class="sourceLine" id="cb72-15" data-line-number="15">       <span class="dt">y =</span> <span class="st">&quot;Percent Average (%)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb72-16" data-line-number="16"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb72-17" data-line-number="17"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>CorrectResponse) <span class="op">+</span></a>
-<a class="sourceLine" id="cb72-18" data-line-number="18"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">total_n_trials &lt;-<span class="st"> </span><span class="dv">96</span></a>
+<a class="sourceLine" id="cb82-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb82-3" data-line-number="3">menrot_better_plot &lt;-<span class="st"> </span><span class="kw">count</span>(menrot, Participant, CorrectResponse) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb82-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb82-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">PercentPerParticipant =</span> n<span class="op">/</span>total_n_trials) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb82-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Sex, CorrectResponse) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb82-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">Avg_Percent =</span> <span class="kw">mean</span>(PercentPerParticipant))</a>
+<a class="sourceLine" id="cb82-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb82-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_better_plot, </a>
+<a class="sourceLine" id="cb82-10" data-line-number="10">       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,</a>
+<a class="sourceLine" id="cb82-11" data-line-number="11">           <span class="dt">y =</span> Avg_Percent, </a>
+<a class="sourceLine" id="cb82-12" data-line-number="12">           <span class="dt">fill =</span> CorrectResponse)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb82-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb82-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Sex of Participant&quot;</span>, </a>
+<a class="sourceLine" id="cb82-15" data-line-number="15">       <span class="dt">y =</span> <span class="st">&quot;Percent Average (%)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb82-16" data-line-number="16"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb82-17" data-line-number="17"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>CorrectResponse) <span class="op">+</span></a>
+<a class="sourceLine" id="cb82-18" data-line-number="18"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><strong>A figure for all occasions</strong></p>
 <p>As you progress through Psychology you will come across a variety of different figures and plots, each looking slightly different and giving different information. When looking at these figures, and indeed when choosing one for your own analyses, you have to think about which figure is the most appropriate for your data. For example, scatterplots are great when both variables are continuous; boxplots and histograms are great for viewing spreads of data; barplots are commonly used where one variable is categorical - but as above note that barplots can be misleading and lots of new approaches to display categorical information are being created. Always keep asking yourself, does my plot display my data correctly. We will look more at this in upcoming labs and lectures where we will also work on improving our interpretation of figures.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
@@ -1015,7 +1021,7 @@ Remember to always be looking at your data as good practice and to make sure it 
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>Take a couple of minutes to try the above functions and to answer the following questions.</p>
 <ul>
-<li><p>From the options, what type of data is the variable <code>Angle</code>, found in the dataframe <code>menrot</code>? <select class='solveme' data-answer='["integer"]'> <option></option> <option>character</option> <option>integer</option> <option>numeric</option></select></p></li>
+<li><p>From the options, what type of data is the variable <code>Angle</code>, found in the dataframe <code>menrot</code>? <select class='solveme' data-answer='["integer"]'> <option></option> <option>character</option> <option>integer</option> <option>double</option></select></p></li>
 <li><p>Type in the box the name of the dataframe that contains information regarding the sex of the participants: <input class='solveme nospaces' size='8' data-answer='["demog"]'/></p></li>
 <li><p>From the options, which of these is a column within <code>menrot</code>? <select class='solveme' data-answer='["CorrectResponse"]'> <option></option> <option>Correctresponse</option> <option>CorretcResponse</option> <option>CorrectResponse</option> <option>correctReponse</option></select></p></li>
 <li><p>From the options, according to the dim() call, how many rows are there in demog? <select class='solveme' data-answer='["54"]'> <option></option> <option>3</option> <option>8</option> <option>54</option> <option>5184</option></select></p></li>
@@ -1065,15 +1071,15 @@ calling <code>str(menrot)</code> and looking through the information that comes 
 <li>You can see if you can figure out what <code>d_cartesian</code> does by changing the numbers another time.</li>
 </ul></li>
 </ol>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> </span><span class="ot">NULL</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="ot">NULL</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb73-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(<span class="ot">NULL</span>))</a>
-<a class="sourceLine" id="cb73-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb73-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="ot">NULL</span>, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb73-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb73-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb73-9" data-line-number="9"><span class="st">  </span><span class="kw">d_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> </span><span class="ot">NULL</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="ot">NULL</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(<span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(<span class="ot">NULL</span>))</a>
+<a class="sourceLine" id="cb83-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb83-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="ot">NULL</span>, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb83-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb83-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb83-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <div class="solution">
 <button>
 Helpful Hint
@@ -1368,107 +1374,107 @@ Keep in mind that we are only looking at correct responses which would rule out 
 <h3><span class="header-section-number">3.5.1</span> InClass Activities</h3>
 <div id="inclass-task-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.1</span> InClass Task 1</h4>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
-<a class="sourceLine" id="cb74-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb74-3" data-line-number="3">menrot &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MentalRotationBehavioralData.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb74-4" data-line-number="4">demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</a>
+<a class="sourceLine" id="cb84-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb84-3" data-line-number="3">menrot &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;MentalRotationBehavioralData.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb84-4" data-line-number="4">demog &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;demographics.csv&quot;</span>)</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT1">Return to Task</a></p>
 </div>
 <div id="inclass-task-2-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.2</span> InClass Task 2</h4>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb75-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb75-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb75-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb75-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb75-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb75-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">menrot_angle &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb85-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb85-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb85-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb85-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb85-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb85-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT2">Return to Task</a></p>
 </div>
 <div id="inclass-task-3-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.3</span> InClass Task 3</h4>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">menrot_angle_sex &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb76-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb76-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb76-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb76-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb76-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle_sex, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb76-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb76-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb76-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">menrot_angle_sex &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb86-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb86-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_angle_sex, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb86-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT3">Return to Task</a></p>
 </div>
 <div id="inclass-task-4" class="section level4">
 <h4><span class="header-section-number">3.5.1.4</span> InClass Task 4</h4>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">menrot_grouped &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb77-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb77-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb77-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb77-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb77-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb77-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">menrot_grouped &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb87-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb87-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb87-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT4">Return to Task</a></p>
 </div>
 <div id="inclass-task-5" class="section level4">
 <h4><span class="header-section-number">3.5.1.5</span> InClass Task 5</h4>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">menrot_grouped_color &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb78-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb78-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb78-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb78-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb78-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped_color, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb78-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb78-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb78-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">menrot_grouped_color &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb88-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb88-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb88-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb88-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_grouped_color, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb88-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT5">Return to Task</a></p>
 </div>
 <div id="inclass-task-6" class="section level4">
 <h4><span class="header-section-number">3.5.1.6</span> InClass Task 6</h4>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">menrot_shape_size &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb79-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb79-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_shape_size, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb79-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb79-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">menrot_shape_size &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb89-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb89-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb89-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_shape_size, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb89-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb89-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb89-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT6">Return to Task</a></p>
 </div>
 <div id="inclass-task-7-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.7</span> InClass Task 7</h4>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">menrot_lab_theme &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb80-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb80-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb80-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb80-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb80-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_lab_theme, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb80-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb80-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb80-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb80-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb80-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">menrot_lab_theme &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb90-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb90-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb90-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb90-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> menrot_lab_theme, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb90-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb90-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT7">Return to Task</a></p>
 </div>
 <div id="inclass-task-8-1" class="section level4">
 <h4><span class="header-section-number">3.5.1.8</span> InClass Task 8</h4>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">manrot_facet_guide &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb81-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb81-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
-<a class="sourceLine" id="cb81-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb81-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> manrot_facet_guide, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb81-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-11" data-line-number="11"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-12" data-line-number="12"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">group =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>, <span class="dt">shape =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb81-13" data-line-number="13"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">manrot_facet_guide &lt;-<span class="st"> </span><span class="kw">filter</span>(menrot, CorrectResponse <span class="op">==</span><span class="st"> &quot;Correct&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(demog, <span class="st">&quot;Participant&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Sex, Angle) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb91-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_Resp =</span> <span class="kw">mean</span>(Time))</a>
+<a class="sourceLine" id="cb91-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb91-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> manrot_facet_guide, <span class="kw">aes</span>(<span class="dt">x =</span> Angle, <span class="dt">y =</span> mean_Resp, <span class="dt">group =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb91-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> Sex, <span class="dt">shape =</span> Sex), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3500</span>), <span class="dt">expand =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Angel of Rotation (degrees)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mean Reaction Time (ms)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-11" data-line-number="11"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-12" data-line-number="12"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">group =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>, <span class="dt">shape =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-13" data-line-number="13"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><a href="visualisation-through-ggplot2.html#Ch3InClassQueT8">Return to Task</a>
 <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Chapter Complete!</span></p>
 

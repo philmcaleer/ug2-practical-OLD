@@ -27,7 +27,9 @@ Let's get started!
 
 1.1.  Open a new script and call `tidyverse` into your library.  
 
-1.2.  Now type the statement `set.seed(1011)` at the top of your script after your library call and run it.  (This 'seeds' the random number generator so that you will get the same results as everyone else. The number 1011 is a bit random but if everyone uses it then we all get the same outcome. Different seeds give different outcomes)  
+1.2.  Now type the statement `set.seed(1011)` at the top of your script after your library call and run it.  (This 'seeds' the random number generator so that you will get the same results as everyone else. The number 1011 is a bit random but if everyone uses it then we all get the same outcome. Different seeds give different outcomes) 
+
+Note: This lab was written under RVersion 3.6.1. If you use a different RVersion (e.g. R 3.5.1) or set a different seed (e.g. `1012`) you may get different results.
 
 1.3.  [Download the data file from here](data/05-s01/inclass/ch5-inclass-data.zip) and read the data in `perm_data.csv` into a variable called `dat`.  
 
@@ -36,13 +38,13 @@ Let's get started!
 `r hide("Helpful Hint")`
 ```{block, type ="info"}
 
-1. Something to do with `library()`
+1.1 - Something to do with `library()`
 
-2. `set.seed(1011)`
+1.2 - `set.seed(1011)`
 
-3. Something to do with `read_csv()`
+1.3 - Something to do with `read_csv()`
 
-4. pipe `%>%` on the mutate line shown
+1.4 - pipe (`%>%`) `dat` into the mutate line shown
 ```
 `r unhide()`
 
@@ -55,7 +57,15 @@ You will see that, in the example here, to put a row number for each of the part
 ```
 `r unhide()`
 
-Have a look at the resulting tibble, `dat`.  
+Have a look at the resulting tibble, `dat`. 
+
+```{r read-dat, echo = FALSE, message = FALSE}
+library("tidyverse")
+set.seed(1011)
+dat <- read_csv("data/05-s01/inclass/perm_data.csv") %>%
+  mutate(subj_id = row_number())
+dat
+```
 
 * The column `Y` is your dependent variable (DV) 
 * The column `group` is your independent variable (IV).
@@ -89,9 +99,18 @@ We now need to write a pipeline of five functions (i.e. commands) that calculate
 ```
 `r unhide()`
 
+```{r hidden-1, include=FALSE}
+diff <- dat %>%
+  group_by(group) %>%
+  summarise(m = mean(Y)) %>%
+  spread(group, m) %>%
+  mutate(x = A - B) %>%
+  pull(x)
+```
+
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* Check that your value for `d_orig` is correct, without using the solution, by typing your `d_orig` value to two decimal places in the box. Include the sign, e.g. -1.23. The box will go green if you are correct. `r fitb(-7.39, width = 10, ignore_ws = TRUE)`
+* Check that your value for `d_orig` is correct, without using the solution, by typing your `d_orig` value to two decimal places in the box. Include the sign, e.g. -1.23. The box will go green if you are correct. `r fitb(round(diff, 2), width = 10, ignore_ws = TRUE)`
 
 The above steps have created a pipeline of five functions to get one value. Nice! We now need to turn this into a function because we are going to be permuting the data set (specifically the grouping labels) and re-calculating the difference many, many times.
 
@@ -131,7 +150,7 @@ is.numeric(d_orig)
 ```
 `r unhide()`
 
-So we now have the original difference between the groups stored in `d_orig`. Next, we need to create a distribution of possible differences to see where our original difference lies in this distribution. But first we need to shuffle the `group` letters (A or B) in our dataset and find the difference...a few hundred times!
+So we now have the original difference between the groups stored in `d_orig`. Next we need to create a distribution of possible differences to see where our original difference lies in this distribution. But first we need to shuffle the `group` letters (A or B) in our dataset and find the difference...a few hundred times!
 
 ### Step 3: Permute the Group Labels {#Ch5InClassQueT3}
 

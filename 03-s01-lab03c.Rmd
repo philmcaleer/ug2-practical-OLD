@@ -62,7 +62,7 @@ Refer to the preclass for a list of what all the columns refer to if you are not
 
 Take a couple of minutes to try the above functions and to answer the following questions.
 
-* From the options, what type of data is the variable `Angle`, found in the dataframe `menrot`? `r mcq(c("character",answer = "integer","numeric"))`
+* From the options, what type of data is the variable `Angle`, found in the dataframe `menrot`? `r mcq(c("character",answer = "integer","double"))`
 
 * Type in the box the name of the dataframe that contains information regarding the sex of the participants: `r fitb("demog", width = 8, ignore_ws = TRUE)`
 
@@ -104,7 +104,7 @@ menrot_angle <- filter(menrot, CorrectResponse == NULL) %>%
 ggplot(data = NULL, aes(x = NULL, y = NULL)) + 
   geom_point() +
   geom_line() +
-  d_cartesian(ylim = c(0, 3500), expand = TRUE)
+  coord_cartesian(ylim = c(0, 3500), expand = TRUE)
 ```
 
 `r hide("Helpful Hint")`
@@ -213,7 +213,8 @@ menrot_angle_sex <- filter(menrot, CorrectResponse == "Correct") %>%
   group_by(Angle, Sex) %>% 
   summarise(mean_Resp = mean(Time))
 
-ggplot(data = menrot_angle_sex, aes(x = Angle, y = mean_Resp, group = Sex)) + 
+ggplot(data = menrot_angle_sex, 
+       aes(x = Angle, y = mean_Resp, group = Sex)) + 
   geom_point(aes(color = Sex)) +
   geom_line() +
   coord_cartesian(ylim = c(0, 3500), expand = TRUE)
