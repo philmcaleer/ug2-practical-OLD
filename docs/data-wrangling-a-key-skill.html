@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-05-05" />
+<meta name="date" content="2020-05-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,10 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-activities"><i class="fa fa-check"></i><b>1.5.1</b> InClass Activities</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#inclass-comparison"><i class="fa fa-check"></i><b>1.6</b> InClass Comparison</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lab-1---the-magnitude-of-the-ponzo-illusion-varies-as-a-function-of-age"><i class="fa fa-check"></i><b>1.6.1</b> Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</a></li>
-<li class="chapter" data-level="1.6.2" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#introduction"><i class="fa fa-check"></i><b>1.6.2</b> Introduction</a></li>
-<li class="chapter" data-level="1.6.3" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#methods"><i class="fa fa-check"></i><b>1.6.3</b> Methods</a></li>
-<li class="chapter" data-level="1.6.4" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#results"><i class="fa fa-check"></i><b>1.6.4</b> Results</a></li>
+<li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#lab-1---the-magnitude-of-the-ponzo-illusion-varies-as-a-function-of-age"><i class="fa fa-check"></i>Lab 1 - The Magnitude of the Ponzo Illusion varies as a function of Age</a></li>
+<li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#methods"><i class="fa fa-check"></i>Methods</a></li>
+<li class="chapter" data-level="" data-path="starting-with-r-markdown.html"><a href="starting-with-r-markdown.html#results"><i class="fa fa-check"></i>Results</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="data-wrangling-a-key-skill.html"><a href="data-wrangling-a-key-skill.html"><i class="fa fa-check"></i><b>2</b> Data-Wrangling: A Key Skill</a><ul>
@@ -632,7 +632,7 @@ For instance, do you remember how to get help in R Studio? You can call the help
 <div id="preclass-activity" class="section level2">
 <h2><span class="header-section-number">2.2</span> PreClass Activity</h2>
 <p><strong>Revisiting Tabular Data</strong></p>
-<p>Remember from your previous experience that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type <code>vignette(&quot;tibble&quot;)</code> in the console). A tibble is really just a table of data with columns and rows of information. But within that table you can get different types of data, i.e. numeric, integer, and character.</p>
+<p>Remember from your previous experience that nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you like more info, type <code>vignette(&quot;tibble&quot;)</code> in the console). A tibble is really just a table of data with columns and rows of information. But within that table you can get different types of data, i.e. double, integer, and character.</p>
 <table>
 <thead>
 <tr class="header">
@@ -642,7 +642,7 @@ For instance, do you remember how to get help in R Studio? You can call the help
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Numeric</td>
+<td align="left">Double</td>
 <td align="left">Numbers including decimals</td>
 </tr>
 <tr class="even">
@@ -655,12 +655,15 @@ For instance, do you remember how to get help in R Studio? You can call the help
 </tr>
 </tbody>
 </table>
+<ul>
+<li><strong>Note:</strong> Double is sometimes referred to as Numeric. They key point is though that these terms refer to values that have decimals.</li>
+</ul>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
 <p>What type of data would these most likely be:</p>
 <ul>
-<li><p>Male = <select class='solveme' data-answer='["Character"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option></select></p></li>
-<li><p>7.15 = <select class='solveme' data-answer='["Numeric"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option></select></p></li>
-<li><p>137 = <select class='solveme' data-answer='["Integer"]'> <option></option> <option>Character</option> <option>Numeric</option> <option>Integer</option></select></p></li>
+<li><p>Male = <select class='solveme' data-answer='["Character"]'> <option></option> <option>Character</option> <option>Double</option> <option>Integer</option></select></p></li>
+<li><p>7.15 = <select class='solveme' data-answer='["Double"]'> <option></option> <option>Character</option> <option>Double</option> <option>Integer</option></select></p></li>
+<li><p>137 = <select class='solveme' data-answer='["Integer"]'> <option></option> <option>Character</option> <option>Double</option> <option>Integer</option></select></p></li>
 </ul>
 <div class="solution">
 <button>
@@ -668,13 +671,14 @@ Portfolio Point - Data types and levels of measurement
 </button>
 <div class="info">
 <p>
-There are lots of different types of data as well as different levels of measurements and it can get very confusing. It’s important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can’t take the average of Characters just like you can’t take the average of Categorical data. Likewise, you can do any maths on Numeric data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
+There are lots of different types of data as well as different levels of measurements and it can get very confusing. It’s important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can’t take the average of Characters just like you can’t take the average of Categorical data. Likewise, you can do any maths on Double (‘Numeric’) data and Integer data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.
 </p>
 </div>
 </div>
 <div id="revisiting-the-wickham-six" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Revisiting the Wickham Six</h3>
-<p>The main way we teach data-wrangling skills is by using the Wickham Six verbs. These are part of the <code>tidyverse</code> package which we introduced to you in Level 1. We will look at some of the basics again here but try to look back at last year’s exercises to see how we used these verbs. The Wickham Six are:</p>
+<p>The main way we teach data-wrangling skills is by using the Wickham Six verbs. These are part of the <code>tidyverse</code> package which we introduced to you in Level 1, and more specifically from the <code>dplyr</code> package that is contained within the <code>tidyverse</code>. These six verbs are often referred to as the Wickham Six “one-table” dplyr verbs as the perform actions on a single table of data.</p>
+<p>We will look at some of the basics again here but try to look back at last year’s exercises to see how we used these verbs. The Wickham Six are:</p>
 <table>
 <thead>
 <tr class="header">
@@ -714,7 +718,7 @@ There are lots of different types of data as well as different levels of measure
 <h3><span class="header-section-number">2.2.2</span> Learning to Wrangle: Is there a Chastity Belt on Perception</h3>
 <p>Today we are going to be using data from this recent paper: <a href="http://journals.sagepub.com/doi/abs/10.1177/0956797617730892">Is there a Chastity Belt on Perception</a>. You can read the full paper if you like, particularly if you are thinking about doing the action-perception registered report option, but we will summarise the paper for you. The paper asks, <strong>does your ability to perform an action influence your perception?</strong> For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players? This experiment does not use tennis players however, they used the Pong task: “a computerised game in which participants aim to block moving balls with various sizes of paddles”. A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let’s begin!</p>
 <ol style="list-style-type: decimal">
-<li><p>Download the data as a zip file from <a href="data/02-s01/preclass/ch2-preclass-data.zip">this link</a> and save it to somewhere you have access. In the lab, use your <code>M:</code> drive.</p></li>
+<li><p>Download the data as a zip file from <a href="data/02-s01/preclass/ch2-preclass-data.zip">this link</a> and save it somewhere you have access. In the lab, use your <code>M:</code> drive.</p></li>
 <li><p>Set your working directory to the same folder as the data. <code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></p></li>
 <li><p>Open a new script and copy and paste the two lines below. Here we are a) bringing the <code>tidyverse</code> into our library and then b) loading in the data through the <code>read_csv()</code> function and storing it in the tibble called <code>pong_data</code>.</p></li>
 </ol>
@@ -980,7 +984,7 @@ The vertical line <code>|</code> is the symbol for Or.
 </div>
 <div id="Ch2PreClassQueT4" class="section level3">
 <h3><span class="header-section-number">2.2.6</span> The <strong><code>mutate()</code></strong> Function - for adding new columns</h3>
-<p>The <code>mutate()</code> function lets us create a new variable in our dataset. For example, let’s add a new column to <code>pong_data</code> in which the background color is converted into numeric form where <code>red</code> will become 1, and <code>blue</code> will become 2.</p>
+<p>The <code>mutate()</code> function lets us create a new variable in our dataset. For example, let’s add a new column to <code>pong_data</code> in which the background color is represented by numbers, where <code>red</code> will be represented as 1, and <code>blue</code> will be represented as 2.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">pong_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(pong_data, </a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">                    <span class="dt">BackgroundColorNumeric =</span> <span class="kw">recode</span>(BackgroundColor, </a>
 <a class="sourceLine" id="cb18-3" data-line-number="3">                                                    <span class="st">&quot;red&quot;</span> =<span class="st"> </span><span class="dv">1</span>, </a>
