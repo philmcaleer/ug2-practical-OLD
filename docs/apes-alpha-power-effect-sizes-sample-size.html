@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-05-07" />
+<meta name="date" content="2020-05-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -608,18 +608,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lab 8</span> APES - Alpha, Power, Effect Sizes, Sample Size</h1>
 <div id="overview-8" class="section level2">
 <h2><span class="header-section-number">8.1</span> Overview</h2>
-<p>Up until now, we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures, you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses:</p>
+<p>p until now we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses:</p>
 <ul>
 <li><strong>Type I error</strong> - rejecting the null hypothesis when it is true (otherwise called <strong>alpha</strong> or <span class="math inline">\(\alpha\)</span>). Probably better recalled as <strong>False Positives</strong></li>
 <li><strong>Type II error</strong> - retaining the null hypothesis when it is false (otherwise called <strong>beta</strong> or <span class="math inline">\(\beta\)</span>). Probably better recalled as <strong>False Negatives</strong></li>
 </ul>
-<p>Building from there, we have started to discuss the idea of <strong>power</strong> (<span class="math inline">\(1-\beta\)</span>) which, from your lectures and from the pre-class reading, you should understand is the long-run probability of correctly rejecting the null hypothesis for a fixed effect size and fixed sample size; i.e. correctly concluding there is an effect when the effect is real. The concept of power is useful for making decisions when you plan a study. <strong>The higher the power of your planned study, the better</strong>, with the field standard proposed as <span class="math inline">\(power &gt;= .8\)</span> for the targeted effect size and sample size. In fact, Registered Reports are often required to have a power of at least <span class="math inline">\(power &gt;= .9\)</span>. Keep in mind that power is defined as the probability of rejecting the null for a fixed effect size and fixed sample size. For a given sample size, power will be higher for effects that you assume to be larger (they are easier to detect). For a given effect size, power will be higher for a larger sample. Because you have little control over the size of the effect, typically you can increase the power of your study by either (1) increasing the size of your sample or (2) reducing sources of noise and measurement error in your study. Because power depends on several variables, it is useful to think of power as a <em>function</em> rather than as a single fixed quantity.</p>
-<p>Psychological research has been criticised for neglecting power during study planning, resulting in many underpowered studies. Low power, combined with undisclosed analytic flexibility and publication bias, is thought to be a key issue in the replication crisis within the field. As such, there may be a large number of studies where the null hypothesis has been rejected when it should not have been; the field becomes noisy at that point and you are unsure which studies will replicate. It is issues like this that led us to redevelop our courses and why we really want you to understand power as much as possible.</p>
-<p>When planning a study, any good researcher will consider four key elements, the <strong>APES</strong>:</p>
+<p>Building from there we have started to discuss the idea of <strong>power</strong> (<span class="math inline">\(1-\beta\)</span>) which, from your lectures and from the pre-class reading, you should understand is the long-run probability of correctly rejecting the null hypothesis for a fixed effect size and fixed sample size; i.e. correctly concluding there is an effect when the effect is real. The concept of power is useful for making decisions when you plan a study. <strong>The higher the power of your planned study, the better</strong>, with the field standard proposed as <span class="math inline">\(power &gt;= .8\)</span> for the targeted effect size and sample size. In fact, Registered Reports are often required to have a power of at least <span class="math inline">\(power &gt;= .9\)</span>. Keep in mind that power is defined as the probability of rejecting the null for a fixed effect size and fixed sample size. For a given sample size, power will be higher for effects that you assume to be larger (they are easier to detect). For a given effect size, power will be higher for a larger sample. Because you have little control over the size of the effect, typically you can increase the power of your study by either (1) increasing the size of your sample or (2) reducing sources of noise and measurement error in your study. Because power depends on several variables, it is useful to think of power as a <em>function</em> rather than as a single fixed quantity.</p>
+<p>Psychological research has been criticised for neglecting power during study planning, resulting in many underpowered studies. Low power, combined with undisclosed analytic flexibility and publication bias, is thought to be a key issue in the replication crisis within the field. As such there may be a large number of studies where the null hypothesis has been rejected when it should not have been; the field becomes noisy at that point and you are unsure which studies will replicate. It is issues like this that led us to redevelop our courses and why we really want you to understand power as much as possible.</p>
+<p>When planning a study any good researcher will consider four key elements, the <strong>APES</strong>:</p>
 <ul>
 <li><strong>alpha</strong> - most commonly thought of as the significance level; usually set at <span class="math inline">\(\alpha = .05\)</span></li>
-<li><strong>power</strong> - the probability of rejecting the null for a given effect size and sample size, with .8 usually cited as the minimum power you should aim for</li>
-<li><strong>effect size</strong> - size of the asssociation or difference you are trying to detect</li>
+<li><strong>power</strong> - the probability of rejecting the null for a given effect size and sample size, with .8 usually cited as the minimum power you should aim for;</li>
+<li><strong>effect size</strong> - size of the asssociation or difference you are trying to detect;</li>
 <li><strong>sample size</strong> - the number of observations (usually, participants, but sometimes also stimuli) in your study.</li>
 </ul>
 <p>And the beautiful thing is that <strong>if you know any three of these elements then you can calculate the fourth</strong>. The two most common calculations prior to a study would be:</p>
@@ -711,12 +711,12 @@ According to Cohen (1988), the effect size is small (.2 to .5), medium (.5 to .8
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the end of the chapter:</p>
 <ul>
 <li>Enter, in digits, how many people were run in this study: <input class='solveme nospaces' size='2' data-answer='["26"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = t/sqrt(N)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
 <li>Enter the correct value of <code>d</code> for this analysis rounded to 2 decimal places: <input class='solveme nospaces' size='4' data-answer='["0.64",".64"]'/></li>
-<li>According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='solveme' data-answer='["medium"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></li>
+<li>According to Cohen (1988), the effect size for this t-test would be considered: <select class='solveme' data-answer='["medium"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></li>
 </ul>
 </div>
 <div id="Ch8InClassQueT2" class="section level3">
@@ -741,12 +741,12 @@ According to Cohen (1988), the effect size is small (.2 to .5), medium (.5 to .8
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the end of the chapter:</p>
 <ul>
 <li>Enter, in digits, how many people were run in this study: <input class='solveme nospaces' size='2' data-answer='["32"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = 2t/sqrt(df)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
 <li>Enter the correct value of <code>d</code> for this analysis rounded to 2 decimal places: <input class='solveme nospaces' size='4' data-answer='["1.06"]'/></li>
-<li>According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='solveme' data-answer='["large"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></li>
+<li>According to Cohen (1988), the effect size for this t-test would be considered: <select class='solveme' data-answer='["large"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></li>
 </ul>
 </div>
 <div id="Ch8InClassQueT3" class="section level3">
@@ -771,7 +771,7 @@ A matched pairs is treated like a paired-sample t-test but with two separate gro
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the end of the chapter:</p>
 <ul>
 <li>Enter, in digits, how many people were in each group in this study. Note, not the total number of participants: <input class='solveme nospaces' size='2' data-answer='["40"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = t/sqrt(N)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
@@ -830,19 +830,19 @@ Remember that convention is that people report the <code>t</code> and <code>d</c
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the end of the chapter:</p>
 <ul>
-<li><p>Enter the correct <code>t-value</code> for this test, rounded to two decimal places: <input class='solveme nospaces' size='5' data-answer='["2.56","-2.56"]'/></p></li>
+<li>Enter the correct <code>t-value</code> for this test, rounded to two decimal places: <input class='solveme nospaces' size='5' data-answer='["2.56","-2.56"]'/></li>
 <li>Which of these codes is the appropriate calculation of <code>d</code> in this instance:<select class='solveme' data-answer='["d = 2t/sqrt(df)"]'> <option></option> <option>d = t/sqrt(N)</option> <option>d = 2t/sqrt(df)</option></select></li>
 <li>Based on the above t-value above, enter the correct value of <code>d</code> for this analysis rounded to 2 decimal places: <input class='solveme nospaces' size='4' data-answer='[".67","0.67"]'/></li>
-<li><p>According to Cohen (1988), the effect size for this t-test would be described as: <select class='solveme' data-answer='["medium"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></p></li>
+<li>According to Cohen (1988), the effect size for this t-test would be described as: <select class='solveme' data-answer='["medium"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></li>
 </ul>
 <p><strong>Excellent!</strong> Now that you are comfortable with calculating effect sizes, we will look at using them to establish the sample size needed to reach a target power. Remember, in analysis, in nearly all occasions we should set the effect size as the Smallest Effect Size Of Interest (SESOI). This can be determined through theoretical analysis, through previous studies, through pilot studies, or through rules of thumb like Cohen (1988). However, also keep in mind that the lower the effect size, the larger the sample size you will need. Everything is a trade-off.</p>
 <p><strong>Power Calculations</strong></p>
 <p>Today we will use the function <code>power.t.test()</code> to run our calculations. This is a function available in base R, meaning that it is included when you install R, so you do not need to install any additional package. However, in the lectures we have been using the <code>pwr</code> package library which has a very similar function called <code>pwr.t.test()</code>. Going forward we would recommend using the <code>pwr</code> package functions instead as they give more diversity in terms of tests and are actually easier to use. If you are using the Boyd Orr machines the <code>pwr</code> package is already installed and you will just need to call it like all other packages, e.g. <code>library(pwr)</code>. Do not attempt to install it yourself on the Boyd Orr machines. If you are using your own laptop then feel free to install it. The reason we aren’t using the <code>pwr</code> package in this lab is because we can’t guarantee other machines across campus will have that package installed and that seems unfair on people without their own device. So feel free to explore the <code>pwr</code> package for future use, and we will create a version of this lab in the <code>pwr</code> library for you to practice with, but for now let’s just use the base function <code>power.t.test()</code>.</p>
 <p>Remember that for more information on this function, simply do <code>?power.t.test</code> in the console. On doing this you will see that <code>power.t.test()</code> takes a series of inputs:</p>
 <ul>
-<li><strong>n</strong> - observations/participants <strong>per group</strong> for the independent samples version, <strong>number of subjects or matched pairs</strong> for the paired or one-sample test.</li>
+<li><strong>n</strong> - observations/participants, <strong>per group</strong> for the independent samples version, or the <strong>number of subjects or matched pairs</strong> for the paired and one-sample designs.</li>
 <li><strong>delta</strong> - the difference between means</li>
 <li><strong>sd</strong> - standard deviation; <strong>note: if sd = 1 then delta = Cohen’s d</strong></li>
 <li><strong>sig.level</strong> or <span class="math inline">\(\alpha\)</span></li>
@@ -858,7 +858,7 @@ Remember that convention is that people report the <code>t</code> and <code>d</c
 <a class="sourceLine" id="cb321-5" data-line-number="5">             <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
 <a class="sourceLine" id="cb321-6" data-line-number="6">             <span class="dt">type =</span> <span class="st">&quot;two.sample&quot;</span>)</a></code></pre></div>
 <p>And it would tell you that you would need 99.080565 people per condition. But you only get whole people and we like to be conservative on our estimates so we would actually run 100 <strong>per condition</strong>. That is a lot of people!!!</p>
-<p>Let’s get started. <strong>But before you start with this next task</strong>, you will need to load in packages such as <code>tidyverse</code> and <code>broom</code>.</p>
+<p>Let’s get started. <strong>But before you start with this next task</strong>, you will need to load in packages such as the <code>tidyverse</code> and <code>broom</code>.</p>
 </div>
 <div id="Ch8InClassQueT5" class="section level3">
 <h3><span class="header-section-number">8.3.5</span> Task 5: Sample size for standard power one-sample t-test</h3>
@@ -889,7 +889,7 @@ You will also need to use <code>tidy() %&gt;% pull(n)</code> to help you obtain 
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answer the following question to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following question to check your answers. The solutions are at the end if you need them:</p>
 <ul>
 <li>Enter the minimum number of participants you would need in this one-sample t-test: <input class='solveme nospaces' size='3' data-answer='["151"]'/></li>
 </ul>
@@ -919,17 +919,17 @@ You will also need to use <code>tidy()</code>, <code>pull()</code> to obtain Coh
 </div>
 <p><br></p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span></p>
-<p>Answer the following questions to check your answers. The solutions are at the bottom if you need them:</p>
+<p>Answer the following questions to check your answers. The solutions are at the end of the chapter:</p>
 <ul>
 <li>Based on the information given, what will you set <code>type</code> as in the function? <select class='solveme' data-answer='["two.sample"]'> <option></option> <option>one.sample</option> <option>two.sample</option></select></li>
-<li>Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='solveme nospaces' size='4' data-answer='[".65","0.65"]'/></li>
+<li>Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='solveme nospaces' size='4' data-answer='["0.65",".65"]'/></li>
 <li>According to Cohen (1988), the effect size for this t-test is <select class='solveme' data-answer='["medium"]'> <option></option> <option>small</option> <option>medium</option> <option>large</option></select></li>
-<li>Say you run the study and find that the effect size determined is d = .50. Given what you know about power, select the statement that is true: <select class='solveme' data-answer='["the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .65"]'> <option></option> <option>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = .65</option> <option>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .65</option></select></li>
+<li>Say you run the study and find that the effect size determined is d = .50. Given what you know about power, select the statement that is most accurate: <select class='solveme' data-answer='["the study is potentially underpowered as the analysis indicates you can really only reliably detect effect sizes larger than d = .65"]'> <option></option> <option>the study is sufficiently powered as the analysis indicates you can only reliably detect effect sizes smaller than d = .65</option> <option>the study is potentially underpowered as the analysis indicates you can really only reliably detect effect sizes larger than d = .65</option></select></li>
 </ul>
 </div>
 <div id="Ch8InClassQueT7" class="section level3">
 <h3><span class="header-section-number">8.3.7</span> Task 7: Power of Published Research</h3>
-<p>Thus far, we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?</p>
+<p>Thus far we have used hypothetical situations - now go look at the paper on the Open Stats lab website called <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Does Music Convey Social Information to Infants?</a> - we looked at it a little in the lectures. You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?</p>
 <ol style="list-style-type: decimal">
 <li>one-sample: t(31) = 2.96, p = .006</li>
 <li>paired t-test: t(31) = 2.42, p = .022</li>
@@ -954,27 +954,30 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 </div>
 <p><br>
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span></p>
-<p>Which of the t-tests do you believe to be underpowered? Why do you think this may be? Additional information about this to further your discussion can be found in the solution to task 8 at the end of this activity.</p>
+<p>Which of the t-tests do you believe to be potentially underpowered? Why do you think this may be? Additional information about this to further your discussion can be found in the solutions at the end of this chapter.</p>
+<p><strong>One caveat to Tasks 6 and 7:</strong> We have to keep in mind that here we are looking at single studies using one sample from a potentially huge number of samples within a population. As such there will be a degree of variance in the true effect size within the population regardless of the effect size of one given sample. What that means is we have to be a little bit cautious when making claims about a study. Ultimately the higher the power the better as you can detect smaller effect sizes!</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p><strong>Great!</strong> So hopefully you are now starting to see the interaction between alpha, power, effect sizes, and sample size. We should always want high powered studies and depending on the size of the effect we are interested in (small to large), and our <span class="math inline">\(\alpha\)</span> level, this will determine the number of observations/participants we need to make sure our study is well powered. Points to note:</p>
+<p><strong>Great!</strong> So hopefully you are now starting to see the interaction between alpha, power, effect sizes, and sample size. We should always want high powered studies and depending on the size of the effect we are interested in (small to large), and our <span class="math inline">\(\alpha\)</span> level, this will determine the number of observations we need to make sure our study is well powered. Points to note:</p>
 <ul>
 <li>Lowering the <span class="math inline">\(\alpha\)</span> level (e.g. .05 to .01) will reduce the power.</li>
 <li>Lowering the effect size (e.g. .8 to .2) will reduce the power.</li>
 <li>Increasing power (.8 to .9) will require more participants.</li>
+<li>It is also possible to increase power for a fixed sample size by reducing sources of noise in the study.</li>
 </ul>
-<p>A high-powered study looking to detect a small effect size at a low alpha will require a large number of participants!</p>
-<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the slack forum under the channel <strong>#level2_2018</strong>.</p>
+<p>A high-powered study looking to detect a small effect size at a low alpha may require a large number of participants!</p>
+<p>Another point probably to consider for the future: what about studies with multiple observations per participant? How do you calculate power for this? This is a <strong>very</strong> common situation.</p>
+<p>You should now be ready to complete the Homework Assignment for this lab. <strong>The assignment for this Lab is FORMATIVE and is NOT to be submitted and will NOT count towards the overall grade for this module.</strong> However, you are strongly encouraged to do the assignment as it will continue to boost your skills which you will need in future assignments. If you have any questions, please post them on the forums!</p>
 
 </div>
 </div>
 <div id="assignment-7" class="section level2">
 <h2><span class="header-section-number">8.4</span> Assignment</h2>
 <p><strong>Lab 8: APES Assignment</strong></p>
-<p>In order to complete this assignment, you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester1_Lab8.Rmd</code>. This can be downloaded within a zip file from the link below. Once downloaded and unzipped, you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top. <a href="data/08-s01/homework/ch8-assign-file.zip">Download the assignment zip file from here</a> or on Moodle.</p>
+<p>In order to complete this assignment you first have to download the assignment .Rmd file which you need to edit for this assignment: titled <code>GUID_Level2_Semester1_Lab8.Rmd</code>. This can be downloaded within a zip file from the below link. Once downloaded and unzipped you should create a new folder that you will use as your working directory; put the .Rmd file in that folder and set your working directory to that folder through the drop-down menus at the top <a href="data/08-s01/homework/ch8-assign-file.zip">Download the assignment zip file from here</a>.</p>
 <p><em>NOTE</em>: in nearly all of the problems below, you will need to replace <code>NULL</code> with a value or a pipeline of code that computes a value. Please pay special attention as to what the question is asking for as the output, e.g. <em>value</em> or a <em>tibble</em>; when asked for a <em>value</em> as an output, make sure it is a single value and not a value stored in a tibble. Finally, when altering code inside the code blocks, please <em>do not</em> re-order or rename the code blocks (T1, T2, … etc.). If you do, this may impact your grade!</p>
 <p>It’s also recommended that you “Knit” a report to be able to see what you’ve accomplished and spot potential errors. A great thing to do is close the whole programme, restart it, and then knit your code. This will test whether you have remembered to include essential elements, such as libraries, in your code.</p>
 <p><strong>APES: Alpha, Power, Effect Size, and Sample Size</strong></p>
-<p>In the lab, we have been looking at the interplay between the four components of Alpha, Power, Effect Size, and Sample Size. This is a very important part of experimental design to understand as it will help you understand which studies are worth paying attention to and it will help you design your own studies in the coming years so that you know just how many people to run and what to make of the effect that you find. If you have not yet done so, we highly recommend reading the blog suggested as PreClass reading material and carrying out the activities in the inclass activity. These will help you will both the practicalities and the interpretation of the following assignment.</p>
+<p>In the lab we have been looking at the interplay between the four components of Alpha, Power, Effect Size, and Sample Size. This is a very important part of experimental design to understand as it will help you understand which studies are worth paying attention to and it will help you design your own studies in the coming years so that you know just how many people to run and what to make of the effect that you find. If you have not yet done so, we highly recommend reading the blog suggested as PreClass reading material and carrying out the activities in the inclass activity. These will help you will both the practicalities and the interpretation of the following assignment.</p>
 <p>Remember that this assignment is formative but the knowledge gained from the practical activities in this lab will be super important to your future-self!</p>
 <p><strong>Before starting let’s check:</strong></p>
 <ol style="list-style-type: decimal">
@@ -984,7 +987,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <ul>
 <li>You will need to use the <code>tidyverse</code> and <code>broom</code> libraries in this assignment, so load them in the <code>library</code> code chunk below.</li>
 </ul>
-<p>You do not need the <code>pwr</code> library as all of the questions below can be completed with base functions but if you prefer to use the <code>pwr</code> library then load it below in the <code>library</code> code chunk as well.</p>
+<p>You do not need the <code>pwr</code> library as all of the below questions can be completed with base functions but if you prefer to use the <code>pwr</code> library then load it below in the <code>libary</code> code chunk as well.</p>
 <div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="co"># TO DO, load in the two stated libraries as you will need functions from these libraries</span></a></code></pre></div>
 <p><strong>Basic Calculations</strong></p>
 <div id="Ch8AssignQueT1" class="section level3">
@@ -992,7 +995,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <ul>
 <li>You set up a study so that it has a power value of <span class="math inline">\(power = .87\)</span>. To two decimal places, what is the Type II error rate of your study?</li>
 </ul>
-<p>Replace the <code>NULL</code> in the <code>T1</code> code chunk below with either a single value, or with mathematical notation, so that <code>error_rate</code> returns the actual value of the Type II error rate for this study. By mathematical notation, we mean you to use the appropriate formula but insert the actual values.</p>
+<p>Replace the <code>NULL</code> in the <code>T1</code> code chunk below with either a single value, or with mathematical notation, so that <code>error_rate</code> returns the actual value of the Type II error rate for this study. By mathematical notation we mean you to use the appropriate formula but insert the actual values.</p>
 <div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1">error_rate &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
 </div>
 <div id="Ch8AssignQueT2" class="section level3">
@@ -1015,7 +1018,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <div id="Ch8AssignQueT4" class="section level3">
 <h3><span class="header-section-number">8.4.4</span> Assignment Task 4</h3>
 <ul>
-<li><p>Replace the NULL in the <code>T4</code> code chunk below with a pipeline combining <code>power.t.test()</code>, <code>tidy()</code>, <code>pull()</code> and <code>ceiling()</code>, to determine how many participants are needed to sufficiently power a paired-samples t-test at <span class="math inline">\(power = .9\)</span> with <span class="math inline">\(delta = .5\)</span>, <span class="math inline">\(sd = 1\)</span>? Assume a two-sided hypothesis with <span class="math inline">\(\alpha = .05\)</span>, ceiling the answer to the nearest whole participant and store this value in <code>participants</code>.</p></li>
+<li><p>Replace the NULL in the <code>T4</code> code chunk below with a pipeline combining <code>power.t.test()</code>, <code>tidy()</code>, <code>pull()</code> and <code>ceiling()</code>, to determine how many participants are needed to sufficiently power a paired-samples t-test at <span class="math inline">\(power = .9\)</span> with <span class="math inline">\(delta = .5\)</span>, <span class="math inline">\(sd = 1\)</span>? Assume a two-sided hypothesis with <span class="math inline">\(\alpha = .05\)</span>. Ceiling the answer to the nearest whole participant and store this value in <code>participants</code>.</p></li>
 <li><strong>Note1:</strong> If using the <code>pwr</code> package <code>pwr.t.test()</code> would be the ideal function.</li>
 <li><strong>Note2:</strong> If using the <code>pwr</code> package you do not declare <code>sd</code></li>
 <li><p><strong>Note3:</strong> If using the <code>pwr</code> package <code>delta</code> is the same as <code>d</code></p></li>
@@ -1049,10 +1052,10 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <h3><span class="header-section-number">8.4.8</span> Assignment Task 8</h3>
 <p>Assuming <span class="math inline">\(power = .8\)</span>, <span class="math inline">\(\alpha =.05\)</span> on a two-tailed hypothesis, based on the <code>d1</code> value in Task 7 and the smallest achievable effect size of this study, which of the below statements is correct.</p>
 <ol style="list-style-type: decimal">
-<li>The smallest effect size that this study can determine is d = .71. The detected effect size, <code>d1</code>, is larger than this and as such this study is suitably powered</li>
-<li>The smallest effect size that this study can determine is d = .17. The detected effect size, <code>d1</code>, is larger than this and as such this study is suitably powered</li>
-<li>The smallest effect size that this study can determine is d = .17. The detected effect size, <code>d1</code>, is smaller than this and as such this study is suitably powered</li>
-<li>The smallest effect size that this study can determine is d = .71. The detected effect size, <code>d1</code>, is smaller than this and as such this study is not suitably powered</li>
+<li>The smallest effect size that this study can determine is d = .71. The detected effect size, <code>d1</code>, is larger than this and as such this study is potentially suitably powered</li>
+<li>The smallest effect size that this study can determine is d = .17. The detected effect size, <code>d1</code>, is larger than this and as such this study is potentially suitably powered</li>
+<li>The smallest effect size that this study can determine is d = .17. The detected effect size, <code>d1</code>, is smaller than this and as such this study is potentially suitably powered</li>
+<li>The smallest effect size that this study can determine is d = .71. The detected effect size, <code>d1</code>, is smaller than this and as such this study is potentially not suitably powered</li>
 </ol>
 <p>Replace the NULL in the <code>T8</code> code chunk below with the number of the statement that is a true summary of this study. It may help you to calculate and store the smallest achievable effect size of this study in <code>poss_d</code>.</p>
 <div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="co">#hint: use poss_d to calculate the smallest possible effect size of this study to help you answer this question.</span></a>
@@ -1063,7 +1066,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <div id="Ch8AssignQueT9" class="section level3">
 <h3><span class="header-section-number">8.4.9</span> Assignment Task 9</h3>
 <p><strong>Study 2</strong></p>
-<p>Below is a paragraph from the results of Experiment 4 from <em>Schroeder, J., &amp; Epley, N. (2015). The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate’s appeal.</em> <em>Psychological Science</em>, <em>26</em>, <em>877-891</em>. We saw this paper in Lab 5 but you can find out more details at <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" target = "_blank">Open Stats Lab</a>.</p>
+<p>Below is a paragraph from the results of Experiment 4 from <em>Schroeder, J., &amp; Epley, N. (2015). The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate’s appeal.</em> <em>Psychological Science</em>, <em>26</em>, <em>877-891</em>. We saw this paper in Lab 5 but you can find out more details at &lt;a href=“<a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities" class="uri">https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities</a>”, target = &quot;_blank&quot;&gt;Open Stats Lab</a>.</p>
 <p><em>Recruiters believed that the job candidates had greater intellect - were more competent, thoughtful, and intelligent - when they listened to pitches (M = 5.63, SD = 1.61, n = 21) than when they read pitches (M = 3.65, SD = 1.91, n = 18), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], <strong>d1 = 1.16</strong>. The recruiters also formed more positive impressions of the candidates - rated them as more likeable and had a more positive and less negative impression of them - when they listened to pitches (M = 5.97, SD = 1.92) than when they read pitches (M = 4.07, SD = 2.23), t(37) = 2.85, p &lt; .01, 95% CI of the difference = [0.55, 3.24], <strong>d2 = 0.94</strong>. Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = 4.71, SD = 2.26) than when they read the same pitches (M = 2.89, SD = 2.06), t(37) = 2.62, p &lt; .01, 95% CI of the difference = [0.41, 3.24], <strong>d3 = 0.86</strong>.</em></p>
 <p>Using the <code>power.t.test()</code> function, what is the minimum effect size that this paper could have reliably detected? Test at <span class="math inline">\(power = .8\)</span> for a two-sided hypothesis. Use the <span class="math inline">\(\alpha\)</span> stated in the paragraph and the smallest <em>n</em> stated; store the value as <code>effect4</code> in the <code>T9</code> code chunk below. Replace the <code>NULL</code> with your pipeline and round the effect size to two decimal places.</p>
 <div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">effect4 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
@@ -1072,10 +1075,10 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <h3><span class="header-section-number">8.4.10</span> Assignment Task 10</h3>
 <p>Given the value of <code>effect4</code> calculated in Task 9, and the stated alpha in the paragraph and the smallest n of the two groups, which of these statements is true.</p>
 <ol style="list-style-type: decimal">
-<li>This study has enough power to detect effects at the size of d3 and larger.</li>
-<li>This study has enough power to detect effects at the size of only d1.</li>
-<li>This study has enough power to detect effects at the size of d2 and larger, but not d3.</li>
-<li>This study does not have enough power to detect effect sizes at d1 or lower.</li>
+<li>This study has enough power to reliably detect effects at the size of d3 and larger.</li>
+<li>This study has enough power to reliably detect effects at the size of only d1.</li>
+<li>This study has enough power to reliably detect effects at the size of d2 and larger, but not d3.</li>
+<li>This study does not have enough power to reliably detect effect sizes at d1 or lower.</li>
 </ol>
 <p>Replace the NULL in the <code>T10</code> code chunk below with the number of the statement that is TRUE, storing the single value in <code>answer_t10</code>.</p>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
@@ -1103,7 +1106,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <h3><span class="header-section-number">8.4.12</span> The <strong><code>pwr</code></strong> package</h3>
 <p>An alternative solution to Task 9 would be to use the <code>pwr.t2n.test()</code> function from the <code>pwr</code> package <span class="citation">(Champely <a href="#ref-R-pwr">2018</a>)</span>. This would allow you to enter the <code>n</code> of both groups as there is an <code>n1</code> and an <code>n2</code> argument. Were you to use this, entering n1 = 18, n2 = 21, alpha = .01, the d drops just a little, changing the interpretation of Task 10. Feel free to try this analysis and see if you can figure out what would be the alternative answer to Task 10.</p>
 <p><span style="font-size: 22px; font-weight: bold; color: var(--blue);">Job Done - Activity Complete!</span></p>
-<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found on Moodle. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers, it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the moodle forum or on the <a href="https://rguppies.slack.com/" target = "_blank">rguppies.slack.com</a> forum <strong>#level2_2018</strong>.</p>
+<p>Well done, you are finshed! Now you should go check your answers against the solution file which can be found at the end of this chapter. You are looking to check that the resulting output from the answers that you have submitted are exactly the same as the output in the solution - for example, remember that a single value is not the same as a coded answer. Where there are alternative answers, it means that you could have submitted any one of the options as they should all return the same answer. If you have any questions please post them on the forums.</p>
 
 </div>
 </div>
@@ -1211,8 +1214,9 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <ul>
 <li>Giving an achievable effect size of 0.51 and they found an effect size of 0.43.</li>
 </ul>
-<p>This effect might not be as reliable as it could be given that the effect size found was much lower than the achievable effect size. One issue here could be that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then it would have been advisable to have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies really is no easy task and this research is really important. To counter such scenarios, some consider the Many Labs approach a good way ahead.</p>
-<p>You could take this analysis a step further by calculating the actual sample size required to achieve a power of .8 with an effect size of d = .4:</p>
+<p>This effect might not be reliable given that the effect size found was much lower than the achievable effect size. The issue here is that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then they should have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies isnt easy; hence why some people consider the Many Labs approach a good way ahead.</p>
+<p><strong>ONE CAVEAT</strong> to the above is that before making the assumption that this study is therefore flawed, we have to keep in mind that this is one study using one sample from a potentially huge number of samples within a population. As such there will be a degree of variance in the true effect size within the population regardless of the effect size of one given sample. What that means is we have to be a little bit cautious when making claims about a study. Ultimately the higher the power the better.</p>
+<p>Below you could calculate the actual sample size required to achieve a power of .8:</p>
 <div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1">sample_size &lt;-<span class="st"> </span><span class="kw">power.t.test</span>(<span class="dt">power =</span> <span class="fl">.8</span>,</a>
 <a class="sourceLine" id="cb342-2" data-line-number="2">                            <span class="dt">delta =</span> <span class="fl">.4</span>, </a>
 <a class="sourceLine" id="cb342-3" data-line-number="3">                            <span class="dt">sd =</span> <span class="dv">1</span>, </a>
@@ -1345,6 +1349,7 @@ Calculate the achievable Cohens d for the studies and then calculate the establi
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1">answer_t10 &lt;-<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
 <ul>
 <li>This study does not have enough power to detect effect sizes at d1 or lower and as such answer_t10 = 4</li>
+<li>However, it is worth keeping in mind that we are only looking at one study here which drew one sample from a population of samples. This means that there is always uncertainty about the true effect size of a difference or association - taking a different sample may have given a different effect size. As such, the comparison we are making here is not entirely valid and we should see it more as a reminder that we should always think of power as more in the planning of studies rather than in the search for criticism.</li>
 </ul>
 <p><a href="apes-alpha-power-effect-sizes-sample-size.html#Ch8AssignQueT10">Return to Task</a></p>
 </div>
