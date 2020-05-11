@@ -21,7 +21,7 @@ A function is a tool that takes an input, performs some action, and gives an out
 In terms of remembering all the functions, the truth is you don't have to know them all. However, through practice and repetition, you will quickly learn to remember which ones are which and what package they come from. Sort of like where to find your spoons in your kitchen - you don't look in the fridge, and then the washing machine, and then the drawer. Nope, you learnt, by repetition, to look in the drawer first time. It's the same with functions.  Keep in mind that research methods is like a language in that the more you use it and work with it the more it makes sense.
 ```
 `r unhide()`
-
+<br>
 
 **A Note on Tidy Data** 
 

@@ -12,7 +12,7 @@ Visualisation is a key part of data analysis in exploring data, checking assumpt
 For visualisaion we use `ggplot2` and below we have listed some great online resources that you might want to consult if you want a fuller understanding. 
 
 * <a href="http://www.cookbook-r.com/Graphs/" target = "_blank">R Graphics Cookbook</a>
-* <a href="http://ggplot2.org/book/" target = "_blank">ggplot2 book</a>
+* <a href="https://ggplot2-book.org/" target = "_blank">ggplot2 book</a>
 * <a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" target = "_blank">ggplot2 cheatsheet</a>
 * <a href="http://ggplot2.tidyverse.org/reference/" target = "_blank">ggplot2 Reference Guide</a>
 
@@ -134,7 +134,8 @@ ggplot(data = menrot_angle,
        aes(x = Angle, y = mean_Resp)) + 
   geom_point() +
   geom_line() +
-  coord_cartesian(ylim = c(0, 3500), expand = TRUE)
+  coord_cartesian(ylim = c(0, 3500), expand = TRUE) +
+  theme_gray()
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: var(--pink);">Group Discussion Point</span>
@@ -175,7 +176,8 @@ menrot_angle_sex <- filter(menrot, CorrectResponse == "Correct") %>%
 ggplot(data = menrot_angle_sex, aes(x = Angle, y = mean_Resp)) + 
   geom_point() +
   geom_line() +
-  coord_cartesian(ylim = c(0, 3500), expand = TRUE)
+  coord_cartesian(ylim = c(0, 3500), expand = TRUE) +
+  theme_gray()
 ```
 
 Hmmm, that figure does not look that informative. It looks similar to the one we created but the dots have doubled - we now have 8 instead of 4 - but we do not know which is male or female, and the connecting line is confusing. We need to tell the code how to separate the data based on sex. 
@@ -217,7 +219,8 @@ ggplot(data = menrot_angle_sex,
        aes(x = Angle, y = mean_Resp, group = Sex)) + 
   geom_point(aes(color = Sex)) +
   geom_line() +
-  coord_cartesian(ylim = c(0, 3500), expand = TRUE)
+  coord_cartesian(ylim = c(0, 3500), expand = TRUE) +
+  theme_gray()
 ```
 
 Great so we can now see that the female line is on top and the male line is on the bottom. But before we start interpreting this figure let's finish tidying it up with a few more tasks. For example the dots for each data point are perhaps a little small for our old eyes so we could increase them in size. Also, color is great if you can print in color but we could also change the shape of the dots to help people distinguish between the Sex. To do this we will use the additional calls of `shape` and `size` within our `geom_point()`.
@@ -245,7 +248,8 @@ menrot_angle_sex <- filter(menrot, CorrectResponse == "Correct") %>%
 ggplot(data = menrot_angle_sex, aes(x = Angle, y = mean_Resp, group = Sex)) + 
   geom_point(aes(color = Sex, shape = Sex), size = 3) +
   geom_line() +
-  coord_cartesian(ylim = c(0, 3500), expand = TRUE)
+  coord_cartesian(ylim = c(0, 3500), expand = TRUE) +
+  theme_gray()
 ```
 
 

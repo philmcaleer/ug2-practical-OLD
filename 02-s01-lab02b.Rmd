@@ -52,7 +52,7 @@ We will look at some of the basics again here but try to look back at last year'
 
 Today we are going to be using data from this recent paper: [Is there a Chastity Belt on Perception](http://journals.sagepub.com/doi/abs/10.1177/0956797617730892). You can read the full paper if you like, particularly if you are thinking about doing the action-perception registered report option, but we will summarise the paper for you. The paper asks, **does your ability to perform an action influence your perception?** For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players?  This experiment does not use tennis players however, they used the Pong task: "a computerised game in which participants aim to block moving balls with various sizes of paddles". A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let's begin!
 
-1. Download the data as a zip file from [this link](data/02-s01/preclass/ch2-preclass-data.zip) and save it somewhere you have access. In the lab, use your `M:` drive.
+1. [Download the data as a zip file from this link](data/02-s01/preclass/ch2-preclass-data.zip) and save it somewhere you have access. In the lab, use your `M:` drive.
 
 2. Set your working directory to the same folder as the data. `Session >> Set Working Directory >> Choose Directory`
 
@@ -108,19 +108,22 @@ You will use the Wickham Six very frequently for wrangling your data so this wou
 
 ### The **`select()`** Function - to keep only specific columns {#Ch2PreClassQueT1}
 
-The `select()` function lets us pick out the variables within a dataset that we want to work with. For example, say in `pong_data` we wanted to only keep the columns `Participant`, `JudgedSpeed`, `PaddleLength`, `BallSpeed`, `TrialNumber`, and `HitOrMiss` but we don't need `BackgroundColor` or `BlockNumber`: 
+The `select()` function lets us pick out the variables within a dataset that we want to work with. For example, say in `pong_data` we wanted to only keep the columns `Participant`, `JudgedSpeed`, `PaddleLength`, `BallSpeed`, `TrialNumber`, and `HitOrMiss` but we don't need `BackgroundColor` or `BlockNumber`. We can do this in two ways:
 
-``` {r selectdata, eval = FALSE}
-# We can tell the function what variables we want to include
+1. We can tell the function what variables we want to include 
+
+``` {r selectdata1, eval = FALSE}
 select(pong_data, Participant, JudgedSpeed, PaddleLength, BallSpeed, TrialNumber, HitOrMiss)
+```
 
-# or do it the opposite way by exclude through `-ColumnName`
+2. Or we can do it the opposite way by excluding columns through `-ColumnName` approach (i.e. minus the ColumnName)
+
+``` {r selectdata2, eval = FALSE}
 select(pong_data, -BackgroundColor, -BlockNumber)
-
-# `-BackgroundColor` means 'not BackgroundColor', so here you are saying all columns except `BackgroundColor` and `BlockNumber`. The minus sign is the key part!
+```
+<br>
+In this latter example, `-BackgroundColor` means 'not BackgroundColor', so here you are saying all columns except `BackgroundColor` and `BlockNumber`. The minus sign is the key part!
 ```  
-
-
 **Task 1: Using the Select Function**
 
 1. Either by inclusion or exclusion, select only the columns `Participant`, `PaddleLength`, `TrialNumber`, `BackgroundColor` and `HitOrMiss` from `pong_data`.  
@@ -158,6 +161,7 @@ arrange(pong_data, desc(BallSpeed), BackgroundColor)
     * Does `desc()` also work for `BackgroundColor`?
 ```
 `r unhide()`  
+<br>
 
 **Task 2: Arranging Data**
 

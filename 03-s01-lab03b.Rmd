@@ -98,7 +98,7 @@ In our data, say we want to test if the overall average time to respond in the m
 2. It then plots a scatterplot (`geom_point()`) where `age` is plotted on the x axis, and `Mean_Time` is on the y axis
 3. Finally, it uses an additional `aes` call to `color` by `Sex` which will color each point based on whether it was a male or female participant responding:  
 
-```{r dim1, include=TRUE, fig.cap='A scatterplot of Mean Time as a function of Age'}
+```{r dim1, include=TRUE, eval = FALSE}
 menrot_time_age <- group_by(menrot, Participant) %>% 
   summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
   inner_join(demog, "Participant")
@@ -110,9 +110,23 @@ ggplot(data = menrot_time_age,
   geom_point()
 ```
 
+```{r dim1-1, echo=FALSE, fig.cap='A scatterplot of Mean Time as a function of Age'}
+menrot_time_age <- group_by(menrot, Participant) %>% 
+  summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
+  inner_join(demog, "Participant")
+
+ggplot(data = menrot_time_age, 
+       aes(x = Age, 
+           y = Mean_Time, 
+           color = Sex)) +
+  geom_point() +
+  theme_gray()
+```
+
+
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* Looking at the scatterplot in Figure \@ref(fig:dim1), what can you say about the relationship between age and overall response time? `r mcq(c("as age increases, overall response time increases","as age increases, overall response time decreases",answer = "there is no overall relationship"))`
+* Looking at the scatterplot in Figure \@ref(fig:dim1-1), what can you say about the relationship between age and overall response time? `r mcq(c("as age increases, overall response time increases","as age increases, overall response time decreases",answer = "there is no overall relationship"))`
 
 * Looking at the scatterplot, what can you say about difference between male and female participants? `r mcq(c("males show more of an increase in overall response time with age than females", "females show more of an increase in overall response time with age than males",answer = "there is no real difference between males and females in terms of overall response time and age"))`
 
@@ -135,7 +149,7 @@ Looking at our data, say we wanted to test if the overall distribution of mean r
 1. Wrangles the data to create an average response time for each participant, `Mean_Time`, and then filters this information for correct trials only. This is then stored in `menrot_hist_correct`
 2. Plots a histogram (`geom_histogram()`) where `Mean_Time` is plotted on the x axis, and the count of each value in `Mean_Time` is plotted on the y axis. The code creates the y axis automatically and we don't have to state it:    
 
-```{r dim2, include=TRUE, message=FALSE, fig.cap='A histogram of distribution of Mean Time counts'}
+```{r dim2, include=TRUE, eval = FALSE}
 
 menrot_hist_correct <- group_by(menrot, Participant, CorrectResponse) %>% 
   summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
@@ -146,9 +160,20 @@ ggplot(data = menrot_hist_correct,
   geom_histogram()
 ```
 
+```{r dim2-1, echo=FALSE, message=FALSE, fig.cap='A histogram of distribution of Mean Time counts'}
+menrot_hist_correct <- group_by(menrot, Participant, CorrectResponse) %>% 
+  summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
+  filter(CorrectResponse == "Correct")
+
+ggplot(data = menrot_hist_correct, 
+       aes(x = Mean_Time)) + 
+  geom_histogram() +
+  theme_gray()
+```
+
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
-* Looking at the histogram, what can you say about the overall shape of the distribution? `r mcq(c(answer = "the data looks reasonably normally distributed","the data looks positively skewed","the data looks negatively skewed"))`
+* Looking at the histogram in Figure \@ref(fig:dim2-1), what can you say about the overall shape of the distribution? `r mcq(c(answer = "the data looks reasonably normally distributed","the data looks positively skewed","the data looks negatively skewed"))`
 
 * Looking at the histogram, what is the most common average overall response time for correct trials? `r mcq(c("approximately 2000 milliseconds",answer = "approximately 2500 milliseconds","approximately 3000 milliseconds"))`
 
@@ -173,7 +198,7 @@ Looking at our data, let's look at and compare the distributions of mean reactio
 3. Uses an additional `aes` call to `fill` the colour of the boxplots, of the two categories, based on whether `CorrectResponse` was correct or incorrect.
 4. Turns off the legend using the `guides()` call as it isn't needed because the x-axis tells you which group is which. More on that later though.
 
-```{r dim4, include=TRUE, fig.cap='A boxplot of the spreads of Mean Time for Correct and Incorrect Responses'}
+```{r dim4, include=TRUE, eval=FALSE}
 
 menrot_box_correct <- group_by(menrot, Participant, CorrectResponse) %>% 
   summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
@@ -187,11 +212,26 @@ ggplot(data = menrot_box_correct,
   guides(fill = FALSE)
 ```
 
+```{r dim4-1, echo=FALSE, fig.cap='A boxplot of the spreads of Mean Time for Correct and Incorrect Responses'}
+
+menrot_box_correct <- group_by(menrot, Participant, CorrectResponse) %>% 
+  summarise(Mean_Time = mean(Time, na.rm = TRUE)) %>%
+  inner_join(demog, "Participant")
+
+ggplot(data = menrot_box_correct, 
+       aes(x = CorrectResponse, 
+           y = Mean_Time, 
+           fill = CorrectResponse)) + 
+  geom_boxplot() +
+  guides(fill = FALSE) +
+  theme_gray()
+```
+
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
 
 * Looking at the boxplots, how many outliers were there? `r mcq(c("1","2","3",answer = "0"))`
 
-* Looking at the boxplots, which condition had the longer median overall average response time to the mental rotation task? `r mcq(c("Median response time was longer for the Correct responses",answer = "Median response time was longer for the Incorrect responses","Both medians are the same approximately"))`
+* Looking at the boxplots in Figure \@ref(fig:dim4-1),, which condition had the longer median overall average response time to the mental rotation task? `r mcq(c("Median response time was longer for the Correct responses",answer = "Median response time was longer for the Incorrect responses","Both medians are the same approximately"))`
 
 `r hide("Explain This - I don't get these answers")`
 ```{block, type ="info"}
@@ -211,7 +251,8 @@ Looking at our data, let's say we are interested in whether there is a differenc
 2. Plots a barplot (`geom_bar()`) with the condition `Sex` on the x axis, the `Avg_Percent` on the y axis, created through the wrangle, and `fill` the bars based on `CorrectResponse`
 3. Finally, within the `geom_bar` it says to treat the data as final values and not to average them, `stat = "identity"`, and makes both columns visible by moving them apart `position = position_dodge(.9))` - without this last step the bars would overlap and you wouldn't see everything. Try changing the `.9`
 
-```{r dim5, include=TRUE, fig.cap='A barplot of the average percent Correct and Incorrect responses for Female and Male participants - using geom_bar()'}
+```{r dim5, include=TRUE, eval=FALSE}
+
 total_n_trials <- 96
 
 menrot_resp_sex <- count(menrot, Participant, CorrectResponse) %>% 
@@ -228,15 +269,45 @@ ggplot(data = menrot_resp_sex,
            position = position_dodge(.9))
 ```
 
+```{r dim5-1, echo=FALSE, fig.cap='A barplot of the average percent Correct and Incorrect responses for Female and Male participants - using geom_bar()'}
+
+total_n_trials <- 96
+
+menrot_resp_sex <- count(menrot, Participant, CorrectResponse) %>% 
+  inner_join(demog, "Participant") %>%
+  mutate(PercentPerParticipant = (n/total_n_trials)*100) %>%
+  group_by(Sex, CorrectResponse) %>%
+  summarise(Avg_Percent = mean(PercentPerParticipant))
+
+ggplot(data = menrot_resp_sex, 
+       aes(x = Sex, 
+           y = Avg_Percent, 
+           fill = CorrectResponse)) + 
+  geom_bar(stat = "identity", 
+           position = position_dodge(.9)) +
+  theme_gray()
+```
+<br>
+
 `geom_col()` - short for column - is an alternative to `geom_bar()` that does not require the part of the code where you say to not do anything to the data, i.e. `stat="identity"`. This is shown below. Notice the difference in codes but that they produce the same figure!
 
-```{r dim6, include=TRUE, fig.cap='A barplot of the average percent Correct and Incorrect responses for Female and Male participants - using geom_col()'}
+```{r dim6, include=TRUE, eval=FALSE}
 
 ggplot(data = menrot_resp_sex, 
        aes(x = Sex, 
            y = Avg_Percent, 
            fill = CorrectResponse)) +
   geom_col(position = position_dodge(.9))
+```
+
+```{r dim6-1, echo=FALSE, fig.cap='A barplot of the average percent Correct and Incorrect responses for Female and Male participants - using geom_col()'}
+
+ggplot(data = menrot_resp_sex, 
+       aes(x = Sex, 
+           y = Avg_Percent, 
+           fill = CorrectResponse)) +
+  geom_col(position = position_dodge(.9)) +
+  theme_gray()
 ```
 
 <span style="font-size: 22px; font-weight: bold; color: var(--green);">Quickfire Questions</span>
